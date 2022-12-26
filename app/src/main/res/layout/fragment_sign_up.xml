@@ -7,7 +7,7 @@
     tools:context=".MainFragment">
 
     <EditText
-        android:id="@+id/etUserName"
+        android:id="@+id/userSign"
         android:layout_width="372dp"
         android:layout_height="46dp"
         android:layout_marginTop="16dp"
@@ -19,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/etPassword"
+        android:id="@+id/passwordSign"
         android:layout_width="372dp"
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
@@ -28,7 +28,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUserName" />
+        app:layout_constraintTop_toBottomOf="@+id/userSign" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -47,7 +47,7 @@
         android:text="SIGN UP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordSign" />
 
     <TextView
         android:id="@+id/textView2"

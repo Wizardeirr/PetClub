@@ -7,16 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.fragment_main.etPassword
-import kotlinx.android.synthetic.main.fragment_main.etUserName
+
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import kotlin.math.sign
 
 class SignUpFragment : Fragment() {
     lateinit var auth: FirebaseAuth
@@ -35,6 +32,7 @@ class SignUpFragment : Fragment() {
 
 
 
+
         return inflater.inflate(R.layout.fragment_sign_up, container, false)
     }
 
@@ -47,8 +45,8 @@ class SignUpFragment : Fragment() {
     }
 
     fun signUser(){
-        val email=etUserName.text.toString()
-        val password=etPassword.text.toString()
+        val email=userSign.text.toString()
+        val password=passwordSign.text.toString()
 
         if (email.isNotEmpty() && password.isNotEmpty()){
             CoroutineScope(Dispatchers.IO).launch {
