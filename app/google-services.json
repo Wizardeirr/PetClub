@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "420040817014",
+    "project_id": "petsocialcluber",
+    "storage_bucket": "petsocialcluber.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420040817014:android:66da3621f11876c5e36257",
+        "android_client_info": {
+          "package_name": "com.volkankelleci.petsocialclub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "420040817014-p3u1qm2u41beebrpuv75bgjj0fri0c16.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9OXJ8JG3MPOW9ww2ESTvnAspyqsZ_6x8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "420040817014-p3u1qm2u41beebrpuv75bgjj0fri0c16.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
