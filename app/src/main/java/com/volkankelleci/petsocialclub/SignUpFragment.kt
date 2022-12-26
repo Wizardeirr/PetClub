@@ -42,6 +42,7 @@ class SignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         signUpButton.setOnClickListener {
             signUser()
+            Toast.makeText(context,"Sign is Success", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -58,9 +59,8 @@ class SignUpFragment : Fragment() {
                     }
 
                 }catch (e:Exception){
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(context,e.message, Toast.LENGTH_LONG).show()
-                    }
+                    e.printStackTrace()
+
                 }
             }
         }
