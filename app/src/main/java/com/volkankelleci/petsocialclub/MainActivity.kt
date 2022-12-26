@@ -2,6 +2,7 @@ package com.volkankelleci.petsocialclub
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                 try {
                     auth.signInWithEmailAndPassword(email, password).await()
                     withContext(Dispatchers.Main){
-
+                    Toast.makeText(this@MainActivity,"SIGN IS DONE",Toast.LENGTH_LONG).show()
                     }
 
                 }catch (e:Exception){
@@ -36,8 +37,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
-
     }
 
 }
