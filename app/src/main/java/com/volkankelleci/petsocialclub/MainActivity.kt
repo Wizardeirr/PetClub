@@ -4,6 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
     lateinit var auth: FirebaseAuth
@@ -17,11 +22,22 @@ class MainActivity : AppCompatActivity() {
     fun signUser(){
         val email=etUserName.text.toString()
         val password=etPassword.text.toString()
-        auth.signInWithEmailAndPassword(email, password)
-        if (email.isNotEmpty() && password.isNotEmpty()){
 
+        if (email.isNotEmpty() && password.isNotEmpty()){
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    auth.signInWithEmailAndPassword(email, password).await()
+                    withContext(Dispatchers.Main){
+
+                    }
+
+                }catch (e:Exception){
+                    e.printStackTrace()
+                }
+            }
         }
 
 
     }
+
 }
