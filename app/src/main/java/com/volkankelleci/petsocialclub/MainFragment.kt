@@ -73,7 +73,7 @@ class MainFragment : Fragment() {
 
     fun loginUser() {
         val email = userLog.text.toString()
-        val password = passwordSign.text.toString()
+        val password = passwordLog.text.toString()
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
