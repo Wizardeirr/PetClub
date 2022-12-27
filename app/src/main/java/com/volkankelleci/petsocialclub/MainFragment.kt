@@ -70,6 +70,8 @@ class MainFragment : Fragment() {
         }
         loginButton.setOnClickListener {
             loginUser()
+            val action=MainFragmentDirections.actionMainFragmentToUserUiFragment()
+            findNavController().navigate(action)
         }
     }
 

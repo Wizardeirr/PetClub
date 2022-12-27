@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 
 import kotlinx.android.synthetic.main.fragment_sign_up.*
@@ -41,6 +42,8 @@ class SignUpFragment : Fragment() {
         signUpButton.setOnClickListener {
             signUser()
             Toast.makeText(context,"Sign is Success", Toast.LENGTH_LONG).show()
+            val action=SignUpFragmentDirections.actionSignUpFragmentToMainFragment()
+            findNavController().navigate(action)
         }
     }
 
