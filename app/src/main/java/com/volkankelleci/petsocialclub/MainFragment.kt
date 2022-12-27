@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -50,6 +51,8 @@ class MainFragment : Fragment() {
                 .requestIdToken(getString(R.string.webclient_id))
                 .requestEmail()
                 .build()
+            val signer=GoogleSignIn.getClient(requireActivity(),options)
+
 
         }
 
