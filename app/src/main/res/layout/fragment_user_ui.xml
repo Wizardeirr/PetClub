@@ -8,5 +8,4 @@
     tools:menu="@menu/user_menu"
     >
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
