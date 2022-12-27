@@ -1,16 +1,20 @@
 package com.volkankelleci.petsocialclub
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 import kotlinx.coroutines.CoroutineScope
@@ -46,12 +50,15 @@ class MainFragment : Fragment() {
         //Google Signing Opt
 
         googleSign.setOnClickListener {
-            val options=GoogleSignInOptions
+            val options = GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.webclient_id))
                 .requestEmail()
                 .build()
-            val signer=GoogleSignIn.getClient(requireActivity(),options)
+            val signer = GoogleSignIn.getClient(requireActivity(), options)
+            signer.signInIntent.also {
+                startActivityForResult(it, 0)
+            }
 
 
         }
@@ -100,6 +107,34 @@ class MainFragment : Fragment() {
 
     }
 
+    private fun googleAuthForFireBase(account: GoogleSignInAccount) {
+        val credentials = GoogleAuthProvider.getCredential(account.idToken, null)
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+
+                auth.signInWithCredential(credentials).await()
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "Successfully", Toast.LENGTH_LONG).show()
+                }
+            } catch (e: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, e.message, Toast.LENGTH_LONG).show()
+                }
+            }
+
+        }
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode != 0) {
+            val account = GoogleSignIn.getSignedInAccountFromIntent(data).result
+            account?.let {
+                googleAuthForFireBase(it)
+            }
+        }
+    }
 
 
 }
