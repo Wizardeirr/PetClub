@@ -50,40 +50,52 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordLog" />
 
     <TextView
+        android:id="@+id/textView4"
+        android:layout_width="144dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="68dp"
+        android:text="Don't have an account?"
+        app:layout_constraintEnd_toStartOf="@+id/signUpText"
+        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/googleSign" />
+
+    <TextView
+        android:id="@+id/signUpText"
+        android:layout_width="54dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginEnd="100dp"
+        android:text="Sign Up"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/googleSign" />
+
+    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="80dp"
         android:text="For Your Pet's Social Life"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="144dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="36dp"
-        android:text="Don't have an account?"
-        app:layout_constraintEnd_toStartOf="@+id/signUpText"
-        app:layout_constraintHorizontal_bias="0.974"
+    <ImageView
+        android:id="@+id/googleSign"
+        android:layout_width="341dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/google"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
-    <TextView
-        android:id="@+id/signUpText"
-        android:layout_width="54dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="96dp"
-        android:text="Sign Up"
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
