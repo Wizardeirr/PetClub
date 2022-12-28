@@ -13,8 +13,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.coroutines.CoroutineScope
