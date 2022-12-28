@@ -13,6 +13,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.coroutines.CoroutineScope
@@ -54,9 +56,11 @@ class MainFragment : Fragment() {
             findNavController().navigate(action)
         }
         loginButton.setOnClickListener {
-            loginUser()
-            val action=MainFragmentDirections.actionMainFragmentToUserUiFragment()
-            findNavController().navigate(action)
+
+
+                loginUser()
+
+
         }
     }
     override fun onStart() {
@@ -66,6 +70,7 @@ class MainFragment : Fragment() {
     fun loginUser() {
         val email = userLog.text.toString()
         val password = passwordLog.text.toString()
+
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
@@ -85,8 +90,11 @@ class MainFragment : Fragment() {
     private fun checkLoggedInState() {
         if (auth.currentUser == null) {
             Toast.makeText(context, "SIGN IS UNSUCCESS", Toast.LENGTH_LONG).show()
+
         } else {
             Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
+            val action=MainFragmentDirections.actionMainFragmentToUserUiFragment()
+            findNavController().navigate(action)
         }
 
     }
