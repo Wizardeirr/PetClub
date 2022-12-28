@@ -40,6 +40,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         //Google Signing Opt
         googleSign.setOnClickListener {
+
             val options = GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.webclient_id))
@@ -56,11 +57,7 @@ class MainFragment : Fragment() {
             findNavController().navigate(action)
         }
         loginButton.setOnClickListener {
-
-
-                loginUser()
-
-
+            loginUser()
         }
     }
     override fun onStart() {
@@ -106,7 +103,9 @@ class MainFragment : Fragment() {
 
                 auth.signInWithCredential(credentials).await()
                 withContext(Dispatchers.Main) {
-                    Toast.makeText(context, "Successfully", Toast.LENGTH_LONG).show()
+                    checkLoggedInState()
+
+                // Toast.makeText(context, "Successfully", Toast.LENGTH_LONG).show()
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
