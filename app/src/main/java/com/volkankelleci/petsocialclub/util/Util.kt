@@ -1,4 +1,4 @@
-package com.volkankelleci
+package com.volkankelleci.petsocialclub.util
 
 import com.google.firebase.auth.FirebaseAuth
 

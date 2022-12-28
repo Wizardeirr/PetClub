@@ -3,11 +3,9 @@ package com.volkankelleci.petsocialclub
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
-import androidx.core.view.MenuHost
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import com.volkankelleci.Util.auth
+import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.databinding.FragmentUserUiBinding
 
 class UserUiFragment : Fragment() {
