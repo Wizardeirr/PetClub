@@ -5,31 +5,22 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".UserUiFragment">
-
-
-    <ImageView
-        android:id="@+id/petImage"
-        android:layout_width="133dp"
-        android:layout_height="126dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/image_add_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/petName"
         android:layout_width="379dp"
         android:layout_height="46dp"
-        android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Pet Name"
         android:inputType="textPersonName"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/cardID"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petImage" />
+        tools:layout_editor_absoluteY="190dp" />
 
     <EditText
         android:id="@+id/petKg"
@@ -39,6 +30,7 @@
         android:ems="10"
         android:hint="Pet Kg"
         android:inputType="textPersonName"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,22 +44,37 @@
         android:ems="10"
         android:hint="Pet Gender"
         android:inputType="textPersonName"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petKg" />
 
     <EditText
-        android:id="@+id/ownerName"
+        android:id="@+id/petVaccine"
+        android:layout_width="379dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="Vaccine Information"
+        android:inputType="textPersonName"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petGender" />
+
+    <EditText
+        android:id="@+id/petOwnerName"
         android:layout_width="379dp"
         android:layout_height="46dp"
         android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Owner's Name"
         android:inputType="textPersonName"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petGender" />
+        app:layout_constraintTop_toBottomOf="@+id/petVaccine" />
 
     <EditText
         android:id="@+id/petSpecies"
@@ -77,6 +84,7 @@
         android:ems="10"
         android:hint="Pet Species"
         android:inputType="textPersonName"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,6 +98,7 @@
         android:ems="10"
         android:hint="Pet Age"
         android:inputType="textPersonName"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,8 +111,28 @@
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petOwnerName" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardID"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="250dp"
+        app:layout_constraintBottom_toTopOf="@+id/petName"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ownerName" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cool" />
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
