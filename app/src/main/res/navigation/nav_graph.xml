@@ -42,5 +42,9 @@
         android:id="@+id/profileFillFragment"
         android:name="com.volkankelleci.petsocialclub.ProfileFillFragment"
         android:label="fragment_profile_fill"
-        tools:layout="@layout/fragment_profile_fill" />
+        tools:layout="@layout/fragment_profile_fill" >
+        <action
+            android:id="@+id/action_profileFillFragment_to_appFirstScreenFragment"
+            app:destination="@id/appFirstScreenFragment" />
+    </fragment>
 </navigation>
