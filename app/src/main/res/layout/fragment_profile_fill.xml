@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-tools:menu="@menu/user_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    tools:context=".UserUiFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ProfileFillFragment">
 
     <EditText
         android:id="@+id/petName"
@@ -30,7 +28,6 @@ tools:menu="@menu/user_menu"
         android:ems="10"
         android:hint="Pet Kg"
         android:inputType="textPersonName"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,6 +127,7 @@ tools:menu="@menu/user_menu"
 
         <ImageView
 
+            android:id="@+id/petImage"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:scaleType="centerCrop"
