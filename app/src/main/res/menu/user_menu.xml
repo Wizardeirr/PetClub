@@ -3,8 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:title="Create Profile"
+        android:id="@+id/createProfile">
+
+    </item>
+    <item
+        android:title="updateProfile"
+        android:id="@+id/updateProfile">
+
+    </item>
+    <item
         android:id="@+id/logOutOnMenu"
         android:title="Log Out">
     </item>
+
 
 </menu>

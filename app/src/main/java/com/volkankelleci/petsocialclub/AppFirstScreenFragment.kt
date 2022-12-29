@@ -68,7 +68,10 @@ class AppFirstScreenFragment : Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
 
-
+        skipText.setOnClickListener {
+            val action=AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToUsersHomeFragment()
+            findNavController().navigate(action)
+        }
 
 
         letsStartButton.setOnClickListener {

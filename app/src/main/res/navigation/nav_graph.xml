@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_appFirstScreenFragment_to_profileFillFragment"
             app:destination="@id/profileFillFragment" />
+        <action
+            android:id="@+id/action_appFirstScreenFragment_to_usersHomeFragment"
+            app:destination="@id/usersHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFillFragment"

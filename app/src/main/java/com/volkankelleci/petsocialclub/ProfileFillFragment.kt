@@ -50,12 +50,6 @@ class ProfileFillFragment : Fragment() {
                 val action=ProfileFillFragmentDirections.actionProfileFillFragmentToUsersHomeFragment()
                 findNavController().navigate(action)
             }
-
-
-
-
         }
     }
-
-
 }
