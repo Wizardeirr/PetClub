@@ -1,14 +1,17 @@
 package com.volkankelleci.petsocialclub
 
 import android.os.Bundle
+import android.provider.ContactsContract.RawContacts.Data
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.firestore.auth.User
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.volkankelleci.petsocialclub.data.UsersData
 import com.volkankelleci.petsocialclub.databinding.FragmentAppFirstScreenBinding
 
 import com.volkankelleci.petsocialclub.util.Util.auth
@@ -19,7 +22,7 @@ import kotlinx.android.synthetic.main.fragment_app_first_screen.*
 class AppFirstScreenFragment : Fragment() {
     private var _binding: FragmentAppFirstScreenBinding? = null
     private val binding get() = _binding!!
-    lateinit var viewModel:ProfileFillFragmentViewModel
+    lateinit var profileFillFragment:ProfileFillFragment
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,11 +68,17 @@ class AppFirstScreenFragment : Fragment() {
 
         super.onViewCreated(view, savedInstanceState)
 
+
+
+
         letsStartButton.setOnClickListener {
             val action=AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
             findNavController().navigate(action)
         }
+
         }
+
+
 
     }
 
