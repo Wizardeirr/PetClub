@@ -1,17 +1,14 @@
 package com.volkankelleci.petsocialclub
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
-import com.volkankelleci.petsocialclub.databinding.FragmentUserUiBinding
+import androidx.fragment.app.Fragment
+import com.volkankelleci.petsocialclub.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
-    private var binding: FragmentUserUiBinding? = null
+    private var binding: FragmentSearchBinding? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +20,7 @@ class SearchFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        binding = FragmentUserUiBinding.inflate(inflater, container, false)
+        binding = FragmentSearchBinding.inflate(inflater, container, false)
         return binding?.root
 
     }
