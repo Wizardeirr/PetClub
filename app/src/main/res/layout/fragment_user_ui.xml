@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/petImage"
         android:layout_width="133dp"
         android:layout_height="126dp"
         android:layout_marginTop="28dp"
@@ -26,40 +26,84 @@
         android:ems="10"
         android:hint="Pet Name"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petImage" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/petKg"
+        android:layout_width="379dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="Pet Kg"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petSpecies" />
+
+    <EditText
+        android:id="@+id/petGender"
         android:layout_width="379dp"
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
         android:ems="10"
+        android:hint="Pet Gender"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petKg" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/ownerName"
         android:layout_width="379dp"
         android:layout_height="46dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
+        android:hint="Owner's Name"
         android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintTop_toBottomOf="@+id/petAge"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petGender" />
+
+    <EditText
+        android:id="@+id/petSpecies"
+        android:layout_width="379dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="5dp"
+        android:ems="10"
+        android:hint="Pet Species"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petAge" />
 
     <EditText
         android:id="@+id/petAge"
         android:layout_width="379dp"
         android:layout_height="46dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="petAge"
+        android:hint="Pet Age"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/petName"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petName" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ownerName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
