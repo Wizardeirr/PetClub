@@ -4,27 +4,30 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.databinding.FragmentAppFirstScreenBinding
 
 import com.volkankelleci.petsocialclub.util.Util.auth
+import com.volkankelleci.petsocialclub.viewmodel.ProfileFillFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_app_first_screen.*
 
 
 class AppFirstScreenFragment : Fragment() {
     private var _binding: FragmentAppFirstScreenBinding? = null
     private val binding get() = _binding!!
+    lateinit var viewModel:ProfileFillFragmentViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-        val currentUserChecker=auth.currentUser
-        if (currentUserChecker!=null){
+        val viewModel=ViewModelProvider(this).get(ProfileFillFragmentViewModel::class.java)
 
-        }
+
 
     }
     override fun onCreateView(
