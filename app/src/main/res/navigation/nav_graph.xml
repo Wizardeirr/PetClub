@@ -28,22 +28,16 @@
     </fragment>
     <fragment
         android:id="@+id/appFirstScreenFragment"
-        android:name="com.volkankelleci.petsocialclub.AppFirstScreenFragment"
+        android:name="com.volkankelleci.petsocialclub.profileviewfills.AppFirstScreenFragment"
         android:label="fragment_app_first_screen"
         tools:layout="@layout/fragment_app_first_screen" >
         <action
-            android:id="@+id/action_appFirstScreenFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-        <action
             android:id="@+id/action_appFirstScreenFragment_to_profileFillFragment"
             app:destination="@id/profileFillFragment" />
-        <action
-            android:id="@+id/action_appFirstScreenFragment_to_usersHomeFragment"
-            app:destination="@id/usersHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFillFragment"
-        android:name="com.volkankelleci.petsocialclub.ProfileFillFragment"
+        android:name="com.volkankelleci.petsocialclub.profileviewfills.ProfileFillFragment"
         android:label="fragment_profile_fill"
         tools:layout="@layout/fragment_profile_fill" >
         <action
@@ -52,7 +46,26 @@
     </fragment>
     <fragment
         android:id="@+id/usersHomeFragment"
-        android:name="com.volkankelleci.petsocialclub.UsersHomeFragment"
+        android:name="com.volkankelleci.petsocialclub.navbotviews.UsersHomeFragment"
         android:label="fragment_users_home"
-        tools:layout="@layout/fragment_users_home" />
+        tools:layout="@layout/fragment_users_home" >
+        <action
+            android:id="@+id/action_usersHomeFragment_to_appFirstScreenFragment"
+            app:destination="@id/appFirstScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.volkankelleci.petsocialclub.navbotviews.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.volkankelleci.petsocialclub.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.volkankelleci.petsocialclub.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

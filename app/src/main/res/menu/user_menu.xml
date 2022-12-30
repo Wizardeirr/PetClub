@@ -3,18 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:title="Create Profile"
-        android:id="@+id/createProfile">
+        android:id="@+id/usersHomeFragment"
+        android:icon="@drawable/home_icon"
+        android:title="Home">
 
     </item>
     <item
-        android:title="updateProfile"
-        android:id="@+id/updateProfile">
+        android:id="@+id/searchFragment"
+        android:icon="@drawable/search_icon"
+        android:title="Search">
 
     </item>
     <item
-        android:id="@+id/logOutOnMenu"
-        android:title="Log Out">
+        android:id="@+id/messageFragment"
+        android:icon="@drawable/message_icon"
+        android:title="Message">
+
+    </item>
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/profile_icon"
+        android:title="Profile">
+
     </item>
 
 

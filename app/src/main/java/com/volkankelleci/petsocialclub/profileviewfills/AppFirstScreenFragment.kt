@@ -1,17 +1,12 @@
-package com.volkankelleci.petsocialclub
+package com.volkankelleci.petsocialclub.profileviewfills
 
 import android.os.Bundle
-import android.provider.ContactsContract.RawContacts.Data
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.firestore.auth.User
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.volkankelleci.petsocialclub.data.UsersData
+import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.databinding.FragmentAppFirstScreenBinding
 
 import com.volkankelleci.petsocialclub.util.Util.auth
@@ -22,17 +17,17 @@ import kotlinx.android.synthetic.main.fragment_app_first_screen.*
 class AppFirstScreenFragment : Fragment() {
     private var _binding: FragmentAppFirstScreenBinding? = null
     private val binding get() = _binding!!
-    lateinit var profileFillFragment:ProfileFillFragment
+    lateinit var profileFillFragment: ProfileFillFragment
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-        val viewModel=ViewModelProvider(this).get(ProfileFillFragmentViewModel::class.java)
-
+        val viewModel = ViewModelProvider(this).get(ProfileFillFragmentViewModel::class.java)
 
 
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -48,12 +43,14 @@ class AppFirstScreenFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         requireActivity().menuInflater.inflate(R.menu.user_menu, menu)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.logOutOnMenu) {
+        if (item.itemId == R.id.logOutButton) {
             try {
                 auth.signOut()
                 Toast.makeText(activity, "Sign Out Successfully", Toast.LENGTH_SHORT).show()
-                val action = AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
+                val action =
+                    AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
                 findNavController().navigate(action)
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -64,26 +61,28 @@ class AppFirstScreenFragment : Fragment() {
 
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
 
         skipText.setOnClickListener {
-            val action=AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToUsersHomeFragment()
+            val action =
+                AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
             findNavController().navigate(action)
         }
 
 
         letsStartButton.setOnClickListener {
-            val action=AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
+            val action =
+                AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
             findNavController().navigate(action)
         }
 
-        }
-
-
-
     }
+
+
+}
 
 
 

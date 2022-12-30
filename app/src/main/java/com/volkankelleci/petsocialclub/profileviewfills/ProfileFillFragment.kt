@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub
+package com.volkankelleci.petsocialclub.profileviewfills
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.UsersData
 import com.volkankelleci.petsocialclub.viewmodel.ProfileFillFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_profile_fill.*
