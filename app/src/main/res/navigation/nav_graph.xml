@@ -14,8 +14,8 @@
             android:id="@+id/action_mainFragment_to_signUpFragment"
             app:destination="@id/signUpFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_appFirstScreenFragment"
-            app:destination="@id/appFirstScreenFragment" />
+            android:id="@+id/action_mainFragment_to_usersHomeFragment"
+            app:destination="@id/usersHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -27,18 +27,6 @@
             app:destination="@id/mainFragment" />
     </fragment>
     <fragment
-        android:id="@+id/appFirstScreenFragment"
-        android:name="com.volkankelleci.petsocialclub.profileviewfills.AppFirstScreenFragment"
-        android:label="fragment_app_first_screen"
-        tools:layout="@layout/fragment_app_first_screen" >
-        <action
-            android:id="@+id/action_appFirstScreenFragment_to_profileFillFragment"
-            app:destination="@id/profileFillFragment" />
-        <action
-            android:id="@+id/action_appFirstScreenFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/profileFillFragment"
         android:name="com.volkankelleci.petsocialclub.profileviewfills.ProfileFillFragment"
         android:label="fragment_profile_fill"
@@ -46,18 +34,6 @@
         <action
             android:id="@+id/action_profileFillFragment_to_usersHomeFragment"
             app:destination="@id/usersHomeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/usersHomeFragment"
-        android:name="com.volkankelleci.petsocialclub.navbotviews.UsersHomeFragment"
-        android:label="fragment_users_home"
-        tools:layout="@layout/fragment_users_home" >
-        <action
-            android:id="@+id/action_usersHomeFragment_to_appFirstScreenFragment"
-            app:destination="@id/appFirstScreenFragment" />
-        <action
-            android:id="@+id/action_usersHomeFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -74,4 +50,16 @@
         android:name="com.volkankelleci.petsocialclub.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/usersHomeFragment"
+        android:name="com.volkankelleci.petsocialclub.UsersHomeFragment"
+        android:label="fragment_users_home"
+        tools:layout="@layout/fragment_users_home" >
+        <action
+            android:id="@+id/action_usersHomeFragment_to_profileFillFragment"
+            app:destination="@id/profileFillFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
 </navigation>

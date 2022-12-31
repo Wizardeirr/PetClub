@@ -92,7 +92,7 @@ class MainFragment : Fragment() {
 
         } else {
             Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
-            val action=MainFragmentDirections.actionMainFragmentToAppFirstScreenFragment()
+            val action=MainFragmentDirections.actionMainFragmentToUsersHomeFragment()
             findNavController().navigate(action)
         }
 

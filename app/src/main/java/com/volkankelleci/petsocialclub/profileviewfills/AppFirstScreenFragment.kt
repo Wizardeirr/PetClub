@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.databinding.FragmentAppFirstScreenBinding
 
@@ -38,43 +39,12 @@ class AppFirstScreenFragment : Fragment() {
         return view
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        requireActivity().menuInflater.inflate(R.menu.right_top_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.logOutButton) {
-            try {
-                auth.signOut()
-                Toast.makeText(activity, "Sign Out Successfully", Toast.LENGTH_SHORT).show()
-                val action =AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToMainFragment()
-                findNavController().navigate(action)
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Toast.makeText(activity, "Try Again", Toast.LENGTH_SHORT).show()
-            }
-        }
-        return super.onOptionsItemSelected(item)
-
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         super.onViewCreated(view, savedInstanceState)
 
-        skipText.setOnClickListener {
-            val action =AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
-            findNavController().navigate(action)
-        }
 
-
-        letsStartButton.setOnClickListener {
-            val action =AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
-            findNavController().navigate(action)
-
-        }
 
     }
 

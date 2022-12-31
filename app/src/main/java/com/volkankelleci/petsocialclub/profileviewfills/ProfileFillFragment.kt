@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.UsersData
 import com.volkankelleci.petsocialclub.viewmodel.ProfileFillFragmentViewModel
@@ -48,7 +49,10 @@ class ProfileFillFragment : Fragment() {
             if (petName.isNotEmpty()&&petage.isNotEmpty()&&petSpecies.isNotEmpty()&&petWeight.isNotEmpty()&&petGender.isNotEmpty()
                 &&vaccineInfo.isNotEmpty()&&ownersName.isNotEmpty()){
                 Toast.makeText(activity, "Profile Created", Toast.LENGTH_LONG).show()
-                profillConstraint.visibility=View.GONE
+                val action=ProfileFillFragmentDirections.actionProfileFillFragmentToUsersHomeFragment()
+                findNavController().navigate(action)
+                val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavView)
+                navBar.visibility=View.VISIBLE
 
             }
         }
