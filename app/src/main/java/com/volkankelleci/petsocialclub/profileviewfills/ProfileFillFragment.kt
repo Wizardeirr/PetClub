@@ -51,8 +51,7 @@ class ProfileFillFragment : Fragment() {
                 Toast.makeText(activity, "Profile Created", Toast.LENGTH_LONG).show()
                 val action=ProfileFillFragmentDirections.actionProfileFillFragmentToUsersHomeFragment()
                 findNavController().navigate(action)
-                val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavView)
-                navBar.visibility=View.VISIBLE
+
 
             }
         }

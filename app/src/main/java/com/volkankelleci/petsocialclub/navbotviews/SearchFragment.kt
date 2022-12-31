@@ -29,7 +29,6 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val navBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavView)
-        navBar.visibility=View.VISIBLE
+
     }
 }

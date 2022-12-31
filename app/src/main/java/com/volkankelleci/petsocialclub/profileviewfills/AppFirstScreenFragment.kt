@@ -1,22 +1,17 @@
 package com.volkankelleci.petsocialclub.profileviewfills
 
 import android.os.Bundle
-import android.view.*
-import android.widget.Toast
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.databinding.FragmentAppFirstScreenBinding
-
-import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.viewmodel.ProfileFillFragmentViewModel
-import kotlinx.android.synthetic.main.fragment_app_first_screen.*
 
 
 class AppFirstScreenFragment : Fragment() {
-    private var _binding: FragmentAppFirstScreenBinding? = null
+    private var _binding:FragmentAppFirstScreenBinding? = null
     private val binding get() = _binding!!
     lateinit var viewModel:ProfileFillFragmentViewModel
 
