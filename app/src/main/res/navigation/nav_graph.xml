@@ -61,5 +61,14 @@
         <action
             android:id="@+id/action_usersHomeFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_self"
+            app:destination="@id/usersHomeFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_self2"
+            app:destination="@id/usersHomeFragment" />
     </fragment>
 </navigation>

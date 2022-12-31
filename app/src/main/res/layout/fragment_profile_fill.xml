@@ -5,6 +5,7 @@
     android:id="@+id/profillConstraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:menu="@menu/create_profile"
     tools:context=".profileviewfills.ProfileFillFragment">
 
     <Button

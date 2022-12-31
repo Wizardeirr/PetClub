@@ -5,25 +5,36 @@
     <item
         android:id="@+id/homeButton"
         android:icon="@drawable/home_icon"
-        android:title="Home">
+        android:title="Home"
+        app:showAsAction="ifRoom">
 
     </item>
-    <item
-        android:id="@+id/searchButton"
-        android:icon="@drawable/search_icon"
-        android:title="Search">
 
-    </item>
     <item
         android:id="@+id/messageButton"
         android:icon="@drawable/message_icon"
-        android:title="Message">
+        android:title="Message"
+        app:showAsAction="ifRoom">
 
     </item>
     <item
         android:id="@+id/profileButton"
         android:icon="@drawable/profile_icon"
-        android:title="Profile">
+        android:title="Profile"
+        app:showAsAction="ifRoom">
+
+    </item>
+    <item
+        android:id="@+id/createButton"
+        android:icon="@drawable/profile_icon"
+        android:title="CreateProfile"
+        app:showAsAction="ifRoom">
+
+    </item>
+    <item
+        android:id="@+id/logOutButton"
+        android:icon="@drawable/profile_icon"
+        android:title="Log Out">
 
     </item>
 
