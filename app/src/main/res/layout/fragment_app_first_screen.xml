@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/cat"
     android:id="@+id/appFirstConstraint"
-    tools:context=".profileviewfills.AppFirstScreenFragment"
-    tools:menu="@menu/right_top_menu">
+    tools:context=".profileviewfills.AppFirstScreenFragment">
 
     <Button
         android:id="@+id/letsStartButton"
