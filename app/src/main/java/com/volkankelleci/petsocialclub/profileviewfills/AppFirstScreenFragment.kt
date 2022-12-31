@@ -77,6 +77,7 @@ class AppFirstScreenFragment : Fragment() {
             val action =
                 AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
             findNavController().navigate(action)
+            appFirstConstraint.visibility=View.INVISIBLE
         }
 
     }

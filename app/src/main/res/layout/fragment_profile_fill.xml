@@ -1,70 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profillConstraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".profileviewfills.ProfileFillFragment">
 
-    <EditText
-        android:id="@+id/petName"
-        android:layout_width="379dp"
-        android:layout_height="46dp"
-        android:ems="10"
-        android:hint="Pet Name"
-        android:inputType="textPersonName"
-
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:text="Save"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintTop_toBottomOf="@+id/cardID"
+        app:layout_constraintHorizontal_bias="0.814"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="190dp" />
-
-    <EditText
-        android:id="@+id/petKg"
-        android:layout_width="379dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:hint="Pet Kg"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petSpecies" />
-
-    <EditText
-        android:id="@+id/petGender"
-        android:layout_width="379dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="Pet Gender"
-        android:inputType="textPersonName"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petKg" />
-
-    <EditText
-        android:id="@+id/petVaccine"
-        android:layout_width="379dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:hint="Vaccine Information"
-        android:inputType="textPersonName"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petGender" />
+        app:layout_constraintTop_toBottomOf="@+id/petOwnerName"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/petOwnerName"
         android:layout_width="379dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="Owner's Name"
         android:inputType="textPersonName"
@@ -74,62 +33,113 @@
         app:layout_constraintTop_toBottomOf="@+id/petVaccine" />
 
     <EditText
-        android:id="@+id/petSpecies"
-        android:layout_width="379dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:hint="Pet Species"
-        android:inputType="textPersonName"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petAge" />
-
-    <EditText
         android:id="@+id/petAge"
         android:layout_width="379dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Pet Age"
         android:inputType="textPersonName"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petName" />
 
+    <EditText
+        android:id="@+id/petVaccine"
+        android:layout_width="379dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="Vaccine Information"
+        android:inputType="textPersonName"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petGender" />
+
+    <EditText
+        android:id="@+id/petGender"
+        android:layout_width="379dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="Pet Gender"
+        android:inputType="textPersonName"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petKg" />
+
+    <EditText
+        android:id="@+id/petKg"
+        android:layout_width="379dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="Pet Kg"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petSpecies" />
+
+    <EditText
+        android:id="@+id/petName"
+        android:layout_width="379dp"
+        android:layout_height="44dp"
+        android:ems="10"
+        android:hint="Pet Name"
+        android:inputType="textPersonName"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardID" />
+
+    <EditText
+        android:id="@+id/petSpecies"
+        android:layout_width="379dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="Pet Species"
+        android:inputType="textPersonName"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/petAge" />
+
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/updateButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Save"
+        android:layout_height="44dp"
+        android:text="UPDATE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.194"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petOwnerName" />
+        app:layout_constraintTop_toBottomOf="@+id/petOwnerName"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardID"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
+        android:layout_marginTop="5dp"
         app:cardCornerRadius="250dp"
         app:layout_constraintBottom_toTopOf="@+id/petName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
 
             android:id="@+id/petImage"
             android:layout_width="150dp"
             android:layout_height="150dp"
+
+            android:padding="10dp"
             android:scaleType="centerCrop"
             android:src="@drawable/cool" />
     </androidx.cardview.widget.CardView>

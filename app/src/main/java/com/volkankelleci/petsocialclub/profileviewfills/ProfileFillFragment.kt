@@ -48,9 +48,10 @@ class ProfileFillFragment : Fragment() {
             if (petName.isNotEmpty()&&petage.isNotEmpty()&&petSpecies.isNotEmpty()&&petWeight.isNotEmpty()&&petGender.isNotEmpty()
                 &&vaccineInfo.isNotEmpty()&&ownersName.isNotEmpty()){
                 Toast.makeText(activity, "Profile Created", Toast.LENGTH_LONG).show()
-                val action=ProfileFillFragmentDirections.actionProfileFillFragmentToUsersHomeFragment()
-                findNavController().navigate(action)
+                profillConstraint.visibility=View.GONE
+
             }
         }
     }
+
 }
