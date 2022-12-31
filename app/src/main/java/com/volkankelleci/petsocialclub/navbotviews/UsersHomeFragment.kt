@@ -1,15 +1,18 @@
 package com.volkankelleci.petsocialclub.navbotviews
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.databinding.FragmentAppFirstScreenBinding
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
+import com.volkankelleci.petsocialclub.profileviewfills.AppFirstScreenFragmentDirections
+import com.volkankelleci.petsocialclub.util.Util
 
 class UsersHomeFragment : Fragment() {
 
@@ -35,5 +38,6 @@ class UsersHomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
     }
+
 
 }

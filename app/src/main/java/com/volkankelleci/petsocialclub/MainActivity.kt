@@ -1,25 +1,16 @@
 package com.volkankelleci.petsocialclub
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.NavigationUI.setupWithNavController
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
+import com.volkankelleci.petsocialclub.navbotviews.SearchFragment
+import com.volkankelleci.petsocialclub.navbotviews.UsersHomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,15 +18,28 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        val navController = navHostFragment.navController
-        val bottomNavigationView=findViewById<BottomNavigationView>(R.id.bottomNavView)
+        val firstFragment=UsersHomeFragment()
+        val secondFragment=SearchFragment()
+        val thirdFragment=MessageFragment()
+        val fourthFragment=ProfileFragment()
 
-        NavigationUI.setupWithNavController(bottomNavigationView!!, navController)
+        setCurrentFragment(firstFragment)
 
-
+        bottomNavView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.homeButton->setCurrentFragment(firstFragment)
+                R.id.searchButton->setCurrentFragment(secondFragment)
+                R.id.messageButton->setCurrentFragment(thirdFragment)
+                R.id.profileButton->setCurrentFragment(fourthFragment)
+            }
+            true
+        }
 
     }
-
+    private fun setCurrentFragment(fragment:Fragment)=
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.loginConstraintID,fragment)
+            commit()
+        }
 
 }

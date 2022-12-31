@@ -7,7 +7,7 @@
     android:background="@drawable/cat"
     android:id="@+id/appFirstConstraint"
     tools:context=".profileviewfills.AppFirstScreenFragment"
-    tools:menu="@menu/user_menu">
+    tools:menu="@menu/right_top_menu">
 
     <Button
         android:id="@+id/letsStartButton"

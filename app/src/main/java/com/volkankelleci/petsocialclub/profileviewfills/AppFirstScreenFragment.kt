@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_app_first_screen.*
 class AppFirstScreenFragment : Fragment() {
     private var _binding: FragmentAppFirstScreenBinding? = null
     private val binding get() = _binding!!
-    lateinit var profileFillFragment: ProfileFillFragment
+    lateinit var viewModel:ProfileFillFragmentViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,13 +35,12 @@ class AppFirstScreenFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentAppFirstScreenBinding.inflate(inflater, container, false)
         val view = binding.root
-
         return view
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        requireActivity().menuInflater.inflate(R.menu.user_menu, menu)
+        requireActivity().menuInflater.inflate(R.menu.right_top_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -49,8 +48,7 @@ class AppFirstScreenFragment : Fragment() {
             try {
                 auth.signOut()
                 Toast.makeText(activity, "Sign Out Successfully", Toast.LENGTH_SHORT).show()
-                val action =
-                    AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
+                val action =AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToMainFragment()
                 findNavController().navigate(action)
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -67,17 +65,15 @@ class AppFirstScreenFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         skipText.setOnClickListener {
-            val action =
-                AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
+            val action =AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
             findNavController().navigate(action)
         }
 
 
         letsStartButton.setOnClickListener {
-            val action =
-                AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
+            val action =AppFirstScreenFragmentDirections.actionAppFirstScreenFragmentToProfileFillFragment()
             findNavController().navigate(action)
-            appFirstConstraint.visibility=View.INVISIBLE
+
         }
 
     }

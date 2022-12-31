@@ -34,6 +34,9 @@
         <action
             android:id="@+id/action_appFirstScreenFragment_to_profileFillFragment"
             app:destination="@id/profileFillFragment" />
+        <action
+            android:id="@+id/action_appFirstScreenFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFillFragment"
@@ -52,6 +55,9 @@
         <action
             android:id="@+id/action_usersHomeFragment_to_appFirstScreenFragment"
             app:destination="@id/appFirstScreenFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"

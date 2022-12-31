@@ -3,25 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/usersHomeFragment"
+        android:id="@+id/homeButton"
         android:icon="@drawable/home_icon"
         android:title="Home">
 
     </item>
     <item
-        android:id="@+id/searchFragment"
+        android:id="@+id/searchButton"
         android:icon="@drawable/search_icon"
         android:title="Search">
 
     </item>
     <item
-        android:id="@+id/messageFragment"
+        android:id="@+id/messageButton"
         android:icon="@drawable/message_icon"
         android:title="Message">
 
     </item>
     <item
-        android:id="@+id/profileFragment"
+        android:id="@+id/profileButton"
         android:icon="@drawable/profile_icon"
         android:title="Profile">
 
