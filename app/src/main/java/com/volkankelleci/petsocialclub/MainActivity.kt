@@ -1,8 +1,10 @@
 package com.volkankelleci.petsocialclub
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.volkankelleci.petsocialclub.navbotviews.SearchFragment
 import kotlinx.android.synthetic.main.activity_main.*
