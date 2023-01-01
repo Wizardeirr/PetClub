@@ -46,11 +46,6 @@
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" />
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.volkankelleci.petsocialclub.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
         android:id="@+id/usersHomeFragment"
         android:name="com.volkankelleci.petsocialclub.UsersHomeFragment"
         android:label="fragment_users_home"
@@ -70,5 +65,13 @@
         <action
             android:id="@+id/action_usersHomeFragment_self2"
             app:destination="@id/usersHomeFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.volkankelleci.petsocialclub.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

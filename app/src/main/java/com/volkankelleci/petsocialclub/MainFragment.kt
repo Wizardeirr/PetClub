@@ -59,6 +59,7 @@ class MainFragment : Fragment() {
         }
         loginButton.setOnClickListener {
             loginUser()
+
         }
 
     }

@@ -27,24 +27,7 @@ class ProfileFillFragmentViewModel: ViewModel(){
             }
         }
     }
-    fun retrieveProfile()=CoroutineScope(Dispatchers.IO).launch {
-        try {
-            val querySnapshot=userProfile.get().await()
-            val sb=StringBuilder()
-            for (document in querySnapshot.documents){
-                val user=document.toObject(UsersData::class.java)
-                sb.append("$user\n")
-            }
-            withContext(Dispatchers.Main){
 
-            }
-
-
-        }catch (e:Exception){
-            e.printStackTrace()
-
-        }
-    }
 
 }
 
