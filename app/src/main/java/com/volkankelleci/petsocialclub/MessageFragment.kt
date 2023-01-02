@@ -12,6 +12,7 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -21,6 +22,12 @@ import com.google.firebase.storage.FirebaseStorage
 import com.volkankelleci.petsocialclub.databinding.FragmentMessageBinding
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_message.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
+import kotlinx.coroutines.withContext
+import java.util.UUID
 
 class MessageFragment : Fragment() {
     private var _binding: FragmentMessageBinding? = null
@@ -48,12 +55,34 @@ class MessageFragment : Fragment() {
         selectImage.setOnClickListener {
             selectImage()
         }
+        shareButton.setOnClickListener {
+            storeImage()
+        }
 
     }
 
-    fun storage(view: View) {
+    fun storeImage() {
+        val uuid=UUID.randomUUID()
+        val selectableImage="${uuid}.jpg"
+
         var storageRef = storage.reference
-        val mountainImagesRef = storageRef.child("images/selectedImage.jpg")
+        val mountainImagesRef = storageRef.child("images/${selectableImage}")
+        if (selectedImageURI != null) {
+
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    mountainImagesRef.putFile(selectedImage!!)
+                    Toast.makeText(activity, "Your Image Saved", Toast.LENGTH_SHORT).show()
+                } catch (e: Exception) {
+                    withContext(Dispatchers.IO) {
+                        Toast.makeText(activity, "Please Select Any Image", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+
+
+            }
+        }
     }
 
 
@@ -79,7 +108,8 @@ class MessageFragment : Fragment() {
     ) {
         if (requestCode == 1) {
             if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                val gallery =Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                val gallery =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
                 startActivityForResult(gallery, 2)
             }
         }
@@ -93,7 +123,8 @@ class MessageFragment : Fragment() {
 
             selectedImage = data.data
             if (selectedImage != null) {
-                val source =ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
+                val source =
+                    ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
                 selectedImageURI = ImageDecoder.decodeBitmap(source)
                 selectImage.setImageBitmap(selectedImageURI)
             }
