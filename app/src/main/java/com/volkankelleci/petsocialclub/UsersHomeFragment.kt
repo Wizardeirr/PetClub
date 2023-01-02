@@ -38,6 +38,9 @@ class UsersHomeFragment : Fragment() {
             val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
             findNavController().navigate(action)
         }
+
+        //User Name Save
+        binding.userNameText.text= auth.currentUser!!.email
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

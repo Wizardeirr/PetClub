@@ -58,8 +58,7 @@ class MessageFragment : Fragment() {
         }
         binding.shareButton.setOnClickListener {
             storeImage()
-            val action=MessageFragmentDirections.actionMessageFragmentToUsersHomeFragment()
-            findNavController().navigate(action)
+
 
         }
 
@@ -77,7 +76,10 @@ class MessageFragment : Fragment() {
                 if (selectedImage!=null){
                     imageRef.putFile(selectedImage!!).await()
                     withContext(Dispatchers.Main){
-                        Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Image Download Process Succesfully", Toast.LENGTH_SHORT).show()
+
+                        val downloadReference=storageRef.child("images/${selectableImage}.jpg")
+                        downloadReference.downloadUrl
                     }
                 }
 
