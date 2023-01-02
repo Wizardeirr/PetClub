@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
@@ -32,6 +33,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import java.sql.Time
 import java.util.UUID
 
 class MessageFragment : Fragment() {
@@ -39,7 +41,9 @@ class MessageFragment : Fragment() {
     private val binding get() = _binding!!
     var selectedImage: Uri? = null
     var selectedImageURI: Bitmap? = null
-    private val usersData: UsersData?=null
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -61,53 +65,46 @@ class MessageFragment : Fragment() {
             selectImage()
         }
         binding.shareButton.setOnClickListener {
-            storeImage()
-
-
+            storeImage(view)
         }
-
-
     }
 
-    fun storeImage() {
-        val uuid=UUID.randomUUID()
-        val selectableImage=uuid
+    fun storeImage(view: View) {
+        val uuid = UUID.randomUUID()
+        val selectableImage = "${uuid}.jpg"
+        val storageRef = storage.reference
+        val imageRef = storageRef.child("images").child(selectableImage)
+                if (selectedImage != null) {
+                    imageRef.putFile(selectedImage!!).addOnSuccessListener {taskSnapshot->
+                        Toast.makeText(activity, "SUCCESS", Toast.LENGTH_SHORT).show()
 
-        var storageRef = storage.reference
-        val imageRef = storageRef.child("images/${selectableImage}.jpg")
-
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
-                if (selectedImage!=null){
-                    imageRef.putFile(selectedImage!!).await()
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(activity, "Image Download Process Succesfully", Toast.LENGTH_SHORT).show()
-
-                        //we are taking to our image from Cloud
-                        val downloadReference=storageRef.child("images/${selectableImage}.jpg")
-                        downloadReference.downloadUrl
-                        val userComment=commentText.text.toString()
-                        val date=Timestamp.now()
-                        val userName=usersData!!.ownerName
-                        val postHashMap= hashMapOf<String,Any>()
-                        postHashMap.put("usercomment",userComment)
-                        postHashMap.put("sharedate",date)
-                        postHashMap.put("username",userName)
-                        database.collection("Post").add(postHashMap).addOnCompleteListener{
-                            if (it.isSuccessful){
-                                Toast.makeText(activity, "everything is ready", Toast.LENGTH_SHORT).show()
-                            }
+                        val loadedImageReference =FirebaseStorage.getInstance()
+                            .reference.child("images").child(selectableImage)
+                        loadedImageReference.downloadUrl.addOnSuccessListener {uri->
+                                val downloadImage = uri.toString()
+                                val userComment=commentText.text.toString()
+                                val date=Timestamp.now()
+                                val userTitle=titleText.text.toString()
+                            val postHashMap= hashMapOf<String,Any>()
+                            postHashMap.put("imageurl",downloadImage)
+                            postHashMap.put("usercomment",userComment)
+                            postHashMap.put("date",date)
+                            postHashMap.put("usertitle",userTitle)
+                    database.collection("Post").add(postHashMap).addOnCompleteListener { task->
+                        if(task.isSuccessful){
+                            Toast.makeText(activity, "Image Downloaded", Toast.LENGTH_SHORT).show()
                         }
+                        
+                    }.addOnFailureListener {
+                        Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
 
                     }
+                        }
+                    }
                 }
-            }catch (e:Exception){
-                withContext(Dispatchers.Main){
-                    Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
-        }
+    }
+
+
 
 
 
