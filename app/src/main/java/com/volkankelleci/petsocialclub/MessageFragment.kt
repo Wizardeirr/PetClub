@@ -48,6 +48,10 @@ class MessageFragment : Fragment() {
         }
 
     }
+    fun storage(view: View){
+
+    }
+
 
     fun selectImage() {
         if (ContextCompat.checkSelfPermission(requireContext(),
