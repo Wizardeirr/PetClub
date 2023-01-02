@@ -17,6 +17,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.internal.Storage
 import com.google.firebase.storage.FirebaseStorage
 import com.volkankelleci.petsocialclub.databinding.FragmentMessageBinding
@@ -52,38 +53,43 @@ class MessageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        selectImage.setOnClickListener {
+        binding.selectImage.setOnClickListener {
             selectImage()
         }
-        shareButton.setOnClickListener {
+        binding.shareButton.setOnClickListener {
             storeImage()
+            val action=MessageFragmentDirections.actionMessageFragmentToUsersHomeFragment()
+            findNavController().navigate(action)
+
         }
 
     }
 
     fun storeImage() {
         val uuid=UUID.randomUUID()
-        val selectableImage="${uuid}.jpg"
+        val selectableImage=uuid
 
         var storageRef = storage.reference
-        val mountainImagesRef = storageRef.child("images/${selectableImage}")
-        if (selectedImageURI != null) {
+        val imageRef = storageRef.child("images/${selectableImage}.jpg")
 
-            CoroutineScope(Dispatchers.IO).launch {
-                try {
-                    mountainImagesRef.putFile(selectedImage!!)
-                    Toast.makeText(activity, "Your Image Saved", Toast.LENGTH_SHORT).show()
-                } catch (e: Exception) {
-                    withContext(Dispatchers.IO) {
-                        Toast.makeText(activity, "Please Select Any Image", Toast.LENGTH_SHORT)
-                            .show()
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                if (selectedImage!=null){
+                    imageRef.putFile(selectedImage!!).await()
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(activity, "Success", Toast.LENGTH_SHORT).show()
                     }
                 }
 
 
+            }catch (e:Exception){
+                withContext(Dispatchers.Main){
+                    Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
+                }
             }
         }
-    }
+        }
+
 
 
     fun selectImage() {

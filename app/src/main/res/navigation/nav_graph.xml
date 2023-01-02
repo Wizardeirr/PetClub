@@ -44,7 +44,11 @@
         android:id="@+id/messageFragment"
         android:name="com.volkankelleci.petsocialclub.MessageFragment"
         android:label="fragment_message"
-        tools:layout="@layout/fragment_message" />
+        tools:layout="@layout/fragment_message" >
+        <action
+            android:id="@+id/action_messageFragment_to_usersHomeFragment"
+            app:destination="@id/usersHomeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/usersHomeFragment"
         android:name="com.volkankelleci.petsocialclub.UsersHomeFragment"
