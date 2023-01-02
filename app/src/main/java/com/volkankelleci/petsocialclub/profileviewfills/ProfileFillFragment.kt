@@ -39,11 +39,6 @@ class ProfileFillFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val viewModel=ViewModelProvider(this).get(ProfileFillFragmentViewModel::class.java)
-        updateButton.setOnClickListener {
-            val oldUser=getOldUserInfo()
-            val newUserMap=getNewUser()
-            updateProfile(oldUser,newUserMap)
-        }
         saveButton.setOnClickListener {
 
             val petName=petName.text.toString()
@@ -66,75 +61,6 @@ class ProfileFillFragment : Fragment() {
             }
         }
     }
-    private fun getOldUserInfo():UsersData{
-        val petName=petName.text.toString()
-        val petage=petAge.text.toString()
-        val petSpecies=petSpecies.text.toString()
-        val petWeight=petKg.text.toString()
-        val petGender=petGender.text.toString()
-        val vaccineInfo=petVaccine.text.toString()
-        val ownersName=petOwnerName.text.toString()
-        return UsersData(petName,petage,petSpecies,petWeight,petGender,vaccineInfo,ownersName)
-    }
-    private fun getNewUser():Map<String,Any>{
-        val petName=petName.text.toString()
-        val petage=petAge.text.toString()
-        val petSpecies=petSpecies.text.toString()
-        val petWeight=petKg.text.toString()
-        val petGender=petGender.text.toString()
-        val vaccineInfo=petVaccine.text.toString()
-        val ownersName=petOwnerName.text.toString()
-        val map= mutableMapOf<String,Any>()
-        if (petName.isNotEmpty()){
-            map["petName"]=petName
-        }
-        if (petName.isNotEmpty()){
-            map["petage"]=petage
-        }
-        if (petName.isNotEmpty()){
-            map["petSpecies"]=petSpecies
-        }
-        if (petName.isNotEmpty()){
-            map["petWeight"]=petWeight
-        }
-        if (petName.isNotEmpty()){
-            map["petGender"]=petGender
-        }
-        if (petName.isNotEmpty()){
-            map["vaccineInfo"]=vaccineInfo
-        }
-        if (petName.isNotEmpty()){
-            map["ownersName"]=ownersName
-        }
-        return map
 
-    }
-    private fun updateProfile(userData:UsersData,newUserMap:Map<String,Any>)= CoroutineScope(Dispatchers.IO).launch {
 
-        val userQuery=userProfile
-            .whereEqualTo("petName",userData.petName)
-            .whereEqualTo("petAge",userData.petAge)
-            .whereEqualTo("petWeight",userData.petKg)
-            .whereEqualTo("petGender",userData.petGender)
-            .whereEqualTo("vaccineInfo",userData.vaccineInfo)
-            .whereEqualTo("ownersName",userData.ownerName)
-            .whereEqualTo("petSpecies",userData.petSpecies)
-            .get()
-            .await()
-        if (userQuery.documents.isNotEmpty()){
-            for (document in userQuery){
-                try {
-                    userProfile.document(document.id).set(newUserMap, SetOptions.merge()).await()
-                }catch (e:Exception){
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(activity,e.message, Toast.LENGTH_SHORT).show()
-                    }
-                }
-            }
-        }else{
-            withContext(Dispatchers.Main){
-                Toast.makeText(activity, "No Person Match Qery", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
 }

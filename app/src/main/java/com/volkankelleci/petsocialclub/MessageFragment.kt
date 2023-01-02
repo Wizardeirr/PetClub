@@ -19,8 +19,12 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.internal.Storage
+import com.google.firebase.Timestamp
 import com.google.firebase.storage.FirebaseStorage
+import com.volkankelleci.petsocialclub.data.UsersData
 import com.volkankelleci.petsocialclub.databinding.FragmentMessageBinding
+import com.volkankelleci.petsocialclub.util.Util.database
+import com.volkankelleci.petsocialclub.util.Util.storage
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_message.*
 import kotlinx.coroutines.CoroutineScope
@@ -35,7 +39,7 @@ class MessageFragment : Fragment() {
     private val binding get() = _binding!!
     var selectedImage: Uri? = null
     var selectedImageURI: Bitmap? = null
-    var storage: FirebaseStorage = FirebaseStorage.getInstance()
+    private val usersData: UsersData?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -62,6 +66,7 @@ class MessageFragment : Fragment() {
 
         }
 
+
     }
 
     fun storeImage() {
@@ -78,12 +83,24 @@ class MessageFragment : Fragment() {
                     withContext(Dispatchers.Main){
                         Toast.makeText(activity, "Image Download Process Succesfully", Toast.LENGTH_SHORT).show()
 
+                        //we are taking to our image from Cloud
                         val downloadReference=storageRef.child("images/${selectableImage}.jpg")
                         downloadReference.downloadUrl
+                        val userComment=commentText.text.toString()
+                        val date=Timestamp.now()
+                        val userName=usersData!!.ownerName
+                        val postHashMap= hashMapOf<String,Any>()
+                        postHashMap.put("usercomment",userComment)
+                        postHashMap.put("sharedate",date)
+                        postHashMap.put("username",userName)
+                        database.collection("Post").add(postHashMap).addOnCompleteListener{
+                            if (it.isSuccessful){
+                                Toast.makeText(activity, "everything is ready", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+
                     }
                 }
-
-
             }catch (e:Exception){
                 withContext(Dispatchers.Main){
                     Toast.makeText(activity, e.message, Toast.LENGTH_SHORT).show()
