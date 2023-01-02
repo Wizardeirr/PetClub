@@ -16,6 +16,8 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.gms.auth.api.signin.internal.Storage
+import com.google.firebase.storage.FirebaseStorage
 import com.volkankelleci.petsocialclub.databinding.FragmentMessageBinding
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_message.*
@@ -25,7 +27,7 @@ class MessageFragment : Fragment() {
     private val binding get() = _binding!!
     var selectedImage: Uri? = null
     var selectedImageURI: Bitmap? = null
-
+    var storage: FirebaseStorage = FirebaseStorage.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -48,8 +50,10 @@ class MessageFragment : Fragment() {
         }
 
     }
-    fun storage(view: View){
 
+    fun storage(view: View) {
+        var storageRef = storage.reference
+        val mountainImagesRef = storageRef.child("images/selectedImage.jpg")
     }
 
 
@@ -75,8 +79,7 @@ class MessageFragment : Fragment() {
     ) {
         if (requestCode == 1) {
             if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                val gallery =
-                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                val gallery =Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
                 startActivityForResult(gallery, 2)
             }
         }
@@ -90,8 +93,7 @@ class MessageFragment : Fragment() {
 
             selectedImage = data.data
             if (selectedImage != null) {
-                val source =
-                    ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
+                val source =ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
                 selectedImageURI = ImageDecoder.decodeBitmap(source)
                 selectImage.setImageBitmap(selectedImageURI)
             }
