@@ -84,6 +84,8 @@ class UsersHomeFragment : Fragment() {
                     if (value.isEmpty==false){
                     val userDocument=value.documents
                         for (document in userDocument){
+                            val userTitle=document.get("usertitle") as String
+                            println(userTitle)
 
                         }
                     }
