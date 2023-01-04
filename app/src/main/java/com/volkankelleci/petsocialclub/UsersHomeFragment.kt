@@ -79,8 +79,12 @@ class UsersHomeFragment : Fragment() {
         var database:FirebaseFirestore=FirebaseFirestore.getInstance()
         database.collection("Post").addSnapshotListener { value, error ->
             if(error!=null){
+            }else
+                if (value!=null){
+                    if (value.isEmpty==false){
 
-            }
+                    }
+                }
         }
         }
 }
