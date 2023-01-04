@@ -75,21 +75,5 @@ class UsersHomeFragment : Fragment() {
         }
         return super.onOptionsItemSelected(item)
     }
-    private fun takesData(){
-        var database:FirebaseFirestore=FirebaseFirestore.getInstance()
-        database.collection("Post").addSnapshotListener { value, error ->
-            if(error!=null){
-            }else
-                if (value!=null){
-                    if (value.isEmpty==false){
-                    val userDocument=value.documents
-                        for (document in userDocument){
-                            val userTitle=document.get("usertitle") as String
-                            println(userTitle)
 
-                        }
-                    }
-                }
-        }
-        }
 }
