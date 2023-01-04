@@ -76,17 +76,6 @@ class UsersHomeFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
     private fun takesData(){
-        val ref=database.collection("Post")
-        ref.get().addOnSuccessListener { documents->
-
-            if (documents!=null){
-               for (document in documents){
-                   val userComment=document.get("usercomment")as String
-                   println(userComment)
-               }
-
-            }
-        }
-
+        var database:FirebaseFirestore=FirebaseFirestore.getInstance()
         }
 }
