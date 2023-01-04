@@ -78,7 +78,9 @@ class UsersHomeFragment : Fragment() {
     private fun takesData(){
         var database:FirebaseFirestore=FirebaseFirestore.getInstance()
         database.collection("Post").addSnapshotListener { value, error ->
-            if(error!=null)
+            if(error!=null){
+
+            }
         }
         }
 }
