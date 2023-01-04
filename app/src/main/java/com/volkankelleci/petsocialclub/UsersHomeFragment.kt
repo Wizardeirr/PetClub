@@ -85,8 +85,6 @@ class UsersHomeFragment : Fragment() {
                    println(userComment)
                }
 
-
-
             }
         }
 
