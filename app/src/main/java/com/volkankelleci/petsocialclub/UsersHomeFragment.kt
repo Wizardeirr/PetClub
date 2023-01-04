@@ -82,7 +82,10 @@ class UsersHomeFragment : Fragment() {
             }else
                 if (value!=null){
                     if (value.isEmpty==false){
+                    val userDocument=value.documents
+                        for (document in userDocument){
 
+                        }
                     }
                 }
         }
