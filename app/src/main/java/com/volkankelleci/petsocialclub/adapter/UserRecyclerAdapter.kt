@@ -21,7 +21,7 @@ class UserRecyclerAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<Us
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.itemView.titleRecycler.text=postList[position].userTitle
-        holder.itemView.titleRecycler.text=postList[position].userTitle
+        holder.itemView.commentRecycler.text=postList[position].userComment
     }
 
     override fun getItemCount(): Int {

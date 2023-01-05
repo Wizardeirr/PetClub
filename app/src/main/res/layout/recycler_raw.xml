@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:id="@+id/searchRecycler"
+            android:id="@+id/commentRecycler"
             android:padding="5dp"
             android:text="What am i search"
             android:textSize="18sp">
