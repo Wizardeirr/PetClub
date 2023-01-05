@@ -6,8 +6,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.auth.User
+import com.volkankelleci.petsocialclub.adapter.UserRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.util.Post
 import com.volkankelleci.petsocialclub.util.Util.auth
@@ -22,6 +25,8 @@ class UsersHomeFragment : Fragment() {
     lateinit var viewModel: ProfileFillFragmentViewModel
 
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
+
+    private lateinit var recyclerViewAdapter:UserRecyclerAdapter
 
     var postList=ArrayList<Post>()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,6 +52,11 @@ class UsersHomeFragment : Fragment() {
         //User Name Save
         binding.userNameText.text= auth.currentUser!!.email
         takesData()
+        var layoutManager=LinearLayoutManager(activity)
+        usersHomeFragmentRecycler.layoutManager=layoutManager
+        recyclerViewAdapter=UserRecyclerAdapter(postList)
+        usersHomeFragmentRecycler.adapter=recyclerViewAdapter
+
 
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -105,6 +115,7 @@ class UsersHomeFragment : Fragment() {
 
 
                         }
+                        recyclerViewAdapter.notifyDataSetChanged()
                     }
                 }
         }
