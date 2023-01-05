@@ -1,24 +1,29 @@
 package com.volkankelleci.petsocialclub.adapter
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.volkankelleci.petsocialclub.R
+import com.volkankelleci.petsocialclub.util.Post
+import kotlinx.android.synthetic.main.recycler_raw.view.*
 
-class UserRecyclerAdapter(): RecyclerView.Adapter<UserRecyclerAdapter.UserViewHolder>() {
+class UserRecyclerAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<UserRecyclerAdapter.UserViewHolder>() {
+
     class UserViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        TODO("Not yet implemented")
+    val inflater=LayoutInflater.from(parent.context)
+        val viewHolder=inflater.inflate(R.layout.recycler_raw,parent,false)
+        return UserViewHolder(viewHolder)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.itemView.titleRecycler.text=postList[position].userTitle
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return postList.size
     }
 }

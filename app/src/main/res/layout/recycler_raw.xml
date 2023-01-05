@@ -25,6 +25,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/titleRecycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -41,22 +42,13 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
+            android:id="@+id/searchRecycler"
             android:padding="5dp"
             android:text="What am i search"
             android:textSize="18sp">
 
         </TextView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="3dp"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:text="Email"
-            android:textSize="18sp">
-
-        </TextView>
     </LinearLayout>
 
 </LinearLayout>
