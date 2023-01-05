@@ -36,10 +36,12 @@ class UsersHomeFragment : Fragment() {
         fab.setOnClickListener {
             val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
             findNavController().navigate(action)
+            takesData()
         }
         //User Name Save
         binding.userNameText.text= auth.currentUser!!.email
         takesData()
+
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -74,6 +76,24 @@ class UsersHomeFragment : Fragment() {
             findNavController().navigate(action5)
         }
         return super.onOptionsItemSelected(item)
+    }
+     fun takesData(){
+        var database:FirebaseFirestore=FirebaseFirestore.getInstance()
+        database.collection("Post").addSnapshotListener { value, error ->
+            if(error!=null){
+            }else
+                if (value!=null){
+                    if (value.isEmpty==false){
+                        val documents=value.documents
+                        for (document in documents){
+                            document.get("Post")
+                            val userTitle=document.get("usertitle").toString()
+                            println(userTitle)
+
+                        }
+                    }
+                }
+        }
     }
 
 }
