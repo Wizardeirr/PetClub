@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
+import com.volkankelleci.petsocialclub.util.Post
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import com.volkankelleci.petsocialclub.viewmodel.ProfileFillFragmentViewModel
@@ -16,8 +18,12 @@ import kotlinx.android.synthetic.main.fragment_users_home.*
 class UsersHomeFragment : Fragment() {
     private var _binding: FragmentUsersHomeBinding? = null
     private val binding get() = _binding!!
+
     lateinit var viewModel: ProfileFillFragmentViewModel
+
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
+
+    var userContainer=ArrayList<Post>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -79,7 +85,8 @@ class UsersHomeFragment : Fragment() {
     }
      fun takesData(){
         var database:FirebaseFirestore=FirebaseFirestore.getInstance()
-        database.collection("Post").addSnapshotListener { value, error ->
+        database.collection("Post").orderBy("date",Query.Direction.DESCENDING)
+            .addSnapshotListener { value, error ->
             if(error!=null){
             }else
                 if (value!=null){
@@ -88,7 +95,9 @@ class UsersHomeFragment : Fragment() {
                         for (document in documents){
                             document.get("Post")
                             val userTitle=document.get("usertitle").toString()
-                            println(userTitle)
+                            val userComment=document.get("usercomment").toString()
+                            val userImage=document.get("imageurl").toString()
+
 
                         }
                     }
