@@ -23,7 +23,7 @@ class UsersHomeFragment : Fragment() {
 
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    var userContainer=ArrayList<Post>()
+    var postList=ArrayList<Post>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -92,11 +92,16 @@ class UsersHomeFragment : Fragment() {
                 if (value!=null){
                     if (value.isEmpty==false){
                         val documents=value.documents
+                        postList.clear()
                         for (document in documents){
                             document.get("Post")
                             val userTitle=document.get("usertitle").toString()
                             val userComment=document.get("usercomment").toString()
                             val userImage=document.get("imageurl").toString()
+
+                            val downloadInfos=Post(userTitle,userComment,userImage)
+                            postList.add(downloadInfos)
+
 
 
                         }
