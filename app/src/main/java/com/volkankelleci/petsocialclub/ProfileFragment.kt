@@ -29,7 +29,6 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.tasks.await
 
 class ProfileFragment : Fragment() {
-    private val userProfile= Firebase.firestore.collection("UserProfileInfos")
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerViewAdapter:ProfileAdapter
@@ -60,7 +59,7 @@ class ProfileFragment : Fragment() {
     }
     fun takesData(){
         var database: FirebaseFirestore = FirebaseFirestore.getInstance()
-        database.collection("UserProfileInfos").orderBy("date", Query.Direction.DESCENDING)
+        database.collection("UserProfileInfos")
             .addSnapshotListener { value, error ->
                 if(error!=null){
                 }else
@@ -78,12 +77,15 @@ class ProfileFragment : Fragment() {
                                 val petSpecies=document.get("petSpecies").toString()
                                 val vaccineInfo=document.get("vaccineInfo").toString()
 
-                                val downloadInfos= UserProfileInput(ownerName,petAge,petGender,petKg,petName,petSpecies,vaccineInfo)
+
+                                val downloadInfos= UserProfileInput(ownerName,petAge,petGender,petKg,petName,petSpecies,vaccineInfo,)
                                 UserProfileInfos.add(downloadInfos)
 
 
 
                             }
+                            recyclerViewAdapter.notifyDataSetChanged()
+
 
                         }
                     }
