@@ -50,7 +50,6 @@ class UsersHomeFragment : Fragment() {
             takesData()
         }
         //User Name Save
-        binding.userNameText.text= auth.currentUser!!.email
         takesData()
         var layoutManager=LinearLayoutManager(activity)
         usersHomeFragmentRecycler.layoutManager=layoutManager
