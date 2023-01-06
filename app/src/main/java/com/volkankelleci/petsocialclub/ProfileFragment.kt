@@ -24,7 +24,7 @@ class ProfileFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        subscribeToInformations()
+
     }
 
     override fun onCreateView(
@@ -37,43 +37,6 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-    }
-    private fun subscribeToInformations(){
-        userProfile.addSnapshotListener{querySnapshot,firebaseFirestoreException->
-            firebaseFirestoreException?.let {
-                Toast.makeText(activity, "it.message", Toast.LENGTH_SHORT).show()
-                return@addSnapshotListener
-            }
-            querySnapshot?.let {
-                val sb=StringBuilder()
-                for (document in it){
-                    val person = document.toObject<UsersData>()
-                    sb.append("$person\n")
-                }
-                profileTextView.text=sb.toString()
-
-            }
-        }
-
-    }
-    fun retrieveProfile()= CoroutineScope(Dispatchers.IO).launch {
-        try {
-            val querySnapshot=userProfile.get().await()
-            val sb=StringBuilder()
-            for (document in querySnapshot.documents){
-                val user=document.toObject<UsersData>()
-                sb.append("$user\n")
-            }
-            withContext(Dispatchers.Main){
-
-            }
-
-
-        }catch (e:Exception){
-            e.printStackTrace()
-
-        }
 
     }
 

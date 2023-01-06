@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".UsersHomeFragment">
 
-    <TextView
-        android:id="@+id/userNameText"
-        android:layout_width="172dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="24dp"
-        android:gravity="center"
-        android:text="Email Text"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="61dp"
