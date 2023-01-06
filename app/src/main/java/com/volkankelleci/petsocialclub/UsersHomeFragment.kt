@@ -77,7 +77,7 @@ class UsersHomeFragment : Fragment() {
             findNavController().navigate(action2)
         }
         if (item.itemId == R.id.messageButton) {
-            val action3 = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
+            val action3 = UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
             findNavController().navigate(action3)
         }
         if (item.itemId == R.id.createButton) {

@@ -1,124 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/profillConstraint"
+
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".profileviewfills.ProfileFillFragment">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="44dp"
-        android:text="Save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.814"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petOwnerName"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/petOwnerName"
+    <TextView
+        android:id="@+id/getOwnerName"
         android:layout_width="379dp"
         android:layout_height="44dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Owner's Name"
-        android:inputType="textPersonName"
+        android:text="OWNER NAME"
+
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petVaccine" />
 
-    <EditText
+    <TextView
         android:id="@+id/petAge"
         android:layout_width="379dp"
         android:layout_height="44dp"
         android:layout_marginTop="4dp"
         android:ems="10"
-        android:hint="Pet Age"
-        android:inputType="textPersonName"
-
+        android:text="PET AGE NAME"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petName" />
 
-    <EditText
+    <TextView
         android:id="@+id/petVaccine"
         android:layout_width="379dp"
         android:layout_height="44dp"
         android:layout_marginTop="4dp"
         android:ems="10"
-        android:hint="Vaccine Information"
-        android:inputType="textPersonName"
-
+        android:text="PET VACCINE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petGender" />
 
-    <EditText
+    <TextView
         android:id="@+id/petGender"
         android:layout_width="379dp"
         android:layout_height="44dp"
         android:layout_marginTop="4dp"
         android:ems="10"
-        android:hint="Pet Gender"
-        android:inputType="textPersonName"
-
+        android:text="PET GENDER"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petKg" />
 
-    <EditText
+    <TextView
         android:id="@+id/petKg"
         android:layout_width="379dp"
         android:layout_height="44dp"
         android:layout_marginTop="4dp"
         android:ems="10"
-        android:hint="Pet Kg"
-        android:inputType="textPersonName"
+        android:text="PET KG"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petSpecies" />
 
-    <EditText
+    <TextView
         android:id="@+id/petName"
         android:layout_width="379dp"
         android:layout_height="44dp"
         android:ems="10"
-        android:hint="Pet Name"
-        android:inputType="textPersonName"
-
+        android:text="PET NAME"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardID" />
 
-    <EditText
+    <TextView
         android:id="@+id/petSpecies"
         android:layout_width="379dp"
         android:layout_height="44dp"
         android:layout_marginTop="4dp"
         android:ems="10"
-        android:hint="Pet Species"
-        android:inputType="textPersonName"
-
+        android:text="PET SPECIES"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petAge" />
-
-    <Button
-        android:id="@+id/updateButton"
-        android:layout_width="wrap_content"
-        android:layout_height="44dp"
-        android:text="UPDATE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/petOwnerName"
-        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardID"
