@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.ImageDecoder
 import android.net.Uri
 import android.os.Build
@@ -19,21 +18,13 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.gms.auth.api.signin.internal.Storage
 import com.google.firebase.Timestamp
 import com.google.firebase.storage.FirebaseStorage
-import com.volkankelleci.petsocialclub.data.UsersData
 import com.volkankelleci.petsocialclub.databinding.FragmentMessageBinding
 import com.volkankelleci.petsocialclub.util.Util.database
 import com.volkankelleci.petsocialclub.util.Util.storage
 import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_message.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
-import kotlinx.coroutines.withContext
-import java.sql.Time
 import java.util.UUID
 
 class MessageFragment : Fragment() {

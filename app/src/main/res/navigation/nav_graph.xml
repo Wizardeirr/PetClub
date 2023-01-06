@@ -72,10 +72,18 @@
         <action
             android:id="@+id/action_usersHomeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_to_userChatFragment"
+            app:destination="@id/userChatFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.volkankelleci.petsocialclub.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/userChatFragment"
+        android:name="com.volkankelleci.petsocialclub.UserChatFragment"
+        android:label="fragment_user_chat"
+        tools:layout="@layout/fragment_user_chat" />
 </navigation>
