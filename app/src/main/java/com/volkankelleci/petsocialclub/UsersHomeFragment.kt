@@ -1,5 +1,6 @@
 package com.volkankelleci.petsocialclub
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -9,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.auth.User
 import com.volkankelleci.petsocialclub.adapter.UserRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.util.Post
@@ -45,7 +47,7 @@ class UsersHomeFragment : Fragment() {
         fab.setOnClickListener {
             val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
             findNavController().navigate(action)
-            takesData()
+
         }
         //User Name Save
         takesData()
@@ -53,6 +55,7 @@ class UsersHomeFragment : Fragment() {
         usersHomeFragmentRecycler.layoutManager=layoutManager
         recyclerViewAdapter=UserRecyclerAdapter(postList)
         usersHomeFragmentRecycler.adapter=recyclerViewAdapter
+
 
 
     }
@@ -83,6 +86,8 @@ class UsersHomeFragment : Fragment() {
         if (item.itemId == R.id.createButton) {
             val action4 = UsersHomeFragmentDirections.actionUsersHomeFragmentToProfileFillFragment()
             findNavController().navigate(action4)
+
+
         }
         if (item.itemId == R.id.profileButton) {
             val action5 = UsersHomeFragmentDirections.actionUsersHomeFragmentToProfileFragment()
@@ -109,13 +114,12 @@ class UsersHomeFragment : Fragment() {
                             val downloadInfos=Post(userTitle,userComment,userImage)
                             postList.add(downloadInfos)
 
-
-
                         }
                         recyclerViewAdapter.notifyDataSetChanged()
                     }
                 }
         }
     }
+
 
 }
