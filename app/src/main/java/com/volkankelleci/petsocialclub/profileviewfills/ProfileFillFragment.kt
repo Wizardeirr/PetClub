@@ -6,20 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.firestore.SetOptions
-import com.google.firebase.firestore.UserDataReader
-import com.google.firebase.firestore.auth.User
-import com.google.firebase.firestore.core.UserData
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.UsersData
-import com.volkankelleci.petsocialclub.viewmodel.ProfileFillFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_profile_fill.*
-import kotlinx.android.synthetic.main.fragment_users_home.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,7 +18,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
 class ProfileFillFragment : Fragment() {
-    lateinit var viewModel: ProfileFillFragmentViewModel
+
     private val userProfile= Firebase.firestore.collection("UserProfileInfos")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +32,6 @@ class ProfileFillFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel=ViewModelProvider(this).get(ProfileFillFragmentViewModel::class.java)
         saveButton.setOnClickListener {
             val petName=petName.text.toString()
             val petage=petAge.text.toString()
@@ -51,6 +41,7 @@ class ProfileFillFragment : Fragment() {
             val vaccineInfo=petVaccine.text.toString()
             val ownersName=petOwnerName.text.toString()
             val dataInput=UsersData(petName,petage,petSpecies,petWeight,petGender,vaccineInfo,ownersName)
+
 
             saveUser(dataInput)
 
