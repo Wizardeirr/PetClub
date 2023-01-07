@@ -1,34 +1,30 @@
 package com.volkankelleci.petsocialclub
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.auth.User
 import com.volkankelleci.petsocialclub.adapter.UserRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.util.Post
+import com.volkankelleci.petsocialclub.util.UserProfileInput
 import com.volkankelleci.petsocialclub.util.Util.auth
-import com.volkankelleci.petsocialclub.viewmodel.ProfileFillFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_users_home.*
 
 class UsersHomeFragment : Fragment() {
     private var _binding: FragmentUsersHomeBinding? = null
     private val binding get() = _binding!!
 
-    lateinit var viewModel: ProfileFillFragmentViewModel
-
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     private lateinit var recyclerViewAdapter:UserRecyclerAdapter
 
     var postList=ArrayList<Post>()
+    var userInfoList=ArrayList<UserProfileInput>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -43,7 +39,7 @@ class UsersHomeFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(ProfileFillFragmentViewModel::class.java)
+
         fab.setOnClickListener {
             val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
             findNavController().navigate(action)
@@ -96,7 +92,6 @@ class UsersHomeFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
      fun takesData(){
-        var database:FirebaseFirestore=FirebaseFirestore.getInstance()
         database.collection("Post").orderBy("date",Query.Direction.DESCENDING)
             .addSnapshotListener { value, error ->
             if(error!=null){
@@ -119,6 +114,30 @@ class UsersHomeFragment : Fragment() {
                     }
                 }
         }
+    }
+    fun takesProfileInfosData(){
+        database.collection("UserProfileInfos")
+            .addSnapshotListener { value, error ->
+                if(error!=null){
+                }else
+                    if (value!=null){
+                        if (value.isEmpty==false){
+                            val documents=value.documents
+                            postList.clear()
+                            for (document in documents){
+                                document.get("UserProfileInfos")
+                                val userTitle=document.get("usertitle").toString()
+                                val userComment=document.get("usercomment").toString()
+                                val userImage=document.get("imageurl").toString()
+
+                                val downloadInfos=Post(userTitle,userComment,userImage)
+                                postList.add(downloadInfos)
+
+                            }
+                            recyclerViewAdapter.notifyDataSetChanged()
+                        }
+                    }
+            }
     }
 
 
