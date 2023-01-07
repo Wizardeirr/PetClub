@@ -47,9 +47,10 @@ class UsersHomeFragment : Fragment() {
         }
         //User Name Save
         takesData()
-        var layoutManager=LinearLayoutManager(activity)
+        takesProfileInfosData()
+        val layoutManager=LinearLayoutManager(activity)
         usersHomeFragmentRecycler.layoutManager=layoutManager
-        recyclerViewAdapter=UserRecyclerAdapter(postList)
+        recyclerViewAdapter=UserRecyclerAdapter(postList,userInfoList)
         usersHomeFragmentRecycler.adapter=recyclerViewAdapter
 
 
@@ -123,16 +124,20 @@ class UsersHomeFragment : Fragment() {
                     if (value!=null){
                         if (value.isEmpty==false){
                             val documents=value.documents
-                            postList.clear()
+                            userInfoList.clear()
                             for (document in documents){
                                 document.get("UserProfileInfos")
-                                val userTitle=document.get("usertitle").toString()
-                                val userComment=document.get("usercomment").toString()
-                                val userImage=document.get("imageurl").toString()
+                                val ownerName=document.get("ownerName").toString()
+                                val petAge=document.get("petAge").toString()
+                                val petGender=document.get("petGender").toString()
+                                val petKg=document.get("petKg").toString()
+                                val petName=document.get("petName").toString()
+                                val petSpecies=document.get("petSpecies").toString()
+                                val vaccineInfo=document.get("vaccineInfo").toString()
 
-                                val downloadInfos=Post(userTitle,userComment,userImage)
-                                postList.add(downloadInfos)
 
+                                val downloadInfos= UserProfileInput(ownerName,petAge,petGender,petKg,petName,petSpecies,vaccineInfo,)
+                                userInfoList.add(downloadInfos)
                             }
                             recyclerViewAdapter.notifyDataSetChanged()
                         }

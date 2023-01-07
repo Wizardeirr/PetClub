@@ -51,13 +51,13 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        takesData()
+        takesUserData()
         var layoutManager= LinearLayoutManager(activity)
         profileRecyclerView.layoutManager=layoutManager
         recyclerViewAdapter= ProfileAdapter(UserProfileInfos)
         profileRecyclerView.adapter=recyclerViewAdapter
     }
-    fun takesData(){
+    fun takesUserData(){
         var database: FirebaseFirestore = FirebaseFirestore.getInstance()
         database.collection("UserProfileInfos")
             .addSnapshotListener { value, error ->

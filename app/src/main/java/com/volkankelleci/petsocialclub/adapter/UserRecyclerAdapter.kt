@@ -7,11 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.util.Post
+import com.volkankelleci.petsocialclub.util.UserProfileInput
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.recycler_raw.view.*
 
-class UserRecyclerAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<UserRecyclerAdapter.UserViewHolder>() {
+class UserRecyclerAdapter(val postList:ArrayList<Post>,val userInputList:ArrayList<UserProfileInput>): RecyclerView.Adapter<UserRecyclerAdapter.UserViewHolder>() {
 
     class UserViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
     }
@@ -25,8 +26,12 @@ class UserRecyclerAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<Us
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.itemView.titleRecycler.text=postList[position].userTitle
         holder.itemView.commentRecycler.text=postList[position].userComment
+
+        holder.itemView.ownersName.text=userInputList[position].userOwnerName
+
         holder.itemView.petImageRecycler.downloadImageToRecycler(postList[position].userImage,
             createPlaceHolder(holder.itemView.context))
+
     }
 
     override fun getItemCount(): Int {

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.R
@@ -48,6 +49,8 @@ class ProfileFillFragment : Fragment() {
             if (petName.isNotEmpty()&&petage.isNotEmpty()&&petSpecies.isNotEmpty()&&petWeight.isNotEmpty()&&petGender.isNotEmpty()
                 &&vaccineInfo.isNotEmpty()&&ownersName.isNotEmpty()){
                 Toast.makeText(activity, "Profile Created", Toast.LENGTH_LONG).show()
+                val action=ProfileFillFragmentDirections.actionProfileFillFragmentToUsersHomeFragment()
+                findNavController().navigate(action)
             }
         }
     }
