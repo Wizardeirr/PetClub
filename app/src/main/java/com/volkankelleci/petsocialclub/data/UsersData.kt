@@ -8,5 +8,6 @@ data class UsersData(
     var petKg:String="",
     var petGender:String="",
     var vaccineInfo:String="",
-    var ownerName:String=""
+    var ownerName:String="",
+    var petImage:String=""
 )

@@ -138,7 +138,6 @@
             android:id="@+id/petImage"
             android:layout_width="150dp"
             android:layout_height="150dp"
-
             android:padding="10dp"
             android:scaleType="centerCrop"
             android:src="@drawable/cool" />

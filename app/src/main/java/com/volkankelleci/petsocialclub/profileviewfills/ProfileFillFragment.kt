@@ -12,6 +12,8 @@ import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.UsersData
 import kotlinx.android.synthetic.main.fragment_profile_fill.*
+import kotlinx.android.synthetic.main.fragment_profile_fill.view.*
+import kotlinx.android.synthetic.main.fragment_user_chat.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -41,7 +43,8 @@ class ProfileFillFragment : Fragment() {
             val petGender=petGender.text.toString()
             val vaccineInfo=petVaccine.text.toString()
             val ownersName=petOwnerName.text.toString()
-            val dataInput=UsersData(petName,petage,petSpecies,petWeight,petGender,vaccineInfo,ownersName)
+            val petImages=petImage.toString()
+            val dataInput=UsersData(petName,petage,petSpecies,petWeight,petGender,vaccineInfo,ownersName,petImages)
 
 
             saveUser(dataInput)
