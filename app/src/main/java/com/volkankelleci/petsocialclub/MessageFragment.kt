@@ -21,6 +21,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.Timestamp
 import com.google.firebase.storage.FirebaseStorage
 import com.volkankelleci.petsocialclub.databinding.FragmentMessageBinding
+import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import com.volkankelleci.petsocialclub.util.Util.storage
 import kotlinx.android.synthetic.main.fragment_main.*
@@ -62,13 +63,17 @@ class MessageFragment : Fragment() {
                         Toast.makeText(activity, "SUCCESS", Toast.LENGTH_SHORT).show()
                         val loadedImageReference =FirebaseStorage.getInstance()
                             .reference.child("images").child(selectableImage)
+
+
                         loadedImageReference.downloadUrl.addOnSuccessListener {uri->
                                 val downloadImage = uri.toString()
+                                val userEmail=auth.currentUser!!.email.toString()
                                 val userComment=commentText.text.toString()
                                 val date=Timestamp.now()
                                 val userTitle=titleText.text.toString()
                             val postHashMap= hashMapOf<String,Any>()
                             postHashMap.put("imageurl",downloadImage)
+                            postHashMap.put("useremail",userEmail)
                             postHashMap.put("usercomment",userComment)
                             postHashMap.put("date",date)
                             postHashMap.put("usertitle",userTitle)

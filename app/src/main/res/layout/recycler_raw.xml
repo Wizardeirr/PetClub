@@ -11,24 +11,16 @@
         android:layout_height="40dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/userSmallPP"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            android:src="@drawable/dog">
-
-        </ImageView>
-
         <TextView
             android:id="@+id/ownersName"
             android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_height="30dp"
             android:layout_marginRight="150dp"
             android:layout_weight="1"
-            android:padding="3dp"
+            android:padding="1dp"
+            android:layout_gravity="center"
             android:text="Owners Name"
-            android:textSize="20sp">
+            android:textSize="18sp">
 
         </TextView>
 

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.volkankelleci.petsocialclub.MainFragment"
+        android:name="com.volkankelleci.petsocialclub.navbotviews.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.volkankelleci.petsocialclub.SignUpFragment"
+        android:name="com.volkankelleci.petsocialclub.navbotviews.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action

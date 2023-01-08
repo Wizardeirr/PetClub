@@ -11,9 +11,7 @@ import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.adapter.UserRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.util.Post
-import com.volkankelleci.petsocialclub.util.UserProfileInput
 import com.volkankelleci.petsocialclub.util.Util.auth
-import kotlinx.android.synthetic.main.fragment_profile_fill.*
 import kotlinx.android.synthetic.main.fragment_users_home.*
 
 class UsersHomeFragment : Fragment() {
@@ -25,7 +23,7 @@ class UsersHomeFragment : Fragment() {
     private lateinit var recyclerViewAdapter:UserRecyclerAdapter
 
     var postList=ArrayList<Post>()
-    var userInfoList=ArrayList<UserProfileInput>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -48,10 +46,9 @@ class UsersHomeFragment : Fragment() {
         }
         //User Name Save
         takesData()
-        takesProfileInfosData()
         val layoutManager=LinearLayoutManager(activity)
         usersHomeFragmentRecycler.layoutManager=layoutManager
-        recyclerViewAdapter=UserRecyclerAdapter(postList,userInfoList)
+        recyclerViewAdapter=UserRecyclerAdapter(postList)
         usersHomeFragmentRecycler.adapter=recyclerViewAdapter
 
 
@@ -107,8 +104,9 @@ class UsersHomeFragment : Fragment() {
                             val userTitle=document.get("usertitle").toString()
                             val userComment=document.get("usercomment").toString()
                             val userImage=document.get("imageurl").toString()
+                            val userEmail=document.get("useremail").toString()
 
-                            val downloadInfos=Post(userTitle,userComment,userImage)
+                            val downloadInfos=Post(userTitle,userComment,userImage,userEmail)
                             postList.add(downloadInfos)
 
                         }
@@ -117,35 +115,7 @@ class UsersHomeFragment : Fragment() {
                 }
         }
     }
-    fun takesProfileInfosData(){
-        database.collection("UserProfileInfos")
-            .addSnapshotListener { value, error ->
-                if(error!=null){
-                }else
-                    if (value!=null){
-                        if (value.isEmpty==false){
-                            val documents=value.documents
-                            userInfoList.clear()
-                            for (document in documents){
-                                document.get("UserProfileInfos")
-                                val ownerName=document.get("ownerName").toString()
-                                val petAge=document.get("petAge").toString()
-                                val petGender=document.get("petGender").toString()
-                                val petKg=document.get("petKg").toString()
-                                val petName=document.get("petName").toString()
-                                val petSpecies=document.get("petSpecies").toString()
-                                val vaccineInfo=document.get("vaccineInfo").toString()
-                                val petImage=document.get("petImage").toString()
 
-
-                                val downloadInfos= UserProfileInput(ownerName,petAge,petGender,petKg,petName,petSpecies,vaccineInfo,petImage)
-                                userInfoList.add(downloadInfos)
-                            }
-                            recyclerViewAdapter.notifyDataSetChanged()
-                        }
-                    }
-            }
-    }
 
 
 }

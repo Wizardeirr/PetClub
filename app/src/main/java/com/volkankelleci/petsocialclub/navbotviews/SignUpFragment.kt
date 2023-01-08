@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub
+package com.volkankelleci.petsocialclub.navbotviews
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.volkankelleci.petsocialclub.R
 
 import kotlinx.android.synthetic.main.fragment_sign_up.*
 import kotlinx.coroutines.CoroutineScope
