@@ -78,16 +78,6 @@ class UsersHomeFragment : Fragment() {
             val action3 = UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
             findNavController().navigate(action3)
         }
-        if (item.itemId == R.id.createButton) {
-            val action4 = UsersHomeFragmentDirections.actionUsersHomeFragmentToProfileFillFragment()
-            findNavController().navigate(action4)
-
-
-        }
-        if (item.itemId == R.id.profileButton) {
-            val action5 = UsersHomeFragmentDirections.actionUsersHomeFragmentToProfileFragment()
-            findNavController().navigate(action5)
-        }
         return super.onOptionsItemSelected(item)
     }
      fun takesData(){
