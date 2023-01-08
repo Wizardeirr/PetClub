@@ -69,6 +69,7 @@ class ProfileFragment : Fragment() {
                             UserProfileInfos.clear()
                             for (document in documents){
                                 document.get("Post")
+                                val petImage=document.get("petImage").toString()
                                 val ownerName=document.get("ownerName").toString()
                                 val petAge=document.get("petAge").toString()
                                 val petGender=document.get("petGender").toString()
@@ -78,7 +79,7 @@ class ProfileFragment : Fragment() {
                                 val vaccineInfo=document.get("vaccineInfo").toString()
 
 
-                                val downloadInfos= UserProfileInput(ownerName,petAge,petGender,petKg,petName,petSpecies,vaccineInfo,)
+                                val downloadInfos= UserProfileInput(ownerName,petAge,petGender,petKg,petName,petSpecies,vaccineInfo,petImage)
                                 UserProfileInfos.add(downloadInfos)
 
 

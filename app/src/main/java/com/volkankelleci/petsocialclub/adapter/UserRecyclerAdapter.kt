@@ -31,6 +31,8 @@ class UserRecyclerAdapter(val postList:ArrayList<Post>,val userInputList:ArrayLi
 
         holder.itemView.petImageRecycler.downloadImageToRecycler(postList[position].userImage,
             createPlaceHolder(holder.itemView.context))
+        holder.itemView.userSmallPP.downloadImageToRecycler(userInputList[position].userPetImage,
+            createPlaceHolder(holder.itemView.context))
 
     }
 

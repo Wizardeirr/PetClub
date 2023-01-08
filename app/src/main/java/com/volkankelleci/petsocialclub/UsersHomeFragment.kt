@@ -13,6 +13,7 @@ import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.util.Post
 import com.volkankelleci.petsocialclub.util.UserProfileInput
 import com.volkankelleci.petsocialclub.util.Util.auth
+import kotlinx.android.synthetic.main.fragment_profile_fill.*
 import kotlinx.android.synthetic.main.fragment_users_home.*
 
 class UsersHomeFragment : Fragment() {
@@ -134,9 +135,10 @@ class UsersHomeFragment : Fragment() {
                                 val petName=document.get("petName").toString()
                                 val petSpecies=document.get("petSpecies").toString()
                                 val vaccineInfo=document.get("vaccineInfo").toString()
+                                val petImage=document.get("petImage").toString()
 
 
-                                val downloadInfos= UserProfileInput(ownerName,petAge,petGender,petKg,petName,petSpecies,vaccineInfo,)
+                                val downloadInfos= UserProfileInput(ownerName,petAge,petGender,petKg,petName,petSpecies,vaccineInfo,petImage)
                                 userInfoList.add(downloadInfos)
                             }
                             recyclerViewAdapter.notifyDataSetChanged()

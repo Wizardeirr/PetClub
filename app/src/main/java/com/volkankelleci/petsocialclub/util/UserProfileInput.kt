@@ -8,7 +8,7 @@ class UserProfileInput(
     var userPetName:String,
     var userPetSpecies:String,
     var userVaccineInfo:String,
-
+    var userPetImage:String
 
     ) {
 }
