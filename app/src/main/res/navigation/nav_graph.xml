@@ -38,7 +38,7 @@
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.volkankelleci.petsocialclub.MessageFragment"
+        android:name="com.volkankelleci.petsocialclub.doneviews.MessageFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" >
         <action
@@ -47,7 +47,7 @@
     </fragment>
     <fragment
         android:id="@+id/usersHomeFragment"
-        android:name="com.volkankelleci.petsocialclub.UsersHomeFragment"
+        android:name="com.volkankelleci.petsocialclub.doneviews.UsersHomeFragment"
         android:label="fragment_users_home"
         tools:layout="@layout/fragment_users_home" >
         <action

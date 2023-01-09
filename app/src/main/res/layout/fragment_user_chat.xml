@@ -8,7 +8,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/userChatRV"
         android:layout_width="408dp"
         android:layout_height="538dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/userChatText"
         android:layout_width="322dp"
         android:layout_height="45dp"
         android:layout_marginBottom="4dp"

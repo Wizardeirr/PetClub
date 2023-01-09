@@ -6,11 +6,10 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
-import com.volkankelleci.petsocialclub.UsersHomeFragmentDirections
+import com.volkankelleci.petsocialclub.doneviews.UsersHomeFragmentDirections
 import com.volkankelleci.petsocialclub.util.Post
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
-import kotlinx.android.synthetic.main.fragment_users_home.view.*
 import kotlinx.android.synthetic.main.recycler_raw.view.*
 
 class UserRecyclerAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<UserRecyclerAdapter.UserViewHolder>() {

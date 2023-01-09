@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.volkankelleci.petsocialclub.R
 
@@ -15,6 +16,7 @@ object Util {
      var auth: FirebaseAuth= FirebaseAuth.getInstance()
      var storage:FirebaseStorage=FirebaseStorage.getInstance()
      var database:FirebaseFirestore=FirebaseFirestore.getInstance()
+
 
      fun ImageView.downloadImageToRecycler(url:String,placeholder:CircularProgressDrawable){
           val options=RequestOptions().placeholder(placeholder).error(R.mipmap.ic_launcher_round)
