@@ -3,11 +3,14 @@ package com.volkankelleci.petsocialclub.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
+import com.volkankelleci.petsocialclub.UsersHomeFragmentDirections
 import com.volkankelleci.petsocialclub.util.Post
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
+import kotlinx.android.synthetic.main.fragment_users_home.view.*
 import kotlinx.android.synthetic.main.recycler_raw.view.*
 
 class UserRecyclerAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<UserRecyclerAdapter.UserViewHolder>() {
@@ -22,11 +25,17 @@ class UserRecyclerAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<Us
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+
         holder.itemView.titleRecycler.text=postList[position].userTitle
         holder.itemView.commentRecycler.text=postList[position].userComment
         holder.itemView.ownersName.text=postList[position].userEmail
+        holder.itemView.petImageRecycler.setOnClickListener {
+            val action=UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
+            Navigation.findNavController(it).navigate(action)
+        }
         holder.itemView.petImageRecycler.downloadImageToRecycler(postList[position].userImage,
             createPlaceHolder(holder.itemView.context))
+
 
     }
 

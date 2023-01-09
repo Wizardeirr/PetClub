@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.navbotviews
+package com.volkankelleci.petsocialclub.doneviews
 
 import android.content.Intent
 import android.os.Bundle
