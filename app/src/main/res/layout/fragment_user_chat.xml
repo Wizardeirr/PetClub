@@ -34,7 +34,7 @@
         android:layout_marginBottom="4dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="Write your message"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/sendButton"
         app:layout_constraintHorizontal_bias="1.0"
