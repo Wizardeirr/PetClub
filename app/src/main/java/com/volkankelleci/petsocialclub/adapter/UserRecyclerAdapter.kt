@@ -29,7 +29,7 @@ class UserRecyclerAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<Us
         holder.itemView.titleRecycler.text=postList[position].userTitle
         holder.itemView.commentRecycler.text=postList[position].userComment
         holder.itemView.ownersName.text=postList[position].userEmail
-        holder.itemView.petImageRecycler.setOnClickListener {
+        holder.itemView.sendMessageRecycler.setOnClickListener {
             val action=UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
             Navigation.findNavController(it).navigate(action)
         }
