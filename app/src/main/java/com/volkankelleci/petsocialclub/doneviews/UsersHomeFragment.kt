@@ -101,8 +101,9 @@ class UsersHomeFragment : Fragment() {
                             postList.add(downloadInfos)
 
                         }
-                        recyclerViewAdapter.notifyDataSetChanged()
+
                     }
+                    recyclerViewAdapter.notifyDataSetChanged()
                 }
         }
     }
