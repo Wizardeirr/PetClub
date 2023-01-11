@@ -81,9 +81,8 @@ class UserChatFragment : Fragment() {
             }
             else{
                 if (value!=null){
-                    if (value.isEmpty){
-                        Toast.makeText(requireContext(), "Please Try Again", Toast.LENGTH_SHORT).show()
-                    }else{
+                    if (value.isEmpty==false){
+
                         val documents=value.documents
                         chats.clear()
                         for (document in documents){
