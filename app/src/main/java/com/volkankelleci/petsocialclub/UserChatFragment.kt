@@ -19,6 +19,7 @@ import com.volkankelleci.petsocialclub.util.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.chat_recycler_raw.*
 import kotlinx.android.synthetic.main.fragment_user_chat.*
+import java.sql.Time
 import java.text.SimpleDateFormat
 
 
@@ -52,7 +53,7 @@ class UserChatFragment : Fragment() {
 
         val layoutManager=LinearLayoutManager(activity)
         userChatRV.layoutManager=layoutManager
-        adapter= ChatRecyclerAdapter(chats)
+        adapter= ChatRecyclerAdapter()
         userChatRV.adapter=adapter
 
 
@@ -89,17 +90,16 @@ class UserChatFragment : Fragment() {
                     }else{
                         val documents=value.documents
                         chats.clear()
-
-
                         for (document in documents){
                             document.get("Chats")
                             val text=document.get("chatGText").toString()
                             val date=document.get("chatGDate").toString()
                             val user=document.get("chatGUser").toString()
-                            println(date)
 
                             val chat=ChatData(text,user,date)
                             chats.add(chat)
+                            adapter.chats=chats
+
 
                         }
 
@@ -113,9 +113,7 @@ class UserChatFragment : Fragment() {
 
 }
 
-    fun getTimeStamp(seconds :number,anoseconds:number) : Timestamp{
 
-    }
 
 
 }
