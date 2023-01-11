@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/chatrecyclerrawCL"
-    android:layout_height="75dp">
+    android:layout_height="58dp"
+    android:layout_margin="3dp">
 
     <TextView
         android:id="@+id/chatTV"
-        android:layout_width="377dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="388dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
         android:gravity=""
         android:text="TextView"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
