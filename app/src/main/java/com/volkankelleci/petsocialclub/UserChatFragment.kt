@@ -49,7 +49,9 @@ class UserChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        userChatRV.postDelayed({
+            userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
+        }, 100)
         userChatText.setOnClickListener {
             userChatRV.postDelayed({
                 userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
