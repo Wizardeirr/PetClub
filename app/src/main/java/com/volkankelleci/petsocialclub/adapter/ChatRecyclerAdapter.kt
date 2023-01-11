@@ -37,7 +37,7 @@ class ChatRecyclerAdapter(): RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecycl
     override fun getItemViewType(position: Int): Int {
 
         val chat=chats.get(position)
-        if (chat.chatUser== auth.currentUser.toString()){
+        if (chat.chatUser== auth.currentUser?.email.toString()){
             return WRITER_USER
         }else {
             return ANSWER_USER
