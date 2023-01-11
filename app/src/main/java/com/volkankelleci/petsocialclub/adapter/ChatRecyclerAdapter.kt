@@ -44,6 +44,7 @@ class ChatRecyclerAdapter(): RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecycl
         }
 
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatRecyclerViewHolder {
 
         if (viewType==WRITER_USER){
@@ -65,5 +66,7 @@ class ChatRecyclerAdapter(): RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecycl
     override fun getItemCount(): Int {
         return chats.size
     }
+
+
 
 }
