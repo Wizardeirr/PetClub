@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -17,10 +16,7 @@ import com.volkankelleci.petsocialclub.adapter.ChatRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
 import com.volkankelleci.petsocialclub.util.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
-import kotlinx.android.synthetic.main.chat_recycler_raw.*
 import kotlinx.android.synthetic.main.fragment_user_chat.*
-import java.sql.Time
-import java.text.SimpleDateFormat
 
 
 class UserChatFragment : Fragment() {
