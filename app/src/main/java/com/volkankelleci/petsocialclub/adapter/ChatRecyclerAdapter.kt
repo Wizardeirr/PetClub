@@ -21,7 +21,10 @@ class ChatRecyclerAdapter (val chatList:ArrayList<ChatData>): RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: ChatRecyclerViewHolder, position: Int) {
-    holder.itemView.chatTV.text=chatList[position].chatText
+        holder.itemView.chatTV.text=chatList[position].chatText
+        holder.itemView.dateTV.text=chatList[position].timeDate.toString()
+
+
 
     }
 

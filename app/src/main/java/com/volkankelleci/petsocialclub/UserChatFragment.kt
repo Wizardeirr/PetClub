@@ -7,18 +7,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.adapter.ChatRecyclerAdapter
-import com.volkankelleci.petsocialclub.adapter.UserRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
 import com.volkankelleci.petsocialclub.util.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
+import kotlinx.android.synthetic.main.chat_recycler_raw.*
 import kotlinx.android.synthetic.main.fragment_user_chat.*
-import kotlinx.android.synthetic.main.fragment_users_home.*
+import java.text.SimpleDateFormat
+
 
 class UserChatFragment : Fragment() {
     private var _binding: FragmentUserChatBinding? = null
@@ -60,6 +62,7 @@ class UserChatFragment : Fragment() {
             val gdate=FieldValue.serverTimestamp()
 
 
+
             val chatDataMap=HashMap<String,Any>()
             chatDataMap.put("chatGText",gUserChatText)
             chatDataMap.put("chatGUser",gUser)
@@ -86,11 +89,16 @@ class UserChatFragment : Fragment() {
                     }else{
                         val documents=value.documents
                         chats.clear()
+
+
                         for (document in documents){
                             document.get("Chats")
                             val text=document.get("chatGText").toString()
+                            val date=document.get("chatGDate").toString()
+                            val user=document.get("chatGUser").toString()
+                            println(date)
 
-                            val chat=ChatData(text)
+                            val chat=ChatData(text,user,date)
                             chats.add(chat)
 
                         }
@@ -104,6 +112,10 @@ class UserChatFragment : Fragment() {
         }
 
 }
+
+    fun getTimeStamp(seconds :number,anoseconds:number) : Timestamp{
+
+    }
 
 
 }
