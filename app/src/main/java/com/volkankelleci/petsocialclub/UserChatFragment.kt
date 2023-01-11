@@ -50,14 +50,16 @@ class UserChatFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        userChatText.setOnClickListener {
+            userChatRV.postDelayed({
+                userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
+            }, 100)
+        }
+
         val layoutManager = LinearLayoutManager(activity)
         userChatRV.layoutManager = layoutManager
         adapter = ChatRecyclerAdapter()
         userChatRV.adapter = adapter
-
-
-
-
 
         binding.sendButton.setOnClickListener {
             val gUserChatText = userChatText.text.toString()
@@ -80,7 +82,7 @@ class UserChatFragment : Fragment() {
 
 
         }
-        scrollToBottom(userChatRV)
+
         firestore.collection("Chats").orderBy("chatGDate", Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
@@ -109,6 +111,8 @@ class UserChatFragment : Fragment() {
                     }
                 }
             }
+
+
     }
 
     private fun scrollToBottom(recyclerView: RecyclerView) {
@@ -125,4 +129,5 @@ class UserChatFragment : Fragment() {
             }
         }
     }
+
 }
