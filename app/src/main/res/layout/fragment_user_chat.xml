@@ -9,8 +9,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userChatRV"
-        android:layout_width="388dp"
-        android:layout_height="664dp"
+        android:layout_width="401dp"
+        android:layout_height="545dp"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
