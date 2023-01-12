@@ -7,17 +7,28 @@
         android:icon="@drawable/home_icon"
         android:title="Home"
         app:showAsAction="ifRoom">
+
     </item>
     <item
         android:id="@+id/messageButton"
         android:icon="@drawable/group_chat"
-        android:title="Message"
+        android:title="GroupMessage"
         app:showAsAction="ifRoom">
+
     </item>
+    <item
+        android:id="@+id/privateMessage"
+        android:icon="@drawable/message_icon"
+        android:title="Private Message"
+        app:showAsAction="ifRoom">
+
+    </item>
+
     <item
         android:id="@+id/logOutButton"
         android:icon="@drawable/profile_icon"
-        android:title="Log Out"
-        >
+        android:title="Log Out">
+
     </item>
-    </menu>
+
+</menu>
