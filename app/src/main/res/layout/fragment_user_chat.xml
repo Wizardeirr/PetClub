@@ -9,9 +9,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userChatRV"
-        android:layout_width="408dp"
-
-        android:layout_height="538dp"
+        android:layout_width="388dp"
+        android:layout_height="664dp"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,10 +19,10 @@
 
     <ImageView
         android:id="@+id/sendButton"
-        android:layout_width="67dp"
-        android:layout_height="47dp"
+        android:layout_width="62dp"
+        android:layout_height="39dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="16dp"
         android:src="@drawable/send_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,9 +30,9 @@
 
     <EditText
         android:id="@+id/userChatText"
-        android:layout_width="322dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="317dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
         android:hint="Write your message"
         android:inputType="textPersonName"

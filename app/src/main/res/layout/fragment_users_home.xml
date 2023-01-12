@@ -20,9 +20,9 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="408dp"
         android:id="@+id/usersHomeFragmentRecycler"
-        android:layout_height="603dp"
+        android:layout_width="387dp"
+        android:layout_height="716dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

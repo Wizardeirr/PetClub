@@ -9,52 +9,53 @@
 
     <ImageView
         android:id="@+id/selectImage"
-        android:layout_width="385dp"
-        android:layout_height="285dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="341dp"
+        android:layout_height="271dp"
+        android:layout_marginTop="44dp"
         android:src="@drawable/cool"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/shareButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="SHARE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commentText" />
+
+    <EditText
+        android:id="@+id/commentText"
+        android:layout_width="372dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="What You Need?"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText" />
+
     <EditText
         android:id="@+id/titleText"
-        android:layout_width="386dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="371dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
+
         android:hint="Title"
         android:inputType="textPersonName"
         android:text=""
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectImage" />
 
-    <EditText
-        android:id="@+id/commentText"
-        android:layout_width="386dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="What You Need?"
-        android:inputType="textPersonName"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleText" />
-
-    <Button
-        android:id="@+id/shareButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="SHARE"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/commentText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

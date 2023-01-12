@@ -14,24 +14,21 @@
 
         <TextView
             android:id="@+id/ownersName"
-            android:layout_width="150dp"
+            android:layout_width="189dp"
             android:layout_height="30dp"
-            android:layout_marginRight="150dp"
-            android:layout_weight="1"
-            android:padding="1dp"
             android:layout_gravity="center"
-            android:text="Owners Name"
-            android:textSize="24sp">
+            android:layout_marginRight="150dp"
 
+            android:padding="1dp"
+            android:text="Owners Name"
+            android:textSize="20sp">
         </TextView>
 
         <ImageView
             android:id="@+id/sendMessageRecycler"
-            android:layout_width="match_parent"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
-            android:layout_weight="90"
-            android:layout_marginLeft="20dp"
             android:src="@drawable/send_icon">
 
         </ImageView>
@@ -55,8 +52,8 @@
 
         <TextView
             android:id="@+id/titleRecycler"
-            android:layout_width="392dp"
-            android:layout_height="51dp"
+            android:layout_width="361dp"
+            android:layout_height="50dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:padding="3dp"
@@ -67,8 +64,8 @@
 
         <TextView
             android:id="@+id/commentRecycler"
-            android:layout_width="392dp"
-            android:layout_height="49dp"
+            android:layout_width="372dp"
+            android:layout_height="48dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:padding="3dp"

@@ -24,7 +24,6 @@
         android:id="@+id/dateTV"
         android:layout_width="374dp"
         android:layout_height="25dp"
-        android:layout_marginStart="16dp"
         android:text="DATE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

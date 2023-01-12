@@ -16,6 +16,7 @@
         android:hint="Username"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -28,6 +29,7 @@
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.41"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userLog" />
 
@@ -35,6 +37,7 @@
         android:id="@+id/imageView"
         android:layout_width="109dp"
         android:layout_height="141dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -47,17 +50,20 @@
         android:layout_marginTop="24dp"
         android:text="Log In"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordLog" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="144dp"
+        android:layout_width="172dp"
         android:layout_height="24dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="72dp"
+        android:gravity="center"
         android:text="Don't have an account?"
+        android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/signUpText"
-        app:layout_constraintHorizontal_bias="0.929"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/googleSign" />
 
@@ -65,9 +71,10 @@
         android:id="@+id/signUpText"
         android:layout_width="54dp"
         android:layout_height="24dp"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="92dp"
         android:text="Sign Up"
+        android:gravity="center"
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -82,19 +89,19 @@
         android:text="For Your Pet's Social Life"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.875" />
 
     <ImageView
         android:id="@+id/googleSign"
         android:layout_width="341dp"
         android:layout_height="46dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/google"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />
 
