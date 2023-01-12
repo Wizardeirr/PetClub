@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.firebase.ui.auth.data.model.User
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.R
@@ -78,6 +79,11 @@ class UsersHomeFragment : Fragment() {
         if (item.itemId == R.id.messageButton) {
             val action3 = UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
             findNavController().navigate(action3)
+        }
+        if(item.itemId==R.id.privateMessage){
+            val action4 = UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateChatFragment()
+            findNavController().navigate(action4)
+
         }
         return super.onOptionsItemSelected(item)
     }

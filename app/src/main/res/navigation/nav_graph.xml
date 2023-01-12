@@ -27,16 +27,6 @@
             app:destination="@id/mainFragment" />
     </fragment>
     <fragment
-        android:id="@+id/profileFillFragment"
-        android:name="com.volkankelleci.petsocialclub.profileviewfills.ProfileFillFragment"
-        android:label="fragment_profile_fill"
-        tools:layout="@layout/fragment_profile_fill" />
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.volkankelleci.petsocialclub.navbotviews.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
-    <fragment
         android:id="@+id/messageFragment"
         android:name="com.volkankelleci.petsocialclub.doneviews.MessageFragment"
         android:label="fragment_message"
@@ -50,9 +40,6 @@
         android:name="com.volkankelleci.petsocialclub.doneviews.UsersHomeFragment"
         android:label="fragment_users_home"
         tools:layout="@layout/fragment_users_home" >
-        <action
-            android:id="@+id/action_usersHomeFragment_to_profileFillFragment"
-            app:destination="@id/profileFillFragment" />
         <action
             android:id="@+id/action_usersHomeFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
@@ -68,10 +55,18 @@
         <action
             android:id="@+id/action_usersHomeFragment_to_userChatFragment"
             app:destination="@id/userChatFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_to_privateChatFragment"
+            app:destination="@id/privateChatFragment" />
     </fragment>
     <fragment
         android:id="@+id/userChatFragment"
         android:name="com.volkankelleci.petsocialclub.UserChatFragment"
         android:label="fragment_user_chat"
         tools:layout="@layout/fragment_user_chat" />
+    <fragment
+        android:id="@+id/privateChatFragment"
+        android:name="com.volkankelleci.petsocialclub.PrivateChatFragment"
+        android:label="fragment_private_chat"
+        tools:layout="@layout/fragment_private_chat" />
 </navigation>
