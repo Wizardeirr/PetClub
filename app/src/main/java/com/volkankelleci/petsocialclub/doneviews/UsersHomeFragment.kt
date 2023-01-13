@@ -80,7 +80,7 @@ class UsersHomeFragment : Fragment() {
             val action3 = UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
             findNavController().navigate(action3)
         }
-        if(item.itemId==R.id.privateMessage){
+        if(item.itemId==R.id.privateMessageButton){
             val action4 = UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateChatFragment()
             findNavController().navigate(action4)
 

@@ -17,7 +17,7 @@
 
     </item>
     <item
-        android:id="@+id/privateMessage"
+        android:id="@+id/privateMessageButton"
         android:icon="@drawable/message_icon"
         android:title="Private Message"
         app:showAsAction="ifRoom">
@@ -27,7 +27,8 @@
     <item
         android:id="@+id/logOutButton"
         android:icon="@drawable/profile_icon"
-        android:title="Log Out">
+        android:title="Log Out"
+        app:showAsAction="ifRoom">
 
     </item>
 
