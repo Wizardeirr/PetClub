@@ -8,9 +8,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.R
+import com.volkankelleci.petsocialclub.util.Util
+import com.volkankelleci.petsocialclub.util.Util.database
 
 import kotlinx.android.synthetic.main.fragment_sign_up.*
+import kotlinx.android.synthetic.main.fragment_user_chat.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,8 +27,10 @@ import kotlinx.coroutines.withContext
 
 class SignUpFragment : Fragment() {
     lateinit var auth: FirebaseAuth
+    private lateinit var firestore: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        firestore = Firebase.firestore
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,14 +53,33 @@ class SignUpFragment : Fragment() {
     fun signUser() {
         val email = userSign.text.toString()
         val password = passwordSign.text.toString()
+        val uuid=auth.uid?:""
+        val ref=FirebaseDatabase.getInstance().getReference("UserInfo")
+
+
+
+        val userInfoMap = HashMap<String, Any>()
+        userInfoMap.put("userEmail", email)
+        userInfoMap.put("userUUID", uuid)
+
+
+        firestore.collection("UserInfo").add(userInfoMap).addOnSuccessListener {
+
+        }.addOnFailureListener {
+            Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+
+        }
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     auth.createUserWithEmailAndPassword(email, password).await()
+
+
                     withContext(Dispatchers.Main) {
                         checkLoggedInState()
                     }
+
 
                 } catch (e: Exception) {
                     e.printStackTrace()

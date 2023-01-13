@@ -24,6 +24,7 @@ class PrivateChatAdapter: RecyclerView.Adapter<PrivateChatAdapter.PrivateChatAda
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+
+        return 5
     }
 }

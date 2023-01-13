@@ -1,17 +1,22 @@
 package com.volkankelleci.petsocialclub
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.volkankelleci.petsocialclub.databinding.FragmentMessageBinding
-import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatBinding
+import com.volkankelleci.petsocialclub.util.Util.auth
 
 class PrivateChatFragment : Fragment() {
 
-    private  var _binding:FragmentUserChatBinding?=null
+    private  var _binding:FragmentPrivateChatBinding?=null
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,14 +25,35 @@ class PrivateChatFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentUserChatBinding.inflate(inflater, container, false)
+        _binding = FragmentPrivateChatBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        listAllUserUUID()
 
+
+    }
+    private fun listAllUserUUID(){
+        val uid = auth.uid
+        println(uid)
+
+
+        val refFromUUID=FirebaseDatabase.getInstance().getReference("${uid}")
+        refFromUUID.addListenerForSingleValueEvent(object:ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                snapshot.children.forEach {
+                    Toast.makeText(requireContext(), "DONE", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+        })
 
     }
 }
