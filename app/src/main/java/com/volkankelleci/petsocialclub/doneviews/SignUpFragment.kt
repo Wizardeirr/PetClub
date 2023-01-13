@@ -26,6 +26,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.*
 import kotlin.collections.HashMap
+import kotlin.math.sign
 
 class SignUpFragment : Fragment() {
     lateinit var auth: FirebaseAuth
@@ -66,6 +67,7 @@ class SignUpFragment : Fragment() {
 
                     withContext(Dispatchers.Main) {
                         checkLoggedInState()
+                        userInfoTake()
                     }
 
 
@@ -78,11 +80,29 @@ class SignUpFragment : Fragment() {
     }
     private fun checkLoggedInState() {
         if (auth.currentUser == null) {
+
             Toast.makeText(context, "SIGN IS UNSUCCESS", Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
         }
 
     }
+    private fun userInfoTake(){
+        val userUUID= Util.auth.currentUser!!.uid
+        val userEmail= Util.auth.currentUser!!.email.toString()
+
+        val userInfoMap = HashMap<String, Any>()
+
+        userInfoMap.put("userUUID", userUUID)
+        userInfoMap.put("userEmail", userEmail)
+
+        database.collection("UserInfo").add(userInfoMap).addOnSuccessListener {
+            Toast.makeText(requireContext(), "UUID TOOK", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+
+        }
+    }
+
 
 }
