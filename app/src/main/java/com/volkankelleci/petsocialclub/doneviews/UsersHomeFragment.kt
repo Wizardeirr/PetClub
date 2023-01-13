@@ -40,6 +40,7 @@ class UsersHomeFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        userInfoTake()
 
         fab.setOnClickListener {
             val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
@@ -111,6 +112,23 @@ class UsersHomeFragment : Fragment() {
                     }
                     recyclerViewAdapter.notifyDataSetChanged()
                 }
+        }
+    }
+    private fun userInfoTake(){
+
+        val userUUID=auth.currentUser!!.uid
+        val userEmail=auth.currentUser!!.email
+        val userInfoMap = HashMap<String, Any>()
+
+        userInfoMap.put("userUUID", userUUID)
+        userInfoMap.put("userEmail", userEmail!!)
+
+
+        database.collection("UserInfo").add(userInfoMap).addOnSuccessListener {
+            Toast.makeText(requireContext(), "UUID TOOK", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+
         }
     }
 

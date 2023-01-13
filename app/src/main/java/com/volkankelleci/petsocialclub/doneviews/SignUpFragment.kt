@@ -24,6 +24,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import java.util.*
+import kotlin.collections.HashMap
 
 class SignUpFragment : Fragment() {
     lateinit var auth: FirebaseAuth
@@ -51,30 +53,14 @@ class SignUpFragment : Fragment() {
         }
     }
     fun signUser() {
+
         val email = userSign.text.toString()
         val password = passwordSign.text.toString()
-        val uuid=auth.uid?:""
-        val ref=FirebaseDatabase.getInstance().getReference("UserInfo")
-
-
-
-        val userInfoMap = HashMap<String, Any>()
-        userInfoMap.put("userEmail", email)
-        userInfoMap.put("userUUID", uuid)
-
-
-        firestore.collection("UserInfo").add(userInfoMap).addOnSuccessListener {
-
-        }.addOnFailureListener {
-            Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
-
-        }
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
                     auth.createUserWithEmailAndPassword(email, password).await()
-
 
                     withContext(Dispatchers.Main) {
                         checkLoggedInState()
