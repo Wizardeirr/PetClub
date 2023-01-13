@@ -13,6 +13,7 @@ import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.adapter.UserRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.util.Post
+import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.fragment_users_home.*
 
@@ -40,8 +41,8 @@ class UsersHomeFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        userInfoTake()
 
+        userInfoTake()
         fab.setOnClickListener {
             val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
             findNavController().navigate(action)
@@ -115,22 +116,21 @@ class UsersHomeFragment : Fragment() {
         }
     }
     private fun userInfoTake(){
-
-        val userUUID=auth.currentUser!!.uid
-        val userEmail=auth.currentUser!!.email
+        val userUUID= Util.auth.currentUser!!.uid
+        val userEmail= Util.auth.currentUser!!.email
         val userInfoMap = HashMap<String, Any>()
 
         userInfoMap.put("userUUID", userUUID)
         userInfoMap.put("userEmail", userEmail!!)
 
-
-        database.collection("UserInfo").add(userInfoMap).addOnSuccessListener {
+        Util.database.collection("UserInfo").add(userInfoMap).addOnSuccessListener {
             Toast.makeText(requireContext(), "UUID TOOK", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
             Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
 
         }
     }
+
 
 
 

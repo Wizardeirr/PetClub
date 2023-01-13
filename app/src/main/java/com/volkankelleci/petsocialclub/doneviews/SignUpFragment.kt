@@ -50,7 +50,9 @@ class SignUpFragment : Fragment() {
             Toast.makeText(context, "Sign is Success", Toast.LENGTH_LONG).show()
             val action = SignUpFragmentDirections.actionSignUpFragmentToMainFragment()
             findNavController().navigate(action)
+
         }
+
     }
     fun signUser() {
 
@@ -82,4 +84,5 @@ class SignUpFragment : Fragment() {
         }
 
     }
+
 }

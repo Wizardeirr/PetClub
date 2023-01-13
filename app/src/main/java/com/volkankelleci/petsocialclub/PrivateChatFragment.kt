@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatBinding
+import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
 
 class PrivateChatFragment : Fragment() {
@@ -38,8 +39,6 @@ class PrivateChatFragment : Fragment() {
     }
     private fun listAllUserUUID(){
         val uid = auth.uid
-        println(uid)
-
 
         val refFromUUID=FirebaseDatabase.getInstance().getReference("${uid}")
         refFromUUID.addListenerForSingleValueEvent(object:ValueEventListener{
@@ -56,4 +55,5 @@ class PrivateChatFragment : Fragment() {
         })
 
     }
+
 }
