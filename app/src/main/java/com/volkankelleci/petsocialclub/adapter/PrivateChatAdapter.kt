@@ -5,8 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
+import com.volkankelleci.petsocialclub.util.UserInfo
+import kotlinx.android.synthetic.main.private_chat_raw.view.*
 
-class PrivateChatAdapter: RecyclerView.Adapter<PrivateChatAdapter.PrivateChatAdapterViewHolder>() {
+class PrivateChatAdapter(val userList:ArrayList<UserInfo>): RecyclerView.Adapter<PrivateChatAdapter.PrivateChatAdapterViewHolder>() {
     class PrivateChatAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
@@ -20,11 +22,14 @@ class PrivateChatAdapter: RecyclerView.Adapter<PrivateChatAdapter.PrivateChatAda
     }
 
     override fun onBindViewHolder(holder: PrivateChatAdapterViewHolder, position: Int) {
+        holder.itemView.userEmail.text=userList[position].userEmail
+        holder.itemView.userUUID.text=userList[position].uuid
+
 
     }
 
     override fun getItemCount(): Int {
 
-        return 5
+        return userList.size
     }
 }

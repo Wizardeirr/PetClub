@@ -116,12 +116,13 @@ class UsersHomeFragment : Fragment() {
         }
     }
     private fun userInfoTake(){
-        val userUUID= Util.auth.currentUser!!.uid
-        val userEmail= Util.auth.currentUser!!.email
+        val userUUID= auth.currentUser!!.uid
+        val userEmail= auth.currentUser!!.email.toString()
+
         val userInfoMap = HashMap<String, Any>()
 
         userInfoMap.put("userUUID", userUUID)
-        userInfoMap.put("userEmail", userEmail!!)
+        userInfoMap.put("userEmail", userEmail)
 
         Util.database.collection("UserInfo").add(userInfoMap).addOnSuccessListener {
             Toast.makeText(requireContext(), "UUID TOOK", Toast.LENGTH_SHORT).show()

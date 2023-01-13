@@ -22,5 +22,15 @@
         android:textSize="24sp">
 
     </TextView>
+    <TextView
+        android:id="@+id/userUUID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="TEST"
+        android:textSize="24sp">
+
+    </TextView>
+
 
 </LinearLayout>
