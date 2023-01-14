@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.R
+import com.volkankelleci.petsocialclub.databinding.FragmentSignUpBinding
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.database
 
@@ -31,6 +32,8 @@ import kotlin.math.sign
 class SignUpFragment : Fragment() {
     lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
+    private var _binding:FragmentSignUpBinding?=null
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         firestore = Firebase.firestore
@@ -38,16 +41,19 @@ class SignUpFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         auth = FirebaseAuth.getInstance()
-        return inflater.inflate(R.layout.fragment_sign_up, container, false)
+        _binding=FragmentSignUpBinding.inflate(inflater,container,false)
+        val view=binding.root
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         signUpButton.setOnClickListener {
             signUser()
+
             Toast.makeText(context, "Sign is Success", Toast.LENGTH_LONG).show()
             val action = SignUpFragmentDirections.actionSignUpFragmentToMainFragment()
             findNavController().navigate(action)
@@ -60,14 +66,19 @@ class SignUpFragment : Fragment() {
         val email = userSign.text.toString()
         val password = passwordSign.text.toString()
 
+
+
         if (email.isNotEmpty() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
+
                     auth.createUserWithEmailAndPassword(email, password).await()
 
                     withContext(Dispatchers.Main) {
-                        checkLoggedInState()
                         userInfoTake()
+                        checkLoggedInState()
+
+
                     }
 
 
@@ -90,14 +101,16 @@ class SignUpFragment : Fragment() {
     private fun userInfoTake(){
         val userUUID= Util.auth.currentUser!!.uid
         val userEmail= Util.auth.currentUser!!.email.toString()
-
+        val userName= binding.userNameET.text.toString()
 
         val userInfoMap = HashMap<String, Any>()
 
         userInfoMap.put("userUUID", userUUID)
         userInfoMap.put("userEmail", userEmail)
+        userInfoMap.put("ffff", userName)
 
-        database.collection("UserInfo").add(userInfoMap).addOnSuccessListener {
+
+        database.collection("userProfileInfo").add(userInfoMap).addOnSuccessListener {
             Toast.makeText(requireContext(), "UUID TOOK", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
             Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()

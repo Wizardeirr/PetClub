@@ -8,48 +8,54 @@
 
 
     <EditText
-        android:id="@+id/userSign3"
+        android:id="@+id/userNameET"
         android:layout_width="372dp"
         android:layout_height="46dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="173dp" />
-
-
-    <EditText
-        android:id="@+id/userSign"
-        android:layout_width="372dp"
-        android:layout_height="46dp"
-        android:ems="10"
-        android:hint="E-mail"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="234dp" />
-
-    <Button
-        android:id="@+id/signUpButton"
-        android:layout_width="371dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="20dp"
-        android:text="SIGN UP"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordSign" />
+        app:layout_constraintTop_toBottomOf="@+id/signImageView" />
 
     <EditText
         android:id="@+id/passwordSign"
         android:layout_width="372dp"
         android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userSign" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="371dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="24dp"
+        android:text="SIGN UP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordSign" />
+
+    <EditText
+        android:id="@+id/userSign"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameET" />
 
     <ImageView
         android:id="@+id/signImageView"
