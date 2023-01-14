@@ -6,17 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".doneviews.MainFragment">
 
+
+    <EditText
+        android:id="@+id/userSign3"
+        android:layout_width="372dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="173dp" />
+
+
     <EditText
         android:id="@+id/userSign"
         android:layout_width="372dp"
         android:layout_height="46dp"
-        android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="E-mail"
         android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="234dp" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="371dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
+        android:text="SIGN UP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordSign" />
 
     <EditText
         android:id="@+id/passwordSign"
@@ -27,27 +47,19 @@
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userSign" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/signImageView"
         android:layout_width="109dp"
         android:layout_height="141dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
-
-    <Button
-        android:id="@+id/signUpButton"
-        android:layout_width="371dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="24dp"
-        android:text="SIGN UP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordSign" />
 
     <TextView
         android:id="@+id/textView2"

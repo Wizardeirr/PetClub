@@ -91,6 +91,7 @@ class SignUpFragment : Fragment() {
         val userUUID= Util.auth.currentUser!!.uid
         val userEmail= Util.auth.currentUser!!.email.toString()
 
+
         val userInfoMap = HashMap<String, Any>()
 
         userInfoMap.put("userUUID", userUUID)
