@@ -4,9 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.util.UserInfo
+import com.volkankelleci.petsocialclub.util.Util
+import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.private_chat_raw.view.*
+import kotlinx.android.synthetic.main.recycler_raw.view.*
 
 class PrivateChatAdapter(val userList:ArrayList<UserInfo>): RecyclerView.Adapter<PrivateChatAdapter.PrivateChatAdapterViewHolder>() {
     class PrivateChatAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -25,6 +29,9 @@ class PrivateChatAdapter(val userList:ArrayList<UserInfo>): RecyclerView.Adapter
         holder.itemView.userUUID.text=userList[position].uuid
         holder.itemView.userEmail.text=userList[position].userName
         holder.itemView.userPetName.text=userList[position].petName
+
+        holder.itemView.userImage.downloadImageToRecycler(userList[position].userImage,
+            Util.createPlaceHolder(holder.itemView.context))
 
 
 
