@@ -44,7 +44,7 @@ class PrivateChatFragment : Fragment() {
     }
 
     fun takesUserInfo(){
-        database.collection("UserInfo")
+        database.collection("userProfileInfo")
             .addSnapshotListener { value, error ->
                 if(error!=null){
                 }else
@@ -53,15 +53,13 @@ class PrivateChatFragment : Fragment() {
                             val documents=value.documents
                             userInfo.clear()
                             for (document in documents){
-                                document.get("UserInfo")
+                                document.get("userProfileInfo")
                                 val userEmail=document.get("userEmail").toString()
                                 val userUUID=document.get("userUUID").toString()
                                 val userName=document.get("userName").toString()
-                                val downloadInfos= UserInfo(userUUID,userEmail,userName)
+                                val userPetName=document.get("petName").toString()
+                                val downloadInfos= UserInfo(userUUID,userEmail,userName,userPetName)
                                 userInfo.add(downloadInfos)
-
-
-
                             }
                             adapter.notifyDataSetChanged()
                         }

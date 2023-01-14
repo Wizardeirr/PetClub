@@ -22,8 +22,10 @@ class PrivateChatAdapter(val userList:ArrayList<UserInfo>): RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: PrivateChatAdapterViewHolder, position: Int) {
-        holder.itemView.userEmail.text=userList[position].userName
         holder.itemView.userUUID.text=userList[position].uuid
+        holder.itemView.userEmail.text=userList[position].userName
+        holder.itemView.userPetName.text=userList[position].petName
+
 
 
 
