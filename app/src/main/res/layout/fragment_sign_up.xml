@@ -71,10 +71,11 @@
 
     <ImageView
         android:id="@+id/signImageView"
-        android:layout_width="109dp"
-        android:layout_height="141dp"
+        android:layout_width="170dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/add_photo_icon" />
