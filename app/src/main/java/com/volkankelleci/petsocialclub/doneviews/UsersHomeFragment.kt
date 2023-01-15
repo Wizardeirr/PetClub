@@ -3,12 +3,15 @@ package com.volkankelleci.petsocialclub.doneviews
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.firebase.ui.auth.data.model.User
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.adapter.UserRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
@@ -37,6 +40,7 @@ class UsersHomeFragment : Fragment() {
     ): View {
         _binding = FragmentUsersHomeBinding.inflate(inflater, container, false)
         val view = binding.root
+        getActivity()?.setTitle("PetSocialClub");
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -81,10 +85,13 @@ class UsersHomeFragment : Fragment() {
         if (item.itemId == R.id.messageButton) {
             val action3 = UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
             findNavController().navigate(action3)
+
         }
         if(item.itemId==R.id.privateMessageButton){
             val action4 = UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateChatFragment()
             findNavController().navigate(action4)
+
+
 
         }
         return super.onOptionsItemSelected(item)

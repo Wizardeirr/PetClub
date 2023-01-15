@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,19 +22,19 @@ import kotlinx.android.synthetic.main.fragment_user_chat.*
 
 
 class UserChatFragment : Fragment() {
+
     private var _binding: FragmentUserChatBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: ChatRecyclerAdapter
     private lateinit var firestore: FirebaseFirestore
     var chats = ArrayList<ChatData>()
-    var toolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         firestore = Firebase.firestore
-
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -44,7 +42,11 @@ class UserChatFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentUserChatBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        getActivity()?.setTitle("Chat Room");
+
         return view
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -133,5 +135,7 @@ class UserChatFragment : Fragment() {
             }
         }
     }
+
+
 
 }
