@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".doneviews.MessageFragment">
 
-
     <ImageView
         android:id="@+id/selectImage"
         android:layout_width="341dp"
@@ -14,6 +13,7 @@
         android:layout_marginTop="44dp"
         android:src="@drawable/cool"
         app:layout_constraintEnd_toEndOf="parent"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

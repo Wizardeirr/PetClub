@@ -89,4 +89,7 @@ dependencies {
     // Firebase UI Library
     implementation 'com.firebaseui:firebase-ui-auth:8.0.1'
     implementation 'com.firebaseui:firebase-ui-database:8.0.1'
+
+
+
 }
