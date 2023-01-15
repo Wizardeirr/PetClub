@@ -61,12 +61,21 @@
     </fragment>
     <fragment
         android:id="@+id/userChatFragment"
-        android:name="com.volkankelleci.petsocialclub.UserChatFragment"
+        android:name="com.volkankelleci.petsocialclub.doneviews.UserChatFragment"
         android:label="fragment_user_chat"
         tools:layout="@layout/fragment_user_chat" />
     <fragment
         android:id="@+id/privateChatFragment"
         android:name="com.volkankelleci.petsocialclub.PrivateChatFragment"
         android:label="fragment_private_chat"
-        tools:layout="@layout/fragment_private_chat" />
+        tools:layout="@layout/fragment_private_chat" >
+        <action
+            android:id="@+id/action_privateChatFragment_to_privateChatFragmentRoom"
+            app:destination="@id/privateChatFragmentRoom" />
+    </fragment>
+    <fragment
+        android:id="@+id/privateChatFragmentRoom"
+        android:name="com.volkankelleci.petsocialclub.PrivateChatFragmentRoom"
+        android:label="fragment_private_chat_room"
+        tools:layout="@layout/fragment_private_chat_room" />
 </navigation>
