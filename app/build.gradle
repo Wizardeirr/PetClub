@@ -91,5 +91,9 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:8.0.1'
 
 
+    // Circle Image
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 
 }

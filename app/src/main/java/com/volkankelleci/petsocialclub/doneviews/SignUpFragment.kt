@@ -165,10 +165,11 @@ class SignUpFragment : Fragment() {
         if (requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
             selectedImage = data.data
             if (selectedImage != null) {
-                val source =
-                    ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
+                val source =ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
+
                 selectedImageURI = ImageDecoder.decodeBitmap(source)
                 signImageView.setImageBitmap(selectedImageURI)
+
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
