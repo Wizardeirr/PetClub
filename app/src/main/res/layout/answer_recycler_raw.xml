@@ -8,20 +8,23 @@
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
     android:orientation="vertical"
-
     android:background="@drawable/answer_corner">
 
     <TextView
         android:id="@+id/chatTV"
         android:autoSizeTextType="uniform"
-        android:layout_width="390dp"
-        android:layout_height="29dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="2dp"
         android:layout_marginTop="4dp"
         android:maxWidth="240dp"
         android:text="TextView"
         android:textAlignment="textEnd"
         android:textSize="20sp"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeStepGranularity="2sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
