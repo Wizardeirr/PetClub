@@ -58,7 +58,7 @@ class ChatRecyclerAdapter(): RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecycl
     }
 
     override fun onBindViewHolder(holder: ChatRecyclerViewHolder, position: Int) {
-        holder.itemView.chatTV.text="${chats[position].chatText}"
+        holder.itemView.chatTV.text=chats[position].chatText
 
 
     }
