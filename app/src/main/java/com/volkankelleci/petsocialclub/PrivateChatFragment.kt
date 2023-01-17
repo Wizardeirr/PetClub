@@ -27,7 +27,7 @@ class PrivateChatFragment : Fragment() {
     ): View {
         _binding = FragmentPrivateChatBinding.inflate(inflater, container, false)
         val view = binding.root
-        getActivity()?.setTitle("Private Message");
+        getActivity()?.setTitle("Private Message")
         return view
     }
 
