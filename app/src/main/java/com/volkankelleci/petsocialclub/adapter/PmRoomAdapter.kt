@@ -1,10 +1,11 @@
 package com.volkankelleci.petsocialclub.adapter
 
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 class PmRoomAdapter: RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
-    class PmRoomAdapterViewHolder {
+    class PmRoomAdapterViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     }
 

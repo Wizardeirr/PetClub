@@ -59,6 +59,7 @@
             android:layout_weight="1"
             android:padding="3dp"
             android:text="Title"
+            android:maxWidth="240dp"
             android:textSize="20sp">
 
         </TextView>
@@ -69,6 +70,7 @@
             android:layout_height="48dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
+            android:maxWidth="240dp"
             android:padding="3dp"
             android:text="What am i search"
             android:textSize="20sp">
