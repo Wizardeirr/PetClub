@@ -41,7 +41,7 @@ class PrivateChatFragmentRoom : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.privateMessageSendButton.setOnClickListener {
-            println("DONE")
+            privateChatInfoTake()
         }
 
 
