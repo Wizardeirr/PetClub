@@ -11,13 +11,15 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
 import com.volkankelleci.petsocialclub.util.UserInfo
 import com.volkankelleci.petsocialclub.util.Util
+import com.volkankelleci.petsocialclub.util.Util.database
+import com.volkankelleci.petsocialclub.util.Util.storage
 
 
 class PrivateChatFragmentRoom : Fragment() {
 
     private var _binding:FragmentPrivateChatRoomBinding?=null
     private val binding get()=_binding!!
-    private val userInfo:UserInfo?=null
+
     private lateinit var firestore: FirebaseFirestore
 
 
@@ -49,11 +51,14 @@ class PrivateChatFragmentRoom : Fragment() {
     private fun privateChatInfoTake(){
         val userUUID = Util.auth.currentUser!!.uid
         val userEmail = Util.auth.currentUser!!.email.toString()
+        val useruid= Util.auth.uid
+
 
 
         val userInfoMap = java.util.HashMap<String, Any>()
         userInfoMap.put("PrivateChatUserUUID", userUUID)
         userInfoMap.put("PrivateChatUserEmail", userEmail)
+        userInfoMap.put("PrivateChatUserEmail", useruid!!)
         Util.database.collection("privateChat").add(userInfoMap).addOnSuccessListener {
             Toast.makeText(requireContext(), "DONE", Toast.LENGTH_SHORT).show()
         }
