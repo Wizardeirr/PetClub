@@ -42,6 +42,8 @@ class PrivateChatFragment : Fragment() {
 
 
 
+
+
     }
 
     fun takesUserInfo(){

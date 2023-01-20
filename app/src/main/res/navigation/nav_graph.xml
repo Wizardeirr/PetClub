@@ -77,5 +77,10 @@
         android:id="@+id/privateChatFragmentRoom"
         android:name="com.volkankelleci.petsocialclub.PrivateChatFragmentRoom"
         android:label="fragment_private_chat_room"
-        tools:layout="@layout/fragment_private_chat_room" />
+        tools:layout="@layout/fragment_private_chat_room" >
+        <argument
+            android:name="uuid"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
 </navigation>
