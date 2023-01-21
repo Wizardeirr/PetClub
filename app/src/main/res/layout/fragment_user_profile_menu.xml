@@ -1,10 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
     tools:context=".UserProfileMenuFragment">
 
 
+        <EditText
+            android:id="@+id/userNameET"
+            android:layout_width="372dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="36dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signImageView" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/passwordSign"
+            android:layout_width="372dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userSign" />
+
+        <EditText
+            android:id="@+id/userSign"
+            android:layout_width="372dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userNameET" />
+
+        <EditText
+            android:id="@+id/petName"
+            android:layout_width="372dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="Your Pet Name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordSign" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/signImageView"
+            android:layout_width="123dp"
+            android:layout_height="127dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/logo"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
