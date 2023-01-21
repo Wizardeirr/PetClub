@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_usersHomeFragment_to_privateChatFragment"
             app:destination="@id/privateChatFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_to_userProfileMenuFragment"
+            app:destination="@id/userProfileMenuFragment" />
     </fragment>
     <fragment
         android:id="@+id/userChatFragment"
@@ -83,4 +86,9 @@
             app:argType="string"
             android:defaultValue='""' />
     </fragment>
+    <fragment
+        android:id="@+id/userProfileMenuFragment"
+        android:name="com.volkankelleci.petsocialclub.UserProfileMenuFragment"
+        android:label="fragment_user_profile_menu"
+        tools:layout="@layout/fragment_user_profile_menu" />
 </navigation>
