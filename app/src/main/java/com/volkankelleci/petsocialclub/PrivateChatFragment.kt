@@ -40,10 +40,6 @@ class PrivateChatFragment : Fragment() {
         adapter= PrivateChatAdapter(userInfo)
         privateChatRV.adapter=adapter
 
-
-
-
-
     }
 
     fun takesUserInfo(){
