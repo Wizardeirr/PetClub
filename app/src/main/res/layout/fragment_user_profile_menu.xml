@@ -8,7 +8,7 @@
 
 
         <EditText
-            android:id="@+id/userNameET"
+            android:id="@+id/userNameETProfile"
             android:layout_width="372dp"
             android:layout_height="46dp"
             android:layout_marginTop="36dp"
@@ -18,10 +18,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/signImageView" />
+            app:layout_constraintTop_toBottomOf="@+id/signImageViewProfile" />
 
         <EditText
-            android:id="@+id/passwordSign"
+            android:id="@+id/passwordSignProfile"
             android:layout_width="372dp"
             android:layout_height="45dp"
             android:layout_marginTop="12dp"
@@ -31,10 +31,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userSign" />
+            app:layout_constraintTop_toBottomOf="@+id/userSignEmail" />
 
         <EditText
-            android:id="@+id/userSign"
+            android:id="@+id/userSignEmail"
             android:layout_width="372dp"
             android:layout_height="46dp"
             android:layout_marginTop="8dp"
@@ -44,10 +44,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userNameET" />
+            app:layout_constraintTop_toBottomOf="@+id/userNameETProfile" />
 
         <EditText
-            android:id="@+id/petName"
+            android:id="@+id/petNameProfile"
             android:layout_width="372dp"
             android:layout_height="45dp"
             android:layout_marginTop="12dp"
@@ -56,11 +56,11 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordSign" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordSignProfile" />
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/signImageView"
+            android:id="@+id/signImageViewProfile"
             android:layout_width="123dp"
             android:layout_height="127dp"
             android:layout_marginTop="16dp"
