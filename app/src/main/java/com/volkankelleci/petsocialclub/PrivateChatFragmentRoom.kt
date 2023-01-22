@@ -26,7 +26,7 @@ class PrivateChatFragmentRoom : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        getActivity()?.setTitle("Private Chat Room")
     }
 
     override fun onCreateView(
