@@ -31,6 +31,12 @@ class UserProfileMenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val userProfileName=binding.userNameETProfile.text.toString()
+        val userProfileEmail=binding.userSignEmail.text.toString()
+        val userProfilePassword=binding.passwordSignProfile.text.toString()
+        val userProfileImage=binding.signImageViewProfile
+        val userProfilePet=binding.petNameProfile.text.toString()
+
 
 
     }
