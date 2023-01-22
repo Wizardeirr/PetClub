@@ -23,6 +23,14 @@
         app:showAsAction="ifRoom">
 
     </item>
+    <item
+        android:title="Profile"
+        android:id="@+id/profileButton"
+        android:icon="@drawable/profile_icon"
+        app:showAsAction="ifRoom">
+
+    </item>
+
 
     <item
         android:id="@+id/logOutButton"

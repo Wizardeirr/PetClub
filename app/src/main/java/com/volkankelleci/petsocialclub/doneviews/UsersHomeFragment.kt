@@ -26,14 +26,15 @@ class UsersHomeFragment : Fragment() {
 
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    private lateinit var recyclerViewAdapter:UserRecyclerAdapter
+    private lateinit var recyclerViewAdapter: UserRecyclerAdapter
 
-    var postList=ArrayList<Post>()
+    var postList = ArrayList<Post>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -43,6 +44,7 @@ class UsersHomeFragment : Fragment() {
         getActivity()?.setTitle("PetSocialClub");
         return view
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -54,18 +56,19 @@ class UsersHomeFragment : Fragment() {
         }
         //User Name Save
         takesData()
-        val layoutManager=LinearLayoutManager(activity)
-        usersHomeFragmentRecycler.layoutManager=layoutManager
-        recyclerViewAdapter=UserRecyclerAdapter(postList)
-        usersHomeFragmentRecycler.adapter=recyclerViewAdapter
-
+        val layoutManager = LinearLayoutManager(activity)
+        usersHomeFragmentRecycler.layoutManager = layoutManager
+        recyclerViewAdapter = UserRecyclerAdapter(postList)
+        usersHomeFragmentRecycler.adapter = recyclerViewAdapter
 
 
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         requireActivity().menuInflater.inflate(R.menu.user_menu, menu)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.logOutButton) {
             try {
@@ -87,44 +90,44 @@ class UsersHomeFragment : Fragment() {
             findNavController().navigate(action3)
 
         }
-        if(item.itemId==R.id.privateMessageButton){
+        if (item.itemId == R.id.privateMessageButton) {
             val action4 = UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateChatFragment()
             findNavController().navigate(action4)
-
-
-
+        }
+        if (item.itemId==R.id.profileButton){
+            val action5=UsersHomeFragmentDirections.actionUsersHomeFragmentToUserProfileMenuFragment()
+            findNavController().navigate(action5)
         }
         return super.onOptionsItemSelected(item)
     }
-     fun takesData(){
-        database.collection("Post").orderBy("date",Query.Direction.DESCENDING)
-            .addSnapshotListener { value, error ->
-            if(error!=null){
-            }else
-                if (value!=null){
-                    if (value.isEmpty==false){
-                        val documents=value.documents
-                        postList.clear()
-                        for (document in documents){
-                            document.get("Post")
-                            val userTitle=document.get("usertitle").toString()
-                            val userComment=document.get("usercomment").toString()
-                            val userImage=document.get("imageurl").toString()
-                            val userEmail=document.get("useremail").toString()
 
-                            val downloadInfos=Post(userTitle,userComment,userImage,userEmail)
-                            postList.add(downloadInfos)
+    fun takesData() {
+        database.collection("Post").orderBy("date", Query.Direction.DESCENDING)
+            .addSnapshotListener { value, error ->
+                if (error != null) {
+                } else
+                    if (value != null) {
+                        if (value.isEmpty == false) {
+                            val documents = value.documents
+                            postList.clear()
+                            for (document in documents) {
+                                document.get("Post")
+                                val userTitle = document.get("usertitle").toString()
+                                val userComment = document.get("usercomment").toString()
+                                val userImage = document.get("imageurl").toString()
+                                val userEmail = document.get("useremail").toString()
+
+                                val downloadInfos =
+                                    Post(userTitle, userComment, userImage, userEmail)
+                                postList.add(downloadInfos)
+
+                            }
 
                         }
-
+                        recyclerViewAdapter.notifyDataSetChanged()
                     }
-                    recyclerViewAdapter.notifyDataSetChanged()
-                }
-        }
+            }
     }
-
-
-
 
 
 }
