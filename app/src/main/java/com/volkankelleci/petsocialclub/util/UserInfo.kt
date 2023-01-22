@@ -1,5 +1,5 @@
 package com.volkankelleci.petsocialclub.util
 
-class UserInfo(var uuid:String,var userEmail:String, var userName:String, var petName:String,var userImage:String) {
+class UserInfo(var uuid:String,var userEmail:String, var userName:String, var petName:String,var userImage:String,var userPassword:String) {
 
 }

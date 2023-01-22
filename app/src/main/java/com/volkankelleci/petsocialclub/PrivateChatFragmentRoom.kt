@@ -19,7 +19,7 @@ class PrivateChatFragmentRoom : Fragment() {
 
     private var _binding:FragmentPrivateChatRoomBinding?=null
     private val binding get()=_binding!!
-    private val user=UserInfo("","","","","")
+    private val user=UserInfo("","","","","","")
 
     private lateinit var firestore: FirebaseFirestore
 
@@ -59,7 +59,7 @@ class PrivateChatFragmentRoom : Fragment() {
         val userInfoMap = java.util.HashMap<String, Any>()
         userInfoMap.put("PrivateChatUserUUID", userUUID)
         userInfoMap.put("PrivateChatUserEmail", userEmail)
-        userInfoMap.put("PrivateChatUserID", userID!!)
+        userInfoMap.put("PrivateChatUserID", userID)
         Util.database.collection("privateChat").add(userInfoMap).addOnSuccessListener {
             Toast.makeText(requireContext(), "DONE", Toast.LENGTH_SHORT).show()
         }

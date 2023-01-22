@@ -58,7 +58,8 @@ class PrivateChatFragment : Fragment() {
                                 val userName=document.get("userName").toString()
                                 val userPetName=document.get("petName").toString()
                                 val userImage=document.get("userImage").toString()
-                                val downloadInfos= UserInfo(userUUID,userEmail,userName,userPetName,userImage)
+                                val userPassword=document.get("password").toString()
+                                val downloadInfos= UserInfo(userUUID,userEmail,userName,userPetName,userImage,userPassword)
                                 userInfo.add(downloadInfos)
                             }
                             adapter.notifyDataSetChanged()

@@ -88,7 +88,7 @@
     </fragment>
     <fragment
         android:id="@+id/userProfileMenuFragment"
-        android:name="com.volkankelleci.petsocialclub.UserProfileMenuFragment"
+        android:name="com.volkankelleci.petsocialclub.doneviews.UserProfileMenuFragment"
         android:label="fragment_user_profile_menu"
         tools:layout="@layout/fragment_user_profile_menu" />
 </navigation>

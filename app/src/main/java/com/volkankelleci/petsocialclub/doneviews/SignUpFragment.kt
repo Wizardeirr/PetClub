@@ -115,6 +115,7 @@ class SignUpFragment : Fragment() {
                     val userName = binding.userNameET.text.toString()
                     val petName = binding.petName.text.toString()
                     val downloadImage = uri.toString()
+                    val password=binding.passwordSign.text.toString()
 
                     val userInfoMap = HashMap<String, Any>()
                     userInfoMap.put("userImage",downloadImage)
@@ -122,6 +123,7 @@ class SignUpFragment : Fragment() {
                     userInfoMap.put("userEmail", userEmail)
                     userInfoMap.put("userName", userName)
                     userInfoMap.put("petName", petName)
+                    userInfoMap.put("password",password)
                     database.collection("userProfileInfo").add(userInfoMap).addOnSuccessListener {
                         Toast.makeText(requireContext(), "DONE", Toast.LENGTH_SHORT).show()
                     }
