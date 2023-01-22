@@ -6,10 +6,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.auth.User
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.util.ChatData
+import com.volkankelleci.petsocialclub.util.Post
+import com.volkankelleci.petsocialclub.util.UserInfo
+import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
+import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.chat_recycler_raw.view.*
+import kotlinx.android.synthetic.main.private_chat_raw.view.*
+import kotlinx.android.synthetic.main.recycler_raw.view.*
 
 class ChatRecyclerAdapter(): RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecyclerViewHolder>() {
 
@@ -58,13 +65,19 @@ class ChatRecyclerAdapter(): RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecycl
     }
 
     override fun onBindViewHolder(holder: ChatRecyclerViewHolder, position: Int) {
-        holder.itemView.chatTV.text=chats[position].chatText
+
+        holder.itemView.chatTV.text="${chats[position].timeDate}:${chats[position].chatText}"
+
+
+
 
 
     }
 
     override fun getItemCount(): Int {
         return chats.size
+
+
     }
 
 

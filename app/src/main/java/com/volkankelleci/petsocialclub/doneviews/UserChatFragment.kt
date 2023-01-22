@@ -16,6 +16,8 @@ import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.adapter.ChatRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
 import com.volkankelleci.petsocialclub.util.ChatData
+import com.volkankelleci.petsocialclub.util.UserInfo
+import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.fragment_user_chat.*
 
@@ -27,7 +29,6 @@ class UserChatFragment : Fragment() {
     private lateinit var adapter: ChatRecyclerAdapter
     private lateinit var firestore: FirebaseFirestore
     var chats = ArrayList<ChatData>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -105,18 +106,15 @@ class UserChatFragment : Fragment() {
                                 val text = document.get("chatGText").toString()
                                 val date = document.get("chatGDate").toString()
                                 val user = document.get("chatGUser").toString()
-
                                 val chat = ChatData(text, user, date)
                                 chats.add(chat)
                                 adapter.chats = chats
-
                             }
                         }
                         adapter.notifyDataSetChanged()
                     }
                 }
             }
-
 
     }
 
@@ -134,7 +132,6 @@ class UserChatFragment : Fragment() {
             }
         }
     }
-
 
 
 }
