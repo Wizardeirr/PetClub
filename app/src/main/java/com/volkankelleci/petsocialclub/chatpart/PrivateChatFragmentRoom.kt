@@ -77,10 +77,7 @@ class PrivateChatFragmentRoom : Fragment() {
                     binding.privateMessageET.setText("")
                 }
         }
-
-    }
-    private fun takesData() {
-        database.collection("privateChat").orderBy("date", Query.Direction.DESCENDING)
+        database.collection("privateChat").orderBy("userDate", Query.Direction.DESCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
@@ -106,7 +103,9 @@ class PrivateChatFragmentRoom : Fragment() {
 
                     }
             }
+
     }
+
     private fun scrollToBottom(recyclerView: RecyclerView) {
         // scroll to last item to get the view of last item
         val layoutManager = userChatRV.layoutManager as LinearLayoutManager?

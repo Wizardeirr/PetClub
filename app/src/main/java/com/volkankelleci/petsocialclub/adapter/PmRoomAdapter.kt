@@ -52,11 +52,11 @@ class PmRoomAdapter: RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>
 
         if (viewType == WRITER_USER) {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.answer_recycler_raw, parent, false)
+                .inflate(R.layout.pm_raw, parent, false)
             return PmRoomAdapterViewHolder(view)
         } else {
             val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.chat_recycler_raw, parent, false)
+                .inflate(R.layout.pm_answer_room, parent, false)
             return PmRoomAdapterViewHolder(view)
         }
 
