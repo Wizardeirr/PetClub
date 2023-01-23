@@ -38,10 +38,10 @@
 
     <ImageView
         android:id="@+id/privateMessageSendButton"
-        android:layout_width="56dp"
-        android:layout_height="52dp"
+        android:layout_width="50dp"
+        android:layout_height="44dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/corner"
         android:src="@drawable/send_icon"
         app:layout_constraintBottom_toBottomOf="parent"

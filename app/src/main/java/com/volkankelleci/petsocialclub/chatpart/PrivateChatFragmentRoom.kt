@@ -51,6 +51,15 @@ class PrivateChatFragmentRoom : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        privateMessageRV.postDelayed({
+            privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
+        }, 100)
+        privateMessageET.setOnClickListener {
+            privateMessageRV.postDelayed({
+                privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
+            }, 100)
+        }
+
         val layoutManager = LinearLayoutManager(activity)
         privateMessageRV.layoutManager = layoutManager
         adapter = PmRoomAdapter()
@@ -63,7 +72,7 @@ class PrivateChatFragmentRoom : Fragment() {
             val userText =binding.privateMessageET.text.toString()
             val userDate = FieldValue.serverTimestamp()
 
-            val userInfoMap = java.util.HashMap<String, Any>()
+            val userInfoMap = HashMap<String, Any>()
             userInfoMap.put("PrivateChatUserUUID", userUUID)
             userInfoMap.put("PrivateChatUserEmail", userEmail)
             userInfoMap.put("userText",userText)
@@ -73,11 +82,9 @@ class PrivateChatFragmentRoom : Fragment() {
                 binding.privateMessageET.setText("")
             }
                 .addOnFailureListener {
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
-                    binding.privateMessageET.setText("")
                 }
         }
-        database.collection("privateChat").orderBy("userDate", Query.Direction.DESCENDING)
+        database.collection("privateChat").orderBy("userDate", Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
@@ -108,14 +115,14 @@ class PrivateChatFragmentRoom : Fragment() {
 
     private fun scrollToBottom(recyclerView: RecyclerView) {
         // scroll to last item to get the view of last item
-        val layoutManager = userChatRV.layoutManager as LinearLayoutManager?
-        val adapter = userChatRV.adapter
+        val layoutManager = privateMessageRV.layoutManager as LinearLayoutManager?
+        val adapter = privateMessageRV.adapter
         val lastItemPosition = adapter!!.itemCount - 1
         layoutManager!!.scrollToPositionWithOffset(lastItemPosition, 0)
-        userChatRV.post { // then scroll to specific offset
+        privateMessageRV.post { // then scroll to specific offset
             val target = layoutManager.findViewByPosition(lastItemPosition)
             if (target != null) {
-                val offset = userChatRV.measuredHeight - target.measuredHeight
+                val offset = privateMessageRV.measuredHeight - target.measuredHeight
                 layoutManager.scrollToPositionWithOffset(lastItemPosition, offset)
             }
         }
