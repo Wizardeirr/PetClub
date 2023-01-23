@@ -39,7 +39,7 @@ class PrivateChatAdapter(val userList:ArrayList<UserInfo>): RecyclerView.Adapter
 
         holder.itemView.userImage.downloadImageToRecycler(userList[position].userImage,
             Util.createPlaceHolder(holder.itemView.context))
-
+// edit texti aşağı indirme butonu
 
 
 

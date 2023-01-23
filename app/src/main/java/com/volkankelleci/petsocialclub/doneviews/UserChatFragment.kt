@@ -51,8 +51,6 @@ class UserChatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         userChatRV.postDelayed({
             userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
         }, 100)
@@ -85,8 +83,6 @@ class UserChatFragment : Fragment() {
                 Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                 binding.userChatText.setText("")
             }
-
-
         }
 
         firestore.collection("Chats").orderBy("chatGDate", Query.Direction.ASCENDING)
@@ -132,6 +128,5 @@ class UserChatFragment : Fragment() {
             }
         }
     }
-
 
 }

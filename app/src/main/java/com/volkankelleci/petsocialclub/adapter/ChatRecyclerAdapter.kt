@@ -18,35 +18,36 @@ import kotlinx.android.synthetic.main.chat_recycler_raw.view.*
 import kotlinx.android.synthetic.main.private_chat_raw.view.*
 import kotlinx.android.synthetic.main.recycler_raw.view.*
 
-class ChatRecyclerAdapter(): RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecyclerViewHolder>() {
+class ChatRecyclerAdapter() : RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecyclerViewHolder>() {
 
-    private val WRITER_USER=1
-    private val ANSWER_USER=2
+    private val WRITER_USER = 1
+    private val ANSWER_USER = 2
 
-    class ChatRecyclerViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
+    class ChatRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
-    private val diffutil=object :DiffUtil.ItemCallback<ChatData>(){
+
+    private val diffutil = object : DiffUtil.ItemCallback<ChatData>() {
         override fun areItemsTheSame(oldItem: ChatData, newItem: ChatData): Boolean {
-            return oldItem==newItem
+            return oldItem == newItem
         }
 
         override fun areContentsTheSame(oldItem: ChatData, newItem: ChatData): Boolean {
-            return oldItem==newItem
+            return oldItem == newItem
         }
 
     }
-    private val recyclerDiff=AsyncListDiffer(this,diffutil)
-    var chats:List<ChatData>
-    get()=recyclerDiff.currentList
-        set(value)=recyclerDiff.submitList(value)
+    private val recyclerDiff = AsyncListDiffer(this, diffutil)
+    var chats: List<ChatData>
+        get() = recyclerDiff.currentList
+        set(value) = recyclerDiff.submitList(value)
 
     override fun getItemViewType(position: Int): Int {
 
-        val chat=chats.get(position)
-        if (chat.chatUser== auth.currentUser?.email.toString()){
+        val chat = chats.get(position)
+        if (chat.chatUser == auth.currentUser?.email.toString()) {
             return WRITER_USER
-        }else {
+        } else {
             return ANSWER_USER
         }
 
@@ -54,11 +55,13 @@ class ChatRecyclerAdapter(): RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecycl
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatRecyclerViewHolder {
 
-        if (viewType==WRITER_USER){
-            val view=LayoutInflater.from(parent.context).inflate(R.layout.answer_recycler_raw,parent,false)
+        if (viewType == WRITER_USER) {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.answer_recycler_raw, parent, false)
             return ChatRecyclerViewHolder(view)
-        }else{
-            val view=LayoutInflater.from(parent.context).inflate(R.layout.chat_recycler_raw,parent,false)
+        } else {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.chat_recycler_raw, parent, false)
             return ChatRecyclerViewHolder(view)
         }
 
@@ -66,10 +69,7 @@ class ChatRecyclerAdapter(): RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecycl
 
     override fun onBindViewHolder(holder: ChatRecyclerViewHolder, position: Int) {
 
-        holder.itemView.chatTV.text="${chats[position].timeDate}:${chats[position].chatText}"
-
-
-
+        holder.itemView.chatTV.text = chats[position].chatText
 
 
     }
@@ -79,7 +79,6 @@ class ChatRecyclerAdapter(): RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecycl
 
 
     }
-
 
 
 }
