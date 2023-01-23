@@ -5,7 +5,7 @@ import java.util.UUID
 
 class PrivateMessage(
     var message:String,
-    var uuid:UUID,
-    var timestamp: Timestamp,
+    var uuid:String,
+    var timestamp: String,
     var chatUser:String) {
 }

@@ -62,10 +62,12 @@ class PrivateChatFragmentRoom : Fragment() {
             val userUUID = Util.auth.currentUser!!.uid
             val userEmail = Util.auth.currentUser!!.email.toString()
             val userText =binding.privateMessageET.text.toString()
+            val userDate = FieldValue.serverTimestamp()
             val userInfoMap = java.util.HashMap<String, Any>()
             userInfoMap.put("PrivateChatUserUUID", userUUID)
             userInfoMap.put("PrivateChatUserEmail", userEmail)
             userInfoMap.put("userText",userText)
+            userInfoMap.put("userDate",userDate)
             Util.database.collection("privateChat").add(userInfoMap).addOnSuccessListener {
                 Toast.makeText(requireContext(), "DONE", Toast.LENGTH_SHORT).show()
             }
@@ -75,23 +77,21 @@ class PrivateChatFragmentRoom : Fragment() {
 
     }
     private fun takesData() {
-        database.collection("Post").orderBy("date", Query.Direction.DESCENDING)
+        database.collection("privateChat").orderBy("date", Query.Direction.DESCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
                     if (value != null) {
                         if (value.isEmpty == false) {
                             val documents = value.documents
-
                             for (document in documents) {
-                                document.get("Post")
-                                val userTitle = document.get("usertitle").toString()
-                                val userComment = document.get("usercomment").toString()
-                                val userImage = document.get("imageurl").toString()
-                                val userEmail = document.get("useremail").toString()
-
+                                document.get("privateChat")
+                                val privateMessageUserText = document.get("userText").toString()
+                                val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
+                                val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
+                                val privateChatUserDate = document.get("userDate").toString()
                                 val downloadInfos =
-                                    Post(userTitle, userComment, userImage, userEmail)
+                                    PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatUserDate,privateChatUserEmail)
 
 
                             }
