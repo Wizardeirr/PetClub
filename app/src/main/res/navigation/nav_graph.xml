@@ -64,7 +64,7 @@
     </fragment>
     <fragment
         android:id="@+id/userChatFragment"
-        android:name="com.volkankelleci.petsocialclub.doneviews.UserChatFragment"
+        android:name="com.volkankelleci.petsocialclub.chatpart.UserChatFragment"
         android:label="fragment_user_chat"
         tools:layout="@layout/fragment_user_chat" />
     <fragment
@@ -78,7 +78,7 @@
     </fragment>
     <fragment
         android:id="@+id/privateChatFragmentRoom"
-        android:name="com.volkankelleci.petsocialclub.PrivateChatFragmentRoom"
+        android:name="com.volkankelleci.petsocialclub.chatpart.PrivateChatFragmentRoom"
         android:label="fragment_private_chat_room"
         tools:layout="@layout/fragment_private_chat_room" >
         <argument

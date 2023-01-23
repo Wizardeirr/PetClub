@@ -3,6 +3,7 @@ package com.volkankelleci.petsocialclub.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -13,31 +14,32 @@ import com.volkankelleci.petsocialclub.util.Util
 import kotlinx.android.synthetic.main.pm_raw.view.*
 
 class PmRoomAdapter: RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
+    private val WRITER_USER = 1
+    private val ANSWER_USER = 2
     class PmRoomAdapterViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 
     }
-    private val WRITER_USER = 1
-    private val ANSWER_USER = 2
 
 
-    private val diffutil = object : DiffUtil.ItemCallback<ChatData>() {
-        override fun areItemsTheSame(oldItem: ChatData, newItem: ChatData): Boolean {
+
+    private val diffutil = object : DiffUtil.ItemCallback<PrivateMessage>() {
+        override fun areItemsTheSame(oldItem: PrivateMessage, newItem: PrivateMessage): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem: ChatData, newItem: ChatData): Boolean {
+        override fun areContentsTheSame(oldItem: PrivateMessage, newItem: PrivateMessage): Boolean {
             return oldItem == newItem
         }
 
     }
     private val recyclerDiff = AsyncListDiffer(this, diffutil)
-    var chats: MutableList<ChatData>
+    var privateChats: List<PrivateMessage>
         get() = recyclerDiff.currentList
         set(value) = recyclerDiff.submitList(value)
 
     override fun getItemViewType(position: Int): Int {
 
-        val chat = chats.get(position)
+        val chat = privateChats.get(position)
         if (chat.chatUser == Util.auth.currentUser?.email.toString()) {
             return WRITER_USER
         } else {
@@ -61,10 +63,10 @@ class PmRoomAdapter: RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>
     }
 
     override fun onBindViewHolder(holder: PmRoomAdapterViewHolder, position: Int) {
-        holder.itemView.privateMessageChatTV.text="chats.get(position).chatText"
+        holder.itemView.privateMessageChatTV.text=privateChats[position].message
     }
 
     override fun getItemCount(): Int {
-        return chats.size
+        return privateChats.size
     }
 }

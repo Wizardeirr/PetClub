@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.doneviews
+package com.volkankelleci.petsocialclub.chatpart
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,8 +16,6 @@ import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.adapter.ChatRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
 import com.volkankelleci.petsocialclub.util.ChatData
-import com.volkankelleci.petsocialclub.util.UserInfo
-import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.fragment_user_chat.*
 
@@ -69,7 +67,6 @@ class UserChatFragment : Fragment() {
             val gUserChatText = userChatText.text.toString()
             val gUser = auth.currentUser?.email.toString()
             val gdate = FieldValue.serverTimestamp()
-
 
             val chatDataMap = HashMap<String, Any>()
             chatDataMap.put("chatGText", gUserChatText)
