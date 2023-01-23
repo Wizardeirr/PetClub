@@ -19,9 +19,6 @@ class UserProfileMenuFragment : Fragment() {
 
     private var _binding: FragmentUserProfileMenuBinding? = null
     private val binding get() = _binding!!
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
