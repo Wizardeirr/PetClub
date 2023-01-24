@@ -65,6 +65,12 @@ class PrivateChatFragmentRoom : Fragment() {
         adapter = PmRoomAdapter()
         privateMessageRV.adapter = adapter
 
+        arguments?.let {
+
+            val args=PrivateChatFragmentRoomArgs.fromBundle(it).username
+            getActivity()?.setTitle(args)
+        }
+
 
         binding.privateMessageSendButton.setOnClickListener {
             val userUUID = Util.auth.currentUser!!.uid

@@ -31,8 +31,8 @@ class PrivateChatAdapter(val userList:ArrayList<UserInfo>): RecyclerView.Adapter
         holder.itemView.userPetName.text=userList[position].petName
 
         holder.itemView.userList.setOnClickListener {
-            val save=userList.get(position).uuid
-            val action=PrivateChatFragmentDirections.actionPrivateChatFragmentToPrivateChatFragmentRoom()
+
+            val action=PrivateChatFragmentDirections.actionPrivateChatFragmentToPrivateChatFragmentRoom(userList.get(position).userName)
             Navigation.findNavController(it).navigate(action)
 
         }

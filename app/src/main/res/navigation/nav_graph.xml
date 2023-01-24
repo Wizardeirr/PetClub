@@ -82,9 +82,8 @@
         android:label="fragment_private_chat_room"
         tools:layout="@layout/fragment_private_chat_room" >
         <argument
-            android:name="uuid"
-            app:argType="string"
-            android:defaultValue='""' />
+            android:name="username"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/userProfileMenuFragment"
