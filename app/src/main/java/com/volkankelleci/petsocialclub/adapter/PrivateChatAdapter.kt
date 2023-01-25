@@ -7,12 +7,13 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.doneviews.PrivateChatFragmentDirections
+import com.volkankelleci.petsocialclub.util.PrivateMessage
 import com.volkankelleci.petsocialclub.util.UserInfo
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.private_chat_raw.view.*
 
-class PrivateChatAdapter(val userList:ArrayList<UserInfo>): RecyclerView.Adapter<PrivateChatAdapter.PrivateChatAdapterViewHolder>() {
+class PrivateChatAdapter(val userList:ArrayList<UserInfo>,val privateMessage:ArrayList<PrivateMessage>): RecyclerView.Adapter<PrivateChatAdapter.PrivateChatAdapterViewHolder>() {
     class PrivateChatAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
@@ -32,7 +33,7 @@ class PrivateChatAdapter(val userList:ArrayList<UserInfo>): RecyclerView.Adapter
 
         holder.itemView.userList.setOnClickListener {
 
-            val action=PrivateChatFragmentDirections.actionPrivateChatFragmentToPrivateChatFragmentRoom(userList.get(position).userName)
+            val action=PrivateChatFragmentDirections.actionPrivateChatFragmentToPrivateChatFragmentRoom(userList.get(position).uuid)
             Navigation.findNavController(it).navigate(action)
 
         }

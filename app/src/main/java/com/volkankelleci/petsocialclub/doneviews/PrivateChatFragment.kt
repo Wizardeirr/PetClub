@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.volkankelleci.petsocialclub.adapter.PrivateChatAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatBinding
+import com.volkankelleci.petsocialclub.util.PrivateMessage
 import com.volkankelleci.petsocialclub.util.UserInfo
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat.*
@@ -17,6 +18,7 @@ class PrivateChatFragment : Fragment() {
     private  var _binding:FragmentPrivateChatBinding?=null
     private val binding get() = _binding!!
     private lateinit var adapter: PrivateChatAdapter
+    var privateMessage=ArrayList<PrivateMessage>()
     var userInfo=ArrayList<UserInfo>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +39,7 @@ class PrivateChatFragment : Fragment() {
         takesUserInfo()
         val layoutManager= LinearLayoutManager(activity)
         privateChatRV.layoutManager=layoutManager
-        adapter= PrivateChatAdapter(userInfo)
+        adapter= PrivateChatAdapter(userInfo,privateMessage)
         privateChatRV.adapter=adapter
 
     }

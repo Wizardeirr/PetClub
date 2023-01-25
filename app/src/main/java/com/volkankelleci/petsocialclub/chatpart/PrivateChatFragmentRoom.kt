@@ -72,17 +72,22 @@ class PrivateChatFragmentRoom : Fragment() {
         }
 
 
+
         binding.privateMessageSendButton.setOnClickListener {
             val userUUID = Util.auth.currentUser!!.uid
             val userEmail = Util.auth.currentUser!!.email.toString()
             val userText =binding.privateMessageET.text.toString()
             val userDate = FieldValue.serverTimestamp()
+            val toUUID= arguments?.let {
+                PrivateChatFragmentRoomArgs.fromBundle(it).username
+            }
 
             val userInfoMap = HashMap<String, Any>()
             userInfoMap.put("PrivateChatUserUUID", userUUID)
             userInfoMap.put("PrivateChatUserEmail", userEmail)
             userInfoMap.put("userText",userText)
             userInfoMap.put("userDate",userDate)
+            userInfoMap.put("toUUID",toUUID.toString())
             firestore.collection("privateChat").add(userInfoMap).addOnSuccessListener {
                 scrollToBottom(privateMessageRV)
                 binding.privateMessageET.setText("")
@@ -104,8 +109,9 @@ class PrivateChatFragmentRoom : Fragment() {
                                 val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
                                 val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                                 val privateChatUserDate = document.get("userDate").toString()
+                                val privateChatToUUID = document.get("toUUID").toString()
                                 val downloadInfos =
-                                    PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatUserDate,privateChatUserEmail)
+                                    PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatUserDate,privateChatUserEmail,privateChatToUUID)
 
                                 user.add(downloadInfos)
                                 adapter.privateChats=user
