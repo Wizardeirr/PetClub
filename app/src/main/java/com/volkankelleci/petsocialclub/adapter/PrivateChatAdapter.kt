@@ -18,6 +18,7 @@ class PrivateChatAdapter(val userList:ArrayList<UserInfo>,val privateMessage:Arr
 
     }
 
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,

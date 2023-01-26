@@ -11,6 +11,7 @@ import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.util.ChatData
 import com.volkankelleci.petsocialclub.util.PrivateMessage
 import com.volkankelleci.petsocialclub.util.Util
+import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.pm_raw.view.*
 
 class PmRoomAdapter: RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
@@ -40,7 +41,7 @@ class PmRoomAdapter: RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>
     override fun getItemViewType(position: Int): Int {
 
         val chat = privateChats.get(position)
-        if (chat.chatUser == Util.auth.currentUser?.email.toString()) {
+        if (chat.fromUUID == auth.currentUser?.uid.toString()) {
             return WRITER_USER
         } else {
             return ANSWER_USER
