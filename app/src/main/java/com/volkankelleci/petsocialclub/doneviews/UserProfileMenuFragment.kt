@@ -12,8 +12,6 @@ import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.fragment_user_profile_menu.*
-import kotlinx.android.synthetic.main.private_chat_raw.*
-import kotlinx.android.synthetic.main.recycler_raw.view.*
 
 class UserProfileMenuFragment : Fragment() {
 

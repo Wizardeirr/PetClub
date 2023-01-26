@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,12 +15,14 @@ import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.adapter.PmRoomAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
 import com.volkankelleci.petsocialclub.util.PrivateMessage
+import com.volkankelleci.petsocialclub.util.UserInfo
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_message.*
+import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.fragment_private_chat_room.*
-import kotlinx.android.synthetic.main.fragment_user_chat.*
-import kotlinx.android.synthetic.main.fragment_users_home.*
+import kotlinx.android.synthetic.main.pm_raw.*
+import kotlinx.android.synthetic.main.private_chat_raw.*
+import kotlinx.android.synthetic.main.private_chat_raw.view.*
 
 
 class PrivateChatFragmentRoom : Fragment() {
@@ -29,8 +30,9 @@ class PrivateChatFragmentRoom : Fragment() {
     private var _binding:FragmentPrivateChatRoomBinding?=null
     private val binding get()=_binding!!
     private lateinit var adapter:PmRoomAdapter
-
     var user=ArrayList<PrivateMessage>()
+    val userPP:ArrayList<UserInfo>?=null
+
 
     private lateinit var firestore: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,6 +71,9 @@ class PrivateChatFragmentRoom : Fragment() {
 
             val args=PrivateChatFragmentRoomArgs.fromBundle(it).username
             getActivity()?.setTitle(args)
+        }
+        arguments?.let {
+            val args=PrivateChatFragmentRoomArgs.fromBundle(it).pp
         }
 
 
@@ -122,6 +127,7 @@ class PrivateChatFragmentRoom : Fragment() {
 
                     }
             }
+
 
     }
 

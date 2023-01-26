@@ -83,6 +83,10 @@
         tools:layout="@layout/fragment_private_chat_room" >
         <argument
             android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="pp"
             app:argType="string" />
     </fragment>
     <fragment

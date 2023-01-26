@@ -3,18 +3,22 @@ package com.volkankelleci.petsocialclub.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.MutableLiveData
+import androidx.navigation.navArgument
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import com.volkankelleci.petsocialclub.R
-import com.volkankelleci.petsocialclub.util.ChatData
 import com.volkankelleci.petsocialclub.util.PrivateMessage
+import com.volkankelleci.petsocialclub.util.UserInfo
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
+import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.pm_raw.view.*
+import kotlinx.android.synthetic.main.private_chat_raw.view.*
 
-class PmRoomAdapter: RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
+class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
+
     private val WRITER_USER = 1
     private val ANSWER_USER = 2
     class PmRoomAdapterViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -46,8 +50,8 @@ class PmRoomAdapter: RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>
         } else {
             return ANSWER_USER
         }
-
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PmRoomAdapterViewHolder {
 
@@ -64,7 +68,12 @@ class PmRoomAdapter: RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>
     }
 
     override fun onBindViewHolder(holder: PmRoomAdapterViewHolder, position: Int) {
+        val userPP:UserInfo?=null
         holder.itemView.privateMessageChatTV.text=privateChats[position].message
+        if (userPP != null) {
+            Picasso.get().load(userPP.userImage).into(holder.itemView.profilePicture)
+        };
+
     }
 
     override fun getItemCount(): Int {
