@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.doneviews
+package com.volkankelleci.petsocialclub.loginandsign
 
 import android.content.Intent
 import android.os.Bundle

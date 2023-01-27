@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.doneviews
+package com.volkankelleci.petsocialclub.chatpart
 
 import android.os.Bundle
 import android.view.LayoutInflater

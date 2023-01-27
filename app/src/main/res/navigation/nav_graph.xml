@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.volkankelleci.petsocialclub.doneviews.MainFragment"
+        android:name="com.volkankelleci.petsocialclub.loginandsign.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.volkankelleci.petsocialclub.doneviews.SignUpFragment"
+        android:name="com.volkankelleci.petsocialclub.loginandsign.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -69,7 +69,7 @@
         tools:layout="@layout/fragment_user_chat" />
     <fragment
         android:id="@+id/privateChatFragment"
-        android:name="com.volkankelleci.petsocialclub.doneviews.PrivateChatFragment"
+        android:name="com.volkankelleci.petsocialclub.chatpart.PrivateChatFragment"
         android:label="fragment_private_chat"
         tools:layout="@layout/fragment_private_chat" >
         <action
