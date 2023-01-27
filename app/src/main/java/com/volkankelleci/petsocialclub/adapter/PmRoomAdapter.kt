@@ -17,7 +17,7 @@ import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.pm_raw.view.*
 import kotlinx.android.synthetic.main.private_chat_raw.view.*
 
-class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
+class PmRoomAdapter(var userPP:ArrayList<UserInfo>): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
 
     private val WRITER_USER = 1
     private val ANSWER_USER = 2
@@ -68,11 +68,9 @@ class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolde
     }
 
     override fun onBindViewHolder(holder: PmRoomAdapterViewHolder, position: Int) {
-        val userPP:UserInfo?=null
-        holder.itemView.privateMessageChatTV.text=privateChats[position].message
-        if (userPP != null) {
-            Picasso.get().load(userPP.userImage).into(holder.itemView.profilePicture)
-        };
+
+        // holder.itemView.privateMessageChatTV.text=privateChats[position].message
+        holder.itemView.privateMessageChatTV.text=userPP[position].petName
 
     }
 

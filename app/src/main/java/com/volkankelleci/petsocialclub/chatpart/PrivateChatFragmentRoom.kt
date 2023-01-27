@@ -31,7 +31,7 @@ class PrivateChatFragmentRoom : Fragment() {
     private val binding get()=_binding!!
     private lateinit var adapter:PmRoomAdapter
     var user=ArrayList<PrivateMessage>()
-    val userPP:ArrayList<UserInfo>?=null
+    val userPP=ArrayList<UserInfo>()
 
 
     private lateinit var firestore: FirebaseFirestore
@@ -61,10 +61,11 @@ class PrivateChatFragmentRoom : Fragment() {
                 privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
             }, 100)
         }
+        takesUserInfo()
 
         val layoutManager = LinearLayoutManager(activity)
         privateMessageRV.layoutManager = layoutManager
-        adapter = PmRoomAdapter()
+        adapter = PmRoomAdapter(userPP)
         privateMessageRV.adapter = adapter
 
         arguments?.let {
@@ -72,10 +73,6 @@ class PrivateChatFragmentRoom : Fragment() {
             val args=PrivateChatFragmentRoomArgs.fromBundle(it).username
             getActivity()?.setTitle(args)
         }
-        arguments?.let {
-            val args=PrivateChatFragmentRoomArgs.fromBundle(it).pp
-        }
-
 
 
         binding.privateMessageSendButton.setOnClickListener {
@@ -128,7 +125,6 @@ class PrivateChatFragmentRoom : Fragment() {
                     }
             }
 
-
     }
 
     private fun scrollToBottom(recyclerView: RecyclerView) {
@@ -145,5 +141,31 @@ class PrivateChatFragmentRoom : Fragment() {
             }
         }
     }
+    fun takesUserInfo(){
+        database.collection("userProfileInfo")
+            .addSnapshotListener { value, error ->
+                if(error!=null){
+                }else
+                    if (value!=null){
+                        if (value.isEmpty==false){
+                            val documents=value.documents
+                            userPP
+                                .clear()
+                            for (document in documents){
+                                document.get("userProfileInfo")
+                                val userEmail=document.get("userEmail").toString()
+                                val userUUID=document.get("userUUID").toString()
+                                val userName=document.get("userName").toString()
+                                val userPetName=document.get("petName").toString()
+                                val userImage=document.get("userImage").toString()
+                                val userPassword=document.get("password").toString()
+                                val downloadInfos= UserInfo(userUUID,userEmail,userName,userPetName,userImage,userPassword)
+                                userPP.add(downloadInfos)
 
+                            }
+                            adapter.notifyDataSetChanged()
+                        }
+                    }
+            }
+    }
 }
