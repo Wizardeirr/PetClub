@@ -31,6 +31,9 @@ class PrivateChatFragment : Fragment() {
     private lateinit var adapter:PmRoomAdapter
     var user=ArrayList<PrivateMessage>()
     val userPP=ArrayList<UserInfo>()
+    val toUUID= arguments?.let {
+        PrivateChatFragmentArgs.fromBundle(it).pp
+    }
 
 
     private lateinit var firestore: FirebaseFirestore
@@ -79,9 +82,7 @@ class PrivateChatFragment : Fragment() {
             val userEmail = Util.auth.currentUser!!.email.toString()
             val userText =binding.privateMessageET.text.toString()
             val userDate = FieldValue.serverTimestamp()
-            val toUUID= arguments?.let {
-                PrivateChatFragmentArgs.fromBundle(it).pp
-            }
+
 
             val userInfoMap = HashMap<String, Any>()
             userInfoMap.put("PrivateChatUserUUID", userUUID)
@@ -96,7 +97,7 @@ class PrivateChatFragment : Fragment() {
                 .addOnFailureListener {
                 }
         }
-        database.collection("privateChat").orderBy("userDate", Query.Direction.ASCENDING)
+        database.collection("privateChatInfo/$userUUID/$toUUID").orderBy("userDate", Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
