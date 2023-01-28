@@ -15,7 +15,7 @@
 
         <TextView
             android:id="@+id/ownersName"
-            android:layout_width="189dp"
+            android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:layout_marginRight="150dp"
@@ -24,15 +24,6 @@
             android:text="Owners Name"
             android:textSize="20sp">
         </TextView>
-
-        <ImageView
-            android:id="@+id/sendMessageRecycler"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:src="@drawable/send_icon">
-
-        </ImageView>
 
     </LinearLayout>
     <ImageView

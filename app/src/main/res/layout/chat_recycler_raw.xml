@@ -6,19 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="bottom|right"
-
-
     >
-
     <TextView
         android:id="@+id/chatTV"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@drawable/corner"
+        android:gravity="center"
         android:maxWidth="240dp"
         android:padding="16dp"
         android:text="TextView"
-
         app:autoSizeMaxTextSize="100sp"
         app:autoSizeMinTextSize="12sp"
         app:autoSizeStepGranularity="2sp"
@@ -27,12 +24,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
+        android:id="@+id/chatProfilePicture"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:id="@+id/chatProfilePicture"
-        >
+        android:src="@drawable/ic_launcher_foreground">
 
     </ImageView>
 

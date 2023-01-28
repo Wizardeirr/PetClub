@@ -69,7 +69,7 @@
         tools:layout="@layout/fragment_user_chat" />
     <fragment
         android:id="@+id/privateChatFragment"
-        android:name="com.volkankelleci.petsocialclub.chatpart.PrivateChatFragment"
+        android:name="com.volkankelleci.petsocialclub.chatpart.ChatRoomFragment"
         android:label="fragment_private_chat"
         tools:layout="@layout/fragment_private_chat" >
         <action
@@ -78,7 +78,7 @@
     </fragment>
     <fragment
         android:id="@+id/privateChatFragmentRoom"
-        android:name="com.volkankelleci.petsocialclub.chatpart.PrivateChatFragmentRoom"
+        android:name="com.volkankelleci.petsocialclub.chatpart.PrivateChatFragment"
         android:label="fragment_private_chat_room"
         tools:layout="@layout/fragment_private_chat_room" >
         <argument

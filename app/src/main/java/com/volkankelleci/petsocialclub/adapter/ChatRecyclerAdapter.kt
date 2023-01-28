@@ -57,6 +57,8 @@ class ChatRecyclerAdapter() : RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecyc
     }
     override fun onBindViewHolder(holder: ChatRecyclerViewHolder, position: Int) {
         holder.itemView.chatTV.text = chats[position].chatText
+
+
     }
     override fun getItemCount(): Int {
         return chats.size

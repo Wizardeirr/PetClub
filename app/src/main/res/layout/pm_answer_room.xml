@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:maxWidth="240dp"
         android:padding="16dp"
+        android:layout_gravity="center"
         android:text="TextView"
         app:autoSizeMaxTextSize="100sp"
         app:autoSizeMinTextSize="12sp"

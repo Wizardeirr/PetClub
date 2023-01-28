@@ -29,10 +29,7 @@ class UserPostAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<UserPo
         holder.itemView.commentRecycler.text=postList[position].userComment
         holder.itemView.ownersName.text=postList[position].userEmail
         //navigate
-        holder.itemView.sendMessageRecycler.setOnClickListener {
-            val action=UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
-            Navigation.findNavController(it).navigate(action)
-        }
+
         //image with glide
         holder.itemView.petImageRecycler.downloadImageToRecycler(postList[position].userImage,
             createPlaceHolder(holder.itemView.context))

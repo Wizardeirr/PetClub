@@ -17,7 +17,7 @@
         android:maxWidth="240dp"
         android:padding="16dp"
         android:text="TextView"
-
+        android:gravity="center"
         app:autoSizeMaxTextSize="100sp"
         app:autoSizeMinTextSize="12sp"
         app:autoSizeStepGranularity="2sp"
