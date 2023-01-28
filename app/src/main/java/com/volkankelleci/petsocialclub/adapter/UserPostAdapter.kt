@@ -12,7 +12,7 @@ import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.recycler_raw.view.*
 
-class UserRecyclerAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<UserRecyclerAdapter.UserViewHolder>() {
+class UserPostAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<UserPostAdapter.UserViewHolder>() {
 
     class UserViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
     }
@@ -28,10 +28,12 @@ class UserRecyclerAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<Us
         holder.itemView.titleRecycler.text=postList[position].userTitle
         holder.itemView.commentRecycler.text=postList[position].userComment
         holder.itemView.ownersName.text=postList[position].userEmail
+        //navigate
         holder.itemView.sendMessageRecycler.setOnClickListener {
             val action=UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
             Navigation.findNavController(it).navigate(action)
         }
+        //image with glide
         holder.itemView.petImageRecycler.downloadImageToRecycler(postList[position].userImage,
             createPlaceHolder(holder.itemView.context))
 

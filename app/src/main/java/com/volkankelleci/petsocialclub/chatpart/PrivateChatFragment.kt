@@ -36,15 +36,17 @@ class PrivateChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // fun called
         takesUserInfo()
+
+        // adapter created
         val layoutManager= LinearLayoutManager(activity)
         privateChatRV.layoutManager=layoutManager
         adapter= PrivateChatAdapter(userInfo,privateMessage)
         privateChatRV.adapter=adapter
-
     }
 
-    fun takesUserInfo(){
+    private fun takesUserInfo(){
         database.collection("userProfileInfo")
             .addSnapshotListener { value, error ->
                 if(error!=null){
@@ -63,12 +65,10 @@ class PrivateChatFragment : Fragment() {
                                 val userPassword=document.get("password").toString()
                                 val downloadInfos= UserInfo(userUUID,userEmail,userName,userPetName,userImage,userPassword)
                                 userInfo.add(downloadInfos)
-
                             }
                             adapter.notifyDataSetChanged()
                         }
                     }
             }
     }
-
 }

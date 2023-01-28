@@ -3,17 +3,14 @@ package com.volkankelleci.petsocialclub.doneviews
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.firebase.ui.auth.data.model.User
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.R
-import com.volkankelleci.petsocialclub.adapter.UserRecyclerAdapter
+import com.volkankelleci.petsocialclub.adapter.UserPostAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.util.Post
 import com.volkankelleci.petsocialclub.util.Util
@@ -26,7 +23,7 @@ class UsersHomeFragment : Fragment() {
 
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
 
-    private lateinit var recyclerViewAdapter: UserRecyclerAdapter
+    private lateinit var recyclerViewAdapter: UserPostAdapter
 
     var postList = ArrayList<Post>()
 
@@ -58,7 +55,7 @@ class UsersHomeFragment : Fragment() {
         takesData()
         val layoutManager = LinearLayoutManager(activity)
         usersHomeFragmentRecycler.layoutManager = layoutManager
-        recyclerViewAdapter = UserRecyclerAdapter(postList)
+        recyclerViewAdapter = UserPostAdapter(postList)
         usersHomeFragmentRecycler.adapter = recyclerViewAdapter
 
 

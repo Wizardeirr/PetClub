@@ -70,7 +70,7 @@ class PmRoomAdapter(var userPP:ArrayList<UserInfo>): RecyclerView.Adapter<PmRoom
     override fun onBindViewHolder(holder: PmRoomAdapterViewHolder, position: Int) {
 
         // holder.itemView.privateMessageChatTV.text=privateChats[position].message
-        holder.itemView.privateMessageChatTV.text=userPP[position].petName
+        holder.itemView.privateMessageChatTV.text=privateChats.get(position).message
 
     }
 
