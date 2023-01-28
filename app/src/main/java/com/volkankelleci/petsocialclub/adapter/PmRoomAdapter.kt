@@ -18,7 +18,7 @@ import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.pm_raw.view.*
 import kotlinx.android.synthetic.main.private_chat_raw.view.*
 
-class PmRoomAdapter(val userPP:ArrayList<UserInfo>): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
+class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
 
     private val WRITER_USER = 1
     private val ANSWER_USER = 2

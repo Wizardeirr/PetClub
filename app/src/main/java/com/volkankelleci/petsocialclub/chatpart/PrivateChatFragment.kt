@@ -30,16 +30,13 @@ class PrivateChatFragment : Fragment() {
     private val binding get()=_binding!!
     private lateinit var adapter:PmRoomAdapter
     var user=ArrayList<PrivateMessage>()
-    val userPP=ArrayList<UserInfo>()
-    val toUUID= arguments?.let {
-        PrivateChatFragmentArgs.fromBundle(it).pp
-    }
+
 
 
     private lateinit var firestore: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getActivity()?.setTitle("Private Chat Room")
+
         firestore = Firebase.firestore
     }
 
@@ -63,11 +60,10 @@ class PrivateChatFragment : Fragment() {
                 privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
             }, 100)
         }
-        takesUserInfo()
 
         val layoutManager = LinearLayoutManager(activity)
         privateMessageRV.layoutManager = layoutManager
-        adapter = PmRoomAdapter(userPP)
+        adapter = PmRoomAdapter()
         privateMessageRV.adapter = adapter
 
         arguments?.let {
@@ -78,11 +74,15 @@ class PrivateChatFragment : Fragment() {
 
 
         binding.privateMessageSendButton.setOnClickListener {
-            val userUUID = Util.auth.currentUser!!.uid
+
             val userEmail = Util.auth.currentUser!!.email.toString()
             val userText =binding.privateMessageET.text.toString()
             val userDate = FieldValue.serverTimestamp()
+            val userUUID = Util.auth.currentUser!!.uid
 
+            val toUUID= arguments?.let {
+                PrivateChatFragmentArgs.fromBundle(it).pp
+            }
 
             val userInfoMap = HashMap<String, Any>()
             userInfoMap.put("PrivateChatUserUUID", userUUID)
@@ -96,8 +96,12 @@ class PrivateChatFragment : Fragment() {
             }
                 .addOnFailureListener {
                 }
+            firestore.collection("privateChatInfo/$toUUID/$userUUID").add(userInfoMap).addOnSuccessListener {
+                scrollToBottom(privateMessageRV)
+                binding.privateMessageET.setText("")
+            }
         }
-        database.collection("privateChatInfo/$userUUID/$toUUID").orderBy("userDate", Query.Direction.ASCENDING)
+        database.collection("privateChatInfo")
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
@@ -106,7 +110,7 @@ class PrivateChatFragment : Fragment() {
                             val documents = value.documents
                             user.clear()
                             for (document in documents) {
-                                document.get("privateChat")
+                                document.get("privateChatInfo")
                                 val privateMessageUserText = document.get("userText").toString()
                                 val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
                                 val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
@@ -117,6 +121,7 @@ class PrivateChatFragment : Fragment() {
 
                                 user.add(downloadInfos)
                                 adapter.privateChats=user
+
                             }
                             adapter.notifyDataSetChanged()
 
@@ -141,31 +146,5 @@ class PrivateChatFragment : Fragment() {
             }
         }
     }
-    fun takesUserInfo(){
-        database.collection("userProfileInfo")
-            .addSnapshotListener { value, error ->
-                if(error!=null){
-                }else
-                    if (value!=null){
-                        if (value.isEmpty==false){
-                            val documents=value.documents
-                            userPP
-                                .clear()
-                            for (document in documents){
-                                document.get("userProfileInfo")
-                                val userEmail=document.get("userEmail").toString()
-                                val userUUID=document.get("userUUID").toString()
-                                val userName=document.get("userName").toString()
-                                val userPetName=document.get("petName").toString()
-                                val userImage=document.get("userImage").toString()
-                                val userPassword=document.get("password").toString()
-                                val downloadInfos= UserInfo(userUUID,userEmail,userName,userPetName,userImage,userPassword)
-                                userPP.add(downloadInfos)
 
-                            }
-                            adapter.notifyDataSetChanged()
-                        }
-                    }
-            }
-    }
 }
