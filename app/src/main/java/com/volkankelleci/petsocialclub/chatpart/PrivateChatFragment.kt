@@ -17,6 +17,7 @@ import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBindin
 import com.volkankelleci.petsocialclub.util.PrivateMessage
 import com.volkankelleci.petsocialclub.util.UserInfo
 import com.volkankelleci.petsocialclub.util.Util
+import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat_room.*
 import kotlinx.android.synthetic.main.pm_raw.*
@@ -75,10 +76,10 @@ class PrivateChatFragment : Fragment() {
 
         binding.privateMessageSendButton.setOnClickListener {
 
-            val userEmail = Util.auth.currentUser!!.email.toString()
+            val userEmail = auth.currentUser!!.email.toString()
             val userText =binding.privateMessageET.text.toString()
             val userDate = FieldValue.serverTimestamp()
-            val userUUID = Util.auth.currentUser!!.uid
+            val userUUID = auth.currentUser!!.uid
 
             val toUUID= arguments?.let {
                 PrivateChatFragmentArgs.fromBundle(it).pp
@@ -101,7 +102,8 @@ class PrivateChatFragment : Fragment() {
                 binding.privateMessageET.setText("")
             }
         }
-        database.collection("privateChatInfo")
+
+        database.collection("privateChatInfo/")
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
@@ -116,8 +118,7 @@ class PrivateChatFragment : Fragment() {
                                 val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                                 val privateChatUserDate = document.get("userDate").toString()
                                 val privateChatToUUID = document.get("toUUID").toString()
-                                val downloadInfos =
-                                    PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatUserDate,privateChatUserEmail,privateChatToUUID)
+                                val downloadInfos =PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatUserDate,privateChatUserEmail,privateChatToUUID)
 
                                 user.add(downloadInfos)
                                 adapter.privateChats=user
