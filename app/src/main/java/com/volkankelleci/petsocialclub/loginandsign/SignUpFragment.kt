@@ -66,7 +66,7 @@ class SignUpFragment : Fragment() {
             findNavController().navigate(action)
 
         }
-        signImageView.setOnClickListener {
+        selectPhotoFAB.setOnClickListener {
 
             selectImage()
         }

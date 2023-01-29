@@ -7,24 +7,16 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="3dp"
-
+    android:padding="5dp"
     android:background="@drawable/answer_corner"
     android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:id="@+id/answerChatProfilePicture"
-        >
-
-    </ImageView>
     <TextView
         android:id="@+id/chatTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxWidth="240dp"
-        android:padding="16dp"
+        android:padding="14dp"
         android:text="TextView"
         android:layout_gravity="center"
         app:autoSizeMaxTextSize="100sp"

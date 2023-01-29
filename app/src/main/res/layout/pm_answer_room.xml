@@ -11,14 +11,6 @@
     android:background="@drawable/answer_corner"
     android:orientation="horizontal">
 
-    <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/ic_launcher_foreground"
-        android:id="@+id/pmPP"
-        >
-
-    </ImageView>
     <TextView
         android:id="@+id/privateMessageChatTV"
         android:layout_width="wrap_content"

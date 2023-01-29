@@ -4,6 +4,7 @@
     android:id="@+id/pmRV"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:padding="5dp"
     android:gravity="bottom|right"
 
 
@@ -15,7 +16,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/corner"
         android:maxWidth="240dp"
-        android:padding="16dp"
+        android:padding="14dp"
         android:text="TextView"
         android:gravity="center"
         app:autoSizeMaxTextSize="100sp"
@@ -26,13 +27,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/profilePicture"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/ic_launcher_foreground">
-
-    </ImageView>
 
 </LinearLayout>
