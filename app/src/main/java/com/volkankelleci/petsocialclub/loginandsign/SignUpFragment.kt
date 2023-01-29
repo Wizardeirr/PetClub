@@ -1,6 +1,8 @@
 package com.volkankelleci.petsocialclub.loginandsign
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -35,6 +37,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.*
+import kotlin.collections.ArrayList
 
 class SignUpFragment : Fragment() {
     lateinit var auth: FirebaseAuth
@@ -60,10 +63,32 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         signUpButton.setOnClickListener {
-            signUser()
-            Toast.makeText(context, "Sign is Success", Toast.LENGTH_LONG).show()
-            val action = SignUpFragmentDirections.actionSignUpFragmentToMainFragment()
-            findNavController().navigate(action)
+
+            val alertMessage=AlertDialog.Builder(activity)
+            alertMessage.setTitle("Girilen bilgilerle devam etmek istiyor musunuz ?")
+            alertMessage.setPositiveButton("No",DialogInterface.OnClickListener { dialog, which ->
+                alertMessage.setMessage("Please check your informations")
+            })
+            alertMessage.setNegativeButton("Yes",DialogInterface.OnClickListener { dialog, which ->
+                alertMessage.setMessage("You are continuing")
+                val userEmail = userSign.text.toString()
+                val userName = binding.userNameET.text.toString()
+                val petName = binding.petName.text.toString()
+                val password=binding.passwordSign.text.toString()
+                if (userName.isNotEmpty()&&userEmail.isNotEmpty()&&petName.isNotEmpty()&&password.isNotEmpty()){
+                    signUser()
+                    Toast.makeText(context, "Sign is Success", Toast.LENGTH_LONG).show()
+                    val action = SignUpFragmentDirections.actionSignUpFragmentToMainFragment()
+                    findNavController().navigate(action)
+                }else{
+                    Toast.makeText(context, "Please fill all information", Toast.LENGTH_SHORT).show()
+                }
+
+
+            }).show()
+
+
+
 
         }
         selectPhotoFAB.setOnClickListener {
