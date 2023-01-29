@@ -90,7 +90,6 @@ class MainFragment : Fragment() {
     }
     private fun checkLoggedInState() {
         if (auth.currentUser == null) {
-            Toast.makeText(context, "SIGN IS UNSUCCESS", Toast.LENGTH_LONG).show()
 
         } else {
             Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
