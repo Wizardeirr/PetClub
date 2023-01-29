@@ -56,11 +56,11 @@
             android:id="@+id/action_usersHomeFragment_to_userChatFragment"
             app:destination="@id/userChatFragment" />
         <action
-            android:id="@+id/action_usersHomeFragment_to_privateChatFragment"
-            app:destination="@id/privateChatFragment" />
-        <action
             android:id="@+id/action_usersHomeFragment_to_userProfileMenuFragment"
             app:destination="@id/userProfileMenuFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_to_privateMessageListFragment"
+            app:destination="@id/privateMessageListFragment" />
     </fragment>
     <fragment
         android:id="@+id/userChatFragment"
@@ -98,5 +98,9 @@
         android:id="@+id/privateMessageListFragment"
         android:name="com.volkankelleci.petsocialclub.PrivateMessageListFragment"
         android:label="fragment_private_message_list"
-        tools:layout="@layout/fragment_private_message_list" />
+        tools:layout="@layout/fragment_private_message_list" >
+        <action
+            android:id="@+id/action_privateMessageListFragment_to_privateChatFragment"
+            app:destination="@id/privateChatFragment" />
+    </fragment>
 </navigation>
