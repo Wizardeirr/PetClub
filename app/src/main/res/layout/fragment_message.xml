@@ -10,12 +10,12 @@
         android:id="@+id/selectImage"
         android:layout_width="341dp"
         android:layout_height="271dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitCenter"
         android:src="@drawable/cool"
         app:layout_constraintEnd_toEndOf="parent"
-        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/shareButton"
@@ -34,12 +34,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="What You Need?"
-        android:text=""
+        android:hint="What are you looking ?(female or male pet)"
         android:inputType="textCapSentences|textMultiLine"
         android:maxWidth="240dp"
         android:maxLength="2000"
         android:maxLines="6"
+        android:text=""
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,10 +58,21 @@
         android:maxLength="24"
         android:maxLines="1"
         android:text=""
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectImage" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Please click to the cat and load your pet image"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
