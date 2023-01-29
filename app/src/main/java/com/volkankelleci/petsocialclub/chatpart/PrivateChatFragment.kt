@@ -102,8 +102,10 @@ class PrivateChatFragment : Fragment() {
                 binding.privateMessageET.setText("")
             }
         }
-
-        database.collection("privateChatInfo/")
+        val toUUID= arguments?.let {
+            PrivateChatFragmentArgs.fromBundle(it).pp
+        }
+        database.collection("privateChatInfo/$toUUID/${auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
@@ -119,7 +121,6 @@ class PrivateChatFragment : Fragment() {
                                 val privateChatUserDate = document.get("userDate").toString()
                                 val privateChatToUUID = document.get("toUUID").toString()
                                 val downloadInfos =PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatUserDate,privateChatUserEmail,privateChatToUUID)
-
                                 user.add(downloadInfos)
                                 adapter.privateChats=user
 
