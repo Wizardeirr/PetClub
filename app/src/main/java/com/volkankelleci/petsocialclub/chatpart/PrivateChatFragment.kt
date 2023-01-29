@@ -101,6 +101,7 @@ class PrivateChatFragment : Fragment() {
                 scrollToBottom(privateMessageRV)
                 binding.privateMessageET.setText("")
             }
+
         }
         val toUUID= arguments?.let {
             PrivateChatFragmentArgs.fromBundle(it).pp
