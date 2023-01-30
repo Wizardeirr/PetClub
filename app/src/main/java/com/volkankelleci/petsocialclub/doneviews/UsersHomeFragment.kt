@@ -146,8 +146,7 @@ class UsersHomeFragment : Fragment() {
                                 val petName = document.get("petName").toString()
                                 val pw = document.get("password").toString()
 
-                                val userInfo =UserInfo(uuid,usermail,userName,petName,userPP
-                                ,pw)
+                                val userInfo =UserInfo(uuid,usermail,userName,petName,userPP,pw)
                                 pp.add(userInfo)
 
                             }

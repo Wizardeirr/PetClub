@@ -36,6 +36,8 @@ class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>):
         //image with glide
         holder.itemView.petImageRecycler.downloadImageToRecycler(postList[position].userImage,
             createPlaceHolder(holder.itemView.context))
+        holder.itemView.postPP.downloadImageToRecycler(pp.get(position).userImage,
+            createPlaceHolder(holder.itemView.context))
 
 
     }
