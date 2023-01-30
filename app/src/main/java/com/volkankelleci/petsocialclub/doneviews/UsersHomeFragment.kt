@@ -136,17 +136,19 @@ class UsersHomeFragment : Fragment() {
                     if (value != null) {
                         if (value.isEmpty == false) {
                             val documents = value.documents
-                            postList.clear()
+                            pp.clear()
                             for (document in documents) {
                                 document.get("userProfileInfo")
                                 val usermail = document.get("userEMail").toString()
+                                val uuid=document.get("userUUID").toString()
                                 val userName = document.get("userName").toString()
                                 val userPP = document.get("userImage").toString()
                                 val petName = document.get("petName").toString()
+                                val pw = document.get("password").toString()
 
-                                val downloadInfos =
-                                    Post(usermail, userName, userPP, petName)
-                                postList.add(downloadInfos)
+                                val userInfo =UserInfo(uuid,usermail,userName,petName,userPP
+                                ,pw)
+                                pp.add(userInfo)
 
                             }
 
