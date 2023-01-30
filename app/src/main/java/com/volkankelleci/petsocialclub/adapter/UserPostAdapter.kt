@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.doneviews.UsersHomeFragmentDirections
 import com.volkankelleci.petsocialclub.util.Post
+import com.volkankelleci.petsocialclub.util.UserInfo
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.recycler_raw.view.*
 
-class UserPostAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<UserPostAdapter.UserViewHolder>() {
+class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>): RecyclerView.Adapter<UserPostAdapter.UserViewHolder>() {
 
     class UserViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
     }
@@ -28,6 +29,8 @@ class UserPostAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<UserPo
         holder.itemView.titleRecycler.text=postList[position].userTitle
         holder.itemView.commentRecycler.text=postList[position].userComment
         holder.itemView.ownersName.text=postList[position].userEmail
+        holder.itemView.postPP.downloadImageToRecycler(pp.get(position).userImage,
+            createPlaceHolder(holder.itemView.context))
         //navigate
 
         //image with glide

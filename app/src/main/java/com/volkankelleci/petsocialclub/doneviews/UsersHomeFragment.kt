@@ -13,6 +13,7 @@ import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.adapter.UserPostAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.util.Post
+import com.volkankelleci.petsocialclub.util.UserInfo
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.fragment_users_home.*
@@ -26,6 +27,7 @@ class UsersHomeFragment : Fragment() {
     private lateinit var recyclerViewAdapter: UserPostAdapter
 
     var postList = ArrayList<Post>()
+    var pp=ArrayList<UserInfo>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,9 +55,10 @@ class UsersHomeFragment : Fragment() {
         }
         //User Name Save
         takesData()
+        takesPP()
         val layoutManager = LinearLayoutManager(activity)
         usersHomeFragmentRecycler.layoutManager = layoutManager
-        recyclerViewAdapter = UserPostAdapter(postList)
+        recyclerViewAdapter = UserPostAdapter(postList,pp)
         usersHomeFragmentRecycler.adapter = recyclerViewAdapter
 
 
@@ -98,7 +101,7 @@ class UsersHomeFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun takesData() {
+    private fun takesData() {
         database.collection("Post").orderBy("date", Query.Direction.DESCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
@@ -116,6 +119,33 @@ class UsersHomeFragment : Fragment() {
 
                                 val downloadInfos =
                                     Post(userTitle, userComment, userImage, userEmail)
+                                postList.add(downloadInfos)
+
+                            }
+
+                        }
+                        recyclerViewAdapter.notifyDataSetChanged()
+                    }
+            }
+    }
+    fun takesPP() {
+        database.collection("userProfileInfo")
+            .addSnapshotListener { value, error ->
+                if (error != null) {
+                } else
+                    if (value != null) {
+                        if (value.isEmpty == false) {
+                            val documents = value.documents
+                            postList.clear()
+                            for (document in documents) {
+                                document.get("userProfileInfo")
+                                val usermail = document.get("userEMail").toString()
+                                val userName = document.get("userName").toString()
+                                val userPP = document.get("userImage").toString()
+                                val petName = document.get("petName").toString()
+
+                                val downloadInfos =
+                                    Post(usermail, userName, userPP, petName)
                                 postList.add(downloadInfos)
 
                             }
