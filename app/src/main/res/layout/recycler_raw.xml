@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="500dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
 
     android:padding="10dp"
@@ -13,17 +14,28 @@
         android:layout_height="40dp"
         android:orientation="horizontal">
 
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/postPP"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/logo"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
         <TextView
+            android:paddingStart="5dp"
             android:id="@+id/ownersName"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
+            android:gravity="center"
             android:layout_marginRight="150dp"
-
             android:padding="1dp"
             android:text="Owners Name"
-            android:textSize="20sp">
-        </TextView>
+            android:textSize="15sp"></TextView>
 
     </LinearLayout>
     <ImageView
@@ -44,8 +56,8 @@
 
         <TextView
             android:id="@+id/titleRecycler"
-            android:layout_width="361dp"
-            android:layout_height="50dp"
+            android:layout_width="372dp"
+            android:layout_height="48dp"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:padding="3dp"
@@ -70,7 +82,7 @@
 
 
         <View
-            android:layout_width="match_parent"
+            android:layout_width="372dp"
             android:layout_height="1dp"
             android:layout_margin="8dp"
             android:background="@color/black">

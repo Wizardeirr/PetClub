@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/userNameETProfile"
         android:layout_width="372dp"
-        android:layout_height="46dp"
+        android:layout_height="44dp"
         android:layout_marginTop="36dp"
         android:ems="10"
         android:hint="Username"
@@ -21,33 +21,20 @@
 
     <TextView
         android:id="@+id/passwordSignProfile"
-        android:layout_width="287dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="372dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.23"
-        app:layout_constraintStart_toEndOf="@+id/passwordSignProfile2"
-        app:layout_constraintTop_toBottomOf="@+id/userSignEmail" />
-
-    <TextView
-        android:id="@+id/passwordSignProfile2"
-        android:layout_width="79dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:text="Password"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userSignEmail" />
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="279dp" />
 
     <TextView
         android:id="@+id/userSignEmail"
         android:layout_width="372dp"
-        android:layout_height="46dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textPersonName"
@@ -59,8 +46,8 @@
     <TextView
         android:id="@+id/petNameProfile"
         android:layout_width="372dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="Your Pet Name"
         app:layout_constraintEnd_toEndOf="parent"

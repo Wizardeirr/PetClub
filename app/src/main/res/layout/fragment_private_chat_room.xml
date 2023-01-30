@@ -6,14 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".chatpart.PrivateChatFragment"
     android:layout_marginBottom="1dp">
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/privateMessageRV"
         android:layout_width="400dp"
         android:layout_height="530dp"
         android:layout_gravity="center"
-        
         android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
