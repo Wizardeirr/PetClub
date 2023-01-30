@@ -11,6 +11,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -76,10 +77,21 @@ class SignUpFragment : Fragment() {
                 val petName = binding.petName.text.toString()
                 val password=binding.passwordSign.text.toString()
                 if (userName.isNotEmpty()&&userEmail.isNotEmpty()&&petName.isNotEmpty()&&password.isNotEmpty()){
-                    signUser()
-                    Toast.makeText(context, "Sign is Success", Toast.LENGTH_LONG).show()
-                    val action = SignUpFragmentDirections.actionSignUpFragmentToMainFragment()
-                    findNavController().navigate(action)
+
+
+                    if(Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()&& selectedImageURI!=null){
+                        signUser()
+                        Toast.makeText(context, "Sign is Success", Toast.LENGTH_LONG).show()
+                        val action = SignUpFragmentDirections.actionSignUpFragmentToMainFragment()
+                        findNavController().navigate(action)
+                    }
+                    if(selectedImageURI==null){
+                        Toast.makeText(activity, "Please load profile picture", Toast.LENGTH_SHORT).show()
+                    }
+                    else{
+                        Toast.makeText(activity, "Invalid email adress", Toast.LENGTH_SHORT).show()
+                    }
+
                 }else{
                     Toast.makeText(context, "Please fill all information", Toast.LENGTH_SHORT).show()
                 }
