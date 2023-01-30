@@ -78,7 +78,7 @@ class SignUpFragment : Fragment() {
                 val password=binding.passwordSign.text.toString()
                 if (userName.isNotEmpty()&&userEmail.isNotEmpty()&&petName.isNotEmpty()&&password.isNotEmpty()){
 
-
+// When click 2 times to Profile Picture select app getting crash "Fix this problem"
                     if(Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()&& selectedImageURI!=null){
                         signUser()
                         Toast.makeText(context, "Sign is Success", Toast.LENGTH_LONG).show()
@@ -98,10 +98,8 @@ class SignUpFragment : Fragment() {
                     Toast.makeText(context, "Please fill all information", Toast.LENGTH_SHORT).show()
                 }
             }).show()
-
         }
         selectPhotoFAB.setOnClickListener {
-
             selectImage()
         }
 
