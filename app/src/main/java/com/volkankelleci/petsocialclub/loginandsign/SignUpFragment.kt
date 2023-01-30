@@ -88,19 +88,16 @@ class SignUpFragment : Fragment() {
                     if(selectedImageURI==null){
                         Toast.makeText(activity, "Please load profile picture", Toast.LENGTH_SHORT).show()
                     }
+                    if (password.length<6){
+                        Toast.makeText(activity, "Please enter minimum 6 characters for password", Toast.LENGTH_SHORT).show()
+                    }
                     else{
                         Toast.makeText(activity, "Invalid email adress", Toast.LENGTH_SHORT).show()
                     }
-
                 }else{
                     Toast.makeText(context, "Please fill all information", Toast.LENGTH_SHORT).show()
                 }
-
-
             }).show()
-
-
-
 
         }
         selectPhotoFAB.setOnClickListener {
