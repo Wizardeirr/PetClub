@@ -6,8 +6,9 @@
     android:id="@+id/ewq"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp"
+    android:layout_margin="6dp"
     android:padding="5dp"
+
     android:background="@drawable/answer_corner"
     android:orientation="horizontal">
 
@@ -17,6 +18,7 @@
         android:layout_height="wrap_content"
         android:maxWidth="240dp"
         android:padding="10dp"
+
         android:text="TextView"
         android:layout_gravity="center"
         app:autoSizeMaxTextSize="100sp"
