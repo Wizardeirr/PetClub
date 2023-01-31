@@ -46,7 +46,6 @@ class PrivateChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, true)
-
         privateMessageRV.postDelayed({
             privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
         }, 100)
@@ -54,6 +53,7 @@ class PrivateChatFragment : Fragment() {
             privateMessageRV.postDelayed({
                 privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
             }, 100)
+
         }
 
         privateMessageRV.layoutManager = layoutManager

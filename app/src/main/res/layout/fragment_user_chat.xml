@@ -19,10 +19,10 @@
 
     <ImageView
         android:id="@+id/sendButton"
-        android:layout_width="62dp"
-        android:layout_height="39dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="65dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
         android:src="@drawable/send_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,9 +30,9 @@
 
     <EditText
         android:id="@+id/userChatText"
-        android:layout_width="317dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_width="328dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="4dp"
         android:ems="10"
         android:hint="Write your message"
         android:inputType="textCapSentences|textMultiLine"
@@ -41,7 +41,17 @@
         android:maxLines="6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/sendButton"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <ImageView
+        android:id="@+id/downForNewMessage"
+        android:layout_width="37dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:src="@drawable/down_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

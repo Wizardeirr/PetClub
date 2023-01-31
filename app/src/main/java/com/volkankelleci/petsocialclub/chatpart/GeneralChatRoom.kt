@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FieldValue
@@ -17,6 +18,7 @@ import com.volkankelleci.petsocialclub.adapter.ChatRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
 import com.volkankelleci.petsocialclub.util.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
+import kotlinx.android.synthetic.main.fragment_private_chat_room.*
 import kotlinx.android.synthetic.main.fragment_user_chat.*
 
 
@@ -27,13 +29,10 @@ class GeneralChatRoom : Fragment() {
     private lateinit var adapter: ChatRecyclerAdapter
     private lateinit var firestore: FirebaseFirestore
     var chats = ArrayList<ChatData>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         firestore = Firebase.firestore
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -41,29 +40,37 @@ class GeneralChatRoom : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentUserChatBinding.inflate(inflater, container, false)
         val view = binding.root
-
-        getActivity()?.setTitle("Chat Room");
-
+        getActivity()?.setTitle("Chat Room")
         return view
-
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
+        //Showing message automatically in RecyclerView End
         userChatRV.postDelayed({
             userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
         }, 100)
-        userChatText.setOnClickListener {
+        downForNewMessage.setOnClickListener {
+            userChatRV.postDelayed({
+                userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
+            }, 100)
+        }
+        sendButton.setOnClickListener {
             userChatRV.postDelayed({
                 userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
             }, 100)
         }
 
+        // Adapter
         val layoutManager = LinearLayoutManager(activity)
         userChatRV.layoutManager = layoutManager
         adapter = ChatRecyclerAdapter()
         userChatRV.adapter = adapter
+        layoutManager.setStackFromEnd(true);
 
+        //adding informations to Firebase what we want
         binding.sendButton.setOnClickListener {
             val gUserChatText = userChatText.text.toString()
             val gUser = auth.currentUser?.email.toString()
@@ -83,6 +90,7 @@ class GeneralChatRoom : Fragment() {
             }
         }
 
+        //taking from Firestore
         firestore.collection("Chats").orderBy("chatGDate", Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
