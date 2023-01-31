@@ -20,7 +20,7 @@ import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.fragment_user_chat.*
 
 
-class UserChatFragment : Fragment() {
+class GeneralChatRoom : Fragment() {
 
     private var _binding: FragmentUserChatBinding? = null
     private val binding get() = _binding!!

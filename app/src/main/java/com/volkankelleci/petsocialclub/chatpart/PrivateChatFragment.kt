@@ -15,8 +15,6 @@ import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.adapter.PmRoomAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
 import com.volkankelleci.petsocialclub.util.PrivateMessage
-import com.volkankelleci.petsocialclub.util.UserInfo
-import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat_room.*
@@ -24,20 +22,15 @@ import kotlinx.android.synthetic.main.pm_raw.*
 import kotlinx.android.synthetic.main.private_chat_raw.*
 import kotlinx.android.synthetic.main.private_chat_raw.view.*
 
-
 class PrivateChatFragment : Fragment() {
-
     private var _binding:FragmentPrivateChatRoomBinding?=null
     private val binding get()=_binding!!
     private lateinit var adapter:PmRoomAdapter
     var user=ArrayList<PrivateMessage>()
-
-
-
+    val layoutManager = LinearLayoutManager(activity)
     private lateinit var firestore: FirebaseFirestore
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         firestore = Firebase.firestore
     }
 
@@ -50,9 +43,10 @@ class PrivateChatFragment : Fragment() {
         val view=binding.root
         return view
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, true)
+
         privateMessageRV.postDelayed({
             privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
         }, 100)
@@ -62,29 +56,22 @@ class PrivateChatFragment : Fragment() {
             }, 100)
         }
 
-        val layoutManager = LinearLayoutManager(activity)
         privateMessageRV.layoutManager = layoutManager
         adapter = PmRoomAdapter()
         privateMessageRV.adapter = adapter
 
-        arguments?.let {
-
+        val new=arguments?.let {
             val args=PrivateChatFragmentArgs.fromBundle(it).username
-            getActivity()?.setTitle(args)
+            getActivity()?.setTitle("${args}")
         }
-
-
         binding.privateMessageSendButton.setOnClickListener {
-
             val userEmail = auth.currentUser!!.email.toString()
             val userText =binding.privateMessageET.text.toString()
             val userDate = FieldValue.serverTimestamp()
             val userUUID = auth.currentUser!!.uid
-
             val toUUID= arguments?.let {
                 PrivateChatFragmentArgs.fromBundle(it).pp
             }
-
             val userInfoMap = HashMap<String, Any>()
             userInfoMap.put("PrivateChatUserUUID", userUUID)
             userInfoMap.put("PrivateChatUserEmail", userEmail)
@@ -101,7 +88,6 @@ class PrivateChatFragment : Fragment() {
                 scrollToBottom(privateMessageRV)
                 binding.privateMessageET.setText("")
             }
-
         }
         val toUUID= arguments?.let {
             PrivateChatFragmentArgs.fromBundle(it).pp
@@ -124,24 +110,19 @@ class PrivateChatFragment : Fragment() {
                                 val downloadInfos =PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatUserDate,privateChatUserEmail,privateChatToUUID)
                                 user.add(downloadInfos)
                                 adapter.privateChats=user
-
                             }
                             adapter.notifyDataSetChanged()
-
                         }
-
                     }
             }
-
     }
-
     private fun scrollToBottom(recyclerView: RecyclerView) {
         // scroll to last item to get the view of last item
         val layoutManager = privateMessageRV.layoutManager as LinearLayoutManager?
         val adapter = privateMessageRV.adapter
         val lastItemPosition = adapter!!.itemCount - 1
         layoutManager!!.scrollToPositionWithOffset(lastItemPosition, 0)
-        privateMessageRV.post { // then scroll to specific offset
+        privateMessageRV.post {
             val target = layoutManager.findViewByPosition(lastItemPosition)
             if (target != null) {
                 val offset = privateMessageRV.measuredHeight - target.measuredHeight
@@ -149,5 +130,4 @@ class PrivateChatFragment : Fragment() {
             }
         }
     }
-
 }

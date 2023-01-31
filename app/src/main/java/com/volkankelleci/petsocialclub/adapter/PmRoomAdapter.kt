@@ -17,6 +17,7 @@ import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.pm_raw.view.*
 import kotlinx.android.synthetic.main.private_chat_raw.view.*
+import kotlinx.android.synthetic.main.recycler_raw.view.*
 
 class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
 
@@ -72,6 +73,7 @@ class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolde
 
         // holder.itemView.privateMessageChatTV.text=privateChats[position].message
         holder.itemView.privateMessageChatTV.text=privateChats.get(position).message
+
 
 
     }

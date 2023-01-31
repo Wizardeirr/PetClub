@@ -13,7 +13,7 @@ import com.volkankelleci.petsocialclub.util.UserInfo
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat.*
 
-class ChatRoomFragment : Fragment() {
+class ChatRoomListFragment : Fragment() {
 
     private  var _binding:FragmentPrivateChatBinding?=null
     private val binding get() = _binding!!

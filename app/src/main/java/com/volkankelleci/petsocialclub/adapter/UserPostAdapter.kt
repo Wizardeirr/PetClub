@@ -28,7 +28,7 @@ class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>):
 
         holder.itemView.titleRecycler.text=postList[position].userTitle
         holder.itemView.commentRecycler.text=postList[position].userComment
-        holder.itemView.ownersName.text=postList[position].userEmail
+        holder.itemView.ownersName.text=pp[position].userName
         holder.itemView.postPP.downloadImageToRecycler(pp.get(position).userImage,
             createPlaceHolder(holder.itemView.context))
         //navigate

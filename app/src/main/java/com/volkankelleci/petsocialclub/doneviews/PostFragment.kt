@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_message.*
 import java.util.UUID
 
-class MessageFragment : Fragment() {
+class PostFragment : Fragment() {
     private var _binding: FragmentMessageBinding? = null
     private val binding get() = _binding!!
     var selectedImage: Uri? = null
@@ -80,7 +80,7 @@ class MessageFragment : Fragment() {
                     database.collection("Post").add(postHashMap).addOnCompleteListener { task->
                         if(task.isSuccessful){
                             Toast.makeText(activity, "Image Downloaded", Toast.LENGTH_SHORT).show()
-                            val action =MessageFragmentDirections.actionMessageFragmentToUsersHomeFragment()
+                            val action =PostFragmentDirections.actionMessageFragmentToUsersHomeFragment()
                             findNavController().navigate(action)
                         }
                     }.addOnFailureListener {
