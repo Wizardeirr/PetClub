@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -18,9 +19,7 @@ import com.volkankelleci.petsocialclub.util.PrivateMessage
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat_room.*
-import kotlinx.android.synthetic.main.pm_raw.*
-import kotlinx.android.synthetic.main.private_chat_raw.*
-import kotlinx.android.synthetic.main.private_chat_raw.view.*
+
 
 class PrivateChatFragment : Fragment() {
     private var _binding:FragmentPrivateChatRoomBinding?=null
@@ -29,9 +28,11 @@ class PrivateChatFragment : Fragment() {
     var user=ArrayList<PrivateMessage>()
     val layoutManager = LinearLayoutManager(activity)
     private lateinit var firestore: FirebaseFirestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         firestore = Firebase.firestore
+
     }
 
     override fun onCreateView(
@@ -45,7 +46,8 @@ class PrivateChatFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, true)
+
+
         privateMessageRV.postDelayed({
             privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
         }, 100)
@@ -59,7 +61,6 @@ class PrivateChatFragment : Fragment() {
         privateMessageRV.layoutManager = layoutManager
         adapter = PmRoomAdapter()
         privateMessageRV.adapter = adapter
-
         val new=arguments?.let {
             val args=PrivateChatFragmentArgs.fromBundle(it).username
             getActivity()?.setTitle("${args}")
@@ -110,6 +111,8 @@ class PrivateChatFragment : Fragment() {
                                 val downloadInfos =PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatUserDate,privateChatUserEmail,privateChatToUUID)
                                 user.add(downloadInfos)
                                 adapter.privateChats=user
+
+
                             }
                             adapter.notifyDataSetChanged()
                         }
@@ -130,4 +133,6 @@ class PrivateChatFragment : Fragment() {
             }
         }
     }
+
+
 }

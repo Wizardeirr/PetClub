@@ -30,6 +30,7 @@ class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolde
 
 
     private val diffutil = object : DiffUtil.ItemCallback<PrivateMessage>() {
+
         override fun areItemsTheSame(oldItem: PrivateMessage, newItem: PrivateMessage): Boolean {
             return oldItem == newItem
         }
@@ -37,6 +38,7 @@ class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolde
         override fun areContentsTheSame(oldItem: PrivateMessage, newItem: PrivateMessage): Boolean {
             return oldItem == newItem
         }
+
 
     }
     private val recyclerDiff = AsyncListDiffer(this, diffutil)
@@ -73,6 +75,9 @@ class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolde
 
         // holder.itemView.privateMessageChatTV.text=privateChats[position].message
         holder.itemView.privateMessageChatTV.text=privateChats.get(position).message
+        holder.itemView.time.text=privateChats.get(position).timestamp.toInt().toString()
+
+
 
 
 
@@ -81,4 +86,5 @@ class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolde
     override fun getItemCount(): Int {
         return privateChats.size
     }
+
 }
