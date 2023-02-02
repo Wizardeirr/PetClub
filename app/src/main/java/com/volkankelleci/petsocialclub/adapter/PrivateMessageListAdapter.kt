@@ -3,8 +3,9 @@ package com.volkankelleci.petsocialclub.adapter
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.volkankelleci.petsocialclub.util.PrivateMessage
 
-class PrivateMessageListAdapter: RecyclerView.Adapter<PrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
+class PrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>): RecyclerView.Adapter<PrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
     class PrivateMessageListFragmentPart(itemView: View):RecyclerView.ViewHolder(itemView) {
 
     }
