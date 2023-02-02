@@ -10,6 +10,7 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.adapter.PmRoomAdapter
 import com.volkankelleci.petsocialclub.adapter.PrivateMessageListAdapter
+import com.volkankelleci.petsocialclub.adapter.UserPostAdapter
 import com.volkankelleci.petsocialclub.chatpart.PrivateChatFragmentArgs
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
@@ -24,7 +25,6 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     private  var _binding:FragmentPrivateMessageListBinding?=null
     private val binding get() =_binding!!
     var userMessage=ArrayList<PrivateMessage>()
-
     private lateinit var adapter: PrivateMessageListAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,6 +42,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
             val action=PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToPrivateChatFragment()
             findNavController().navigate(action)
         }
+        takesData()
     }
     private fun takesData() {
         database.collection("privateChatInfo").orderBy("date", Query.Direction.DESCENDING)
@@ -54,19 +55,19 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                             userMessage.clear()
                             for (document in documents) {
                                 document.get("privateChatInfo")
-                                val userTitle = document.get("usertitle").toString()
-                                val userComment = document.get("usercomment").toString()
-                                val userImage = document.get("imageurl").toString()
-                                val userEmail = document.get("useremail").toString()
+                                val message = document.get("userText").toString()
+                                val userDate = document.get("userDate").toString()
+                                val toUUID = document.get("toUUID").toString()
+                                val userUUID = document.get("PrivateChatUserUUID").toString()
+                                val userMail = document.get("PrivateChatUserEmail").toString()
 
-                                val downloadInfos =
-                                    Post(userTitle, userComment, userImage, userEmail)
+                                val downloadInfos =PrivateMessage(message,userUUID,toUUID,userDate,userMail)
                                 userMessage.add(downloadInfos)
 
                             }
 
                         }
-                        recyclerViewAdapter.notifyDataSetChanged()
+                        adapter.notifyDataSetChanged()
                     }
             }
     }
