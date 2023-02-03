@@ -109,14 +109,7 @@ class GeneralChatRoom : Fragment() {
                                 chats.add(chat)
                                 adapter.chats = chats
                             }
-                            if (chats.equals(adapter.chats)){
-                                downForNewMessage.visibility=View.VISIBLE
-                                downForNewMessage.setOnClickListener {
-                                    userChatRV.postDelayed({
-                                        userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
-                                    }, 100)
-                                }
-                            }
+
                         }
                         adapter.notifyDataSetChanged()
                     }
