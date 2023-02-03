@@ -46,6 +46,7 @@ class PrivateChatAdapter(
             Navigation.findNavController(it).navigate(action)
         }
 
+
         // image with glide
         holder.itemView.userImage.downloadImageToRecycler(userList[position].userImage,
             Util.createPlaceHolder(holder.itemView.context))

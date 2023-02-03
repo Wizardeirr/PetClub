@@ -75,6 +75,9 @@
         <action
             android:id="@+id/action_privateChatFragment_to_privateChatFragmentRoom"
             app:destination="@id/privateChatFragmentRoom" />
+        <action
+            android:id="@+id/action_privateChatFragment_to_privateMessageListFragment"
+            app:destination="@id/privateMessageListFragment" />
     </fragment>
     <fragment
         android:id="@+id/privateChatFragmentRoom"

@@ -55,6 +55,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
             findNavController().navigate(action)
         }
 
+
     }
     private fun takesData() {
         database.collection("userProfileInfo")

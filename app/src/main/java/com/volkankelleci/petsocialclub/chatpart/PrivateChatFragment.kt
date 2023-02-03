@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
@@ -133,6 +132,8 @@ class PrivateChatFragment : Fragment() {
             }
         }
     }
-
+    private fun recyclerPosition(){
+        privateMessageRV.post(Runnable { privateMessageRV.smoothScrollToPosition(adapter.itemCount - 1) })
+    }
 
 }
