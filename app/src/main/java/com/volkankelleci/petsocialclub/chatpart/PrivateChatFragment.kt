@@ -46,6 +46,8 @@ class PrivateChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Scroll item 2 to 20 pixels from the top
+
 
         privateMessageRV.postDelayed({
             privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
@@ -60,6 +62,7 @@ class PrivateChatFragment : Fragment() {
         privateMessageRV.layoutManager = layoutManager
         adapter = PmRoomAdapter()
         privateMessageRV.adapter = adapter
+
         val new=arguments?.let {
             val args=PrivateChatFragmentArgs.fromBundle(it).username
             getActivity()?.setTitle("${args}")

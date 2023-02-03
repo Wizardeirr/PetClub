@@ -46,17 +46,14 @@ class GeneralChatRoom : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        downForNewMessage.visibility=View.INVISIBLE
 
 
         //Showing message automatically in RecyclerView End
         userChatRV.postDelayed({
             userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
         }, 100)
-        downForNewMessage.setOnClickListener {
-            userChatRV.postDelayed({
-                userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
-            }, 100)
-        }
+
         sendButton.setOnClickListener {
             userChatRV.postDelayed({
                 userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
@@ -112,6 +109,14 @@ class GeneralChatRoom : Fragment() {
                                 chats.add(chat)
                                 adapter.chats = chats
                             }
+                            if (chats.equals(adapter.chats)){
+                                downForNewMessage.visibility=View.VISIBLE
+                                downForNewMessage.setOnClickListener {
+                                    userChatRV.postDelayed({
+                                        userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
+                                    }, 100)
+                                }
+                            }
                         }
                         adapter.notifyDataSetChanged()
                     }
@@ -134,5 +139,6 @@ class GeneralChatRoom : Fragment() {
             }
         }
     }
+
 
 }
