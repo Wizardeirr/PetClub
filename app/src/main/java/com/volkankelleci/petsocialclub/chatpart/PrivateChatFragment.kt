@@ -18,6 +18,7 @@ import com.volkankelleci.petsocialclub.util.PrivateMessage
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat_room.*
+import kotlinx.android.synthetic.main.fragment_user_chat.*
 
 
 class PrivateChatFragment : Fragment() {
@@ -113,6 +114,7 @@ class PrivateChatFragment : Fragment() {
                                 val downloadInfos =PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatUserDate,privateChatUserEmail,privateChatToUUID)
                                 user.add(downloadInfos)
                                 adapter.privateChats=user
+                                privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount -1)
 
 
                             }

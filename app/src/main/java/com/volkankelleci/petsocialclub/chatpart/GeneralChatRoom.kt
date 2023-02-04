@@ -56,7 +56,12 @@ class GeneralChatRoom : Fragment() {
 
         sendButton.setOnClickListener {
             userChatRV.postDelayed({
-                userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
+                userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount -1)
+            }, 100)
+        }
+        userChatText.setOnClickListener {
+            userChatRV.postDelayed({
+                userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount -1)
             }, 100)
         }
 
@@ -108,6 +113,8 @@ class GeneralChatRoom : Fragment() {
                                 val chat = ChatData(text, user, date)
                                 chats.add(chat)
                                 adapter.chats = chats
+                                userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount -1)
+
                             }
 
                         }
@@ -134,9 +141,7 @@ class GeneralChatRoom : Fragment() {
     }
     private fun aboutVisibilityOfDownButton(){
         if(userChatText.text==null){
-            downForNewMessage.visibility=View.VISIBLE
-
-
+            userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount -1)
         }
     }
 
