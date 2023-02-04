@@ -47,10 +47,7 @@ class GeneralChatRoom : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         downForNewMessage.visibility=View.INVISIBLE
-
-
-
-
+        aboutVisibilityOfDownButton()
 
         //Showing message automatically in RecyclerView End
         userChatRV.postDelayed({
@@ -133,6 +130,13 @@ class GeneralChatRoom : Fragment() {
                 val offset = userChatRV.measuredHeight - target.measuredHeight
                 layoutManager.scrollToPositionWithOffset(lastItemPosition, offset)
             }
+        }
+    }
+    private fun aboutVisibilityOfDownButton(){
+        if(userChatText.text==null){
+            downForNewMessage.visibility=View.VISIBLE
+
+
         }
     }
 
