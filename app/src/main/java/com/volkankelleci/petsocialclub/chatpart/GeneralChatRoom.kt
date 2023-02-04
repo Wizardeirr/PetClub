@@ -49,6 +49,9 @@ class GeneralChatRoom : Fragment() {
         downForNewMessage.visibility=View.INVISIBLE
 
 
+
+
+
         //Showing message automatically in RecyclerView End
         userChatRV.postDelayed({
             userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
@@ -132,6 +135,5 @@ class GeneralChatRoom : Fragment() {
             }
         }
     }
-
 
 }
