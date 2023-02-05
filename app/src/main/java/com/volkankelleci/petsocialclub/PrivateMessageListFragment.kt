@@ -27,7 +27,7 @@ import kotlinx.android.synthetic.main.fragment_private_message_list.*
 class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list) {
     private  var _binding:FragmentPrivateMessageListBinding?=null
     private val binding get() =_binding!!
-    var userMessage=ArrayList<UserInfo>()
+    var userMessage=ArrayList<PrivateMessage>()
     private lateinit var adapter: PrivateMessageListAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,6 +46,10 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
         adapter=PrivateMessageListAdapter(userMessage)
         userChatPartRV.adapter=adapter
 
+        arguments?.let {
+            PrivateMessageListFragmentArgs.fromBundle(it).username
+
+        }
 
 
         takesData()
@@ -58,7 +62,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
 
     }
     private fun takesData() {
-        database.collection("userProfileInfo")
+        database.collection("privateChatInfo")
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
@@ -73,9 +77,8 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                                 val toUUID = document.get("userEmail").toString()
                                 val userUUID = document.get("PrivateChatUserUUID").toString()
                                 val userMail = document.get("userUUID").toString()
-                                val userPW=document.get("password").toString()
 
-                                val downloadInfos =UserInfo(message,userUUID,toUUID,userDate,userMail,userPW)
+                                val downloadInfos =PrivateMessage(message,userUUID,toUUID,userDate,userMail)
                                 userMessage.add(downloadInfos)
 
                             }
@@ -85,5 +88,6 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                     }
             }
     }
+
 
 }

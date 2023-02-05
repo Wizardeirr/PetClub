@@ -91,7 +91,7 @@ class UsersHomeFragment : Fragment() {
 
         }
         if (item.itemId == R.id.privateMessageButton) {
-            val action4 = UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateMessageListFragment()
+            val action4 = UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateMessageListFragment("","")
             findNavController().navigate(action4)
         }
         if (item.itemId==R.id.profileButton){
