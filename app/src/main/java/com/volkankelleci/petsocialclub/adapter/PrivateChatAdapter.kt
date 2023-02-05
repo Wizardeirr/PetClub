@@ -40,10 +40,9 @@ class PrivateChatAdapter(
 
         // navigate part
         holder.itemView.userList.setOnClickListener {
-            val action =
-                ChatRoomListFragmentDirections.actionPrivateChatFragmentToPrivateChatFragmentRoom(
-                    userList.get(position).userName, userList.get(position).uuid)
+            val action =ChatRoomListFragmentDirections.actionPrivateChatFragmentToPrivateChatFragmentRoom(userList.get(position).userName, userList.get(position).uuid)
             Navigation.findNavController(it).navigate(action)
+            val action2=ChatRoomListFragmentDirections.actionPrivateChatFragmentToPrivateMessageListFragment(userList.get(position).userName, userList.get(position).uuid)
         }
 
 

@@ -105,5 +105,12 @@
         <action
             android:id="@+id/action_privateMessageListFragment_to_privateChatFragment"
             app:destination="@id/privateChatFragment" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="pp"
+            app:argType="string" />
     </fragment>
 </navigation>
