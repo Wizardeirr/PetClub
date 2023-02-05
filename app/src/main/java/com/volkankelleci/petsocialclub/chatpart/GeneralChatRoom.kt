@@ -6,20 +6,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.type.Date
 import com.volkankelleci.petsocialclub.adapter.ChatRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
 import com.volkankelleci.petsocialclub.util.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
+import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat_room.*
 import kotlinx.android.synthetic.main.fragment_user_chat.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 
 class GeneralChatRoom : Fragment() {
@@ -78,10 +84,13 @@ class GeneralChatRoom : Fragment() {
             val gUser = auth.currentUser?.email.toString()
             val gdate = FieldValue.serverTimestamp()
 
+
+
             val chatDataMap = HashMap<String, Any>()
             chatDataMap.put("chatGText", gUserChatText)
             chatDataMap.put("chatGUser", gUser)
             chatDataMap.put("chatGDate", gdate)
+
 
             firestore.collection("Chats").add(chatDataMap).addOnSuccessListener {
                 scrollToBottom(userChatRV)
@@ -110,7 +119,9 @@ class GeneralChatRoom : Fragment() {
                                 val text = document.get("chatGText").toString()
                                 val date = document.get("chatGDate").toString()
                                 val user = document.get("chatGUser").toString()
-                                val chat = ChatData(text, user, date)
+
+
+                                val chat = ChatData(text, user,date)
                                 chats.add(chat)
                                 adapter.chats = chats
                                 userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount -1)
@@ -144,5 +155,6 @@ class GeneralChatRoom : Fragment() {
             userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount -1)
         }
     }
+
 
 }

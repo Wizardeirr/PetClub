@@ -1,24 +1,38 @@
 package com.volkankelleci.petsocialclub.chatpart
 
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.type.Date
+import com.google.type.DateTime
+import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.adapter.PmRoomAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
+import com.volkankelleci.petsocialclub.util.CounterNot
 import com.volkankelleci.petsocialclub.util.PrivateMessage
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat_room.*
 import kotlinx.android.synthetic.main.fragment_user_chat.*
+import java.text.SimpleDateFormat
 
 
 class PrivateChatFragment : Fragment() {
@@ -49,6 +63,8 @@ class PrivateChatFragment : Fragment() {
 
         //Scroll item 2 to 20 pixels from the top
 
+        //Notification
+        showNotification()
 
         privateMessageRV.postDelayed({
             privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
@@ -111,10 +127,12 @@ class PrivateChatFragment : Fragment() {
                                 val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                                 val privateChatUserDate = document.get("userDate").toString()
                                 val privateChatToUUID = document.get("toUUID").toString()
-                                val downloadInfos =PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatUserDate,privateChatUserEmail,privateChatToUUID)
+                                val downloadInfos =PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
                                 user.add(downloadInfos)
                                 adapter.privateChats=user
-                                privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount -1)
+                                if (adapter.privateChats==user){
+                                    privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount -1)
+                                }
 
 
                             }
@@ -139,6 +157,23 @@ class PrivateChatFragment : Fragment() {
     }
     private fun recyclerPosition(){
         privateMessageRV.post(Runnable { privateMessageRV.smoothScrollToPosition(adapter.itemCount - 1) })
+    }
+    fun showNotification(title: String, message: String) {
+        val mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(CounterNot.COUNTER_CHANNEL_ID,"Counter",NotificationManager.IMPORTANCE_DEFAULT)
+            channel.description = "New message"
+            mNotificationManager.createNotificationChannel(channel)
+        }
+        val mBuilder = NotificationCompat.Builder(activity, "YOUR_CHANNEL_ID")
+            .setSmallIcon(R.mipmap.ic_launcher) // notification icon
+            .setContentTitle(title) // title for notification
+            .setContentText(message)// message for notification
+            .setAutoCancel(true) // clear notification after click
+        val intent = Intent(context, ACTIVITY_NAME::class.java)
+        val pi = PendingIntent.getActivity(activity, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        mBuilder.setContentIntent(pi)
+        mNotificationManager.notify(0, mBuilder.build())
     }
 
 }

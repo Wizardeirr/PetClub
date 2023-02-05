@@ -3,24 +3,24 @@ package com.volkankelleci.petsocialclub.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.navArgument
+import androidx.core.app.NotificationCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.squareup.picasso.Picasso
+import com.google.firebase.Timestamp
+import com.google.type.Date
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.util.PrivateMessage
-import com.volkankelleci.petsocialclub.util.UserInfo
-import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
-import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
-import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
+import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.chat_list_raw.view.*
 import kotlinx.android.synthetic.main.pm_answer_room.view.*
 import kotlinx.android.synthetic.main.pm_raw.view.*
 import kotlinx.android.synthetic.main.pm_raw.view.privateMessageChatTV
 import kotlinx.android.synthetic.main.private_chat_raw.view.*
 import kotlinx.android.synthetic.main.recycler_raw.view.*
+import java.text.SimpleDateFormat
+
 
 class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
 
@@ -77,13 +77,15 @@ class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolde
     override fun onBindViewHolder(holder: PmRoomAdapterViewHolder, position: Int) {
 
         // holder.itemView.privateMessageChatTV.text=privateChats[position].message
-        holder.itemView.privateMessageChatTV.text=privateChats.get(position).message
+
+        holder.itemView.privateMessageChatTV.text= privateChats.get(position).message
+        println(privateChats.get(position).timestamp.toInt()*1000)
 
 
-}
 
     override fun getItemCount(): Int {
         return privateChats.size
     }
+
 
 }
