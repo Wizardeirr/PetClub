@@ -29,6 +29,12 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     private val binding get() =_binding!!
     var userMessage=ArrayList<PrivateMessage>()
     private lateinit var adapter: PrivateMessageListAdapter
+
+    val toUUID= arguments?.let {
+        PrivateMessageListFragmentArgs.fromBundle(it).pp
+    }
+
+    val userUUID = Util.auth.currentUser!!.uid
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -46,13 +52,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
         adapter=PrivateMessageListAdapter(userMessage)
         userChatPartRV.adapter=adapter
 
-        arguments?.let {
-            PrivateMessageListFragmentArgs.fromBundle(it).username
-
-        }
-
-
-        takesData()
+        takesInputs()
 
         fabForPM.setOnClickListener{
             val action=PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToPrivateChatFragment()
@@ -61,8 +61,9 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
 
 
     }
-    private fun takesData() {
-        database.collection("privateChatInfo")
+
+    fun takesInputs(){
+        database.collection("privateChatInfo/$userUUID/$toUUID").orderBy("userDate",Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
@@ -72,21 +73,21 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                             userMessage.clear()
                             for (document in documents) {
                                 document.get("privateChatInfo")
-                                val message = document.get("userName").toString()
-                                val userDate = document.get("petName").toString()
-                                val toUUID = document.get("userEmail").toString()
-                                val userUUID = document.get("PrivateChatUserUUID").toString()
-                                val userMail = document.get("userUUID").toString()
-
-                                val downloadInfos =PrivateMessage(message,userUUID,toUUID,userDate,userMail)
+                                val privateMessageUserText = document.get("userText").toString()
+                                val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
+                                val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
+                                val privateChatUserDate = document.get("userDate").toString()
+                                val privateChatToUUID = document.get("toUUID").toString()
+                                val downloadInfos =PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
                                 userMessage.add(downloadInfos)
+                                adapter.userMessage=userMessage
 
                             }
-
+                            adapter.notifyDataSetChanged()
                         }
-                        adapter.notifyDataSetChanged()
                     }
             }
+
     }
 
 
