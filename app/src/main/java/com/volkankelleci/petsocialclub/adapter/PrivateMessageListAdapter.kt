@@ -10,7 +10,7 @@ import com.volkankelleci.petsocialclub.util.PrivateMessage
 import com.volkankelleci.petsocialclub.util.UserInfo
 import kotlinx.android.synthetic.main.chat_list_raw.view.*
 
-class PrivateMessageListAdapter(val userMessage:ArrayList<UserInfo>): RecyclerView.Adapter<PrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
+class PrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>): RecyclerView.Adapter<PrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
     class PrivateMessageListFragmentPart(itemView: View):RecyclerView.ViewHolder(itemView) {
 
     }
@@ -26,7 +26,7 @@ class PrivateMessageListAdapter(val userMessage:ArrayList<UserInfo>): RecyclerVi
 
     override fun onBindViewHolder(holder: PrivateMessageListFragmentPart, position: Int) {
 
-        holder.itemView.userNameForChat.text=userMessage[position].userName
+        holder.itemView.userNameForChat.text=userMessage[position].chatUser
 
     }
 
