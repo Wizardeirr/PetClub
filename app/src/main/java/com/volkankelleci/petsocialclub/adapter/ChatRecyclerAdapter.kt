@@ -53,7 +53,7 @@ class ChatRecyclerAdapter() : RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecyc
     override fun onBindViewHolder(holder: ChatRecyclerViewHolder, position: Int) {
 
 
-        holder.itemView.chatTV.text=chats.get(position).timeDate
+        holder.itemView.chatTV.text="${chats.get(position).chatUser}:${chats.get(position).chatText}"
 
 
     }
