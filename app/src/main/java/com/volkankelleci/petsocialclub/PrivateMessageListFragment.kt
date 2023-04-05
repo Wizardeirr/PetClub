@@ -1,14 +1,17 @@
 package com.volkankelleci.petsocialclub
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.adapter.PmRoomAdapter
 import com.volkankelleci.petsocialclub.adapter.PrivateMessageListAdapter
@@ -29,10 +32,10 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     private val binding get() =_binding!!
     var userMessage=ArrayList<PrivateMessage>()
     private lateinit var adapter: PrivateMessageListAdapter
-
     val toUUID= arguments?.let {
         PrivateMessageListFragmentArgs.fromBundle(it).pp
     }
+
 
     val userUUID = Util.auth.currentUser!!.uid
     override fun onCreateView(
@@ -52,7 +55,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
         adapter=PrivateMessageListAdapter(userMessage)
         userChatPartRV.adapter=adapter
 
-        takesInputs()
+        println(userUUID)
 
         fabForPM.setOnClickListener{
             val action=PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToPrivateChatFragment()
@@ -89,6 +92,36 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
             }
 
     }
+    fun otherWay(){
+
+        database.collection("privateChatInfo").document(toUUID.toString()).collection(userUUID).orderBy("userDate",Query.Direction.ASCENDING)
+            .addSnapshotListener { value, error ->
+                if (error != null) {
+                    Toast.makeText(requireContext(), "NULL GELDİ", Toast.LENGTH_SHORT).show()
+                } else
+                    if (value != null) {
+                        if (value.isEmpty == false) {
+                            val documents = value.documents
+                            userMessage.clear()
+                            for (document in documents) {
+                                val privateMessageUserText = document.get("userText").toString()
+                                val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
+                                val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
+                                val privateChatUserDate = document.get("userDate").toString()
+                                val privateChatToUUID = document.get("toUUID").toString()
+                                val downloadInfos =PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
+                                userMessage.add(downloadInfos)
+                                adapter.userMessage=userMessage
+                            }
+
+                            }
+            }
+    }
 
 
 }
+}
+/* database.collection("privateChatInfo").document(toUUID.toString()).collection(userUUID.toString())
+.orderBy("userDate", Query.Direction.DESCENDING)
+
+ */
