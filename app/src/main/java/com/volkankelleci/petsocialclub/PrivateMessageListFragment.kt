@@ -63,7 +63,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     }
 
     fun takesInputs(){
-        database.collection("privateChatInfo/$userUUID").orderBy("userDate",Query.Direction.ASCENDING)
+        database.collection("privateChatInfo")
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
@@ -72,7 +72,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                             val documents = value.documents
                             userMessage.clear()
                             for (document in documents) {
-                                document.get("privateChatInfo/$userUUID")
+                                document.get("privateChatInfo")
                                 val privateMessageUserText = document.get("userText").toString()
                                 val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
                                 val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
