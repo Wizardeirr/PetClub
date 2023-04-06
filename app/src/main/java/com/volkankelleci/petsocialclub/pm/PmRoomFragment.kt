@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FieldValue
@@ -12,6 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.util.Util.auth
@@ -64,13 +66,13 @@ class PmRoomFragment : Fragment() {
         privateMessageRV.layoutManager = layoutManager
         adapter = PmRoomAdapter()
         privateMessageRV.adapter = adapter
-        // describe for second RV
 
+
+        // action bar name change
         arguments?.let {
             val args=PmRoomFragmentArgs.fromBundle(it).username
             getActivity()?.setTitle("${args}")
         }
-
 
         //When Send button click what we do
         binding.privateMessageSendButton.setOnClickListener {
@@ -103,7 +105,6 @@ class PmRoomFragment : Fragment() {
         val toUUID= arguments?.let {
             PmRoomFragmentArgs.fromBundle(it).pp
         }
-        println(toUUID)
         database.collection("privateChatInfo/$toUUID/${auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
