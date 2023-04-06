@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.chatpart
+package com.volkankelleci.petsocialclub.generalchatroom
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,22 +8,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.google.type.Date
-import com.volkankelleci.petsocialclub.adapter.ChatRecyclerAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
-import com.volkankelleci.petsocialclub.util.ChatData
+import com.volkankelleci.petsocialclub.data.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
-import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_private_chat_room.*
 import kotlinx.android.synthetic.main.fragment_user_chat.*
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 

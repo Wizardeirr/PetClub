@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub
+package com.volkankelleci.petsocialclub.viewmodel
 
 import androidx.lifecycle.ViewModel
 

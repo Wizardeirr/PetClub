@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.volkankelleci.petsocialclub.doneviews.PostFragment"
+        android:name="com.volkankelleci.petsocialclub.post.PostFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" >
         <action
@@ -64,12 +64,12 @@
     </fragment>
     <fragment
         android:id="@+id/userChatFragment"
-        android:name="com.volkankelleci.petsocialclub.chatpart.GeneralChatRoom"
+        android:name="com.volkankelleci.petsocialclub.generalchatroom.GeneralChatRoom"
         android:label="fragment_user_chat"
         tools:layout="@layout/fragment_user_chat" />
     <fragment
         android:id="@+id/privateChatFragment"
-        android:name="com.volkankelleci.petsocialclub.chatpart.ChatRoomListFragment"
+        android:name="com.volkankelleci.petsocialclub.userslist.UserListFragment"
         android:label="fragment_private_chat"
         tools:layout="@layout/fragment_private_chat" >
         <action
@@ -81,7 +81,7 @@
     </fragment>
     <fragment
         android:id="@+id/privateChatFragmentRoom"
-        android:name="com.volkankelleci.petsocialclub.chatpart.PrivateChatFragment"
+        android:name="com.volkankelleci.petsocialclub.pm.PmRoomFragment"
         android:label="fragment_private_chat_room"
         tools:layout="@layout/fragment_private_chat_room" >
         <argument
@@ -99,7 +99,7 @@
         tools:layout="@layout/fragment_user_profile_menu" />
     <fragment
         android:id="@+id/privateMessageListFragment"
-        android:name="com.volkankelleci.petsocialclub.PrivateMessageListFragment"
+        android:name="com.volkankelleci.petsocialclub.privatemessagelist.PrivateMessageListFragment"
         android:label="fragment_private_message_list"
         tools:layout="@layout/fragment_private_message_list" >
         <action

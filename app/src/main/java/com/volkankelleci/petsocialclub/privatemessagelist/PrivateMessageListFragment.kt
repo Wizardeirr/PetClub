@@ -1,7 +1,6 @@
-package com.volkankelleci.petsocialclub
+package com.volkankelleci.petsocialclub.privatemessagelist
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,22 +8,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
-import com.google.firebase.firestore.FieldValue
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.volkankelleci.petsocialclub.adapter.PmRoomAdapter
-import com.volkankelleci.petsocialclub.adapter.PrivateMessageListAdapter
-import com.volkankelleci.petsocialclub.adapter.UserPostAdapter
-import com.volkankelleci.petsocialclub.chatpart.PrivateChatFragmentArgs
-import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
+import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
-import com.volkankelleci.petsocialclub.util.Post
-import com.volkankelleci.petsocialclub.util.PrivateMessage
-import com.volkankelleci.petsocialclub.util.UserInfo
+import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_private_chat_room.*
 import kotlinx.android.synthetic.main.fragment_private_message_list.*
 
 class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list) {
@@ -52,7 +41,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
 
         val layoutManager=LinearLayoutManager(activity)
         userChatPartRV.layoutManager=layoutManager
-        adapter=PrivateMessageListAdapter(userMessage)
+        adapter= PrivateMessageListAdapter(userMessage)
         userChatPartRV.adapter=adapter
 
         println(userUUID)
@@ -81,7 +70,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                                 val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                                 val privateChatUserDate = document.get("userDate").toString()
                                 val privateChatToUUID = document.get("toUUID").toString()
-                                val downloadInfos =PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
+                                val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
                                 userMessage.add(downloadInfos)
                                 adapter.userMessage=userMessage
 
@@ -109,7 +98,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                                 val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                                 val privateChatUserDate = document.get("userDate").toString()
                                 val privateChatToUUID = document.get("toUUID").toString()
-                                val downloadInfos =PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
+                                val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
                                 userMessage.add(downloadInfos)
                                 adapter.userMessage=userMessage
                             }

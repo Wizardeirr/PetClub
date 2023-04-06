@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.volkankelleci.petsocialclub.databinding.FragmentUserProfileMenuBinding
-import com.volkankelleci.petsocialclub.util.UserInfo
+import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
@@ -59,7 +59,7 @@ class UserProfileMenuFragment : Fragment() {
                                     val userPetName = document.get("petName").toString()
                                     val userImage = document.get("userImage").toString()
                                     val userPassword=document.get("password").toString()
-                                    val downloadInfos =UserInfo(userUUID, userEmail, userName, userPetName, userImage,userPassword)
+                                    val downloadInfos = UserInfo(userUUID, userEmail, userName, userPetName, userImage,userPassword)
                                     binding.userNameETProfile.text="Username:  ${downloadInfos.userName}"
                                     binding.userSignEmail.text="E-mail:  ${downloadInfos.userEmail}"
                                     binding.petNameProfile.text="Pet Name:  ${downloadInfos.petName}"

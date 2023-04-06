@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.util
+package com.volkankelleci.petsocialclub.data
 
 class ChatData(
     var chatText:String,
