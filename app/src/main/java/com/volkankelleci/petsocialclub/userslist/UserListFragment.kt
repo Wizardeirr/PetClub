@@ -12,12 +12,11 @@ import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat.*
 
-class UserListFragment : Fragment() {
+class UserListFragment : Fragment(),UserListAdapter.Listener {
 
     private  var _binding:FragmentPrivateChatBinding?=null
     private val binding get() = _binding!!
     private lateinit var adapter: UserListAdapter
-    var privateMessage=ArrayList<PrivateMessage>()
     var userInfo=ArrayList<UserInfo>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +40,7 @@ class UserListFragment : Fragment() {
         // adapter created
         val layoutManager= LinearLayoutManager(activity)
         privateChatRV.layoutManager=layoutManager
-        adapter= UserListAdapter(userInfo,privateMessage)
+        adapter= UserListAdapter(userInfo,this@UserListFragment)
         privateChatRV.adapter=adapter
     }
 
@@ -69,5 +68,9 @@ class UserListFragment : Fragment() {
                         }
                     }
             }
+    }
+
+    override fun onItemClickListener(userList: UserInfo) {
+        println(userList.uuid)
     }
 }

@@ -14,14 +14,15 @@ import kotlinx.android.synthetic.main.private_chat_raw.view.*
 
 class UserListAdapter(
     val userList: ArrayList<UserInfo>,
-    val privateMessage: ArrayList<PrivateMessage>,
+    val listener: Listener,
 ) : RecyclerView.Adapter<UserListAdapter.PrivateChatAdapterViewHolder>() {
+
+    interface Listener{
+        fun onItemClickListener(userList:UserInfo)
+    }
     class PrivateChatAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
-
-
-
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -38,6 +39,9 @@ class UserListAdapter(
         holder.itemView.userPetName.text = userList[position].petName
 
         // navigate part
+        holder.itemView.setOnClickListener {
+            listener.onItemClickListener(userList.get(position))
+        }
         holder.itemView.userList.setOnClickListener {
             val action =UserListFragmentDirections.actionPrivateChatFragmentToPrivateChatFragmentRoom(userList.get(position).userName, userList.get(position).uuid)
             Navigation.findNavController(it).navigate(action)
