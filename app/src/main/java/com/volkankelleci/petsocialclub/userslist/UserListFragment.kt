@@ -18,6 +18,7 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
     private val binding get() = _binding!!
     private lateinit var adapter: UserListAdapter
     var userInfo=ArrayList<UserInfo>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -42,6 +43,8 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
         privateChatRV.layoutManager=layoutManager
         adapter= UserListAdapter(userInfo,this@UserListFragment)
         privateChatRV.adapter=adapter
+
+
     }
 
     private fun takesUserInfo(){
@@ -73,4 +76,5 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
     override fun onItemClickListener(userList: UserInfo) {
         println(userList.uuid)
     }
+
 }
