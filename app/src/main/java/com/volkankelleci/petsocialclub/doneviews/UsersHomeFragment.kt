@@ -13,6 +13,8 @@ import com.volkankelleci.petsocialclub.post.UserPostAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
+import com.volkankelleci.petsocialclub.privatemessagelist.PrivateMessageListFragmentArgs
+import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.fragment_users_home.*
 
@@ -89,7 +91,7 @@ class UsersHomeFragment : Fragment() {
 
         }
         if (item.itemId == R.id.privateMessageButton) {
-            val action4 = UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateMessageListFragment("","")
+            val action4 = UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateMessageListFragment(null,null)
             findNavController().navigate(action4)
         }
         if (item.itemId==R.id.profileButton){

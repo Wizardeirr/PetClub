@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.data.UserInfo
+import com.volkankelleci.petsocialclub.pm.PmRoomFragmentArgs
 import com.volkankelleci.petsocialclub.userslist.UserListAdapter
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.database
@@ -40,9 +42,10 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
         adapter= PrivateMessageListAdapter(userMessage)
         userChatPartRV.adapter=adapter
 
-        println()
 
         takesInputs()
+
+
         fabForPM.setOnClickListener{
             val action=PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToPrivateChatFragment()
             findNavController().navigate(action)
@@ -51,7 +54,11 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     }
 
     fun takesInputs(){
-        database.collection("privateChatInfo")
+        val args = PrivateMessageListFragmentArgs.fromBundle(requireArguments())
+        val toUUID = args.pp
+
+        database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
+            Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else

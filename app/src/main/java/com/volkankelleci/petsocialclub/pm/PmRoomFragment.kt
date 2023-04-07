@@ -163,15 +163,18 @@ class PmRoomFragment : Fragment() {
         }
     }
     // When i click to back u can do what u want
-    override fun onResume() {
-        super.onResume()
+        override fun onResume() {
+            super.onResume()
+            val userUUID = auth.currentUser!!.uid
+            val toUUID= arguments?.let {
+                PmRoomFragmentArgs.fromBundle(it).pp
+            }
+            requireActivity().onBackPressedDispatcher.addCallback(this) {
+                val action=PmRoomFragmentDirections.actionPrivateChatFragmentRoomToPrivateMessageListFragment(userUUID,toUUID!!)
+                Navigation.findNavController(requireView()).navigate(action)
 
-        requireActivity().onBackPressedDispatcher.addCallback(this) {
-            val action=PmRoomFragmentDirections.actionPrivateChatFragmentRoomToPrivateMessageListFragment(takeUserName,takeArgs.toString())
-            Navigation.findNavController(requireView()).navigate(action)
-
+            }
         }
-    }
 
 
 }

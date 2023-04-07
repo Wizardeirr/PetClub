@@ -74,13 +74,13 @@
         tools:layout="@layout/fragment_private_chat" >
         <action
             android:id="@+id/action_privateChatFragment_to_privateChatFragmentRoom"
-            app:destination="@id/privateChatFragmentRoom" />
+            app:destination="@id/PmRoomFragment" />
         <action
             android:id="@+id/action_privateChatFragment_to_privateMessageListFragment"
             app:destination="@id/privateMessageListFragment" />
     </fragment>
     <fragment
-        android:id="@+id/privateChatFragmentRoom"
+        android:id="@+id/PmRoomFragment"
         android:name="com.volkankelleci.petsocialclub.pm.PmRoomFragment"
         android:label="fragment_private_chat_room"
         tools:layout="@layout/fragment_private_chat_room" >
@@ -90,7 +90,8 @@
             app:nullable="true" />
         <argument
             android:name="pp"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
         <action
             android:id="@+id/action_privateChatFragmentRoom_to_privateMessageListFragment"
             app:destination="@id/privateMessageListFragment" />
@@ -114,6 +115,7 @@
             app:nullable="true" />
         <argument
             android:name="pp"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 </navigation>
