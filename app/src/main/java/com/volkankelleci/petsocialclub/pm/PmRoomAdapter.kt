@@ -71,6 +71,8 @@ class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolde
         holder.itemView.privateMessageChatTV.text=privateChats.get(position).message
 
 
+
+
 }
 
     override fun getItemCount(): Int {

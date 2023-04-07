@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FieldValue
@@ -29,6 +32,15 @@ class PmRoomFragment : Fragment() {
     val layoutManager = LinearLayoutManager(activity)
     private lateinit var firestore: FirebaseFirestore
 
+    val takeArgs=arguments?.let {
+        PmRoomFragmentArgs.fromBundle(it).pp
+    }
+    val takeUserName= arguments?.let {
+     PmRoomFragmentArgs.fromBundle(it).username
+
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         firestore = Firebase.firestore
@@ -44,6 +56,7 @@ class PmRoomFragment : Fragment() {
         val view=binding.root
         return view
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -69,10 +82,7 @@ class PmRoomFragment : Fragment() {
 
 
         // action bar name change
-        arguments?.let {
-            val args=PmRoomFragmentArgs.fromBundle(it).username
-            getActivity()?.setTitle("${args}")
-        }
+
 
         //When Send button click what we do
         binding.privateMessageSendButton.setOnClickListener {
@@ -152,4 +162,16 @@ class PmRoomFragment : Fragment() {
             }
         }
     }
+    // When i click to back u can do what u want
+    override fun onResume() {
+        super.onResume()
+
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            val action=PmRoomFragmentDirections.actionPrivateChatFragmentRoomToPrivateMessageListFragment(takeUserName,takeArgs.toString())
+            Navigation.findNavController(requireView()).navigate(action)
+
+        }
+    }
+
+
 }

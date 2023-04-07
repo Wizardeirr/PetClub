@@ -91,6 +91,9 @@
         <argument
             android:name="pp"
             app:argType="string" />
+        <action
+            android:id="@+id/action_privateChatFragmentRoom_to_privateMessageListFragment"
+            app:destination="@id/privateMessageListFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileMenuFragment"

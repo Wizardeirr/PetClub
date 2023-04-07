@@ -1,13 +1,14 @@
 package com.volkankelleci.petsocialclub.userslist
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
-import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.data.UserInfo
+import com.volkankelleci.petsocialclub.privatemessagelist.PrivateMessageListFragment
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.private_chat_raw.view.*
@@ -15,6 +16,7 @@ import kotlinx.android.synthetic.main.private_chat_raw.view.*
 class UserListAdapter(
     val userList: ArrayList<UserInfo>,
     val listener: Listener,
+
 ) : RecyclerView.Adapter<UserListAdapter.PrivateChatAdapterViewHolder>() {
 
     interface Listener{
@@ -41,10 +43,11 @@ class UserListAdapter(
         // navigate part
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(userList.get(position))
-        }
-        holder.itemView.userList.setOnClickListener {
             val action =UserListFragmentDirections.actionPrivateChatFragmentToPrivateChatFragmentRoom(userList.get(position).userName, userList.get(position).uuid)
             Navigation.findNavController(it).navigate(action)
+
+
+
         }
 
 
