@@ -14,13 +14,11 @@ import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.fragment_user_profile_menu.*
 
 class UserProfileMenuFragment : Fragment() {
-
     private var _binding: FragmentUserProfileMenuBinding? = null
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -30,17 +28,8 @@ class UserProfileMenuFragment : Fragment() {
         val view=binding.root
         return view
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        /*
-        val layoutManager = LinearLayoutManager(activity)
-        userProfileInfoRV.layoutManager = layoutManager
-        adapter = UserProfileInfoAdapter(fragmentProfileInfoList)
-        userProfileInfoRV.adapter = adapter
-        */
-
 
         Util.database.collection("userProfileInfo")
             .addSnapshotListener { value, error ->
@@ -73,9 +62,6 @@ class UserProfileMenuFragment : Fragment() {
                         }
                     }
 
-
     }
     }
-
-
 }

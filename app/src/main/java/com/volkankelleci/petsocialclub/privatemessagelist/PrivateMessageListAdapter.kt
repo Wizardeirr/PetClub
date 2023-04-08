@@ -26,6 +26,7 @@ class PrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>): Recy
     override fun onBindViewHolder(holder: PrivateMessageListFragmentPart, position: Int) {
 
         holder.itemView.userNameForChat.text=userMessage[position].chatUser
+        holder.itemView.lastMessage.text=userMessage[position].message
 
     }
 

@@ -58,7 +58,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
         val toUUID = args.pp
 
         database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
-            Query.Direction.ASCENDING)
+            Query.Direction.DESCENDING).limit(1)
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
@@ -76,7 +76,6 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                                 val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail,)
                                 userMessage.add(downloadInfos)
                                 adapter.userMessage=userMessage
-
                             }
                             adapter.notifyDataSetChanged()
                         }

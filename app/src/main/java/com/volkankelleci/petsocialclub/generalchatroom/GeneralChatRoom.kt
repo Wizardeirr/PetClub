@@ -16,6 +16,7 @@ import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
 import com.volkankelleci.petsocialclub.data.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
+import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_user_chat.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -26,11 +27,9 @@ class GeneralChatRoom : Fragment() {
     private var _binding: FragmentUserChatBinding? = null
     private val binding get() = _binding!!
     private lateinit var adapter: ChatRecyclerAdapter
-    private lateinit var firestore: FirebaseFirestore
     var chats = ArrayList<ChatData>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        firestore = Firebase.firestore
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -77,15 +76,12 @@ class GeneralChatRoom : Fragment() {
             val gUser = auth.currentUser?.email.toString()
             val gdate = FieldValue.serverTimestamp()
 
-
-
             val chatDataMap = HashMap<String, Any>()
             chatDataMap.put("chatGText", gUserChatText)
             chatDataMap.put("chatGUser", gUser)
             chatDataMap.put("chatGDate", gdate)
 
-
-            firestore.collection("Chats").add(chatDataMap).addOnSuccessListener {
+            database.collection("Chats").add(chatDataMap).addOnSuccessListener {
                 scrollToBottom(userChatRV)
                 binding.userChatText.setText("")
             }.addOnFailureListener {
@@ -95,7 +91,7 @@ class GeneralChatRoom : Fragment() {
         }
 
         //taking from Firestore
-        firestore.collection("Chats").orderBy("chatGDate", Query.Direction.ASCENDING)
+        database.collection("Chats").orderBy("chatGDate", Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
                     Toast.makeText(requireContext(), error.message, Toast.LENGTH_SHORT).show()
@@ -112,21 +108,16 @@ class GeneralChatRoom : Fragment() {
                                 val text = document.get("chatGText").toString()
                                 val date = document.get("chatGDate").toString()
                                 val user = document.get("chatGUser").toString()
-
-
                                 val chat = ChatData(text, user,date)
                                 chats.add(chat)
                                 adapter.chats = chats
                                 userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount -1)
-
                             }
-
                         }
                         adapter.notifyDataSetChanged()
                     }
                 }
             }
-
     }
 
     private fun scrollToBottom(recyclerView: RecyclerView) {
@@ -148,6 +139,4 @@ class GeneralChatRoom : Fragment() {
             userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount -1)
         }
     }
-
-
 }

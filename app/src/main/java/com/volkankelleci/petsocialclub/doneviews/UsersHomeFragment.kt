@@ -21,19 +21,14 @@ import kotlinx.android.synthetic.main.fragment_users_home.*
 class UsersHomeFragment : Fragment() {
     private var _binding: FragmentUsersHomeBinding? = null
     private val binding get() = _binding!!
-
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
-
     private lateinit var recyclerViewAdapter: UserPostAdapter
-
     var postList = ArrayList<Post>()
     var pp=ArrayList<UserInfo>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -43,15 +38,11 @@ class UsersHomeFragment : Fragment() {
         getActivity()?.setTitle("PetSocialClub");
         return view
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
         fab.setOnClickListener {
             val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
             findNavController().navigate(action)
-
         }
         //User Name Save
         takesData()
@@ -60,7 +51,6 @@ class UsersHomeFragment : Fragment() {
         usersHomeFragmentRecycler.layoutManager = layoutManager
         recyclerViewAdapter = UserPostAdapter(postList,pp)
         usersHomeFragmentRecycler.adapter = recyclerViewAdapter
-
 
     }
 
@@ -156,6 +146,4 @@ class UsersHomeFragment : Fragment() {
                     }
             }
     }
-
-
 }
