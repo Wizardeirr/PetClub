@@ -27,7 +27,6 @@ class UsersHomeFragment : Fragment() {
     var pp=ArrayList<UserInfo>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,43 +51,6 @@ class UsersHomeFragment : Fragment() {
         recyclerViewAdapter = UserPostAdapter(postList,pp)
         usersHomeFragmentRecycler.adapter = recyclerViewAdapter
 
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        requireActivity().menuInflater.inflate(R.menu.user_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.logOutButton) {
-            try {
-                auth.signOut()
-                Toast.makeText(activity, "Sign Out Successfully", Toast.LENGTH_SHORT).show()
-                val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMainFragment()
-                findNavController().navigate(action)
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Toast.makeText(activity, "Try Again", Toast.LENGTH_SHORT).show()
-            }
-        }
-        if (item.itemId == R.id.homeButton) {
-            val action2 = UsersHomeFragmentDirections.actionUsersHomeFragmentSelf()
-            findNavController().navigate(action2)
-        }
-        if (item.itemId == R.id.messageButton) {
-            val action3 = UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
-            findNavController().navigate(action3)
-
-        }
-        if (item.itemId == R.id.privateMessageButton) {
-            val action4 = UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateMessageListFragment(null,null)
-            findNavController().navigate(action4)
-        }
-        if (item.itemId==R.id.profileButton){
-            val action5=UsersHomeFragmentDirections.actionUsersHomeFragmentToUserProfileMenuFragment()
-            findNavController().navigate(action5)
-        }
-        return super.onOptionsItemSelected(item)
     }
 
     private fun takesData() {
