@@ -23,7 +23,6 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     private val binding get() =_binding!!
     var userMessage=ArrayList<PrivateMessage>()
     private lateinit var adapter: PrivateMessageListAdapter
-    val userUUID = Util.auth.currentUser!!.uid
 
     override fun onCreateView(
         inflater: LayoutInflater,

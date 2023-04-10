@@ -6,11 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.volkankelleci.petsocialclub.R
@@ -38,9 +43,10 @@ class MainFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
         //Google Signing Opt
-
-
         googleSign.setOnClickListener {
 
             val options = GoogleSignInOptions
@@ -71,8 +77,6 @@ class MainFragment : Fragment() {
     fun loginUser() {
         val email = userLog.text.toString()
         val password = passwordLog.text.toString()
-
-
         if (email.isNotEmpty() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
                 try {
@@ -94,7 +98,7 @@ class MainFragment : Fragment() {
         } else {
             Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
             val action=MainFragmentDirections.actionMainFragmentToUsersHomeFragment()
-            findNavController().navigate(action)
+            Navigation.findNavController(requireView()).navigate(action)
         }
 
     }
