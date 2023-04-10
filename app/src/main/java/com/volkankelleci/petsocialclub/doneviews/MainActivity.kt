@@ -15,7 +15,9 @@ import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.generalchatroom.GeneralChatRoom
 import com.volkankelleci.petsocialclub.loginandsign.MainFragment
 import com.volkankelleci.petsocialclub.privatemessagelist.PrivateMessageListFragment
+import com.volkankelleci.petsocialclub.privatemessagelist.PrivateMessageListFragmentDirections
 import com.volkankelleci.petsocialclub.util.Util
+import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
-        jumpFragment(UsersHomeFragment())
+
+        controller()
 
         bottomNav=findViewById(R.id.bottomNavigationView) as BottomNavigationView
         bottomNav.setOnItemSelectedListener{
@@ -67,5 +70,18 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainerView,fragment)
         transaction.commit()
+    }
+    private fun controller(){
+        if (auth.currentUser!=null){
+            jumpFragment(UsersHomeFragment())
+            bottomNavigationView.visibility= View.VISIBLE
+
+
+        }
+        else{
+            jumpFragment(MainFragment())
+            bottomNavigationView.visibility= View.INVISIBLE
+
+        }
     }
     }
