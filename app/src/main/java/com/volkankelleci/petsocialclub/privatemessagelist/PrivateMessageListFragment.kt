@@ -54,8 +54,9 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     }
 
     fun takesInputs(){
-        val args = PrivateMessageListFragmentArgs.fromBundle(requireArguments())
-        val toUUID = args.pp
+        val args = arguments?.let { PrivateMessageListFragmentArgs.fromBundle(it) }
+
+        val toUUID = args?.pp
 
         database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
             Query.Direction.DESCENDING).limit(1)

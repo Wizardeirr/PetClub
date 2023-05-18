@@ -86,15 +86,18 @@ class MainFragment : Fragment() {
 
                 }
             }
+
         }
     }
     private fun checkLoggedInState() {
         if (auth.currentUser == null) {
+            Toast.makeText(context, "SIGN UNSUCCESSFUL", Toast.LENGTH_LONG).show()
 
         } else {
-            Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
             val action=MainFragmentDirections.actionMainFragmentToUsersHomeFragment()
             findNavController().navigate(action)
+            Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
+
         }
 
     }

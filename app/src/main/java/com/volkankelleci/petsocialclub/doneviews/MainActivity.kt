@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.privateMessageButton ->{
-                    jumpFragment(PrivateMessageListFragment())
+                jumpFragment(PrivateMessageListFragment())
                     true
                 }
                 R.id.profileButton ->{
@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.logOutButton ->{
                     try {
-                        Util.auth.signOut()
+                        auth.signOut()
                         Toast.makeText(this, "Sign Out Successfully", Toast.LENGTH_SHORT).show()
                         bottomNavigationView.visibility= View.GONE
                     } catch (e: Exception) {
