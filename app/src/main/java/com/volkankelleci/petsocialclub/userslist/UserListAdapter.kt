@@ -43,7 +43,7 @@ class UserListAdapter(
         // navigate part
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(userList.get(position))
-            val action =UserListFragmentDirections.actionPrivateChatFragmentToPrivateChatFragmentRoom(userList.get(position).userName, userList.get(position).uuid)
+            val action =UserListFragmentDirections.actionUserListFragmentToPmRoomFragment(userList.get(position).userName, userList.get(position).uuid)
             Navigation.findNavController(it).navigate(action)
 
 

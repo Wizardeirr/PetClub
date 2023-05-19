@@ -68,18 +68,6 @@
         android:label="fragment_user_chat"
         tools:layout="@layout/fragment_user_chat" />
     <fragment
-        android:id="@+id/privateChatFragment"
-        android:name="com.volkankelleci.petsocialclub.userslist.UserListFragment"
-        android:label="fragment_private_chat"
-        tools:layout="@layout/fragment_private_chat" >
-        <action
-            android:id="@+id/action_privateChatFragment_to_privateChatFragmentRoom"
-            app:destination="@id/PmRoomFragment" />
-        <action
-            android:id="@+id/action_privateChatFragment_to_privateMessageListFragment"
-            app:destination="@id/privateMessageListFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/PmRoomFragment"
         android:name="com.volkankelleci.petsocialclub.pm.PmRoomFragment"
         android:label="fragment_private_chat_room"
@@ -106,9 +94,6 @@
         android:name="com.volkankelleci.petsocialclub.privatemessagelist.PrivateMessageListFragment"
         android:label="fragment_private_message_list"
         tools:layout="@layout/fragment_private_message_list" >
-        <action
-            android:id="@+id/action_privateMessageListFragment_to_privateChatFragment"
-            app:destination="@id/privateChatFragment" />
         <argument
             android:name="username"
             app:argType="string"
@@ -117,5 +102,17 @@
             android:name="pp"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_privateMessageListFragment_to_userListFragment"
+            app:destination="@id/userListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userListFragment"
+        android:name="com.volkankelleci.petsocialclub.userslist.UserListFragment"
+        android:label="fragment_private_chat"
+        tools:layout="@layout/fragment_user_list" >
+        <action
+            android:id="@+id/action_userListFragment_to_PmRoomFragment"
+            app:destination="@id/PmRoomFragment" />
     </fragment>
 </navigation>

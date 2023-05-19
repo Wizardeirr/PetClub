@@ -6,15 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatBinding
-import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.data.UserInfo
+import com.volkankelleci.petsocialclub.databinding.FragmentUserListBinding
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_private_chat.*
+import kotlinx.android.synthetic.main.fragment_user_list.*
 
 class UserListFragment : Fragment(),UserListAdapter.Listener {
 
-    private  var _binding:FragmentPrivateChatBinding?=null
+    private  var _binding:FragmentUserListBinding?=null
     private val binding get() = _binding!!
     private lateinit var adapter: UserListAdapter
     var userInfo=ArrayList<UserInfo>()
@@ -26,7 +25,7 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentPrivateChatBinding.inflate(inflater, container, false)
+        _binding = FragmentUserListBinding.inflate(inflater, container, false)
         val view = binding.root
         getActivity()?.setTitle("Private Message")
         return view

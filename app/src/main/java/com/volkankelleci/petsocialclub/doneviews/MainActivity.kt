@@ -15,7 +15,6 @@ import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.generalchatroom.GeneralChatRoom
 import com.volkankelleci.petsocialclub.loginandsign.MainFragment
 import com.volkankelleci.petsocialclub.privatemessagelist.PrivateMessageListFragment
-import com.volkankelleci.petsocialclub.privatemessagelist.PrivateMessageListFragmentDirections
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.activity_main.*
