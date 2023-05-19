@@ -27,13 +27,12 @@ class MainActivity : AppCompatActivity() {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
 
-        controller()
 
-        bottomNav=findViewById(R.id.bottomNavigationView) as BottomNavigationView
         bottomNav.setOnItemSelectedListener{
             when(it.itemId){
                 R.id.homeButton ->{
-                    jumpFragment(UsersHomeFragment())
+
+                    //navigateler eklenecek
                     true
                 }
                 R.id.messageButton ->{
@@ -52,7 +51,6 @@ class MainActivity : AppCompatActivity() {
                     try {
                         auth.signOut()
                         Toast.makeText(this, "Sign Out Successfully", Toast.LENGTH_SHORT).show()
-                        bottomNavigationView.visibility= View.GONE
                     } catch (e: Exception) {
                         e.printStackTrace()
                         Toast.makeText(this, "Try Again", Toast.LENGTH_SHORT).show()
@@ -70,17 +68,5 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.fragmentContainerView,fragment)
         transaction.commit()
     }
-    private fun controller(){
-        if (auth.currentUser!=null){
-            jumpFragment(UsersHomeFragment())
-            bottomNavigationView.visibility= View.VISIBLE
 
-
-        }
-        else{
-            jumpFragment(MainFragment())
-            bottomNavigationView.visibility= View.INVISIBLE
-
-        }
-    }
     }

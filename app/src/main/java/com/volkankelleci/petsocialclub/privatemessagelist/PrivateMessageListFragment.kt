@@ -4,21 +4,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.R
-import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.data.UserInfo
-import com.volkankelleci.petsocialclub.pm.PmRoomFragmentArgs
+import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
 import com.volkankelleci.petsocialclub.userslist.UserListAdapter
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_private_message_list.*
+import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
 
 class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),UserListAdapter.Listener {
     private  var _binding:FragmentPrivateMessageListBinding?=null
@@ -34,6 +31,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     ): View {
         _binding=FragmentPrivateMessageListBinding.inflate(inflater,container,false)
         val view=binding.root
+
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,14 +42,12 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
         adapter= PrivateMessageListAdapter(userMessage)
         userChatPartRV.adapter=adapter
 
-
         takesInputs()
-
-
-        binding.fabForPM.setOnClickListener{
-           val action=PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUserListFragment()
-            Navigation.findNavController(it).navigate(action)
+        binding.fabForPM.setOnClickListener {
+            val action = PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToTestFragment()
+            Navigation.findNavController(requireView()).navigate(action)
         }
+
 
     }
 
@@ -84,10 +80,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                         }
                     }
             }
-
     }
-
-
     override fun onItemClickListener(userList: UserInfo) {
 
 
