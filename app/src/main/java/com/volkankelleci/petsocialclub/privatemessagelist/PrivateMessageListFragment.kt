@@ -15,6 +15,7 @@ import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBin
 import com.volkankelleci.petsocialclub.userslist.UserListAdapter
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.database
+import kotlinx.android.synthetic.main.chat_list_raw.lastMessage
 import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
 
 class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),UserListAdapter.Listener {
@@ -31,7 +32,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     ): View {
         _binding=FragmentPrivateMessageListBinding.inflate(inflater,container,false)
         val view=binding.root
-        takesInputs()
+
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,12 +43,11 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
         adapter= PrivateMessageListAdapter(userMessage)
         userChatPartRV.adapter=adapter
 
-
         binding.fabForPM.setOnClickListener {
             val action = PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUserListFragment()
             Navigation.findNavController(requireView()).navigate(action)
         }
-
+        takesInputs()
 
     }
 
@@ -63,6 +63,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                 } else
                     if (value != null) {
                         if (value.isEmpty == false) {
+                            userMessage.clear()
                             val documents = value.documents
                             for (document in documents) {
                                 document.get("privateChatInfo")

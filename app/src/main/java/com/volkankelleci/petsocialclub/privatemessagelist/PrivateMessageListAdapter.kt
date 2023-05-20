@@ -10,14 +10,13 @@ import com.volkankelleci.petsocialclub.data.UserInfo
 import kotlinx.android.synthetic.main.chat_list_raw.view.*
 
 class PrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>): RecyclerView.Adapter<PrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
+    private val lastMessages: HashMap<String, PrivateMessage> = HashMap()
+
     class PrivateMessageListFragmentPart(itemView: View):RecyclerView.ViewHolder(itemView) {
 
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int,
-    ): PrivateMessageListFragmentPart {
+    override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): PrivateMessageListFragmentPart {
         val inflater=LayoutInflater.from(parent.context)
         val viewHolder=inflater.inflate(R.layout.chat_list_raw,parent,false)
         return PrivateMessageListFragmentPart(viewHolder)
@@ -28,9 +27,16 @@ class PrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>): Recy
         holder.itemView.userNameForChat.text=userMessage[position].chatUser
         holder.itemView.lastMessage.text=userMessage[position].message
 
+
+
     }
 
     override fun getItemCount(): Int {
         return userMessage.size
+    }
+    fun updateList(newList: ArrayList<PrivateMessage>) {
+        userMessage.clear()
+        userMessage.addAll(newList)
+        notifyDataSetChanged()
     }
 }
