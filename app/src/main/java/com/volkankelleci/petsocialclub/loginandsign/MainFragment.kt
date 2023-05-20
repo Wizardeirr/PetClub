@@ -33,7 +33,6 @@ class MainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         auth = FirebaseAuth.getInstance()
-
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,7 +41,6 @@ class MainFragment : Fragment() {
 
 
         googleSign.setOnClickListener {
-
             val options = GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.webclient_id))
@@ -60,7 +58,6 @@ class MainFragment : Fragment() {
         }
         loginButton.setOnClickListener {
             loginUser()
-
         }
 
     }
@@ -91,7 +88,6 @@ class MainFragment : Fragment() {
     }
     private fun checkLoggedInState() {
         if (auth.currentUser == null) {
-            Toast.makeText(context, "SIGN UNSUCCESSFUL", Toast.LENGTH_LONG).show()
 
         } else {
             val action=MainFragmentDirections.actionMainFragmentToUsersHomeFragment()

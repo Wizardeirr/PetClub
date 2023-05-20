@@ -3,6 +3,7 @@ package com.volkankelleci.petsocialclub.userslist
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.UserInfo
@@ -43,10 +44,9 @@ class UserListAdapter(
         // navigate part
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(userList.get(position))
-            /*val action =UserListFragmentDirections.actionUserListFragmentToPmRoomFragment(userList.get(position).userName, userList.get(position).uuid)
+            val action =UserListFragmentDirections.actionUserListFragmentToPmRoomFragment(userList.get(position).userName, userList.get(position).uuid)
             Navigation.findNavController(it).navigate(action)
 
-             */
 
 
         }

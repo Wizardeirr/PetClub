@@ -31,7 +31,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     ): View {
         _binding=FragmentPrivateMessageListBinding.inflate(inflater,container,false)
         val view=binding.root
-
+        takesInputs()
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,9 +42,9 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
         adapter= PrivateMessageListAdapter(userMessage)
         userChatPartRV.adapter=adapter
 
-        takesInputs()
+
         binding.fabForPM.setOnClickListener {
-            val action = PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToTestFragment()
+            val action = PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUserListFragment()
             Navigation.findNavController(requireView()).navigate(action)
         }
 
@@ -64,7 +64,6 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                     if (value != null) {
                         if (value.isEmpty == false) {
                             val documents = value.documents
-                            userMessage.clear()
                             for (document in documents) {
                                 document.get("privateChatInfo")
                                 val privateMessageUserText = document.get("userText").toString()

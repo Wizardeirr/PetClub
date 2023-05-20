@@ -35,6 +35,7 @@ class UsersHomeFragment : Fragment() {
         _binding = FragmentUsersHomeBinding.inflate(inflater, container, false)
         val view = binding.root
         getActivity()?.setTitle("PetSocialClub");
+        setHasOptionsMenu(true)
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,7 +52,13 @@ class UsersHomeFragment : Fragment() {
         recyclerViewAdapter = UserPostAdapter(postList,pp)
         usersHomeFragmentRecycler.adapter = recyclerViewAdapter
 
+
     }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.user_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
 
     private fun takesData() {
         database.collection("Post").orderBy("date", Query.Direction.DESCENDING)
@@ -108,4 +115,47 @@ class UsersHomeFragment : Fragment() {
                     }
             }
     }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+
+            R.id.homeButton-> {
+                // Ayarlar seçeneği seçildiğinde yapılacak işlemler
+                val action=UsersHomeFragmentDirections.actionUsersHomeFragmentSelf()
+                findNavController().navigate(action)
+                return true
+            }
+            R.id.messageButton-> {
+                val action2=UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
+                findNavController().navigate(action2)
+
+                return true
+
+            }
+            R.id.privateMessageButton-> {
+                val action3=UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateMessageListFragment(null,null)
+                findNavController().navigate(action3)
+
+                return true
+
+            }
+            R.id.profileButton-> {
+                val action4=UsersHomeFragmentDirections.actionUsersHomeFragmentToUserProfileMenuFragment()
+                findNavController().navigate(action4)
+
+                return true
+
+            }
+            R.id.logOutButton-> {
+                val action5=UsersHomeFragmentDirections.actionUsersHomeFragmentToMainFragment()
+                findNavController().navigate(action5)
+
+                return true
+
+            }
+            // Diğer menü seçeneklerine göre işlemler burada belirtilebilir
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+
 }

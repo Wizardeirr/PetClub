@@ -1,6 +1,7 @@
 package com.volkankelleci.petsocialclub.doneviews
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.WindowManager
@@ -20,53 +21,11 @@ import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    lateinit var bottomNav : BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
-
-
-        bottomNav.setOnItemSelectedListener{
-            when(it.itemId){
-                R.id.homeButton ->{
-
-                    //navigateler eklenecek
-                    true
-                }
-                R.id.messageButton ->{
-                    jumpFragment(GeneralChatRoom())
-                    true
-                }
-                R.id.privateMessageButton ->{
-                jumpFragment(PrivateMessageListFragment())
-                    true
-                }
-                R.id.profileButton ->{
-                    jumpFragment(UserProfileMenuFragment())
-                    true
-                }
-                R.id.logOutButton ->{
-                    try {
-                        auth.signOut()
-                        Toast.makeText(this, "Sign Out Successfully", Toast.LENGTH_SHORT).show()
-                    } catch (e: Exception) {
-                        e.printStackTrace()
-                        Toast.makeText(this, "Try Again", Toast.LENGTH_SHORT).show()
-                    }
-                    jumpFragment(MainFragment())
-                    true
-                }
-
-                else -> {false}
-            }
-            }
         }
-    private fun jumpFragment(fragment: Fragment){
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainerView,fragment)
-        transaction.commit()
-    }
 
-    }
+}

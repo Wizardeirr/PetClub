@@ -50,9 +50,6 @@
             android:id="@+id/action_usersHomeFragment_to_messageFragment"
             app:destination="@id/messageFragment" />
         <action
-            android:id="@+id/action_usersHomeFragment_self2"
-            app:destination="@id/usersHomeFragment" />
-        <action
             android:id="@+id/action_usersHomeFragment_to_userChatFragment"
             app:destination="@id/userChatFragment" />
         <action
@@ -61,6 +58,9 @@
         <action
             android:id="@+id/action_usersHomeFragment_to_privateMessageListFragment"
             app:destination="@id/privateMessageListFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_self2"
+            app:destination="@id/usersHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/userChatFragment"
@@ -103,17 +103,16 @@
             app:argType="string"
             app:nullable="true" />
         <action
-            android:id="@+id/action_privateMessageListFragment_to_testFragment"
-            app:destination="@id/testFragment" />
+            android:id="@+id/action_privateMessageListFragment_to_userListFragment"
+            app:destination="@id/userListFragment" />
     </fragment>
     <fragment
         android:id="@+id/userListFragment"
         android:name="com.volkankelleci.petsocialclub.userslist.UserListFragment"
         android:label="fragment_private_chat"
-        tools:layout="@layout/fragment_user_list" />
-    <fragment
-        android:id="@+id/testFragment"
-        android:name="com.volkankelleci.petsocialclub.TestFragment"
-        android:label="fragment_test"
-        tools:layout="@layout/fragment_test" />
+        tools:layout="@layout/fragment_user_list" >
+        <action
+            android:id="@+id/action_userListFragment_to_PmRoomFragment"
+            app:destination="@id/PmRoomFragment" />
+    </fragment>
 </navigation>

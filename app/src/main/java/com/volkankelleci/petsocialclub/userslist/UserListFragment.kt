@@ -44,6 +44,7 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
         privateChatRV.adapter=adapter
 
 
+
     }
 
     private fun takesUserInfo(){
