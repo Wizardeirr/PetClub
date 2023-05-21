@@ -3,15 +3,21 @@ package com.volkankelleci.petsocialclub.privatemessagelist
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.data.UserInfo
+import com.volkankelleci.petsocialclub.userslist.UserListAdapter
+import com.volkankelleci.petsocialclub.userslist.UserListFragmentDirections
 import kotlinx.android.synthetic.main.chat_list_raw.view.*
 
-class PrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>): RecyclerView.Adapter<PrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
-    private val lastMessages: HashMap<String, PrivateMessage> = HashMap()
+class PrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>,
+                                val listener:Listener): RecyclerView.Adapter<PrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
 
+    interface Listener{
+        fun onItemClickListener(privateMessage: PrivateMessage)
+    }
     class PrivateMessageListFragmentPart(itemView: View):RecyclerView.ViewHolder(itemView) {
 
     }
@@ -26,6 +32,11 @@ class PrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>): Recy
 
         holder.itemView.userNameForChat.text=userMessage[position].chatUser
         holder.itemView.lastMessage.text=userMessage[position].message
+        holder.itemView.setOnClickListener{
+            listener.onItemClickListener(userMessage.get(position))
+            val action = PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToPmRoomFragment(userMessage.get(position).toUUID, userMessage.get(position).toUUID)
+            Navigation.findNavController(it).navigate(action)
+        }
 
 
 
@@ -34,6 +45,7 @@ class PrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>): Recy
     override fun getItemCount(): Int {
         return userMessage.size
     }
+
     fun updateList(newList: ArrayList<PrivateMessage>) {
         userMessage.clear()
         userMessage.addAll(newList)

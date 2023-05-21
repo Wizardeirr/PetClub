@@ -18,7 +18,8 @@ import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.chat_list_raw.lastMessage
 import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
 
-class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),UserListAdapter.Listener {
+class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),
+    PrivateMessageListAdapter.Listener {
     private  var _binding:FragmentPrivateMessageListBinding?=null
     private val binding get() =_binding!!
     var userMessage=ArrayList<PrivateMessage>()
@@ -40,7 +41,7 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
 
         val layoutManager=LinearLayoutManager(activity)
         userChatPartRV.layoutManager=layoutManager
-        adapter= PrivateMessageListAdapter(userMessage)
+        adapter= PrivateMessageListAdapter(userMessage,this@PrivateMessageListFragment)
         userChatPartRV.adapter=adapter
 
         binding.fabForPM.setOnClickListener {
@@ -81,8 +82,8 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                     }
             }
     }
-    override fun onItemClickListener(userList: UserInfo) {
 
-
+    override fun onItemClickListener(privateMessage: PrivateMessage) {
+        println("CLICKED")
     }
 }
