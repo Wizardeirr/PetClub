@@ -72,10 +72,10 @@ class SignUpFragment : Fragment() {
             })
             alertMessage.setNegativeButton("Yes",DialogInterface.OnClickListener { dialog, which ->
                 alertMessage.setMessage("You are continuing")
-                val userEmail = userSign.text.toString()
-                val userName = binding.userNameET.text.toString()
-                val petName = binding.petName.text.toString()
-                val password=binding.passwordSign.text.toString()
+                val userEmail = userSign.text.toString().trim().replace("","")
+                val userName = binding.userNameET.text.toString().trim().replace("","")
+                val petName = binding.petName.text.toString().trim().replace("","")
+                val password=binding.passwordSign.text.toString().trim().replace("","")
                 if (userName.isNotEmpty()&&userEmail.isNotEmpty()&&petName.isNotEmpty()&&password.isNotEmpty()){
 
 // When click 2 times to Profile Picture select app getting crash "Fix this problem"
@@ -105,8 +105,8 @@ class SignUpFragment : Fragment() {
 
     }
     fun signUser() {
-        val email = userSign.text.toString()
-        val password = passwordSign.text.toString()
+        val email = userSign.text.toString().trim()
+        val password = passwordSign.text.toString().trim()
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {

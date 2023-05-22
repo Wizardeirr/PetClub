@@ -66,8 +66,8 @@ class MainFragment : Fragment() {
         checkLoggedInState()
     }
     fun loginUser() {
-        val email = userLog.text.toString()
-        val password = passwordLog.text.toString()
+        val email = userLog.text.toString().trim()
+        val password = passwordLog.text.toString().trim()
 
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
