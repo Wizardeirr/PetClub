@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.private_chat_raw.view.userEmail
 import kotlinx.android.synthetic.main.private_chat_raw.view.userImage
 import kotlinx.android.synthetic.main.private_chat_raw.view.userPetName
 import kotlinx.android.synthetic.main.private_chat_raw.view.userUUID
-import kotlinx.coroutines.flow.internal.NoOpContinuation.context
 
 class UserListAdapter(
     val userList: ArrayList<UserInfo>,
@@ -47,10 +46,6 @@ class UserListAdapter(
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(userList.get(position))
 
-            val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-            val editor = sharedPreferences.edit()
-            editor.putString("ToUUID", userList[position].uuid)
-            editor.apply()
             val action =UserListFragmentDirections.actionUserListFragmentToPmRoomFragment(userList.get(position).userName, userList.get(position).uuid)
             Navigation.findNavController(it).navigate(action)
 

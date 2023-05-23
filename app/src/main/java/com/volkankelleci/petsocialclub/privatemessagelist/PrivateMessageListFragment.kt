@@ -57,10 +57,8 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
 
     private fun takesInputs(){
 
-        val args = arguments?.let { PrivateMessageListFragmentArgs.fromBundle(it) }
+        // val args = arguments?.let { PrivateMessageListFragmentArgs.fromBundle(it) }
 
-        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val toUUID = sharedPreferences.getString("ToUUID", "") ?: ""
       //  val toUUID = args?.pp
 
         database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
