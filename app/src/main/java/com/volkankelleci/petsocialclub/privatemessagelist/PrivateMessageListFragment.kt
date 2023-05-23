@@ -1,5 +1,6 @@
 package com.volkankelleci.petsocialclub.privatemessagelist
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,12 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.PrivateMessage
-import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
-import com.volkankelleci.petsocialclub.userslist.UserListAdapter
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.chat_list_raw.lastMessage
 import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
 
 class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),
@@ -39,6 +37,11 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //fun
+
+        takesInputs()
+
+
         val layoutManager=LinearLayoutManager(activity)
         userChatPartRV.layoutManager=layoutManager
         adapter= PrivateMessageListAdapter(userMessage,this@PrivateMessageListFragment)
@@ -48,14 +51,17 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
             val action = PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUserListFragment()
             Navigation.findNavController(requireView()).navigate(action)
         }
-        takesInputs()
+
 
     }
 
-    fun takesInputs(){
+    private fun takesInputs(){
+
         val args = arguments?.let { PrivateMessageListFragmentArgs.fromBundle(it) }
 
-        val toUUID = args?.pp
+        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val toUUID = sharedPreferences.getString("ToUUID", "") ?: ""
+      //  val toUUID = args?.pp
 
         database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
             Query.Direction.DESCENDING).limit(1)
@@ -64,8 +70,10 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                 } else
                     if (value != null) {
                         if (value.isEmpty == false) {
-                            userMessage.clear()
+
                             val documents = value.documents
+                            val lastMessages = mutableListOf<PrivateMessage>()
+
                             for (document in documents) {
                                 document.get("privateChatInfo")
                                 val privateMessageUserText = document.get("userText").toString()
@@ -74,9 +82,12 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                                 val privateChatUserDate = document.get("userDate").toString()
                                 val privateChatToUUID = document.get("toUUID").toString()
                                 val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail,)
-                                userMessage.add(downloadInfos)
-                                adapter.userMessage=userMessage
+                                lastMessages.add(downloadInfos)
+
+                               adapter.userMessage=userMessage
+
                             }
+                            userMessage.addAll(lastMessages)
                             adapter.notifyDataSetChanged()
                         }
                     }

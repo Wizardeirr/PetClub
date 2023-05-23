@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FieldValue
@@ -16,12 +14,12 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.volkankelleci.petsocialclub.R
-import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
 import com.volkankelleci.petsocialclub.data.PrivateMessage
+import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_private_chat_room.*
+import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageET
+import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
 
 
 class PmRoomFragment : Fragment() {
@@ -31,22 +29,12 @@ class PmRoomFragment : Fragment() {
     var user=ArrayList<PrivateMessage>()
     val layoutManager = LinearLayoutManager(activity)
     private lateinit var firestore: FirebaseFirestore
-
-    val takeArgs=arguments?.let {
-        PmRoomFragmentArgs.fromBundle(it).pp
-    }
-    val takeUserName= arguments?.let {
-     PmRoomFragmentArgs.fromBundle(it).username
-
-    }
-
+    private lateinit var toUUID: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         firestore = Firebase.firestore
-
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -56,14 +44,8 @@ class PmRoomFragment : Fragment() {
         val view=binding.root
         return view
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        //Scroll item 2 to 20 pixels from the top
-
-        //Notification
-
 
         privateMessageRV.postDelayed({
             privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
@@ -74,31 +56,27 @@ class PmRoomFragment : Fragment() {
             }, 100)
 
         }
-
-        //defination to Main RV
+        //determined to RV
         privateMessageRV.layoutManager = layoutManager
         adapter = PmRoomAdapter()
         privateMessageRV.adapter = adapter
 
-
-        // action bar name change
-
-
+        // toUUID taking
+        toUUID= arguments?.let {
+            PmRoomFragmentArgs.fromBundle(it).pp
+        }?:""
         //When Send button click what we do
         binding.privateMessageSendButton.setOnClickListener {
             val userEmail = auth.currentUser!!.email.toString()
             val userText =binding.privateMessageET.text.toString()
             val userDate = FieldValue.serverTimestamp()
             val userUUID = auth.currentUser!!.uid
-            val toUUID= arguments?.let {
-                PmRoomFragmentArgs.fromBundle(it).pp
-            }
             val userInfoMap = HashMap<String, Any>()
             userInfoMap.put("PrivateChatUserUUID", userUUID)
             userInfoMap.put("PrivateChatUserEmail", userEmail)
             userInfoMap.put("userText",userText)
             userInfoMap.put("userDate",userDate)
-            userInfoMap.put("toUUID",toUUID.toString())
+            userInfoMap.put("toUUID",toUUID)
             firestore.collection("privateChatInfo/$userUUID/$toUUID").add(userInfoMap).addOnSuccessListener {
                 scrollToBottom(privateMessageRV)
                 binding.privateMessageET.setText("")
@@ -112,9 +90,7 @@ class PmRoomFragment : Fragment() {
         }
 
         //taking user texts to collection and saving to list of adapter. For show on Adapter
-        val toUUID= arguments?.let {
-            PmRoomFragmentArgs.fromBundle(it).pp
-        }
+
         database.collection("privateChatInfo/$toUUID/${auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
