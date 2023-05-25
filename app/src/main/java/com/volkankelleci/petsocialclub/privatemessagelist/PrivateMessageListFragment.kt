@@ -5,6 +5,7 @@
     import android.view.LayoutInflater
     import android.view.View
     import android.view.ViewGroup
+    import androidx.activity.addCallback
     import androidx.fragment.app.Fragment
     import androidx.navigation.Navigation
     import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@
     import com.volkankelleci.petsocialclub.data.PrivateMessage
     import com.volkankelleci.petsocialclub.data.UserInfo
     import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
+    import com.volkankelleci.petsocialclub.pm.PmRoomFragmentDirections
     import com.volkankelleci.petsocialclub.userslist.UserListAdapter
     import com.volkankelleci.petsocialclub.util.Util
     import com.volkankelleci.petsocialclub.util.Util.database
@@ -83,6 +85,15 @@
         private fun getToUUIDFromSharedPreferences(): String {
             val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
             return sharedPreferences.getString("toUUID", "") ?: ""
+        }
+
+        override fun onResume() {
+            super.onResume()
+            requireActivity().onBackPressedDispatcher.addCallback(this) {
+                val action= PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUsersHomeFragment()
+                Navigation.findNavController(requireView()).navigate(action)
+
+            }
         }
     }
 

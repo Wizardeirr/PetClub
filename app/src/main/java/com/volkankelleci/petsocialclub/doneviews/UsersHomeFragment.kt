@@ -27,8 +27,6 @@ class UsersHomeFragment : Fragment() {
     private lateinit var recyclerViewAdapter: UserPostAdapter
     var postList = ArrayList<Post>()
     var pp=ArrayList<UserInfo>()
-    private lateinit var toUUID: String
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }

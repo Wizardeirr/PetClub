@@ -28,9 +28,7 @@ class GeneralChatRoom : Fragment() {
     private val binding get() = _binding!!
     private lateinit var adapter: ChatRecyclerAdapter
     var chats = ArrayList<ChatData>()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -123,8 +121,8 @@ class GeneralChatRoom : Fragment() {
     private fun scrollToBottom(recyclerView: RecyclerView) {
         // scroll to last item to get the view of last item
         val layoutManager = userChatRV.layoutManager as LinearLayoutManager?
-        val adapter = userChatRV.adapter
-        val lastItemPosition = adapter!!.itemCount - 1
+
+        val lastItemPosition = adapter.itemCount - 1
         layoutManager!!.scrollToPositionWithOffset(lastItemPosition, 0)
         userChatRV.post { // then scroll to specific offset
             val target = layoutManager.findViewByPosition(lastItemPosition)
