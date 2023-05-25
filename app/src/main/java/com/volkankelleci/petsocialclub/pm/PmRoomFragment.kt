@@ -1,5 +1,6 @@
 package com.volkankelleci.petsocialclub.pm
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -65,6 +66,7 @@ class PmRoomFragment : Fragment() {
         toUUID= arguments?.let {
             PmRoomFragmentArgs.fromBundle(it).pp
         }?:""
+
         //When Send button click what we do
         binding.privateMessageSendButton.setOnClickListener {
             val userEmail = auth.currentUser!!.email.toString()

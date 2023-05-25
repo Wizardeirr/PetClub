@@ -20,6 +20,7 @@ class UserListAdapter(
     val listener: Listener,
 
 ) : RecyclerView.Adapter<UserListAdapter.PrivateChatAdapterViewHolder>() {
+    private var selectedUUID: String = ""
 
     interface Listener{
         fun onItemClickListener(userList:UserInfo)
@@ -34,6 +35,8 @@ class UserListAdapter(
     ): PrivateChatAdapterViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.private_chat_raw, parent, false)
+
+
         return PrivateChatAdapterViewHolder(itemView)
     }
 
@@ -45,11 +48,11 @@ class UserListAdapter(
         // navigate part
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(userList.get(position))
-
             val action =UserListFragmentDirections.actionUserListFragmentToPmRoomFragment(userList.get(position).userName, userList.get(position).uuid)
             Navigation.findNavController(it).navigate(action)
-
         }
+        selectedUUID = userList[position].uuid
+
 
 
         // image with glide
@@ -58,7 +61,9 @@ class UserListAdapter(
     }
 
     override fun getItemCount(): Int {
-
         return userList.size
+    }
+    fun getSelectedUUID(): String {
+        return selectedUUID
     }
 }

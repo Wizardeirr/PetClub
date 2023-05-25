@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.PrivateMessage
+import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
+import com.volkankelleci.petsocialclub.userslist.UserListAdapter
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
@@ -22,7 +24,6 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
     private val binding get() =_binding!!
     var userMessage=ArrayList<PrivateMessage>()
     private lateinit var adapter: PrivateMessageListAdapter
-    val userUUID = Util.auth.currentUser!!.uid
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,7 +39,6 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
         super.onViewCreated(view, savedInstanceState)
 
         //fun
-
         takesInputs()
 
 
@@ -57,20 +57,18 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
 
     private fun takesInputs(){
 
-        // val args = arguments?.let { PrivateMessageListFragmentArgs.fromBundle(it) }
+            val args = arguments?.let { PrivateMessageListFragmentArgs.fromBundle(it) }
+            val toUUID = args?.toUUID
 
-      //  val toUUID = args?.pp
 
         database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
             Query.Direction.DESCENDING).limit(1)
             .addSnapshotListener { value, error ->
                 if (error != null) {
-                } else
-                    if (value != null) {
-                        if (value.isEmpty == false) {
+                } else if (value != null && !value.isEmpty){
 
                             val documents = value.documents
-                            val lastMessages = mutableListOf<PrivateMessage>()
+                            userMessage.clear() // Önceki mesajları temizle
 
                             for (document in documents) {
                                 document.get("privateChatInfo")
@@ -80,19 +78,16 @@ class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_lis
                                 val privateChatUserDate = document.get("userDate").toString()
                                 val privateChatToUUID = document.get("toUUID").toString()
                                 val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail,)
-                                lastMessages.add(downloadInfos)
-
-                               adapter.userMessage=userMessage
+                                userMessage.add(downloadInfos)
 
                             }
-                            userMessage.addAll(lastMessages)
                             adapter.notifyDataSetChanged()
                         }
                     }
-            }
-    }
+             }
 
     override fun onItemClickListener(privateMessage: PrivateMessage) {
-        println("CLICKED")
+        TODO("Not yet implemented")
     }
 }
+

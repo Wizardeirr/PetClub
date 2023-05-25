@@ -54,6 +54,7 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
                 }else
                     if (value!=null){
                         if (value.isEmpty==false){
+
                             val documents=value.documents
                             userInfo.clear()
                             for (document in documents){
@@ -75,6 +76,7 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
 
     override fun onItemClickListener(userList: UserInfo) {
         println(userList.uuid)
+        println(userList.userName)
     }
 
 }

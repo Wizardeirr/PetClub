@@ -99,7 +99,7 @@
             app:argType="string"
             app:nullable="true" />
         <argument
-            android:name="pp"
+            android:name="toUUID"
             app:argType="string"
             app:nullable="true" />
         <action
@@ -117,5 +117,8 @@
         <action
             android:id="@+id/action_userListFragment_to_PmRoomFragment"
             app:destination="@id/PmRoomFragment" />
+        <action
+            android:id="@+id/action_userListFragment_self2"
+            app:destination="@id/userListFragment" />
     </fragment>
 </navigation>

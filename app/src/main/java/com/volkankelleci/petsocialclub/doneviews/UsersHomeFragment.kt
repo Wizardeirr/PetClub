@@ -1,22 +1,24 @@
 package com.volkankelleci.petsocialclub.doneviews
 
 import android.os.Bundle
-import android.view.*
-import android.widget.Toast
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.R
-import com.volkankelleci.petsocialclub.post.UserPostAdapter
-import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
-import com.volkankelleci.petsocialclub.privatemessagelist.PrivateMessageListFragmentArgs
-import com.volkankelleci.petsocialclub.util.Util
-import com.volkankelleci.petsocialclub.util.Util.auth
-import kotlinx.android.synthetic.main.fragment_users_home.*
+import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
+import com.volkankelleci.petsocialclub.post.UserPostAdapter
+import kotlinx.android.synthetic.main.fragment_users_home.fab
+import kotlinx.android.synthetic.main.fragment_users_home.usersHomeFragmentRecycler
 
 class UsersHomeFragment : Fragment() {
     private var _binding: FragmentUsersHomeBinding? = null
@@ -25,6 +27,8 @@ class UsersHomeFragment : Fragment() {
     private lateinit var recyclerViewAdapter: UserPostAdapter
     var postList = ArrayList<Post>()
     var pp=ArrayList<UserInfo>()
+    private lateinit var toUUID: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -44,6 +48,7 @@ class UsersHomeFragment : Fragment() {
             val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
             findNavController().navigate(action)
         }
+
         //User Name Save
         takesData()
         takesPP()
@@ -132,6 +137,7 @@ class UsersHomeFragment : Fragment() {
 
             }
             R.id.privateMessageButton-> {
+
                 val action3=UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateMessageListFragment(null,null)
                 findNavController().navigate(action3)
 

@@ -25,6 +25,7 @@ class PrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>,
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): PrivateMessageListFragmentPart {
         val inflater=LayoutInflater.from(parent.context)
         val viewHolder=inflater.inflate(R.layout.chat_list_raw,parent,false)
+
         return PrivateMessageListFragmentPart(viewHolder)
     }
 
