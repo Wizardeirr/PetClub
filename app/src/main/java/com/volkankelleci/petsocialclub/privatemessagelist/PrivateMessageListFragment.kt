@@ -92,7 +92,6 @@
             requireActivity().onBackPressedDispatcher.addCallback(this) {
                 val action= PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUsersHomeFragment()
                 Navigation.findNavController(requireView()).navigate(action)
-
             }
         }
     }
