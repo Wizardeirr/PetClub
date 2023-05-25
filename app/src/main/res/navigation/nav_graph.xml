@@ -108,6 +108,9 @@
         <action
             android:id="@+id/action_privateMessageListFragment_to_PmRoomFragment"
             app:destination="@id/PmRoomFragment" />
+        <action
+            android:id="@+id/action_privateMessageListFragment_to_usersHomeFragment"
+            app:destination="@id/usersHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/userListFragment"
