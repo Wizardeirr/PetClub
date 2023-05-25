@@ -1,5 +1,6 @@
 package com.volkankelleci.petsocialclub.userslist
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -77,6 +78,11 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
     override fun onItemClickListener(userList: UserInfo) {
         println(userList.uuid)
         println(userList.userName)
+        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("toUUID", userList.uuid)
+        editor.apply()
     }
+
 
 }
