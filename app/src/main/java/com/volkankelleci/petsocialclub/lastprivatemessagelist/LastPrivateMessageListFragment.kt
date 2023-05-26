@@ -1,4 +1,4 @@
-    package com.volkankelleci.petsocialclub.privatemessagelist
+    package com.volkankelleci.petsocialclub.lastprivatemessagelist
 
     import android.content.Context
     import android.os.Bundle
@@ -12,20 +12,18 @@
     import com.google.firebase.firestore.Query
     import com.volkankelleci.petsocialclub.R
     import com.volkankelleci.petsocialclub.data.PrivateMessage
-    import com.volkankelleci.petsocialclub.data.UserInfo
     import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
-    import com.volkankelleci.petsocialclub.pm.PmRoomFragmentDirections
-    import com.volkankelleci.petsocialclub.userslist.UserListAdapter
     import com.volkankelleci.petsocialclub.util.Util
     import com.volkankelleci.petsocialclub.util.Util.database
     import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
 
-    class PrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),
-        PrivateMessageListAdapter.Listener {
+    class LastPrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),
+        LastPrivateMessageListAdapter.Listener {
         private  var _binding:FragmentPrivateMessageListBinding?=null
         private val binding get() =_binding!!
         var userMessage=ArrayList<PrivateMessage>()
-        private lateinit var adapter: PrivateMessageListAdapter
+        private lateinit var adapter: LastPrivateMessageListAdapter
+
 
 
         override fun onCreateView(
@@ -46,14 +44,14 @@
 
             val layoutManager=LinearLayoutManager(activity)
             userChatPartRV.layoutManager=layoutManager
-            adapter= PrivateMessageListAdapter(userMessage,this@PrivateMessageListFragment)
+            adapter= LastPrivateMessageListAdapter(userMessage,this@LastPrivateMessageListFragment)
             userChatPartRV.adapter=adapter
 
             binding.fabForPM.setOnClickListener {
-                val action = PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUserListFragment()
+                val action = LastPrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUserListFragment()
                 Navigation.findNavController(requireView()).navigate(action)
             }
-            database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
+            database.collection("privateChatInfo)$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
                 Query.Direction.DESCENDING).limit(1)
                 .addSnapshotListener { value, error ->
                     if (error != null) {
@@ -68,7 +66,7 @@
                             val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
                             val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                             val privateChatUserDate = document.get("userDate").toString()
-                            val privateChatToUUID = document.get("toUUID").toString()
+                            val privateChatToUUID = document.get("$toUUID").toString()
                             val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail,)
                             userMessage.add(downloadInfos)
 
@@ -77,9 +75,10 @@
                     }
                 }
 
+
         }
         override fun onItemClickListener(privateMessage: PrivateMessage) {
-            println("hello")
+            println("2")
         }
         // SharedPreferences'ten toUUID değerini okuyoruz
         private fun getToUUIDFromSharedPreferences(): String {
@@ -90,7 +89,7 @@
         override fun onResume() {
             super.onResume()
             requireActivity().onBackPressedDispatcher.addCallback(this) {
-                val action= PrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUsersHomeFragment()
+                val action= LastPrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUsersHomeFragment()
                 Navigation.findNavController(requireView()).navigate(action)
             }
         }

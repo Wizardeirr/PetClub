@@ -86,12 +86,12 @@
     </fragment>
     <fragment
         android:id="@+id/userProfileMenuFragment"
-        android:name="com.volkankelleci.petsocialclub.doneviews.UserProfileMenuFragment"
+        android:name="com.volkankelleci.petsocialclub.userprofile.UserProfileMenuFragment"
         android:label="fragment_user_profile_menu"
         tools:layout="@layout/fragment_user_profile_menu" />
     <fragment
         android:id="@+id/privateMessageListFragment"
-        android:name="com.volkankelleci.petsocialclub.privatemessagelist.PrivateMessageListFragment"
+        android:name="com.volkankelleci.petsocialclub.lastprivatemessagelist.LastPrivateMessageListFragment"
         android:label="fragment_private_message_list"
         tools:layout="@layout/fragment_private_message_list" >
         <argument

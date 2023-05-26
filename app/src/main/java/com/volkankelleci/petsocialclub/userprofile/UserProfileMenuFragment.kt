@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.doneviews
+package com.volkankelleci.petsocialclub.userprofile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
