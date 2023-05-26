@@ -51,7 +51,7 @@
                 val action = LastPrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUserListFragment()
                 Navigation.findNavController(requireView()).navigate(action)
             }
-            database.collection("privateChatInfo)$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
+            database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
                 Query.Direction.DESCENDING).limit(1)
                 .addSnapshotListener { value, error ->
                     if (error != null) {
@@ -59,8 +59,8 @@
 
                         val documents = value.documents
                         userMessage.clear() // Önceki mesajları temizle
-
                         for (document in documents) {
+
                             document.get("privateChatInfo")
                             val privateMessageUserText = document.get("userText").toString()
                             val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
