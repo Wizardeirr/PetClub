@@ -49,7 +49,7 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
     }
 
     private fun takesUserInfo(){
-        database.collection("privateChatInfo")
+        database.collection("userProfileInfo")
             .addSnapshotListener { value, error ->
                 if(error!=null){
                 }else

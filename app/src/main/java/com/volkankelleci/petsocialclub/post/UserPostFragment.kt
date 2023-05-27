@@ -80,7 +80,7 @@ class UserPostFragment : Fragment() {
                     database.collection("Post").add(postHashMap).addOnCompleteListener { task->
                         if(task.isSuccessful){
                             Toast.makeText(activity, "Image Downloaded", Toast.LENGTH_SHORT).show()
-                            val action =PostFragmentDirections.actionMessageFragmentToUsersHomeFragment()
+                            val action =UserPostFragmentDirections.actionMessageFragmentToUsersHomeFragment()
                             findNavController().navigate(action)
                         }
                     }.addOnFailureListener {
