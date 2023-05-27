@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.volkankelleci.petsocialclub.post.PostFragment"
+        android:name="com.volkankelleci.petsocialclub.post.UserPostFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" >
         <action

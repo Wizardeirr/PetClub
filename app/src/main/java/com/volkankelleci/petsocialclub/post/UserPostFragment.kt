@@ -28,7 +28,7 @@ import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_message.*
 import java.util.UUID
 
-class PostFragment : Fragment() {
+class UserPostFragment : Fragment() {
     private var _binding: FragmentMessageBinding? = null
     private val binding get() = _binding!!
     var selectedImage: Uri? = null
