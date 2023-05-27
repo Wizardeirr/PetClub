@@ -51,8 +51,7 @@
                 val action = LastPrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUserListFragment()
                 Navigation.findNavController(requireView()).navigate(action)
             }
-            database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
-                Query.Direction.DESCENDING).limit(1)
+            database.collection("userProfileInfo")
                 .addSnapshotListener { value, error ->
                     if (error != null) {
                     } else if (value != null && !value.isEmpty){

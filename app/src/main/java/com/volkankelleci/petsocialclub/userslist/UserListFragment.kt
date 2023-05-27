@@ -49,7 +49,7 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
     }
 
     private fun takesUserInfo(){
-        database.collection("userProfileInfo")
+        database.collection("privateChatInfo")
             .addSnapshotListener { value, error ->
                 if(error!=null){
                 }else
@@ -83,6 +83,5 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
         editor.putString("toUUID", userList.uuid)
         editor.apply()
     }
-
 
 }
