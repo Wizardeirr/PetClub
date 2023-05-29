@@ -24,8 +24,6 @@
         var userMessage=ArrayList<PrivateMessage>()
         private lateinit var adapter: LastPrivateMessageListAdapter
 
-
-
         override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -51,8 +49,8 @@
                 val action = LastPrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUserListFragment()
                 Navigation.findNavController(requireView()).navigate(action)
             }
-            database.collection("latestMessage")
-                .addSnapshotListener { value, error ->
+            database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.ASCENDING)
+                .limit(1).addSnapshotListener { value, error ->
                     if (error != null) {
                     } else if (value != null && !value.isEmpty){
 
@@ -60,7 +58,7 @@
                         userMessage.clear() // Önceki mesajları temizle
                         for (document in documents) {
 
-                            document.get("latestMessage")
+                            document.get("privateChatInfo")
                             val privateMessageUserText = document.get("userText").toString()
                             val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
                             val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()

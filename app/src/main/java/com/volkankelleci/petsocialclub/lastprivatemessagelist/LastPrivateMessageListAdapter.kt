@@ -32,7 +32,7 @@ class LastPrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>,
         holder.itemView.lastMessage.text=userMessage[position].message
         holder.itemView.setOnClickListener{
             listener.onItemClickListener(userMessage.get(position))
-            val action = LastPrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToPmRoomFragment(userMessage.get(position).toUUID, userMessage.get(position).toUUID)
+            val action = LastPrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToPmRoomFragment(userMessage.get(position).toUUID, userMessage.get(position).fromUUID)
             Navigation.findNavController(it).navigate(action)
         }
 
