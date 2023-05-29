@@ -18,7 +18,6 @@ class LastPrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>,
     class PrivateMessageListFragmentPart(itemView: View):RecyclerView.ViewHolder(itemView) {
 
     }
-
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): PrivateMessageListFragmentPart {
         val inflater=LayoutInflater.from(parent.context)
         val viewHolder=inflater.inflate(R.layout.chat_list_raw,parent,false)
@@ -35,10 +34,6 @@ class LastPrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>,
             val action = LastPrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToPmRoomFragment(userMessage.get(position).toUUID, userMessage.get(position).fromUUID)
             Navigation.findNavController(it).navigate(action)
         }
-
-
-
-
     }
 
     override fun getItemCount(): Int {

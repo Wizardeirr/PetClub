@@ -64,7 +64,7 @@ class PmRoomFragment : Fragment() {
 
         // toUUID taking
         toUUID= arguments?.let {
-            PmRoomFragmentArgs.fromBundle(it).pp
+            PmRoomFragmentArgs.fromBundle(it).toUUID
         }?:""
 
         //When Send button click what we do
@@ -145,7 +145,7 @@ class PmRoomFragment : Fragment() {
             super.onResume()
             val userUUID = auth.currentUser!!.uid
             val toUUID= arguments?.let {
-                PmRoomFragmentArgs.fromBundle(it).pp
+                PmRoomFragmentArgs.fromBundle(it).toUUID
             }
             requireActivity().onBackPressedDispatcher.addCallback(this) {
                 val action=PmRoomFragmentDirections.actionPrivateChatFragmentRoomToPrivateMessageListFragment(userUUID,toUUID!!)
