@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.R
@@ -152,7 +153,7 @@ class UsersHomeFragment : Fragment() {
             R.id.logOutButton-> {
                 val action5=UsersHomeFragmentDirections.actionUsersHomeFragmentToMainFragment()
                 findNavController().navigate(action5)
-
+                FirebaseAuth.getInstance().signOut()
                 return true
 
             }
