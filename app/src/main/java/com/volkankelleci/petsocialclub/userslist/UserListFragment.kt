@@ -53,7 +53,6 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
                 }else
                     if (value!=null){
                         if (value.isEmpty==false){
-
                             val documents=value.documents
                             userInfo.clear()
                             for (document in documents){

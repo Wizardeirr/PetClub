@@ -143,7 +143,9 @@ class PmRoomFragment : Fragment() {
         override fun onResume() {
             super.onResume()
             val userUUID = auth.currentUser!!.uid
-
+        toUUID= arguments?.let{
+            PmRoomFragmentArgs.fromBundle(it).toUUID
+        }?:""
             requireActivity().onBackPressedDispatcher.addCallback(this) {
                 val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(toUUID,userUUID)
                 Navigation.findNavController(requireView()).navigate(action)
