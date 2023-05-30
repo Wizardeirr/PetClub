@@ -27,12 +27,14 @@ class LastPrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>,
 
     override fun onBindViewHolder(holder: PrivateMessageListFragmentPart, position: Int) {
 
-        holder.itemView.userNameForChat.text=userMessage[position].chatUser
-        holder.itemView.lastMessage.text=userMessage[position].message
+        val datas=userMessage[position]
+        holder.itemView.userNameForChat.text=datas.chatUser
+        holder.itemView.lastMessage.text=datas.message
         holder.itemView.setOnClickListener{
-            listener.onItemClickListener(userMessage.get(position))
-            val action = LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment(userMessage.get(position).
-            fromUUID, userMessage.get(position).fromUUID)
+            listener.onItemClickListener(datas)
+            val action = LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment(datas.fromUUID
+            , datas.fromUUID)
+            println()
             Navigation.findNavController(it).navigate(action)
         }
     }
