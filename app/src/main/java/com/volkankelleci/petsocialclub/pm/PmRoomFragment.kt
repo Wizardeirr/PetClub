@@ -1,6 +1,5 @@
 package com.volkankelleci.petsocialclub.pm
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -68,8 +67,10 @@ class PmRoomFragment : Fragment() {
             PmRoomFragmentArgs.fromBundle(it).toUUID
         }?:""
 
+
         //When Send button click what we do
         binding.privateMessageSendButton.setOnClickListener {
+
             val userEmail = auth.currentUser!!.email.toString()
             val userText =binding.privateMessageET.text.toString()
             val userDate = FieldValue.serverTimestamp()
@@ -94,7 +95,7 @@ class PmRoomFragment : Fragment() {
 
         //taking user texts to collection and saving to list of adapter. For show on Adapter
 
-        database.collection("privateChatInfo/$toUUID/${userUUID}").orderBy("userDate",Query.Direction.ASCENDING)
+        database.collection("privateChatInfo/$toUUID/${auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
@@ -116,14 +117,11 @@ class PmRoomFragment : Fragment() {
                                 if (adapter.privateChats==user){
                                     privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount -1)
                                 }
-
-
                             }
                             adapter.notifyDataSetChanged()
                         }
                     }
             }
-
     }
 
     //For When user send message i want to show last message.
@@ -145,11 +143,9 @@ class PmRoomFragment : Fragment() {
         override fun onResume() {
             super.onResume()
             val userUUID = auth.currentUser!!.uid
-            val toUUID= arguments?.let {
-                PmRoomFragmentArgs.fromBundle(it).toUUID
-            }
+
             requireActivity().onBackPressedDispatcher.addCallback(this) {
-                val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(userUUID,toUUID!!)
+                val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(toUUID,userUUID)
                 Navigation.findNavController(requireView()).navigate(action)
 
             }

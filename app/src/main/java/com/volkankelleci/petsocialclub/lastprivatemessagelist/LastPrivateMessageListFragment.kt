@@ -49,8 +49,9 @@
                 val action = LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToUserListFragment()
                 Navigation.findNavController(requireView()).navigate(action)
             }
-            database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.ASCENDING)
-                .limit(1).addSnapshotListener { value, error ->
+            database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
+                Query.Direction.DESCENDING).limit(1)
+                .addSnapshotListener { value, error ->
                     if (error != null) {
                     } else if (value != null && !value.isEmpty){
 
@@ -63,7 +64,7 @@
                             val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
                             val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                             val privateChatUserDate = document.get("userDate").toString()
-                            val privateChatToUUID = document.get("$toUUID").toString()
+                            val privateChatToUUID = document.get(toUUID).toString()
                             val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail,)
                             userMessage.add(downloadInfos)
 
@@ -74,7 +75,7 @@
 
         }
         override fun onItemClickListener(privateMessage: PrivateMessage) {
-            println("2")
+            println("")
         }
         // SharedPreferences'ten toUUID değerini okuyoruz
         private fun getToUUIDFromSharedPreferences(): String {

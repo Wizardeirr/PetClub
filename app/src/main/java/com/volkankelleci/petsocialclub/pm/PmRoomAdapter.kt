@@ -42,7 +42,7 @@ class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolde
     override fun getItemViewType(position: Int): Int {
 
         val chat = privateChats.get(position)
-        if (chat.fromUUID == auth.currentUser?.uid.toString()) {
+        if (chat.fromUUID== auth.currentUser?.uid.toString()) {
             return WRITER_USER
         } else {
             return ANSWER_USER
@@ -69,9 +69,6 @@ class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolde
         // holder.itemView.privateMessageChatTV.text=privateChats[position].message
 
         holder.itemView.privateMessageChatTV.text=privateChats.get(position).message
-
-
-
 
 }
 
