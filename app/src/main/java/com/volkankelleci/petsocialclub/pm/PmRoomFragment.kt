@@ -152,6 +152,4 @@ class PmRoomFragment : Fragment() {
 
             }
         }
-
-
 }

@@ -15,6 +15,7 @@ class LastPrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>,
                                     val listener:Listener,
                                     ): RecyclerView.Adapter<LastPrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
     private var toUUID: String? = null
+
     interface Listener{
         fun onItemClickListener(privateMessage: PrivateMessage)
     }
@@ -27,27 +28,20 @@ class LastPrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>,
     }
 
     override fun onBindViewHolder(holder: PrivateMessageListFragmentPart, position: Int) {
-        holder.itemView.lastMessage.text=userMessage[position].message
-        holder.itemView.setOnClickListener{
-            listener.onItemClickListener(userMessage.get(position))
-            println(userMessage.get(position).toUUID)
-            val action = LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment(userMessage.get(position).toUUID,
-                userMessage.get(position).toUUID)
-            Navigation.findNavController(it).navigate(action)
-
+        holder.itemView.lastMessage.text = userMessage[position].message
+        holder.itemView.setOnClickListener {
+            listener.onItemClickListener(userMessage[position])
+            println("${userMessage[position].toUUID}")
         }
+
         }
     override fun getItemCount(): Int {
         return userMessage.size
     }
-
     fun updateList(newList: ArrayList<PrivateMessage>) {
         userMessage.clear()
         userMessage.addAll(newList)
         notifyDataSetChanged()
-    }
-    fun setToUUID(toUUID: String) {
-        this.toUUID = toUUID
     }
     }
 

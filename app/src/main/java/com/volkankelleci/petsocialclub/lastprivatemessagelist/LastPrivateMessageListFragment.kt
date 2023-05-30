@@ -8,6 +8,7 @@
     import androidx.activity.addCallback
     import androidx.fragment.app.Fragment
     import androidx.navigation.Navigation
+    import androidx.navigation.fragment.findNavController
     import androidx.recyclerview.widget.LinearLayoutManager
     import com.google.firebase.firestore.Query
     import com.volkankelleci.petsocialclub.R
@@ -76,7 +77,11 @@
 
         }
         override fun onItemClickListener(privateMessage: PrivateMessage) {
-            println("hello")
+
+            val toUUID = getToUUIDFromSharedPreferences()
+            val action=LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment("",toUUID)
+            findNavController().navigate(action)
+
         }
         // SharedPreferences'ten toUUID değerini okuyoruz
         private fun getToUUIDFromSharedPreferences(): String {
