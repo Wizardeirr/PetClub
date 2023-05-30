@@ -49,6 +49,7 @@ class UserListAdapter(
             listener.onItemClickListener(userList.get(position))
             val action =UserListFragmentDirections.actionUserListFragmentToPmRoomFragment(userList.get(position).userName, userList.get(position).uuid)
             Navigation.findNavController(it).navigate(action)
+            
         }
         selectedUUID = userList[position].uuid
 

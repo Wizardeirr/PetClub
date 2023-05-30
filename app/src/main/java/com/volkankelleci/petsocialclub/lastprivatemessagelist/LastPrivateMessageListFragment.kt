@@ -38,6 +38,7 @@
             super.onViewCreated(view, savedInstanceState)
 
             //fun
+
             val toUUID = getToUUIDFromSharedPreferences()
 
             val layoutManager=LinearLayoutManager(activity)
@@ -75,7 +76,7 @@
 
         }
         override fun onItemClickListener(privateMessage: PrivateMessage) {
-            println("")
+            println("hello")
         }
         // SharedPreferences'ten toUUID değerini okuyoruz
         private fun getToUUIDFromSharedPreferences(): String {
