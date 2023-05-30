@@ -21,6 +21,7 @@ import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageET
 import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
+import kotlinx.android.synthetic.main.private_chat_raw.userUUID
 
 
 class PmRoomFragment : Fragment() {
@@ -63,7 +64,7 @@ class PmRoomFragment : Fragment() {
         privateMessageRV.adapter = adapter
 
         // toUUID taking
-        toUUID= arguments?.let {
+        toUUID= arguments?.let{
             PmRoomFragmentArgs.fromBundle(it).toUUID
         }?:""
 
@@ -93,7 +94,7 @@ class PmRoomFragment : Fragment() {
 
         //taking user texts to collection and saving to list of adapter. For show on Adapter
 
-        database.collection("privateChatInfo/$toUUID/${auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.ASCENDING)
+        database.collection("privateChatInfo/$toUUID/${userUUID}").orderBy("userDate",Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else
@@ -140,7 +141,7 @@ class PmRoomFragment : Fragment() {
             }
         }
     }
-    // When i click to back u can do what u want
+    // When i click to back u could move  trustly without crash  to back
         override fun onResume() {
             super.onResume()
             val userUUID = auth.currentUser!!.uid
@@ -148,7 +149,7 @@ class PmRoomFragment : Fragment() {
                 PmRoomFragmentArgs.fromBundle(it).toUUID
             }
             requireActivity().onBackPressedDispatcher.addCallback(this) {
-                val action=PmRoomFragmentDirections.actionPrivateChatFragmentRoomToPrivateMessageListFragment(userUUID,toUUID!!)
+                val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(userUUID,toUUID!!)
                 Navigation.findNavController(requireView()).navigate(action)
 
             }

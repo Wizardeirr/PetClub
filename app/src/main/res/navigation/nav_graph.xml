@@ -56,11 +56,11 @@
             android:id="@+id/action_usersHomeFragment_to_userProfileMenuFragment"
             app:destination="@id/userProfileMenuFragment" />
         <action
-            android:id="@+id/action_usersHomeFragment_to_privateMessageListFragment"
-            app:destination="@id/privateMessageListFragment" />
-        <action
             android:id="@+id/action_usersHomeFragment_self2"
             app:destination="@id/usersHomeFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_to_lastPrivateMessageListFragment"
+            app:destination="@id/lastPrivateMessageListFragment" />
     </fragment>
     <fragment
         android:id="@+id/userChatFragment"
@@ -81,37 +81,17 @@
             app:argType="string"
             app:nullable="true" />
         <action
-            android:id="@+id/action_privateChatFragmentRoom_to_privateMessageListFragment"
-            app:destination="@id/privateMessageListFragment" />
+            android:id="@+id/action_PmRoomFragment_to_lastPrivateMessageListFragment"
+            app:destination="@id/lastPrivateMessageListFragment" />
+        <action
+            android:id="@+id/action_PmRoomFragment_to_userListFragment"
+            app:destination="@id/userListFragment" />
     </fragment>
     <fragment
         android:id="@+id/userProfileMenuFragment"
         android:name="com.volkankelleci.petsocialclub.userprofile.UserProfileMenuFragment"
         android:label="fragment_user_profile_menu"
         tools:layout="@layout/fragment_user_profile_menu" />
-    <fragment
-        android:id="@+id/privateMessageListFragment"
-        android:name="com.volkankelleci.petsocialclub.lastprivatemessagelist.LastPrivateMessageListFragment"
-        android:label="fragment_private_message_list"
-        tools:layout="@layout/fragment_private_message_list" >
-        <argument
-            android:name="username"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="toUUID"
-            app:argType="string"
-            app:nullable="true" />
-        <action
-            android:id="@+id/action_privateMessageListFragment_to_userListFragment"
-            app:destination="@id/userListFragment" />
-        <action
-            android:id="@+id/action_privateMessageListFragment_to_PmRoomFragment"
-            app:destination="@id/PmRoomFragment" />
-        <action
-            android:id="@+id/action_privateMessageListFragment_to_usersHomeFragment"
-            app:destination="@id/usersHomeFragment" />
-    </fragment>
     <fragment
         android:id="@+id/userListFragment"
         android:name="com.volkankelleci.petsocialclub.userslist.UserListFragment"
@@ -120,8 +100,28 @@
         <action
             android:id="@+id/action_userListFragment_to_PmRoomFragment"
             app:destination="@id/PmRoomFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lastPrivateMessageListFragment"
+        android:name="com.volkankelleci.petsocialclub.lastprivatemessagelist.LastPrivateMessageListFragment"
+        android:label="fragment_private_message_list"
+        tools:layout="@layout/fragment_private_message_list" >
         <action
-            android:id="@+id/action_userListFragment_self2"
+            android:id="@+id/action_lastPrivateMessageListFragment_to_userListFragment"
             app:destination="@id/userListFragment" />
+        <action
+            android:id="@+id/action_lastPrivateMessageListFragment_to_PmRoomFragment"
+            app:destination="@id/PmRoomFragment" />
+        <action
+            android:id="@+id/action_lastPrivateMessageListFragment_to_usersHomeFragment"
+            app:destination="@id/usersHomeFragment" />
+        <argument
+            android:name="toUUID"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="username"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 </navigation>

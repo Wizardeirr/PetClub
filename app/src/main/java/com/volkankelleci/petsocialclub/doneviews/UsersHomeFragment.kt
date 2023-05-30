@@ -136,7 +136,7 @@ class UsersHomeFragment : Fragment() {
             }
             R.id.privateMessageButton-> {
 
-                val action3=UsersHomeFragmentDirections.actionUsersHomeFragmentToPrivateMessageListFragment(null,null)
+                val action3=UsersHomeFragmentDirections.actionUsersHomeFragmentToLastPrivateMessageListFragment("","")
                 findNavController().navigate(action3)
 
                 return true

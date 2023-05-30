@@ -46,7 +46,7 @@
             userChatPartRV.adapter=adapter
 
             binding.fabForPM.setOnClickListener {
-                val action = LastPrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUserListFragment()
+                val action = LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToUserListFragment()
                 Navigation.findNavController(requireView()).navigate(action)
             }
             database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.ASCENDING)
@@ -72,7 +72,6 @@
                     }
                 }
 
-
         }
         override fun onItemClickListener(privateMessage: PrivateMessage) {
             println("2")
@@ -86,7 +85,7 @@
         override fun onResume() {
             super.onResume()
             requireActivity().onBackPressedDispatcher.addCallback(this) {
-                val action= LastPrivateMessageListFragmentDirections.actionPrivateMessageListFragmentToUsersHomeFragment()
+                val action= LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToUsersHomeFragment()
                 Navigation.findNavController(requireView()).navigate(action)
             }
         }
