@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -33,8 +34,19 @@ class UserPostFragment : Fragment() {
     private val binding get() = _binding!!
     var selectedImage: Uri? = null
     var selectedImageURI: Bitmap? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    @RequiresApi(Build.VERSION_CODES.P)
+    val galleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data: Intent? = result.data
+            if (data != null) {
+                selectedImage = data.data
+                if (selectedImage != null) {
+                    val source = ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
+                    selectedImageURI = ImageDecoder.decodeBitmap(source)
+                    selectImage.setImageBitmap(selectedImageURI)
+                }
+            }
+        }
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,15 +56,17 @@ class UserPostFragment : Fragment() {
         val view = binding.root
         return view
     }
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.selectImage.setOnClickListener {
             selectImage()
         }
         binding.shareButton.setOnClickListener {
-            storeImage(view)
+            storeImage(it)
         }
     }
+    @RequiresApi(Build.VERSION_CODES.P)
     private fun storeImage(view: View) {
         val uuid = UUID.randomUUID()
         val selectableImage = "${uuid}.jpg"
@@ -89,18 +103,15 @@ class UserPostFragment : Fragment() {
                         }
                     }
                 }
-    }
-   private fun selectImage() {
-        if (ContextCompat.checkSelfPermission(requireContext(),
-                android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-        ) {
 
-            ActivityCompat.requestPermissions(requireActivity(),
-                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
-                1)
+    }
+    @RequiresApi(Build.VERSION_CODES.P)
+    private fun selectImage() {
+        if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1)
         } else {
-            val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-            startActivityForResult(gallery, 2)
+            val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            galleryLauncher.launch(galleryIntent)
         }
     }
     override fun onRequestPermissionsResult(
@@ -113,6 +124,8 @@ class UserPostFragment : Fragment() {
                 val gallery =
                     Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
                 startActivityForResult(gallery, 2)
+            } else {
+                Toast.makeText(requireContext(), "Galeri izni reddedildi.", Toast.LENGTH_SHORT).show()
             }
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
