@@ -1,5 +1,6 @@
 package com.volkankelleci.petsocialclub.loginandsign
 
+import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -47,6 +48,7 @@ class SignUpFragment : Fragment() {
     private val binding get() = _binding!!
     var selectedImage: Uri? = null
     var selectedImageURI: Bitmap? = null
+    private val PERMISSION_CODE = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         firestore = Firebase.firestore
@@ -63,7 +65,7 @@ class SignUpFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        signUpButton.setOnClickListener {
+        binding.signUpButton.setOnClickListener {
 
             val alertMessage=AlertDialog.Builder(activity)
             alertMessage.setTitle("Girilen bilgilerle devam etmek istiyor musunuz ?")
@@ -99,8 +101,9 @@ class SignUpFragment : Fragment() {
                 }
             }).show()
         }
-        selectPhotoFAB.setOnClickListener {
-            selectImage()
+        binding.selectPhotoFAB.setOnClickListener {
+          selectImage()
+            println("xxx")
         }
 
     }
@@ -200,7 +203,6 @@ class SignUpFragment : Fragment() {
             selectedImage = data.data
             if (selectedImage != null) {
                 val source =ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
-
                 selectedImageURI = ImageDecoder.decodeBitmap(source)
                 signImageView.setImageBitmap(selectedImageURI)
 

@@ -37,7 +37,6 @@ class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>):
         holder.itemView.postPP.downloadImageToRecycler(pp.get(position).userImage,
             createPlaceHolder(holder.itemView.context))
 
-
     }
 
     override fun getItemCount(): Int {
