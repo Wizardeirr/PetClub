@@ -32,8 +32,7 @@ class UserListAdapter(
         parent: ViewGroup,
         viewType: Int,
     ): PrivateChatAdapterViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.private_chat_raw, parent, false)
+        val itemView =LayoutInflater.from(parent.context).inflate(R.layout.private_chat_raw, parent, false)
 
 
         return PrivateChatAdapterViewHolder(itemView)
@@ -49,7 +48,7 @@ class UserListAdapter(
             listener.onItemClickListener(userList.get(position))
             val action =UserListFragmentDirections.actionUserListFragmentToPmRoomFragment(userList.get(position).userName, userList.get(position).uuid)
             Navigation.findNavController(it).navigate(action)
-            
+            println(userList[position].uuid)
         }
         selectedUUID = userList[position].uuid
 

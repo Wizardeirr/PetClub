@@ -4,17 +4,16 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.PrivateMessage
-import kotlinx.android.synthetic.main.chat_list_raw.view.*
+import com.volkankelleci.petsocialclub.util.Util.getToUUIDFromSharedPreferences
+import kotlinx.android.synthetic.main.chat_list_raw.view.lastMessage
 
-class LastPrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>,
-                                    val listener:Listener,
+class LastPrivateMessageListAdapter(
+    var userMessage:ArrayList<PrivateMessage>,
+    val listener:Listener, private val context: Context
                                     ): RecyclerView.Adapter<LastPrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
-    private var toUUID: String? = null
 
     interface Listener{
         fun onItemClickListener(privateMessage: PrivateMessage)
@@ -22,18 +21,18 @@ class LastPrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>,
     class PrivateMessageListFragmentPart(itemView: View):RecyclerView.ViewHolder(itemView) {
     }
     override fun onCreateViewHolder(parent: ViewGroup,viewType: Int): PrivateMessageListFragmentPart {
-        val inflater=LayoutInflater.from(parent.context)
-        val viewHolder=inflater.inflate(R.layout.chat_list_raw,parent,false)
-        return PrivateMessageListFragmentPart(viewHolder)
+        val itemView =LayoutInflater.from(parent.context).inflate(R.layout.chat_list_raw, parent, false)
+        return PrivateMessageListFragmentPart(itemView)
     }
 
     override fun onBindViewHolder(holder: PrivateMessageListFragmentPart, position: Int) {
-        holder.itemView.lastMessage.text = userMessage[position].message
+        val message = userMessage[position]
+        holder.itemView.lastMessage.text = message.toUUID
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(userMessage[position])
-            println("${userMessage[position].toUUID}")
-        }
+            println("${getToUUIDFromSharedPreferences(context)}")
 
+        }
         }
     override fun getItemCount(): Int {
         return userMessage.size
@@ -43,5 +42,6 @@ class LastPrivateMessageListAdapter(var userMessage:ArrayList<PrivateMessage>,
         userMessage.addAll(newList)
         notifyDataSetChanged()
     }
+
     }
 

@@ -2,6 +2,7 @@ package com.volkankelleci.petsocialclub.util
 
 import android.content.Context
 import android.widget.ImageView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -28,5 +29,10 @@ object Util {
                start()
           }
 
+     }
+     //toUUID
+     fun getToUUIDFromSharedPreferences(context:Context): String {
+          val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+          return sharedPreferences.getString("toUUID", "") ?: ""
      }
 }

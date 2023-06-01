@@ -17,6 +17,7 @@
     import com.volkankelleci.petsocialclub.util.Util
     import com.volkankelleci.petsocialclub.util.Util.auth
     import com.volkankelleci.petsocialclub.util.Util.database
+    import com.volkankelleci.petsocialclub.util.Util.getToUUIDFromSharedPreferences
     import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
     import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
 
@@ -43,12 +44,11 @@
 
             //fun
 
-            val toUUID = getToUUIDFromSharedPreferences()
-            println("${toUUID}")
+            val toUUID = getToUUIDFromSharedPreferences(requireContext())
 
             val layoutManager=LinearLayoutManager(activity)
             userChatPartRV.layoutManager=layoutManager
-            adapter= LastPrivateMessageListAdapter(userMessage,this@LastPrivateMessageListFragment)
+            adapter= LastPrivateMessageListAdapter(userMessage,this@LastPrivateMessageListFragment,requireContext())
             userChatPartRV.adapter=adapter
 
             binding.fabForPM.setOnClickListener {
@@ -69,7 +69,7 @@
                                     val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
                                     val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                                     val privateChatUserDate = document.get("userDate").toString()
-                                    val privateChatToUUID = document.get("$toUUID").toString()
+                                    val privateChatToUUID = document.get("toUUID").toString()
                                     val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
                                     userMessage.add(downloadInfos)
                                     adapter.userMessage=userMessage
@@ -82,17 +82,12 @@
                 }
         }
         override fun onItemClickListener(privateMessage: PrivateMessage) {
-
-            val toUUID = getToUUIDFromSharedPreferences()
+            val toUUID = getToUUIDFromSharedPreferences(requireContext())
             val action=LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment("",toUUID)
             findNavController().navigate(action)
 
         }
-        // SharedPreferences'ten toUUID değerini okuyoruz
-        private fun getToUUIDFromSharedPreferences(): String {
-            val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-            return sharedPreferences.getString("toUUID", "") ?: ""
-        }
+
 
         override fun onResume() {
             super.onResume()

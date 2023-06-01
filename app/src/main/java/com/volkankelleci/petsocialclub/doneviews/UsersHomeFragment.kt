@@ -18,6 +18,7 @@ import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.post.UserPostAdapter
+import com.volkankelleci.petsocialclub.util.Util.getToUUIDFromSharedPreferences
 import kotlinx.android.synthetic.main.fragment_users_home.fab
 import kotlinx.android.synthetic.main.fragment_users_home.usersHomeFragmentRecycler
 
@@ -137,7 +138,9 @@ class UsersHomeFragment : Fragment() {
             }
             R.id.privateMessageButton-> {
 
-                val action3=UsersHomeFragmentDirections.actionUsersHomeFragmentToLastPrivateMessageListFragment("","")
+                val action3=UsersHomeFragmentDirections.actionUsersHomeFragmentToLastPrivateMessageListFragment(
+                    getToUUIDFromSharedPreferences(requireContext()),""
+                )
                 findNavController().navigate(action3)
 
                 return true
