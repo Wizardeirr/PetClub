@@ -15,7 +15,9 @@
     import com.volkankelleci.petsocialclub.data.PrivateMessage
     import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
     import com.volkankelleci.petsocialclub.util.Util
+    import com.volkankelleci.petsocialclub.util.Util.auth
     import com.volkankelleci.petsocialclub.util.Util.database
+    import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
     import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
 
     class LastPrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),
@@ -24,6 +26,7 @@
         private val binding get() =_binding!!
         var userMessage=ArrayList<PrivateMessage>()
         private lateinit var adapter: LastPrivateMessageListAdapter
+
 
         override fun onCreateView(
             inflater: LayoutInflater,
@@ -41,6 +44,7 @@
             //fun
 
             val toUUID = getToUUIDFromSharedPreferences()
+            println("${toUUID}")
 
             val layoutManager=LinearLayoutManager(activity)
             userChatPartRV.layoutManager=layoutManager
@@ -51,30 +55,31 @@
                 val action = LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToUserListFragment()
                 Navigation.findNavController(requireView()).navigate(action)
             }
-            database.collection("privateChatInfo/$toUUID/${Util.auth.currentUser!!.uid}").orderBy("userDate",
-                Query.Direction.DESCENDING).limit(1)
+            database.collection("privateChatInfo/$toUUID/${auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.DESCENDING).limit(1)
                 .addSnapshotListener { value, error ->
                     if (error != null) {
-                    } else if (value != null && !value.isEmpty){
+                    } else
+                        if (value != null) {
+                            if (value.isEmpty == false) {
+                                val documents = value.documents
+                                userMessage.clear()
+                                for (document in documents) {
+                                    document.get("privateChatInfo")
+                                    val privateMessageUserText = document.get("userText").toString()
+                                    val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
+                                    val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
+                                    val privateChatUserDate = document.get("userDate").toString()
+                                    val privateChatToUUID = document.get("$toUUID").toString()
+                                    val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
+                                    userMessage.add(downloadInfos)
+                                    adapter.userMessage=userMessage
 
-                        val documents = value.documents
-                        userMessage.clear() // Önceki mesajları temizle
-                        for (document in documents) {
 
-                            document.get("privateChatInfo")
-                            val privateMessageUserText = document.get("userText").toString()
-                            val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
-                            val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
-                            val privateChatUserDate = document.get("userDate").toString()
-                            val privateChatToUUID = document.get("${toUUID}").toString()
-                            val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail,)
-                            userMessage.add(downloadInfos)
-
+                                }
+                                adapter.notifyDataSetChanged()
+                            }
                         }
-                        adapter.notifyDataSetChanged()
-                    }
                 }
-
         }
         override fun onItemClickListener(privateMessage: PrivateMessage) {
 

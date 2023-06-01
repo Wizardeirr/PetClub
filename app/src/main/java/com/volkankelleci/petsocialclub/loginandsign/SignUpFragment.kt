@@ -172,11 +172,11 @@ class SignUpFragment : Fragment() {
     }
     private fun selectImage() {
         if (ContextCompat.checkSelfPermission(requireContext(),
-                android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
         ) {
 
             ActivityCompat.requestPermissions(requireActivity(),
-                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
                 1)
         } else {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
@@ -197,7 +197,6 @@ class SignUpFragment : Fragment() {
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
-    @RequiresApi(Build.VERSION_CODES.P)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
             selectedImage = data.data

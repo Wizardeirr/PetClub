@@ -109,7 +109,7 @@ class PmRoomFragment : Fragment() {
                                 val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
                                 val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                                 val privateChatUserDate = document.get("userDate").toString()
-                                val privateChatToUUID = document.get("toUUID").toString()
+                                val privateChatToUUID = document.get("$toUUID").toString()
                                 val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
                                 user.add(downloadInfos)
                                 adapter.privateChats=user
