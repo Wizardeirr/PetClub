@@ -26,11 +26,10 @@ class LastPrivateMessageListAdapter(
     }
 
     override fun onBindViewHolder(holder: PrivateMessageListFragmentPart, position: Int) {
-        val message = userMessage[position]
-        holder.itemView.lastMessage.text = message.toUUID
+        val lastMessage = userMessage[position]
+        holder.itemView.lastMessage.text = lastMessage.message
         holder.itemView.setOnClickListener {
             listener.onItemClickListener(userMessage[position])
-            println("${getToUUIDFromSharedPreferences(context)}")
 
         }
         }
@@ -38,8 +37,7 @@ class LastPrivateMessageListAdapter(
         return userMessage.size
     }
     fun updateList(newList: ArrayList<PrivateMessage>) {
-        userMessage.clear()
-        userMessage.addAll(newList)
+        userMessage = newList
         notifyDataSetChanged()
     }
 

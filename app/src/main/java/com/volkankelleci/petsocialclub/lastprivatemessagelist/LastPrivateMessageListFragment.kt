@@ -1,5 +1,6 @@
     package com.volkankelleci.petsocialclub.lastprivatemessagelist
 
+    import android.annotation.SuppressLint
     import android.content.Context
     import android.os.Bundle
     import android.view.LayoutInflater
@@ -25,7 +26,7 @@
         LastPrivateMessageListAdapter.Listener {
         private  var _binding:FragmentPrivateMessageListBinding?=null
         private val binding get() =_binding!!
-        var userMessage=ArrayList<PrivateMessage>()
+        var user=ArrayList<PrivateMessage>()
         private lateinit var adapter: LastPrivateMessageListAdapter
 
 
@@ -39,6 +40,7 @@
 
             return view
         }
+        @SuppressLint("NotifyDataSetChanged")
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             super.onViewCreated(view, savedInstanceState)
 
@@ -48,7 +50,7 @@
 
             val layoutManager=LinearLayoutManager(activity)
             userChatPartRV.layoutManager=layoutManager
-            adapter= LastPrivateMessageListAdapter(userMessage,this@LastPrivateMessageListFragment,requireContext())
+            adapter= LastPrivateMessageListAdapter(user,this@LastPrivateMessageListFragment,requireContext())
             userChatPartRV.adapter=adapter
 
             binding.fabForPM.setOnClickListener {
@@ -62,7 +64,7 @@
                         if (value != null) {
                             if (value.isEmpty == false) {
                                 val documents = value.documents
-                                userMessage.clear()
+                                user.clear()
                                 for (document in documents) {
                                     document.get("privateChatInfo")
                                     val privateMessageUserText = document.get("userText").toString()
@@ -71,9 +73,7 @@
                                     val privateChatUserDate = document.get("userDate").toString()
                                     val privateChatToUUID = document.get("toUUID").toString()
                                     val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
-                                    userMessage.add(downloadInfos)
-                                    adapter.userMessage=userMessage
-
+                                    user.add(downloadInfos)
 
                                 }
                                 adapter.notifyDataSetChanged()
