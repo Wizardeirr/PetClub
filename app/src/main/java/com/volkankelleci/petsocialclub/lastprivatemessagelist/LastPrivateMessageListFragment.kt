@@ -14,6 +14,7 @@
     import com.google.firebase.firestore.Query
     import com.volkankelleci.petsocialclub.R
     import com.volkankelleci.petsocialclub.data.PrivateMessage
+    import com.volkankelleci.petsocialclub.data.UserInfo
     import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
     import com.volkankelleci.petsocialclub.util.Util
     import com.volkankelleci.petsocialclub.util.Util.auth
@@ -28,6 +29,7 @@
         private val binding get() =_binding!!
         var user=ArrayList<PrivateMessage>()
         private lateinit var adapter: LastPrivateMessageListAdapter
+        val userInfoForAdapter=ArrayList<UserInfo>()
 
 
         override fun onCreateView(
@@ -47,10 +49,10 @@
             //fun
 
             val toUUID = getToUUIDFromSharedPreferences(requireContext())
-
+            takeAllUsers()
             val layoutManager=LinearLayoutManager(activity)
             userChatPartRV.layoutManager=layoutManager
-            adapter= LastPrivateMessageListAdapter(user,this@LastPrivateMessageListFragment,requireContext())
+            adapter= LastPrivateMessageListAdapter(user,this@LastPrivateMessageListFragment,requireContext(),userInfoForAdapter)
             userChatPartRV.adapter=adapter
 
             binding.fabForPM.setOnClickListener {
@@ -80,6 +82,32 @@
                             }
                         }
                 }
+        }
+        fun takeAllUsers(){
+                database.collection("userProfileInfo")
+                    .addSnapshotListener { value, error ->
+                        if(error!=null){
+                        }else
+                            if (value!=null){
+                                if (value.isEmpty==false){
+                                    val documents=value.documents
+                                    userInfoForAdapter.clear()
+                                    for (document in documents){
+                                        document.get("userProfileInfo")
+                                        val userEmail=document.get("userEmail").toString()
+                                        val userUUID=document.get("userUUID").toString()
+                                        val userName=document.get("userName").toString()
+                                        val userPetName=document.get("petName").toString()
+                                        val userImage=document.get("userImage").toString()
+                                        val userPassword=document.get("password").toString()
+                                        val downloadInfos= UserInfo(userUUID,userEmail,userName,userPetName,userImage,userPassword)
+                                        userInfoForAdapter.add(downloadInfos)
+                                    }
+                                    adapter.notifyDataSetChanged()
+                                }
+                            }
+                    }
+
         }
         override fun onItemClickListener(privateMessage: PrivateMessage) {
             val toUUID = getToUUIDFromSharedPreferences(requireContext())
