@@ -23,19 +23,21 @@ class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>):
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+        if (position < postList.size && position < pp.size){
+            holder.itemView.titleRecycler.text=postList[position].userTitle
+            holder.itemView.commentRecycler.text=postList[position].userComment
+            holder.itemView.ownersName.text=pp[position].userName
+            holder.itemView.postPP.downloadImageToRecycler(pp.get(position).userImage,
+                createPlaceHolder(holder.itemView.context))
+            //navigate
 
-        holder.itemView.titleRecycler.text=postList[position].userTitle
-        holder.itemView.commentRecycler.text=postList[position].userComment
-        holder.itemView.ownersName.text=pp[position].userName
-        holder.itemView.postPP.downloadImageToRecycler(pp.get(position).userImage,
-            createPlaceHolder(holder.itemView.context))
-        //navigate
+            //image with glide
+            holder.itemView.petImageRecycler.downloadImageToRecycler(postList[position].userImage,
+                createPlaceHolder(holder.itemView.context))
+            holder.itemView.postPP.downloadImageToRecycler(pp.get(position).userImage,
+                createPlaceHolder(holder.itemView.context))
 
-        //image with glide
-        holder.itemView.petImageRecycler.downloadImageToRecycler(postList[position].userImage,
-            createPlaceHolder(holder.itemView.context))
-        holder.itemView.postPP.downloadImageToRecycler(pp.get(position).userImage,
-            createPlaceHolder(holder.itemView.context))
+        }
 
     }
 

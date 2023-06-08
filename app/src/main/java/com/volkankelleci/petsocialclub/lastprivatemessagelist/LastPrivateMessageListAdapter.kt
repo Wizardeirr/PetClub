@@ -15,8 +15,8 @@ import kotlinx.android.synthetic.main.chat_list_raw.view.timerMessage
 
 class LastPrivateMessageListAdapter(
     var userMessage:ArrayList<PrivateMessage>,
-    val listener:Listener, private val context: Context,private val userInfo:ArrayList<UserInfo>
-                                    ): RecyclerView.Adapter<LastPrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
+    val listener:Listener, private val context: Context,private var userInfo:ArrayList<UserInfo>
+    ): RecyclerView.Adapter<LastPrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
 
     interface Listener{
         fun onItemClickListener(privateMessage: PrivateMessage)
@@ -29,17 +29,20 @@ class LastPrivateMessageListAdapter(
     }
 
     override fun onBindViewHolder(holder: PrivateMessageListFragmentPart, position: Int) {
-        val lastMessage = userMessage[position]
-        val userInfo=userInfo[position]
-        holder.itemView.lastMessage.text = lastMessage.message
-        holder.itemView.timerMessage.text=userInfo.uuid
-        holder.itemView.setOnClickListener {
-            listener.onItemClickListener(userMessage[position])
+        if (position < userMessage.size && position < userInfo.size) {
+            val lastMessage = userMessage[position]
+            val userInfo=userInfo[position]
+            holder.itemView.lastMessage.text = lastMessage.message
+            holder.itemView.timerMessage.text=userInfo.uuid
+            holder.itemView.setOnClickListener {
+                listener.onItemClickListener(userMessage[position])
+
+            }
+        }
 
         }
-        }
     override fun getItemCount(): Int {
-        return userMessage.size
+        return userInfo.size
     }
     fun updateList(newList: ArrayList<PrivateMessage>) {
         userMessage = newList
