@@ -49,7 +49,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap = googleMap
 
         locationManager=getSystemService(Context.LOCATION_SERVICE) as LocationManager
-        locationManager= object :LocationListener {
+        locationListener= object :LocationListener {
             override fun onLocationChanged(location: Location) {
 
 
