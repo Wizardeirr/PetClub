@@ -56,6 +56,7 @@ class UserPostFragment : Fragment() {
         val view = binding.root
         return view
     }
+
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -65,6 +66,7 @@ class UserPostFragment : Fragment() {
         binding.shareButton.setOnClickListener {
             storeImage(it)
         }
+
     }
     @RequiresApi(Build.VERSION_CODES.P)
     private fun storeImage(view: View) {
@@ -103,6 +105,7 @@ class UserPostFragment : Fragment() {
                         }
                     }
                 }
+
 
     }
     @RequiresApi(Build.VERSION_CODES.P)

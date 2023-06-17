@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.doneviews
+package com.volkankelleci.petsocialclub
 
 import android.os.Bundle
 import android.view.WindowManager

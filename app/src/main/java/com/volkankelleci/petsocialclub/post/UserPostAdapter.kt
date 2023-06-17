@@ -31,6 +31,17 @@ class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>):
                 createPlaceHolder(holder.itemView.context))
             //navigate
 
+            val profilePicture=holder.itemView.postPP
+            profilePicture.setOnLongClickListener(object : View.OnLongClickListener {
+                override fun onLongClick(v: View?): Boolean {
+
+
+
+                    return true
+                }
+
+            })
+
             //image with glide
             holder.itemView.petImageRecycler.downloadImageToRecycler(postList[position].userImage,
                 createPlaceHolder(holder.itemView.context))
@@ -44,5 +55,6 @@ class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>):
     override fun getItemCount(): Int {
         return postList.size
     }
+    
 
 }

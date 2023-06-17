@@ -61,6 +61,9 @@
         <action
             android:id="@+id/action_usersHomeFragment_to_lastPrivateMessageListFragment"
             app:destination="@id/lastPrivateMessageListFragment" />
+        <action
+            android:id="@+id/action_usersHomeFragment_to_mapsActivity"
+            app:destination="@id/mapsActivity" />
     </fragment>
     <fragment
         android:id="@+id/userChatFragment"
@@ -124,4 +127,9 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="com.volkankelleci.petsocialclub.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" />
 </navigation>
