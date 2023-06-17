@@ -22,7 +22,7 @@ import com.volkankelleci.petsocialclub.util.Util.getToUUIDFromSharedPreferences
 import kotlinx.android.synthetic.main.fragment_users_home.fab
 import kotlinx.android.synthetic.main.fragment_users_home.usersHomeFragmentRecycler
 
-class UsersHomeFragment : Fragment() {
+class UsersHomeFragment : Fragment(),UserPostAdapter.Listener {
     private var _binding: FragmentUsersHomeBinding? = null
     private val binding get() = _binding!!
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -52,13 +52,16 @@ class UsersHomeFragment : Fragment() {
         //User Name Save
         takesData()
         takesPP()
+        //adapter determined
         val layoutManager = LinearLayoutManager(activity)
         usersHomeFragmentRecycler.layoutManager = layoutManager
-        recyclerViewAdapter = UserPostAdapter(postList,pp)
+        recyclerViewAdapter = UserPostAdapter(postList,pp,this@UsersHomeFragment)
         usersHomeFragmentRecycler.adapter = recyclerViewAdapter
 
+        //popupMenu
 
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.user_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
@@ -163,6 +166,11 @@ class UsersHomeFragment : Fragment() {
             // Diğer menü seçeneklerine göre işlemler burada belirtilebilir
             else -> return super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onItemClickListener(postList: Post) {
+        val action=UsersHomeFragmentDirections.actionUsersHomeFragmentToMapsActivity()
+        findNavController().navigate(action)
     }
 
 

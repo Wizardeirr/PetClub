@@ -1,5 +1,9 @@
 package com.volkankelleci.petsocialclub
 
+import android.content.Context
+import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
@@ -15,7 +19,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
-
+    private lateinit var locationManager:LocationManager
+    private lateinit var locationListener: LocationListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -40,9 +45,15 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        locationManager=getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        locationManager= object :LocationListener {
+            override fun onLocationChanged(location: Location) {
+                
+
+            }
+
+        }
+
+
     }
 }

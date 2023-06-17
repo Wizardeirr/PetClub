@@ -7,14 +7,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
+import com.volkankelleci.petsocialclub.lastprivatemessagelist.LastPrivateMessageListAdapter
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
-import kotlinx.android.synthetic.main.recycler_raw.view.*
+import kotlinx.android.synthetic.main.recycler_raw.view.commentRecycler
+import kotlinx.android.synthetic.main.recycler_raw.view.ownersName
+import kotlinx.android.synthetic.main.recycler_raw.view.petImageRecycler
+import kotlinx.android.synthetic.main.recycler_raw.view.postPP
+import kotlinx.android.synthetic.main.recycler_raw.view.titleRecycler
 
-class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>): RecyclerView.Adapter<UserPostAdapter.UserViewHolder>() {
-
+class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>,val listener:Listener): RecyclerView.Adapter<UserPostAdapter.UserViewHolder>() {
+    interface Listener{
+        fun onItemClickListener(postList:Post)
+    }
     class UserViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
     val inflater=LayoutInflater.from(parent.context)
@@ -30,17 +38,12 @@ class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>):
             holder.itemView.postPP.downloadImageToRecycler(pp.get(position).userImage,
                 createPlaceHolder(holder.itemView.context))
             //navigate
+            holder.itemView.setOnClickListener{
+                listener.onItemClickListener(postList[position])
 
-            val profilePicture=holder.itemView.postPP
-            profilePicture.setOnLongClickListener(object : View.OnLongClickListener {
-                override fun onLongClick(v: View?): Boolean {
+            }
 
 
-
-                    return true
-                }
-
-            })
 
             //image with glide
             holder.itemView.petImageRecycler.downloadImageToRecycler(postList[position].userImage,
