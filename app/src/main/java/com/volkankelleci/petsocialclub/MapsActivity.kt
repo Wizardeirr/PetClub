@@ -49,7 +49,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 mMap.addMarker(MarkerOptions().position(updateLocation))
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(updateLocation,15f))
 
-
             }
 
         }
