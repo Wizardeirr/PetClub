@@ -113,6 +113,7 @@
             val toUUID = getToUUIDFromSharedPreferences(requireContext())
             val action=LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment("",toUUID)
             findNavController().navigate(action)
+            println(privateMessage.timestamp)
 
         }
 

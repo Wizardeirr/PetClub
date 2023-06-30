@@ -21,6 +21,10 @@ import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageET
 import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
 import kotlinx.android.synthetic.main.private_chat_raw.userUUID
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 
 
 class PmRoomFragment : Fragment() {
@@ -73,7 +77,12 @@ class PmRoomFragment : Fragment() {
 
             val userEmail = auth.currentUser!!.email.toString()
             val userText =binding.privateMessageET.text.toString()
-            val userDate = FieldValue.serverTimestamp()
+            val timeStamp= Instant.now()
+            //timeFormatter
+            val localDateTime = LocalDateTime.ofInstant(timeStamp, ZoneId.systemDefault())
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+            val userDate = localDateTime.format(formatter)
+            //timeFormatter Done
             val userUUID = auth.currentUser!!.uid
             val userInfoMap = HashMap<String, Any>()
             userInfoMap.put("PrivateChatUserUUID", userUUID)
