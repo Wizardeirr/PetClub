@@ -33,7 +33,7 @@ class LastPrivateMessageListAdapter(
             val lastMessage = userMessage[position]
             val userInfo=userInfo[position]
             holder.itemView.lastMessage.text = lastMessage.message
-            holder.itemView.timerMessage.text=userInfo.uuid
+            holder.itemView.timerMessage.text=lastMessage.timestamp
             holder.itemView.setOnClickListener {
                 listener.onItemClickListener(userMessage[position])
 
