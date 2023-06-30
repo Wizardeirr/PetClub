@@ -6,11 +6,10 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -25,6 +24,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var binding: ActivityMapsBinding
     private lateinit var locationManager:LocationManager
     private lateinit var locationListener: LocationListener
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,6 +35,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -45,9 +48,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             override fun onLocationChanged(location: Location) {
 
                 val updateLocation=LatLng(location.latitude,location.longitude)
+                mMap.clear()
+                mMap.addMarker(MarkerOptions().position(updateLocation).title("You're in Here"))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(updateLocation,17f))
 
-                mMap.addMarker(MarkerOptions().position(updateLocation))
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(updateLocation,15f))
 
             }
 
@@ -59,6 +63,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             else{
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
                 1,1f,locationListener)
+            val lastKnownLocation=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+
+            if (lastKnownLocation!=null){
+                val lastKnownLatLng=LatLng(lastKnownLocation.latitude,lastKnownLocation.longitude)
+                mMap.addMarker(MarkerOptions().position(lastKnownLatLng).title("Last Location"))
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(lastKnownLatLng,15f))
+
+            }
 
         }
 
