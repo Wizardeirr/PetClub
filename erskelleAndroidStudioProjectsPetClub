@@ -1,0 +1,3658 @@
+[33mcommit 7cf2640790ee19834f8bab087d88867814b867c6[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mfeature[m[33m)[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat Jul 1 00:13:07 2023 +0300
+
+    Main
+
+[33mcommit d18a353f628891f6abb663804534808cf0f7ee2c[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri Jun 30 23:59:27 2023 +0300
+
+    timestamp added
+
+[33mcommit 03f525edb47c2ceb8cf69308e88422d0e0b2f7f5[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri Jun 30 23:57:19 2023 +0300
+
+    Last message created
+
+[33mcommit ccea19e7138effb3231f656b105fe459266685d6[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sun Jun 18 14:32:06 2023 +0300
+
+    update location determined
+
+[33mcommit b4c7f464652244c187d02d6448d0140250a29854[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sun Jun 18 14:31:52 2023 +0300
+
+    update location determined
+
+[33mcommit c8df625c8ec1d27ee28b543c7c2d74a68f1dfaf9[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sun Jun 18 14:03:29 2023 +0300
+
+    onrequestpermissionresult added
+
+[33mcommit 8ad633efbc9060d4ece47c76f2b694f1e27ad854[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat Jun 17 22:27:29 2023 +0300
+
+    location listener fixed
+
+[33mcommit b8c6d2e095e27261d30924c36afbb942159ba822[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat Jun 17 22:20:25 2023 +0300
+
+    ContextCompat added with Permission
+
+[33mcommit f9c274553f192f0d8f3abab6a1529bbe3d1a76e4[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat Jun 17 22:09:01 2023 +0300
+
+    GOOGLE MAPS ADDED
+
+[33mcommit 223727cc4e3a0e034c2173bd7876ddd2b83d16e3[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat Jun 17 18:44:51 2023 +0300
+
+    Long click added
+
+[33mcommit ffbce1dc88771534ddb63d282d9876abc611028e[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu Jun 8 21:59:06 2023 +0300
+
+    adapter fixed
+
+[33mcommit 2da9771ae1029c6a09203e6fcea60434fb4e458c[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Wed Jun 7 23:10:19 2023 +0300
+
+            val userInfoForAdapter=ArrayList<UserInfo>() ADDED
+
+[33mcommit d82dc3a92e4a68c1c4e7fb836d8600b8e5363f3d[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Wed Jun 7 22:48:22 2023 +0300
+
+    doesnt work still
+
+[33mcommit ed13460822b15c03fd250e0ae1c0601918c8b38f[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu Jun 1 18:41:41 2023 +0300
+
+    UUID problem is fixed almost 1 month later
+
+[33mcommit c167f39e6f312e2f7357302bbc095f9e2c0801b8[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu Jun 1 15:13:33 2023 +0300
+
+    NOW WORKING AGAIN
+
+[33mcommit 666831d6d058809d5856b65ddd656a9b1a31cd3b[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Wed May 31 19:53:49 2023 +0300
+
+    trying for Select pictures
+
+[33mcommit 933e4e63b4f7e7a4a5f16aa80e9bddcd8d24699f[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Wed May 31 16:38:30 2023 +0300
+
+    binding did add
+
+[33mcommit 19ccde417d964a994b83dfe7aa78de3438aaf44f[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 19:21:13 2023 +0300
+
+    Log In fixed
+
+[33mcommit d83852133c47b71c7ed807b3ef81a22b0450a8bb[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 18:09:59 2023 +0300
+
+    NOW WORKING everythings on
+
+[33mcommit 4d25106dcf3c57f1646a8e9bd9269839c87a472d[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 16:14:36 2023 +0300
+
+    still doesn't work
+
+[33mcommit 5732e1bb07557bbe7242f5a05d640dec03368825[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 13:50:14 2023 +0300
+
+    Everything is working without LastPrivateMessageListAdapter
+
+[33mcommit 73b0f76df6b5e673af8a09facdf6413565c3ac48[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 13:34:48 2023 +0300
+
+    PmRoomFragment Working
+
+[33mcommit 21bba65907d83cd69693fe7dd8ce50ebc35bd862[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 12:30:16 2023 +0300
+
+    OnBindViewHolder position val optimized
+
+[33mcommit 392fe620ece97e0002fbb8573018fdfc4f7478c6[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 12:28:34 2023 +0300
+
+    Some Names fixed
+
+[33mcommit c21fc2537b9f7c481e6d09150378bfdfbc7c5464[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Mon May 29 22:37:19 2023 +0300
+
+    arguments name changed
+
+[33mcommit 198e42f71b19dbfcbec72164714a7e9731b65375[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Mon May 29 09:32:27 2023 +0300
+
+    Arguments fixed in LastPrivateMessageListAdapter
+
+[33mcommit 10575742cf62f423a5861e7c8631af0491710761[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat May 27 23:57:17 2023 +0300
+
+    latest message didnt work
+
+[33mcommit b7cdb178322997bd1a9b7e70063ddf5f24595640[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat May 27 23:52:46 2023 +0300
+
+    UserList fixed like old
+
+[33mcommit 1de7f2a525de4777c524902d3998c8aa9453bfa1[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat May 27 23:48:01 2023 +0300
+
+    User_Post_Fragment added
+
+[33mcommit 4f7cd30c8d37888655ebdd4ce6a6c60e56512e0e[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat May 27 23:43:14 2023 +0300
+
+    Fragment fixed
+
+[33mcommit f16986a29d875c0522453ab4a1fb9ddeda04f96e[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri May 26 21:34:07 2023 +0300
+
+    XML fixed
+
+[33mcommit 90de18a00ba4527af4c7b679d694662ae7b4c8f6[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri May 26 19:53:19 2023 +0300
+
+    uuid cant taking for each country
+
+[33mcommit e93cb16d3695fd15b446c460d2d555ab3c314ef5[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 25 11:47:28 2023 +0300
+
+    new action added for back pressed on PMLF to HomeFragment
+
+[33mcommit 286af38100203b6851e41ed36c1184b953a666b5[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 25 11:36:24 2023 +0300
+
+    new action added for back pressed on PMLF to HomeFragment
+
+[33mcommit 5b2c1d97b3dac9a248de28e6c869aefea94282f3[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 25 11:35:43 2023 +0300
+
+    on back pressed added to PrivateMessageListFragment
+
+[33mcommit 1b0d974d06f9884667de8c36e8db47098cab57e2[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 25 06:24:24 2023 +0300
+
+    We can take last message on just 1 user so its worked
+
+[33mcommit bad80457c42d7e11f985e5a9be1787084d6de614[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 25 06:06:17 2023 +0300
+
+    not working still
+
+[33mcommit 95022ee5f5a9d021b93ecffe6821c0c49ec0f160[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Wed May 24 01:53:16 2023 +0300
+
+    shared preferences removed
+
+[33mcommit a4189f709cb27311eb292fc18f238d0e48d9cdae[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 23 11:09:55 2023 +0300
+
+    shared preferences trying
+
+[33mcommit 2c4a2766443981b3ba45d4555a27d23bb4a3f3f9[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Mon May 22 05:25:15 2023 +0300
+
+    trim was added
+
+[33mcommit 85edb66a7f50e7f1d950147360cd09cc0c3a184e[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sun May 21 16:47:56 2023 +0300
+
+    When i click to last message i jump to PM room
+
+[33mcommit fde626e954d97ec6645c93b7d4b7b6a96e05b242[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sun May 21 01:01:18 2023 +0300
+
+    Trying for list of user PM
+
+[33mcommit e0733ed54dba8415918a036368244f84813f1494[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat May 20 10:44:40 2023 +0300
+
+    UI fixed
+
+[33mcommit 089227572d7df5270c0da30cbd3fea3073416af8[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri May 19 20:02:05 2023 +0300
+
+    Navigation should fix
+
+[33mcommit ff8fc33d49f8cdf23c07577404095df4b4709f87[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri May 19 11:46:53 2023 +0300
+
+    Names fixed
+
+[33mcommit 225d6c3d3928b86c3a6cf0a0f0ed93aa6b598e0b[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 18 20:24:44 2023 +0300
+
+    PrivateMessageListFragment Args fixed
+
+[33mcommit a49ee7732a6c4c4f0e0e9ca31e5a4c8d9703abed[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 18 20:24:13 2023 +0300
+
+    PrivateMessageListFragment Args fixed
+
+[33mcommit 4139a6eb8987cd1c405ed2cd6dc4d8f975cda49b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Apr 10 06:55:58 2023 +0300
+
+    visibilities setup
+
+[33mcommit a0fb04398c10d8dffdcd700dabc599f7de8f38d9[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Apr 10 06:54:44 2023 +0300
+
+    gradle upgraded
+
+[33mcommit cfc6b920750d22104751d84d5ba39ee9e69249f9[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Apr 9 22:40:49 2023 +0300
+
+    UI Fixed again
+
+[33mcommit f701578175378027f09fcee79dcbfbc8bcc53853[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Apr 9 22:36:57 2023 +0300
+
+    UI Fixed
+
+[33mcommit 754be251452f884f8287baedf81b19d61d733f7c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Apr 8 08:57:47 2023 +0300
+
+    Bottom nav view visibility changed
+
+[33mcommit ef8cc26ef304924ddb4cee2369147b512e046e85[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Apr 8 07:28:18 2023 +0300
+
+    bottom nav view prepared
+
+[33mcommit e5e854b48eca63f84e23eae89d536bbda775a379[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Apr 8 06:31:36 2023 +0300
+
+    working
+
+[33mcommit f1d224fc4c2257f0f4211d45bfb0188ea7a1e5b4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Apr 7 23:28:22 2023 +0300
+
+    adapter changed
+
+[33mcommit f47cc99da97f89ce036ce655d126fc61ee9b5eb4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Apr 7 16:28:30 2023 +0300
+
+    WE took to arguments of the current and to uuid
+
+[33mcommit f02dfa51a19eee3b45f512a7d5e839d0c9619d6b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Apr 7 14:47:32 2023 +0300
+
+    Fixed
+
+[33mcommit b625edeb77e059313b1b1e5fe191dfa184bdc712[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Apr 7 14:43:02 2023 +0300
+
+    On Resume Call back added
+
+[33mcommit 5de513722e299b20ea50b602f72828891092864f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Apr 7 10:12:00 2023 +0300
+
+    listener added
+
+[33mcommit 1779c1c266d3fa003205b42ec27dbe11236cd571[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Apr 6 22:24:57 2023 +0300
+
+    args taking
+
+[33mcommit 1e32cad4f51491487df0236ebf6d36abef5ba415[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Apr 6 22:24:20 2023 +0300
+
+    adapter fixed
+
+[33mcommit 70058c75bcb48e0f2213f8073298004cb23698bb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Apr 6 07:50:43 2023 +0300
+
+    Notes added/ UI fixed/ Names Changed/ Packages added
+
+[33mcommit 3019e4dd3c4e95af2681601f104ae18f4f9c9c5b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Apr 5 23:19:23 2023 +0300
+
+    toUUID is null atm
+
+[33mcommit dcdeabb1fb9025278b9feeba63aaeae92d22740b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Apr 5 20:33:44 2023 +0300
+
+    Working again
+
+[33mcommit f428186dd6fb8062e003177ee95b86e21b1cdf0f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Apr 5 20:16:25 2023 +0300
+
+    NNew thread
+
+[33mcommit 678f52b45132112ac2aaf19ec28270434a993b17[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 23:54:23 2023 +0300
+
+    inputs taking
+
+[33mcommit 61d12611fb57ac9cec955793895707e72cf07382[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 20:54:39 2023 +0300
+
+    username added to chat Room
+
+[33mcommit 415555cccd3bece1e68dc347157db97362a89580[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 20:41:06 2023 +0300
+
+    fragment fixed
+
+[33mcommit 178220a975983eea0e3339d46ec4f4e5dc62e6ce[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 20:40:43 2023 +0300
+
+    adapter created
+
+[33mcommit 135b8267b3dbfdb2b092fa9260d586587e4892c8[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 20:10:31 2023 +0300
+
+    adapter integrated
+
+[33mcommit 9e98750eed5ee08171085a6c19d9953480e1e927[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 20:10:17 2023 +0300
+
+    pp and uuid Args added
+
+[33mcommit cb0ddc3ba448f8f43a4fdd77d28f2738d6832af5[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 18:51:20 2023 +0300
+
+    Args added
+
+[33mcommit 994629c31acfcf563d039ab0468b6d2a6be9d89f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 14:20:56 2023 +0300
+
+    notification creating
+
+[33mcommit 26bec78610fc4db3519eca5ca2a38b52b2ed685c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Feb 4 23:39:05 2023 +0300
+
+    "When new message coming, Recycler View is going aut. to Bot side"
+
+[33mcommit 925a703a13a8ec5145201bed237120cdddb6aa52[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Feb 4 22:44:46 2023 +0300
+
+    Visibility fun added
+
+[33mcommit 18a1264de72c180804f8270ff40ff2708d77b718[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Feb 4 15:22:28 2023 +0300
+
+    visibility setter
+
+[33mcommit c251a6e4008f993b12efbd8a7877cf4181af3afd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Feb 3 23:50:10 2023 +0300
+
+    visibility setter
+
+[33mcommit 1b3bbd663f512a33d55cc52b069c239a7a7fb3dd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Feb 3 23:48:16 2023 +0300
+
+    visibility setting
+
+[33mcommit 624e221c2f5460f0a64c6614aaedd65be970d99d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Feb 3 23:11:05 2023 +0300
+
+    View mODEL CREATED
+
+[33mcommit 4fcf6de749c14b0ec94f17cb898b2d69c32bb6dd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Feb 2 23:32:27 2023 +0300
+
+    adapter list is empty
+
+[33mcommit 3d935d0c615d08a09f389001da894fe9431ec4ac[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Feb 2 22:14:35 2023 +0300
+
+    adapter created
+
+[33mcommit 7797c9954e7680bef80a0e19df56e46837d1400a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Feb 2 22:08:35 2023 +0300
+
+    ArrayList added
+
+[33mcommit 1c946a3d5ea3643c5945dbaa0f304cb13a7e88a9[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Feb 2 17:13:07 2023 +0300
+
+    FAB activated in User Chat part
+
+[33mcommit bd5db2bcaa81f8c039745c13d6d69a36fa880550[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Feb 1 23:49:01 2023 +0300
+
+    adapter name changed
+
+[33mcommit e434935198d6753d0c8cfb6d16ed31409fd0da2f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Feb 1 21:03:04 2023 +0300
+
+    Chat part raw created
+
+[33mcommit 23bc816aabbda7e63b744f8f53e37ee62acfb591[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Feb 1 20:48:25 2023 +0300
+
+    Chat part added
+
+[33mcommit 35dbb11ed195d6bd53456c72ee0d34ecd77a9ac0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Feb 1 16:17:14 2023 +0300
+
+    New internal class added
+
+[33mcommit f606c75a6d05865634aab0029a812b410ccdb33e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Feb 1 16:16:46 2023 +0300
+
+    UI fixed
+
+[33mcommit 2cc49109bec5fb5b50df4ca63066b721b9de4275[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 31 23:12:26 2023 +0300
+
+    fixed some problems
+
+[33mcommit 01cbdbf9f3704f05e45d35841a3ee56825b52fa1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 31 15:03:55 2023 +0300
+
+    fixed some problems
+
+[33mcommit c3884f2f14819651b70e74717c082735ec8fda8f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 31 15:03:26 2023 +0300
+
+    UI fixed
+
+[33mcommit b104b092ef6a81fdecb816526b4cf1d8efb7a3aa[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 23:34:59 2023 +0300
+
+    PP was added to Home fragment
+
+[33mcommit 87da3beac1fc0968d479fb13d3ccebd8f5c62252[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 23:03:57 2023 +0300
+
+    PP getting
+
+[33mcommit f05e7b2cf08d68289f931d238421d6a704bb08f4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 17:57:10 2023 +0300
+
+    PP getting
+
+[33mcommit 50ab45d2128b9cd1b10eee8a67a68eb965f322fa[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 16:32:09 2023 +0300
+
+    UI Fixed completely
+
+[33mcommit b37800348028962b6a1894716d799515741cc788[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 15:30:38 2023 +0300
+
+    Margin fixed
+
+[33mcommit a8e2321659de1a87774e17e2a585b7a12d44da62[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 15:28:29 2023 +0300
+
+    NOTE ADDED
+
+[33mcommit 7b85671267675318f6fef1324896b1037183af27[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 10:24:00 2023 +0300
+
+    Sign Up controller Done
+
+[33mcommit 4ee13233a752256f5dde6b6bc446d8d4a642efaa[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 10:17:49 2023 +0300
+
+    Controller developing
+
+[33mcommit b4d92bb861368e9976d3938e97d41220d9997478[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 09:12:21 2023 +0300
+
+    Icon added to Manifest
+
+[33mcommit 6b8c27802e37bdf82fb07c0f6615208255cddb1f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 09:12:01 2023 +0300
+
+    App Icon UI added with asset manager
+
+[33mcommit 796b887a18c55c2871cb03fe8313522b11a9688a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 02:44:02 2023 +0300
+
+    Alert Dialog created
+
+[33mcommit 121106d9181b028a8e437a2dc01e5ac5e64bde8d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 01:46:53 2023 +0300
+
+    UI fixing
+
+[33mcommit 30c18ff807885adec5d91680517e9aaadae9cbb8[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 23:57:28 2023 +0300
+
+    TOAST cleared
+
+[33mcommit 32e323967baadc0ae5bb68e67494ece74e94eece[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 23:21:20 2023 +0300
+
+    TOAST Message deleted
+
+[33mcommit 1c2ae084fe46e2b46c0cac450df0853cfbce7c92[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 22:18:56 2023 +0300
+
+    UI Fixed again and again
+
+[33mcommit b932d1814875327c13d7773c1bbf1c616e5c78bd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 19:28:32 2023 +0300
+
+    UI Fixed again and private Chat recycler done
+
+[33mcommit a18ff0feb8ff2807bb7f5e24fe3e0a2aee22e4c2[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 19:10:48 2023 +0300
+
+    UI Fixed
+
+[33mcommit 43c41db45d377511ffce6a928f633c2f7cb08d46[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 15:12:31 2023 +0300
+
+    Privat Message DONE
+
+[33mcommit b61943d38089b6f2fc941c9571ffaa29dcde7349[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 21:46:15 2023 +0300
+
+    UUID doesnt see
+
+[33mcommit 7221699e89f466126ac1c59dc323ad2000c713a5[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 20:57:05 2023 +0300
+
+    UUID taked
+
+[33mcommit 93ecde04cd710c99dc5dbe08e3534d3e62469e76[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 16:36:46 2023 +0300
+
+    toUUID transport to main scope
+
+[33mcommit c4d955b184173e55bb5be4845ca2afa764eed997[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 16:26:42 2023 +0300
+
+    UUID taked a new collection on FB
+
+[33mcommit e7c77ecc21a173db347877324b3a8741a659da3b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 06:37:54 2023 +0300
+
+    UI fixed
+
+[33mcommit 67518216a95ea954fb8bf59556054573711af7c3[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 06:35:52 2023 +0300
+
+    some gabs was fill
+
+[33mcommit d7b95ce16e4427b0c36911f45842c7559101dc01[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 27 23:44:15 2023 +0300
+
+    ne package added
+
+[33mcommit 9a9614fd7be51e79f8f8792600998d90fb0ce352[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 27 23:42:06 2023 +0300
+
+    profile picture taked
+
+[33mcommit 9c11511b06f28b392afbdaa38f80dad9b314f1fe[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 27 22:04:42 2023 +0300
+
+    list created for take image PP
+
+[33mcommit a092922b74b1fe962fa2030b5efd5648369359a8[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 26 17:31:50 2023 +0300
+
+    fixed
+
+[33mcommit e0eb097417057db772900b750b21819d0006925a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 26 13:48:05 2023 +0300
+
+    opposite chat done
+
+[33mcommit 2216db1c27d59a2ed26953636269ffed311ff838[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 25 21:58:09 2023 +0300
+
+    We took toUUID,from UUID
+
+[33mcommit 8eb0aa8a1d2bad1e8757b8b95f6514cedbad3db2[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 25 21:57:52 2023 +0300
+
+    saved
+
+[33mcommit f65807e296e16789f79baa385edb9fe99a601b17[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 24 16:10:39 2023 +0300
+
+    user name integrated to title bar
+
+[33mcommit 0ef4a154a11855c747a37bf8537b574a2a02b9a3[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 24 00:04:44 2023 +0300
+
+    PM done
+
+[33mcommit f12054c19726ba3b08c8fb92643334d10fb729d3[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 22:35:02 2023 +0300
+
+    Chat can sending, atm
+
+[33mcommit 6ad14b8cb7d9c32068025205736cd75e0bec9c0c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 21:35:18 2023 +0300
+
+    DiffUtil created
+
+[33mcommit e019bd64d0d1721be834d703607ff54481fb403d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 20:50:11 2023 +0300
+
+    Private Message was integrate
+
+[33mcommit 2aca5810b8444e4d05f1aca78124e5bd3fd82f55[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 20:17:19 2023 +0300
+
+    Private Message was integrate
+
+[33mcommit 6de5c49b1955da4630b46407c98e5f8e8dad2f1d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 18:36:39 2023 +0300
+
+    Private message data class created
+
+[33mcommit d7ecd08fcc4ff68d9a6dd3b6bb75dac31bcd1508[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 18:14:38 2023 +0300
+
+    Fragments fixed
+
+[33mcommit 26626a5857cd3e8faa1ec532e9f95e5e4927b228[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 18:39:50 2023 +0300
+
+    I didnt reach to ImageRecycler
+
+[33mcommit f43739d059f02d99ab4f6f69ceee27d458d3b384[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 16:01:17 2023 +0300
+
+    Fixed problems
+
+[33mcommit 9e4310f08937130d86845ea67633a887ded03667[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 15:33:42 2023 +0300
+
+    UserProfileMenuFragment.kt DOne
+
+[33mcommit d657e1a41dc48050d9fbc9089341a913a8eb03de[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 14:47:58 2023 +0300
+
+    Adapter crashed
+
+[33mcommit 4b17188573fd3f55c8ddff7a02aaa7b780837ddb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 12:01:22 2023 +0300
+
+    Layout Inflater created
+
+[33mcommit 24a7766601e44d8e200c38c72d3fd50f6c808dde[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 11:19:22 2023 +0300
+
+    Adapter integrated to UserProfileMenuFragment.kt
+
+[33mcommit cdfea196e66c7e894cd3efa722c3bd08036efcf6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 10:51:02 2023 +0300
+
+    Profile Info integrated to Recycler View
+
+[33mcommit 7fbbff135b8f8cfba5e1e665968a757d736b4c4d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 10:45:41 2023 +0300
+
+    View Binding added to UserProfileMenuFragment.kt
+
+[33mcommit ea28bd287a62ca4748848bfa23ebe10c9bff41ab[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 10:42:31 2023 +0300
+
+    All Profile UI names changed on xml
+
+[33mcommit 991609d3afc0d0552c5f1aaaf756a8fec67446df[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 10:38:09 2023 +0300
+
+    onview created created
+
+[33mcommit a1d73410e310e11530beb88f7bbe96aa22e42a44[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 21 20:52:49 2023 +0300
+
+    UserProfile UI Created
+
+[33mcommit 8b558397ad4f12cd5a30d461221ab990c3fe8900[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 21 20:50:29 2023 +0300
+
+    UserProfile Created
+
+[33mcommit 17976b5659d4c8422ecdc5f51f2694552d44cd57[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 21 20:44:52 2023 +0300
+
+    Argument added
+
+[33mcommit 98bed2c44482704ee939e668fbe65af3762375c3[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 20 23:50:23 2023 +0300
+
+    Argument added
+
+[33mcommit 9729d44d87900c6693e915939d7054e18e73cd79[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 20 23:33:03 2023 +0300
+
+    User uid FALSED
+
+[33mcommit abf4d1467781a9cf84123c6ecbe208c7c599a59b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 20 23:07:29 2023 +0300
+
+    User uid taked
+
+[33mcommit c511fd4a96a5f67bad5bb2a64f86521214e78804[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 19 16:14:59 2023 +0300
+
+    i did take email and uuid who is send to message?
+
+[33mcommit 735e1625eff0f62a251933ee862828ff185d2c3c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 19 16:02:09 2023 +0300
+
+    privateMessage button working
+
+[33mcommit fd5dfcf421495aed80e19fee72e2e95395c4f7cc[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 19 15:43:05 2023 +0300
+
+    Private Chat infos taking
+
+[33mcommit a66689e7df664d73e54676844a08608b58f3770d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 11:19:10 2023 +0300
+
+    PrivateChatFragmentRoom.kt view binding created
+
+[33mcommit 7edeb014b69f014af8a95c6f1de04e3ba332d3c5[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 09:47:13 2023 +0300
+
+    UI Fixed
+
+[33mcommit f7f2ded2f88731b448c1f91dc00acbd3a71da72b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 08:24:21 2023 +0300
+
+    All ET And TV fixed like Auto Scale
+
+[33mcommit a1f3f0302d36e33a8142b3e90587bf10f34ada27[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 08:20:35 2023 +0300
+
+    Answer raw done
+
+[33mcommit 2d960706bc5cfeaadc388027095aff2deb47efc1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 08:15:30 2023 +0300
+
+    Auto scale up done for ET and TV
+
+[33mcommit c5b0f183d1326c51356ee620e7d8d8fc823fbbe6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 08:04:38 2023 +0300
+
+    Max text Lines created
+
+[33mcommit 9d3bd12e673a0248e3250056dde5dfe1e3f41a1d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 16 23:30:13 2023 +0300
+
+    RV Adapter almost done
+
+[33mcommit 99236ca887895921852762a4978a8df2c9b55090[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 16 23:29:16 2023 +0300
+
+    PM Raw added
+
+[33mcommit 2dd44d63a1077b030a591d0ad487b702904cf0f6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 16 23:25:07 2023 +0300
+
+    recycler view added
+
+[33mcommit 5efe0a75729d67c2c348651a4d75b6d7bf78f1e0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 16 23:24:40 2023 +0300
+
+    Adapter ADDED for PM
+
+[33mcommit 8c675bf93da7af7b7f8de0cc29532a5c1ae198fa[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 15 15:44:43 2023 +0300
+
+    PrivateChatRoom created
+
+[33mcommit dcc69bc11849c19f13c78cece377381247e87088[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 15 15:18:08 2023 +0300
+
+    Action bar changing everytime
+
+[33mcommit c09ac377a8aca318ed599a2e196085d40229936b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 15 12:20:10 2023 +0300
+
+    UI fixed
+
+[33mcommit 0b644212146c401ae75348896101d4b5c9a0ac8c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 15 09:15:10 2023 +0300
+
+    Circular image done
+
+[33mcommit 84839fe044b5e7fdda4b18d13ce14bc268e6923b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 15 07:55:18 2023 +0300
+
+    UI Fixed
+
+[33mcommit f300078b842482a4f8857b0475ce0f24f419001b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:43:25 2023 +0300
+
+    Image added to Recycler Adapter
+
+[33mcommit 3d393b7f2c84062fe9b133581c2e1bd293c119fb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:37:05 2023 +0300
+
+    User Image added to PrivateChatFragment.kt
+
+[33mcommit 23bee498827b56909a5809d5c01876e8dee4aa3d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:34:52 2023 +0300
+
+    USER PICTURE SAVED
+
+[33mcommit dc62e30f7990de0782fd55c6b22f26bd561a2ff2[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:23:19 2023 +0300
+
+    changes
+
+[33mcommit e6b2111b1ffa423354e50d160a3bc089e3b62876[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:23:06 2023 +0300
+
+    petName added to Util
+
+[33mcommit f1a2168cd1e2929612e7b9c00fc094695dd3248e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:22:40 2023 +0300
+
+    Photo icon was add
+
+[33mcommit 3618ce795a2c45ed562be287c9a4dc6cffeae075[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 09:09:44 2023 +0300
+
+    View Binding did add
+
+[33mcommit d531037f7be35c028078e396137d4fb1e4d6e87b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 08:18:10 2023 +0300
+
+    username and pp will add
+
+[33mcommit afa5c81d2151c39c629c9fbaf2911be9115d22d0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 08:08:35 2023 +0300
+
+    padding changed
+
+[33mcommit 485b3946b3edd151f34b1c59b3c77536664f93d9[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 23:48:38 2023 +0300
+
+    UI  fixed
+
+[33mcommit abe616c71f524ce1719743b71d01f53c5c93c802[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 23:41:15 2023 +0300
+
+    Each Other Entry UUID fixed, we took 1 times just
+
+[33mcommit acd04f1660b652552137611688f4047d2c7d1a8f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 23:29:49 2023 +0300
+
+    DONE
+
+[33mcommit 59c95230da884fefea733aa139f6bce688938bee[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 22:34:32 2023 +0300
+
+    UUID TOOK WITH EMAIL ON HOMEFRAGMENT
+
+[33mcommit 0639aa50c8fffe0647c6f863e1b3b906eb9215a0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 22:06:32 2023 +0300
+
+    UUID TOOK WITH EMAIL
+
+[33mcommit 56d288200537c557213d12f8e8ce62ebee86e9b0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 21:25:16 2023 +0300
+
+    UUID will take
+
+[33mcommit 3879ec423965ef56a338bf0b7622d3134a520e9c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 19:06:14 2023 +0300
+
+    UI color fixed
+
+[33mcommit e4c78d2e5697ec758e6105cb67c9e96cbd090d85[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 15:30:18 2023 +0300
+
+    Private chat fragment VB done
+
+[33mcommit 652a0c7abe3d40a30995cbd362127c982acfd610[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 15:27:37 2023 +0300
+
+    Adapter binded with Private_chat_raw
+
+[33mcommit 8de0c72dfb91357f01da91de17562c403b79ca64[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 15:20:50 2023 +0300
+
+    private chat raw crated
+
+[33mcommit 7cee714df16d3e096c3e38eb296d8364d855b2d0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:44:41 2023 +0300
+
+    nav added
+
+[33mcommit 79c67543ba36bfcdb5fa1323a3f901b44069667a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:42:56 2023 +0300
+
+    private message part added
+
+[33mcommit da5b80455ede3dcc5dc92430740cc3711dbb5b27[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:36:10 2023 +0300
+
+    user menu logo was changed
+
+[33mcommit be012b4682366fd5508ba187ead82e464d898ae6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:34:53 2023 +0300
+
+    corner implementaded
+
+[33mcommit 11f60baab8aaccfbc24f99cac64334a148f14196[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:34:33 2023 +0300
+
+    corner added
+
+[33mcommit f04925c52d5219b75e2ca4278c05d269f38b2a4b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:34:02 2023 +0300
+
+    corner created
+
+[33mcommit 98d94e33936eb752b328732291d57e69c361a36b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:33:46 2023 +0300
+
+    group chat was changed
+
+[33mcommit 1ade175bc319485a6003e1351b3bf140948df2e8[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 11:00:11 2023 +0300
+
+    UI Fixed with Another Emulator
+
+[33mcommit 4ef6717222b13fbde17ba836f66066f02d77db55[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 13:02:28 2023 +0300
+
+    when chat fragment open my RV going to end Item side
+
+[33mcommit 5a50359c437ff22ce9c3618ca16afa8e13e4b9fb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 12:55:38 2023 +0300
+
+    when i click to ET RV going to last Item,
+
+[33mcommit 57ba42817577539d78d2d795a6464178ea0e046d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 12:49:13 2023 +0300
+
+    Scroll to bottom of RecyclerView programmatically DONE
+
+[33mcommit 01e5b68ef1f6077feb2e9d5abbdce6acbf145da1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 11:35:53 2023 +0300
+
+    ADAPTER binded with diffutil
+
+[33mcommit dbb36f6811748a80b3d100fb1a685f1f6a334104[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 11:35:31 2023 +0300
+
+    UI DONE
+
+[33mcommit 8d3756438719429ab697c5216bb502199300e303[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 11:35:11 2023 +0300
+
+    Diffutil created
+
+[33mcommit fe2e95288b0c8ec0c50632f0fc09ec2877f442a4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 11:17:50 2023 +0300
+
+    Recycler changed
+
+[33mcommit ad6121e64ccb31bacc0b0f299fc4ea05ec0a0ef4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 09:32:21 2023 +0300
+
+    TimeStamp options receive
+
+[33mcommit 0471f94c32d043780e185eea8cb96a95ce0f9056[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 08:09:55 2023 +0300
+
+    worked
+
+[33mcommit 9bb1b9efccb414314ed5112814d039ee5cd3e0bf[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 08:01:58 2023 +0300
+
+    chat recycler raw added
+
+[33mcommit 416bd8f846abb5b26b1b40e2d355f19975821431[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 10 19:52:13 2023 +0300
+
+    gettin better
+
+[33mcommit cc77b061a404d5850763ded74fd272815ff43b61[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 10 07:55:43 2023 +0300
+
+    Problem solved data class changed with "var"
+
+[33mcommit 167e1b8cc99c4f1f1bfc9c578e379f2b457d7836[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 15:59:54 2023 +0300
+
+    chat recycler adapter almost done
+
+[33mcommit 03ea1949e494524e53d22dbe336a2a4b30328e37[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 11:27:22 2023 +0300
+
+    biding did ondestroy
+
+[33mcommit f5572f1e8661cea908f7b2a7abbe4573cff414ba[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 11:00:53 2023 +0300
+
+    firebase chat creating
+
+[33mcommit 8e7ecfb67860b8bb0cb53633bc27bf968ba967ef[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 08:46:20 2023 +0300
+
+    Keyboard slide added
+
+[33mcommit 73dfef9d27ef8e1ffd1a7a04b14f21409dac3ae0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 08:26:00 2023 +0300
+
+    REcycler fixed for nav
+
+[33mcommit c75d5fb31d12cf1b4886375af327f499a1b0d73f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 08:23:05 2023 +0300
+
+    Some property fixed
+
+[33mcommit bf05f150d296961e12e8c6893b5cdb54f2679ce7[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 8 16:23:33 2023 +0300
+
+    user_menu fxfied
+
+[33mcommit d615bc83053fe40a366d1d37bb150a7762c92b37[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 8 14:43:35 2023 +0300
+
+    User Profile infos deleted
+
+[33mcommit c38320e136d8c66afee0007bdc9c9a11804863d8[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 8 13:25:08 2023 +0300
+
+    Everything is working without User PP
+
+[33mcommit 5b0768be2499412d050262257aa2cc9bb3a2ca43[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 7 14:39:52 2023 +0300
+
+    user pet Image will select
+
+[33mcommit a27dc55a8d9abebac07f112c257c6f32b33587b0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 7 14:30:04 2023 +0300
+
+    New Infos was added to RV
+
+[33mcommit 1e3e80c6f889345e347735eb8d0e73a556c09627[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 7 13:21:37 2023 +0300
+
+    Imports was optimize
+
+[33mcommit 074c90799ad6f9cdba25a0c8a87224e388d50b02[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 7 12:59:31 2023 +0300
+
+    Imports did optimize
+
+[33mcommit 8c415f3da9dacb637c742f61550b0b7aaef83ee2[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 17:39:52 2023 +0300
+
+    MVVM crashed
+
+[33mcommit 76e9edf0a31eb8cdf48a1f41618979d57cb424ec[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 16:59:39 2023 +0300
+
+    Profile Binding done
+
+[33mcommit 79597d49f38610a63d3651de98a2ea141c090dbc[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 16:08:28 2023 +0300
+
+    Recycler Raw binded
+
+[33mcommit 7bd01e87ba3ed3ba54c0bb2a14f9d2d10e38984d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 15:41:11 2023 +0300
+
+    User Profile view creating
+
+[33mcommit bde81ec71da57d552cd7402185ef890d3215e3ee[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 15:26:09 2023 +0300
+
+    Profile raw created
+
+[33mcommit a90c2d70cc7b89e15838d9c80525a28d433873d2[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 15:08:28 2023 +0300
+
+    chat part created
+
+[33mcommit 4572ddb77621176a0340fe5342c4332a784c0d61[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 14:40:14 2023 +0300
+
+    Big changed
+
+[33mcommit 2aa6141f7a671a642785b0984145aa2262830274[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 13:58:01 2023 +0300
+
+    Glide integrated to Recycler
+
+[33mcommit d0cb73b122656684a9c04d8d75f7623648c5bb80[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 13:33:48 2023 +0300
+
+    Glide integrated to Recycler
+
+[33mcommit 3a8020e5df4c6dcca664b54385bb4272da50c8cb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 13:26:25 2023 +0300
+
+    Glide done
+
+[33mcommit 9d49c98a46bcfe40ef04caf3e359868bd8a68e0e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 11:24:17 2023 +0300
+
+    glide added
+
+[33mcommit fb8b3ef4b9e39df706beedc50cc94bf19435c21d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 23:26:39 2023 +0300
+
+    Infos done without Image
+
+[33mcommit efd37368ec551dc0d98a2a71480e52969f3e9b90[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 22:52:22 2023 +0300
+
+    Recycler adapter created
+
+[33mcommit 11cea4ae0b4edf28f1e98c6ce4ef79fc781a863a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 17:38:42 2023 +0300
+
+    recycler almost done
+
+[33mcommit 8a939d481b2a65f4daf6a3e9f885d15d86a17a95[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 17:36:30 2023 +0300
+
+    recycler almost done
+
+[33mcommit b248da3dbac864b211f438680d39f94fe63b37fd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 14:56:46 2023 +0300
+
+    recycler almost done
+
+[33mcommit c7992e8db7360a3802080240189606ad92bc1fef[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 09:13:58 2023 +0300
+
+    clear fun called
+
+[33mcommit 7efc000469c48c14538f10735229965add8cc63b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 09:12:07 2023 +0300
+
+    Post class created for List container
+
+[33mcommit ec7211082efe9691d31637c856f404a63bc786e4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 08:19:25 2023 +0300
+
+    takes Data fun worked
+
+[33mcommit fd7dcc8c165ba921252708557ff4dec9389abc4f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:37:45 2023 +0300
+
+    before takeData fun
+
+[33mcommit a24fea4236d587e3a3c3c672c5ad2ea0071e7479[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:36:53 2023 +0300
+
+    for loop created
+
+[33mcommit 77b4c702ffd4f6ce1c7aa3e122106eb679a8707d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:34:19 2023 +0300
+
+    for loop created
+
+[33mcommit 8d84c623dc7ebb23e8e485570fbe843ce8da1d96[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:08:26 2023 +0300
+
+    controlled continue
+
+[33mcommit 19764aee367a12d1193d3460fbe0a70566edd12f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:07:33 2023 +0300
+
+    first controlled created
+
+[33mcommit dab0b897e2f778c05f2d089b50de92c43c846196[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:07:13 2023 +0300
+
+    first controlled created
+
+[33mcommit 3b8a0abc2bd9b7bea486640cbd35475a8a674daa[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:04:05 2023 +0300
+
+    takes data fun created
+
+[33mcommit 1ed4291a738c3965397e2cec0ffdd7d27a9c0177[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 22:50:02 2023 +0300
+
+    email text was added
+
+[33mcommit ed899a45f4e12cf89d61e9bb85878b049cfdba32[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 19:18:53 2023 +0300
+
+    comments taked from database
+
+[33mcommit 25e6f5b8c930968b49c12fc8722c89d3a8fec4e3[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 17:09:26 2023 +0300
+
+    new Firebase database created
+
+[33mcommit c1f17a71ae6b8ee93e738206639bef524e1e75a6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 10:46:57 2023 +0300
+
+    New View Model created
+
+[33mcommit a8a022cd5a14870e6ff1a95cd4311d1cdf14d3ad[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 09:32:46 2023 +0300
+
+    User Email was created on Home Screen
+
+[33mcommit 54484911986e524e2ef3c3f4c3a99d5a72fda2d5[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 09:10:52 2023 +0300
+
+    Store Image to FB is working
+
+[33mcommit b01dcff6c0cfda23c3eb9519519c61b461052dac[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 08:43:09 2023 +0300
+
+    Store Image fun added
+
+[33mcommit 634b5a4c397d42c462ce7cf9bdf59807f4497f58[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 08:10:13 2023 +0300
+
+    FireStore added
+
+[33mcommit ef2646f1e670c8b62a9d3b84ae301752fff1ac37[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 07:57:53 2023 +0300
+
+    UI changed
+
+[33mcommit 5e94e492abdf41dbf4b37584762868b4a558e80e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 16:19:48 2023 +0300
+
+    New Year commit
+
+[33mcommit b7b345f63df43850dff54975af388fc217482f9f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 15:10:09 2023 +0300
+
+    ReadExternalStorage added
+
+[33mcommit 0b340b0c80059fa7321dbe18f0bffedc5cea5171[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 15:08:55 2023 +0300
+
+    RecyclerAdapter created
+
+[33mcommit 45bdccbd5c59b92279270b467ecffd7491ae5f19[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 14:29:11 2023 +0300
+
+    Recycler Raw Done
+
+[33mcommit 317f969519c97ee1902ba322487941b46c758076[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 14:15:03 2023 +0300
+
+    recycler raw create
+
+[33mcommit fe0212f75b26823fac6c7df9258a173eff03b8be[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 12:42:19 2023 +0300
+
+    UI Done
+
+[33mcommit e768df55cce041119fce501c00ae92870cb57845[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 21:19:33 2022 +0300
+
+    UI Done
+
+[33mcommit 2bca1d92eb2d4347f097ede8964a83d9ecc7507d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 21:19:16 2022 +0300
+
+    Big Changed
+
+[33mcommit 5c2c640f385bed0e6a443a74e9bbbcf4d14bb216[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 15:13:15 2022 +0300
+
+    Bottom Nav View Done
+
+[33mcommit ea76200bf8da766062e97ba2ff98ab2fbfdd3f18[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 13:31:18 2022 +0300
+
+    Bottom Nav View Done
+
+[33mcommit d94477adeb8ebac1e9da43953e042b64d90732c1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 08:45:52 2022 +0300
+
+    UI fixed
+
+[33mcommit d30bc87052f5d6dedbe5e7fb99c0af59ccb90d72[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 08:17:56 2022 +0300
+
+    Retrieve created
+
+[33mcommit 4f4a8cd0293d9bb2f38a49aa3ec7e35a8058f65d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Dec 30 12:19:46 2022 +0300
+
+    Controller Done
+
+[33mcommit f53c1ba41ae8a6fd47b2abf797cebfa6b25fa434[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 21:52:35 2022 +0300
+
+    Controller Done
+
+[33mcommit 7fd448cb30bc7da625f935fd2cc0aa7a42f90f02[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 21:20:06 2022 +0300
+
+    Controller Done
+
+[33mcommit 4baf5aace5282b4ae39623443a5a87c6055696f7[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 20:35:23 2022 +0300
+
+    MVVM prepared
+
+[33mcommit bcc817b3ebb6d7a6564a50ebf0834f3defbad4d7[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 20:31:01 2022 +0300
+
+    nav graph changed
+
+[33mcommit 6b6191b91f87e774dc5cfc88a16e10866dbdeffe[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 20:28:44 2022 +0300
+
+    Lifecycle was add
+
+[33mcommit 5326fcc3b37eca52ec49ac8f77a516a26c0fd6c6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 19:36:53 2022 +0300
+
+    Ui prepared
+
+[33mcommit deb6d1f85386596472f278779362d066867ba09d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 19:35:29 2022 +0300
+
+    Fragments opened
+
+[33mcommit 3b0cd34d613994255df82f5d8124f8ddd35b6d31[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 18:08:48 2022 +0300
+
+    Data added for FB
+
+[33mcommit 3d95d34aa32c7d4189248061ecac0647b3d563c7[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 15:28:56 2022 +0300
+
+    Firestore SDK ADDED
+
+[33mcommit 95950a5a273c02d931ace42daed0ca7e58ed5d40[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 15:18:13 2022 +0300
+
+    UI fixed
+
+[33mcommit f400d50045319277e62d5d7e13e40e0e714c1eca[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 14:16:16 2022 +0300
+
+    UI Done
+
+[33mcommit 3e0945ec821c46b439057bfda18d75bc85fe6654[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 13:49:12 2022 +0300
+
+    cat jpg added
+
+[33mcommit a64c26e8ac80a236e1b985c874548db40bb683be[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 13:36:20 2022 +0300
+
+    UI Fixed
+
+[33mcommit 5fc83458b13ab0c491f9a563610f0912989782f7[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 21:50:06 2022 +0300
+
+    UI Done
+
+[33mcommit 964e7f14ba7d05b15a396a30cdb97fdfadce0ac9[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 19:20:34 2022 +0300
+
+    News fragments done for bottom nav bar
+
+[33mcommit 9f723b3a84d18bf7425ff7659062aa819092444c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 19:20:06 2022 +0300
+
+    Padding
+
+[33mcommit ff8729b400c683e99ff9148108396d6b975423e1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 18:39:13 2022 +0300
+
+    Sıgn controll is done
+
+[33mcommit 6551e4a1e21ba653d316b0b8c8eb7692d18522cb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 18:25:40 2022 +0300
+
+    Util package opened
+
+[33mcommit 3bcaf6aea518226df9d438eba3ed655f87783a4e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 00:20:21 2022 +0300
+
+    icons added
+
+[33mcommit 8fe65cf73275594b880fdc9ce6f8c768bbdfd359[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 00:18:13 2022 +0300
+
+    bottom nav menu added
+
+[33mcommit 318ce68b9217b3f54fbf76f9359a087e2ff564ce[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:14:11 2022 +0300
+
+    auth Util was created
+
+[33mcommit f9c4a3c65508f48ff4b4dd8316d1a900a93c6409[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:14:00 2022 +0300
+
+    Menu codes writed
+
+[33mcommit 20195543e57e99087f694ed1f836584a2e6ce940[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:13:40 2022 +0300
+
+    auth init transported to Object
+
+[33mcommit f75b220b3443b3eb4b0002e6e8eb06ac1e41f9a5[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:13:16 2022 +0300
+
+    Menu added
+
+[33mcommit 0eb628baafd3a1307b6ec41a4efab8f1d55b411a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:13:02 2022 +0300
+
+    Actions addedd
+
+[33mcommit 850a591c4ba410914255074e5e65ca15d5854cfd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:12:49 2022 +0300
+
+    View Binding added
+
+[33mcommit 17554b19be1a07361d2a92cb41cb8d14119b1d23[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 16:26:12 2022 +0300
+
+    nav created
+
+[33mcommit 95e46d6f06fd8dfb5d26edf0166a793b97bb3dde[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 14:47:02 2022 +0300
+
+    Google Was ADDED
+
+[33mcommit ba88dcbeec1cca440335340bea43c94899cd98c0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 13:59:01 2022 +0300
+
+    SHA DONE
+
+[33mcommit 611e470caa3167552d809c0929a55a5bb602404d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 11:58:59 2022 +0300
+
+    Google depend added gradle
+
+[33mcommit fa25c57fa001e94b05c5c9574f9451786078cebb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 11:56:47 2022 +0300
+
+    Google auth
+
+[33mcommit f2823cb7a9cfe9d78e7a0168aa8fa38070e2001d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 00:49:59 2022 +0300
+
+    Toast message added
+
+[33mcommit 0992ab46d36add619525ca74d79613cab5b22cc1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 22:26:24 2022 +0300
+
+    Toast message added
+
+[33mcommit 0bbfa8192202359fdf95eee55a7bf2be2211c55f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 22:23:59 2022 +0300
+
+    Codes transported to other Fragment
+
+[33mcommit a624f1ca1670d6be43cccd95f105029d11114e2a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 22:23:45 2022 +0300
+
+    UI Changed
+
+[33mcommit bb5f7ae42366d980230bbcee018b9d01596d8338[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 22:21:19 2022 +0300
+
+    nav host plugins added
+
+[33mcommit ce02d69dc8d88416830f8f3856fcd07ae1dfbf7d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 21:47:19 2022 +0300
+
+    Fragments added
+
+[33mcommit 99c46f48d73d08e710dee97bb139021026f8e731[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 21:46:56 2022 +0300
+
+    UI added
+
+[33mcommit 9c9f4177ccf65bda3748c2a6235ff2dd16873fcc[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 20:41:44 2022 +0300
+
+    Nav was add
+
+[33mcommit a66fab8260dd363156c8e44b2e01bd93321eb2fb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 20:27:45 2022 +0300
+
+    Auth settings
+
+[33mcommit b71913d906f4b1c677edeabf438b7df41a1d2e1e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 20:21:13 2022 +0300
+
+    Initial commit
+[33mcommit 7cf2640790ee19834f8bab087d88867814b867c6[m[33m ([m[1;36mHEAD -> [m[1;32mfeature[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat Jul 1 00:13:07 2023 +0300
+
+    Main
+
+[33mcommit d18a353f628891f6abb663804534808cf0f7ee2c[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri Jun 30 23:59:27 2023 +0300
+
+    timestamp added
+
+[33mcommit 03f525edb47c2ceb8cf69308e88422d0e0b2f7f5[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri Jun 30 23:57:19 2023 +0300
+
+    Last message created
+
+[33mcommit ccea19e7138effb3231f656b105fe459266685d6[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sun Jun 18 14:32:06 2023 +0300
+
+    update location determined
+
+[33mcommit b4c7f464652244c187d02d6448d0140250a29854[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sun Jun 18 14:31:52 2023 +0300
+
+    update location determined
+
+[33mcommit c8df625c8ec1d27ee28b543c7c2d74a68f1dfaf9[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sun Jun 18 14:03:29 2023 +0300
+
+    onrequestpermissionresult added
+
+[33mcommit 8ad633efbc9060d4ece47c76f2b694f1e27ad854[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat Jun 17 22:27:29 2023 +0300
+
+    location listener fixed
+
+[33mcommit b8c6d2e095e27261d30924c36afbb942159ba822[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat Jun 17 22:20:25 2023 +0300
+
+    ContextCompat added with Permission
+
+[33mcommit f9c274553f192f0d8f3abab6a1529bbe3d1a76e4[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat Jun 17 22:09:01 2023 +0300
+
+    GOOGLE MAPS ADDED
+
+[33mcommit 223727cc4e3a0e034c2173bd7876ddd2b83d16e3[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat Jun 17 18:44:51 2023 +0300
+
+    Long click added
+
+[33mcommit ffbce1dc88771534ddb63d282d9876abc611028e[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu Jun 8 21:59:06 2023 +0300
+
+    adapter fixed
+
+[33mcommit 2da9771ae1029c6a09203e6fcea60434fb4e458c[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Wed Jun 7 23:10:19 2023 +0300
+
+            val userInfoForAdapter=ArrayList<UserInfo>() ADDED
+
+[33mcommit d82dc3a92e4a68c1c4e7fb836d8600b8e5363f3d[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Wed Jun 7 22:48:22 2023 +0300
+
+    doesnt work still
+
+[33mcommit ed13460822b15c03fd250e0ae1c0601918c8b38f[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu Jun 1 18:41:41 2023 +0300
+
+    UUID problem is fixed almost 1 month later
+
+[33mcommit c167f39e6f312e2f7357302bbc095f9e2c0801b8[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu Jun 1 15:13:33 2023 +0300
+
+    NOW WORKING AGAIN
+
+[33mcommit 666831d6d058809d5856b65ddd656a9b1a31cd3b[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Wed May 31 19:53:49 2023 +0300
+
+    trying for Select pictures
+
+[33mcommit 933e4e63b4f7e7a4a5f16aa80e9bddcd8d24699f[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Wed May 31 16:38:30 2023 +0300
+
+    binding did add
+
+[33mcommit 19ccde417d964a994b83dfe7aa78de3438aaf44f[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 19:21:13 2023 +0300
+
+    Log In fixed
+
+[33mcommit d83852133c47b71c7ed807b3ef81a22b0450a8bb[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 18:09:59 2023 +0300
+
+    NOW WORKING everythings on
+
+[33mcommit 4d25106dcf3c57f1646a8e9bd9269839c87a472d[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 16:14:36 2023 +0300
+
+    still doesn't work
+
+[33mcommit 5732e1bb07557bbe7242f5a05d640dec03368825[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 13:50:14 2023 +0300
+
+    Everything is working without LastPrivateMessageListAdapter
+
+[33mcommit 73b0f76df6b5e673af8a09facdf6413565c3ac48[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 13:34:48 2023 +0300
+
+    PmRoomFragment Working
+
+[33mcommit 21bba65907d83cd69693fe7dd8ce50ebc35bd862[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 12:30:16 2023 +0300
+
+    OnBindViewHolder position val optimized
+
+[33mcommit 392fe620ece97e0002fbb8573018fdfc4f7478c6[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 30 12:28:34 2023 +0300
+
+    Some Names fixed
+
+[33mcommit c21fc2537b9f7c481e6d09150378bfdfbc7c5464[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Mon May 29 22:37:19 2023 +0300
+
+    arguments name changed
+
+[33mcommit 198e42f71b19dbfcbec72164714a7e9731b65375[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Mon May 29 09:32:27 2023 +0300
+
+    Arguments fixed in LastPrivateMessageListAdapter
+
+[33mcommit 10575742cf62f423a5861e7c8631af0491710761[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat May 27 23:57:17 2023 +0300
+
+    latest message didnt work
+
+[33mcommit b7cdb178322997bd1a9b7e70063ddf5f24595640[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat May 27 23:52:46 2023 +0300
+
+    UserList fixed like old
+
+[33mcommit 1de7f2a525de4777c524902d3998c8aa9453bfa1[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat May 27 23:48:01 2023 +0300
+
+    User_Post_Fragment added
+
+[33mcommit 4f7cd30c8d37888655ebdd4ce6a6c60e56512e0e[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat May 27 23:43:14 2023 +0300
+
+    Fragment fixed
+
+[33mcommit f16986a29d875c0522453ab4a1fb9ddeda04f96e[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri May 26 21:34:07 2023 +0300
+
+    XML fixed
+
+[33mcommit 90de18a00ba4527af4c7b679d694662ae7b4c8f6[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri May 26 19:53:19 2023 +0300
+
+    uuid cant taking for each country
+
+[33mcommit e93cb16d3695fd15b446c460d2d555ab3c314ef5[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 25 11:47:28 2023 +0300
+
+    new action added for back pressed on PMLF to HomeFragment
+
+[33mcommit 286af38100203b6851e41ed36c1184b953a666b5[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 25 11:36:24 2023 +0300
+
+    new action added for back pressed on PMLF to HomeFragment
+
+[33mcommit 5b2c1d97b3dac9a248de28e6c869aefea94282f3[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 25 11:35:43 2023 +0300
+
+    on back pressed added to PrivateMessageListFragment
+
+[33mcommit 1b0d974d06f9884667de8c36e8db47098cab57e2[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 25 06:24:24 2023 +0300
+
+    We can take last message on just 1 user so its worked
+
+[33mcommit bad80457c42d7e11f985e5a9be1787084d6de614[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 25 06:06:17 2023 +0300
+
+    not working still
+
+[33mcommit 95022ee5f5a9d021b93ecffe6821c0c49ec0f160[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Wed May 24 01:53:16 2023 +0300
+
+    shared preferences removed
+
+[33mcommit a4189f709cb27311eb292fc18f238d0e48d9cdae[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Tue May 23 11:09:55 2023 +0300
+
+    shared preferences trying
+
+[33mcommit 2c4a2766443981b3ba45d4555a27d23bb4a3f3f9[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Mon May 22 05:25:15 2023 +0300
+
+    trim was added
+
+[33mcommit 85edb66a7f50e7f1d950147360cd09cc0c3a184e[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sun May 21 16:47:56 2023 +0300
+
+    When i click to last message i jump to PM room
+
+[33mcommit fde626e954d97ec6645c93b7d4b7b6a96e05b242[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sun May 21 01:01:18 2023 +0300
+
+    Trying for list of user PM
+
+[33mcommit e0733ed54dba8415918a036368244f84813f1494[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Sat May 20 10:44:40 2023 +0300
+
+    UI fixed
+
+[33mcommit 089227572d7df5270c0da30cbd3fea3073416af8[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri May 19 20:02:05 2023 +0300
+
+    Navigation should fix
+
+[33mcommit ff8fc33d49f8cdf23c07577404095df4b4709f87[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Fri May 19 11:46:53 2023 +0300
+
+    Names fixed
+
+[33mcommit 225d6c3d3928b86c3a6cf0a0f0ed93aa6b598e0b[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 18 20:24:44 2023 +0300
+
+    PrivateMessageListFragment Args fixed
+
+[33mcommit a49ee7732a6c4c4f0e0e9ca31e5a4c8d9703abed[m
+Author: volkan kelleci <kellecivolkan@gmail.com>
+Date:   Thu May 18 20:24:13 2023 +0300
+
+    PrivateMessageListFragment Args fixed
+
+[33mcommit 4139a6eb8987cd1c405ed2cd6dc4d8f975cda49b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Apr 10 06:55:58 2023 +0300
+
+    visibilities setup
+
+[33mcommit a0fb04398c10d8dffdcd700dabc599f7de8f38d9[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Apr 10 06:54:44 2023 +0300
+
+    gradle upgraded
+
+[33mcommit cfc6b920750d22104751d84d5ba39ee9e69249f9[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Apr 9 22:40:49 2023 +0300
+
+    UI Fixed again
+
+[33mcommit f701578175378027f09fcee79dcbfbc8bcc53853[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Apr 9 22:36:57 2023 +0300
+
+    UI Fixed
+
+[33mcommit 754be251452f884f8287baedf81b19d61d733f7c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Apr 8 08:57:47 2023 +0300
+
+    Bottom nav view visibility changed
+
+[33mcommit ef8cc26ef304924ddb4cee2369147b512e046e85[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Apr 8 07:28:18 2023 +0300
+
+    bottom nav view prepared
+
+[33mcommit e5e854b48eca63f84e23eae89d536bbda775a379[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Apr 8 06:31:36 2023 +0300
+
+    working
+
+[33mcommit f1d224fc4c2257f0f4211d45bfb0188ea7a1e5b4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Apr 7 23:28:22 2023 +0300
+
+    adapter changed
+
+[33mcommit f47cc99da97f89ce036ce655d126fc61ee9b5eb4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Apr 7 16:28:30 2023 +0300
+
+    WE took to arguments of the current and to uuid
+
+[33mcommit f02dfa51a19eee3b45f512a7d5e839d0c9619d6b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Apr 7 14:47:32 2023 +0300
+
+    Fixed
+
+[33mcommit b625edeb77e059313b1b1e5fe191dfa184bdc712[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Apr 7 14:43:02 2023 +0300
+
+    On Resume Call back added
+
+[33mcommit 5de513722e299b20ea50b602f72828891092864f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Apr 7 10:12:00 2023 +0300
+
+    listener added
+
+[33mcommit 1779c1c266d3fa003205b42ec27dbe11236cd571[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Apr 6 22:24:57 2023 +0300
+
+    args taking
+
+[33mcommit 1e32cad4f51491487df0236ebf6d36abef5ba415[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Apr 6 22:24:20 2023 +0300
+
+    adapter fixed
+
+[33mcommit 70058c75bcb48e0f2213f8073298004cb23698bb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Apr 6 07:50:43 2023 +0300
+
+    Notes added/ UI fixed/ Names Changed/ Packages added
+
+[33mcommit 3019e4dd3c4e95af2681601f104ae18f4f9c9c5b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Apr 5 23:19:23 2023 +0300
+
+    toUUID is null atm
+
+[33mcommit dcdeabb1fb9025278b9feeba63aaeae92d22740b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Apr 5 20:33:44 2023 +0300
+
+    Working again
+
+[33mcommit f428186dd6fb8062e003177ee95b86e21b1cdf0f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Apr 5 20:16:25 2023 +0300
+
+    NNew thread
+
+[33mcommit 678f52b45132112ac2aaf19ec28270434a993b17[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 23:54:23 2023 +0300
+
+    inputs taking
+
+[33mcommit 61d12611fb57ac9cec955793895707e72cf07382[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 20:54:39 2023 +0300
+
+    username added to chat Room
+
+[33mcommit 415555cccd3bece1e68dc347157db97362a89580[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 20:41:06 2023 +0300
+
+    fragment fixed
+
+[33mcommit 178220a975983eea0e3339d46ec4f4e5dc62e6ce[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 20:40:43 2023 +0300
+
+    adapter created
+
+[33mcommit 135b8267b3dbfdb2b092fa9260d586587e4892c8[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 20:10:31 2023 +0300
+
+    adapter integrated
+
+[33mcommit 9e98750eed5ee08171085a6c19d9953480e1e927[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 20:10:17 2023 +0300
+
+    pp and uuid Args added
+
+[33mcommit cb0ddc3ba448f8f43a4fdd77d28f2738d6832af5[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 18:51:20 2023 +0300
+
+    Args added
+
+[33mcommit 994629c31acfcf563d039ab0468b6d2a6be9d89f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Feb 5 14:20:56 2023 +0300
+
+    notification creating
+
+[33mcommit 26bec78610fc4db3519eca5ca2a38b52b2ed685c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Feb 4 23:39:05 2023 +0300
+
+    "When new message coming, Recycler View is going aut. to Bot side"
+
+[33mcommit 925a703a13a8ec5145201bed237120cdddb6aa52[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Feb 4 22:44:46 2023 +0300
+
+    Visibility fun added
+
+[33mcommit 18a1264de72c180804f8270ff40ff2708d77b718[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Feb 4 15:22:28 2023 +0300
+
+    visibility setter
+
+[33mcommit c251a6e4008f993b12efbd8a7877cf4181af3afd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Feb 3 23:50:10 2023 +0300
+
+    visibility setter
+
+[33mcommit 1b3bbd663f512a33d55cc52b069c239a7a7fb3dd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Feb 3 23:48:16 2023 +0300
+
+    visibility setting
+
+[33mcommit 624e221c2f5460f0a64c6614aaedd65be970d99d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Feb 3 23:11:05 2023 +0300
+
+    View mODEL CREATED
+
+[33mcommit 4fcf6de749c14b0ec94f17cb898b2d69c32bb6dd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Feb 2 23:32:27 2023 +0300
+
+    adapter list is empty
+
+[33mcommit 3d935d0c615d08a09f389001da894fe9431ec4ac[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Feb 2 22:14:35 2023 +0300
+
+    adapter created
+
+[33mcommit 7797c9954e7680bef80a0e19df56e46837d1400a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Feb 2 22:08:35 2023 +0300
+
+    ArrayList added
+
+[33mcommit 1c946a3d5ea3643c5945dbaa0f304cb13a7e88a9[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Feb 2 17:13:07 2023 +0300
+
+    FAB activated in User Chat part
+
+[33mcommit bd5db2bcaa81f8c039745c13d6d69a36fa880550[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Feb 1 23:49:01 2023 +0300
+
+    adapter name changed
+
+[33mcommit e434935198d6753d0c8cfb6d16ed31409fd0da2f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Feb 1 21:03:04 2023 +0300
+
+    Chat part raw created
+
+[33mcommit 23bc816aabbda7e63b744f8f53e37ee62acfb591[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Feb 1 20:48:25 2023 +0300
+
+    Chat part added
+
+[33mcommit 35dbb11ed195d6bd53456c72ee0d34ecd77a9ac0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Feb 1 16:17:14 2023 +0300
+
+    New internal class added
+
+[33mcommit f606c75a6d05865634aab0029a812b410ccdb33e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Feb 1 16:16:46 2023 +0300
+
+    UI fixed
+
+[33mcommit 2cc49109bec5fb5b50df4ca63066b721b9de4275[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 31 23:12:26 2023 +0300
+
+    fixed some problems
+
+[33mcommit 01cbdbf9f3704f05e45d35841a3ee56825b52fa1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 31 15:03:55 2023 +0300
+
+    fixed some problems
+
+[33mcommit c3884f2f14819651b70e74717c082735ec8fda8f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 31 15:03:26 2023 +0300
+
+    UI fixed
+
+[33mcommit b104b092ef6a81fdecb816526b4cf1d8efb7a3aa[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 23:34:59 2023 +0300
+
+    PP was added to Home fragment
+
+[33mcommit 87da3beac1fc0968d479fb13d3ccebd8f5c62252[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 23:03:57 2023 +0300
+
+    PP getting
+
+[33mcommit f05e7b2cf08d68289f931d238421d6a704bb08f4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 17:57:10 2023 +0300
+
+    PP getting
+
+[33mcommit 50ab45d2128b9cd1b10eee8a67a68eb965f322fa[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 16:32:09 2023 +0300
+
+    UI Fixed completely
+
+[33mcommit b37800348028962b6a1894716d799515741cc788[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 15:30:38 2023 +0300
+
+    Margin fixed
+
+[33mcommit a8e2321659de1a87774e17e2a585b7a12d44da62[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 15:28:29 2023 +0300
+
+    NOTE ADDED
+
+[33mcommit 7b85671267675318f6fef1324896b1037183af27[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 10:24:00 2023 +0300
+
+    Sign Up controller Done
+
+[33mcommit 4ee13233a752256f5dde6b6bc446d8d4a642efaa[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 10:17:49 2023 +0300
+
+    Controller developing
+
+[33mcommit b4d92bb861368e9976d3938e97d41220d9997478[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 09:12:21 2023 +0300
+
+    Icon added to Manifest
+
+[33mcommit 6b8c27802e37bdf82fb07c0f6615208255cddb1f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 09:12:01 2023 +0300
+
+    App Icon UI added with asset manager
+
+[33mcommit 796b887a18c55c2871cb03fe8313522b11a9688a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 02:44:02 2023 +0300
+
+    Alert Dialog created
+
+[33mcommit 121106d9181b028a8e437a2dc01e5ac5e64bde8d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 30 01:46:53 2023 +0300
+
+    UI fixing
+
+[33mcommit 30c18ff807885adec5d91680517e9aaadae9cbb8[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 23:57:28 2023 +0300
+
+    TOAST cleared
+
+[33mcommit 32e323967baadc0ae5bb68e67494ece74e94eece[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 23:21:20 2023 +0300
+
+    TOAST Message deleted
+
+[33mcommit 1c2ae084fe46e2b46c0cac450df0853cfbce7c92[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 22:18:56 2023 +0300
+
+    UI Fixed again and again
+
+[33mcommit b932d1814875327c13d7773c1bbf1c616e5c78bd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 19:28:32 2023 +0300
+
+    UI Fixed again and private Chat recycler done
+
+[33mcommit a18ff0feb8ff2807bb7f5e24fe3e0a2aee22e4c2[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 19:10:48 2023 +0300
+
+    UI Fixed
+
+[33mcommit 43c41db45d377511ffce6a928f633c2f7cb08d46[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 29 15:12:31 2023 +0300
+
+    Privat Message DONE
+
+[33mcommit b61943d38089b6f2fc941c9571ffaa29dcde7349[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 21:46:15 2023 +0300
+
+    UUID doesnt see
+
+[33mcommit 7221699e89f466126ac1c59dc323ad2000c713a5[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 20:57:05 2023 +0300
+
+    UUID taked
+
+[33mcommit 93ecde04cd710c99dc5dbe08e3534d3e62469e76[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 16:36:46 2023 +0300
+
+    toUUID transport to main scope
+
+[33mcommit c4d955b184173e55bb5be4845ca2afa764eed997[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 16:26:42 2023 +0300
+
+    UUID taked a new collection on FB
+
+[33mcommit e7c77ecc21a173db347877324b3a8741a659da3b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 06:37:54 2023 +0300
+
+    UI fixed
+
+[33mcommit 67518216a95ea954fb8bf59556054573711af7c3[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 28 06:35:52 2023 +0300
+
+    some gabs was fill
+
+[33mcommit d7b95ce16e4427b0c36911f45842c7559101dc01[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 27 23:44:15 2023 +0300
+
+    ne package added
+
+[33mcommit 9a9614fd7be51e79f8f8792600998d90fb0ce352[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 27 23:42:06 2023 +0300
+
+    profile picture taked
+
+[33mcommit 9c11511b06f28b392afbdaa38f80dad9b314f1fe[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 27 22:04:42 2023 +0300
+
+    list created for take image PP
+
+[33mcommit a092922b74b1fe962fa2030b5efd5648369359a8[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 26 17:31:50 2023 +0300
+
+    fixed
+
+[33mcommit e0eb097417057db772900b750b21819d0006925a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 26 13:48:05 2023 +0300
+
+    opposite chat done
+
+[33mcommit 2216db1c27d59a2ed26953636269ffed311ff838[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 25 21:58:09 2023 +0300
+
+    We took toUUID,from UUID
+
+[33mcommit 8eb0aa8a1d2bad1e8757b8b95f6514cedbad3db2[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 25 21:57:52 2023 +0300
+
+    saved
+
+[33mcommit f65807e296e16789f79baa385edb9fe99a601b17[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 24 16:10:39 2023 +0300
+
+    user name integrated to title bar
+
+[33mcommit 0ef4a154a11855c747a37bf8537b574a2a02b9a3[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 24 00:04:44 2023 +0300
+
+    PM done
+
+[33mcommit f12054c19726ba3b08c8fb92643334d10fb729d3[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 22:35:02 2023 +0300
+
+    Chat can sending, atm
+
+[33mcommit 6ad14b8cb7d9c32068025205736cd75e0bec9c0c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 21:35:18 2023 +0300
+
+    DiffUtil created
+
+[33mcommit e019bd64d0d1721be834d703607ff54481fb403d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 20:50:11 2023 +0300
+
+    Private Message was integrate
+
+[33mcommit 2aca5810b8444e4d05f1aca78124e5bd3fd82f55[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 20:17:19 2023 +0300
+
+    Private Message was integrate
+
+[33mcommit 6de5c49b1955da4630b46407c98e5f8e8dad2f1d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 18:36:39 2023 +0300
+
+    Private message data class created
+
+[33mcommit d7ecd08fcc4ff68d9a6dd3b6bb75dac31bcd1508[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 23 18:14:38 2023 +0300
+
+    Fragments fixed
+
+[33mcommit 26626a5857cd3e8faa1ec532e9f95e5e4927b228[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 18:39:50 2023 +0300
+
+    I didnt reach to ImageRecycler
+
+[33mcommit f43739d059f02d99ab4f6f69ceee27d458d3b384[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 16:01:17 2023 +0300
+
+    Fixed problems
+
+[33mcommit 9e4310f08937130d86845ea67633a887ded03667[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 15:33:42 2023 +0300
+
+    UserProfileMenuFragment.kt DOne
+
+[33mcommit d657e1a41dc48050d9fbc9089341a913a8eb03de[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 14:47:58 2023 +0300
+
+    Adapter crashed
+
+[33mcommit 4b17188573fd3f55c8ddff7a02aaa7b780837ddb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 12:01:22 2023 +0300
+
+    Layout Inflater created
+
+[33mcommit 24a7766601e44d8e200c38c72d3fd50f6c808dde[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 11:19:22 2023 +0300
+
+    Adapter integrated to UserProfileMenuFragment.kt
+
+[33mcommit cdfea196e66c7e894cd3efa722c3bd08036efcf6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 10:51:02 2023 +0300
+
+    Profile Info integrated to Recycler View
+
+[33mcommit 7fbbff135b8f8cfba5e1e665968a757d736b4c4d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 10:45:41 2023 +0300
+
+    View Binding added to UserProfileMenuFragment.kt
+
+[33mcommit ea28bd287a62ca4748848bfa23ebe10c9bff41ab[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 10:42:31 2023 +0300
+
+    All Profile UI names changed on xml
+
+[33mcommit 991609d3afc0d0552c5f1aaaf756a8fec67446df[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 22 10:38:09 2023 +0300
+
+    onview created created
+
+[33mcommit a1d73410e310e11530beb88f7bbe96aa22e42a44[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 21 20:52:49 2023 +0300
+
+    UserProfile UI Created
+
+[33mcommit 8b558397ad4f12cd5a30d461221ab990c3fe8900[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 21 20:50:29 2023 +0300
+
+    UserProfile Created
+
+[33mcommit 17976b5659d4c8422ecdc5f51f2694552d44cd57[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 21 20:44:52 2023 +0300
+
+    Argument added
+
+[33mcommit 98bed2c44482704ee939e668fbe65af3762375c3[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 20 23:50:23 2023 +0300
+
+    Argument added
+
+[33mcommit 9729d44d87900c6693e915939d7054e18e73cd79[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 20 23:33:03 2023 +0300
+
+    User uid FALSED
+
+[33mcommit abf4d1467781a9cf84123c6ecbe208c7c599a59b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 20 23:07:29 2023 +0300
+
+    User uid taked
+
+[33mcommit c511fd4a96a5f67bad5bb2a64f86521214e78804[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 19 16:14:59 2023 +0300
+
+    i did take email and uuid who is send to message?
+
+[33mcommit 735e1625eff0f62a251933ee862828ff185d2c3c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 19 16:02:09 2023 +0300
+
+    privateMessage button working
+
+[33mcommit fd5dfcf421495aed80e19fee72e2e95395c4f7cc[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 19 15:43:05 2023 +0300
+
+    Private Chat infos taking
+
+[33mcommit a66689e7df664d73e54676844a08608b58f3770d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 11:19:10 2023 +0300
+
+    PrivateChatFragmentRoom.kt view binding created
+
+[33mcommit 7edeb014b69f014af8a95c6f1de04e3ba332d3c5[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 09:47:13 2023 +0300
+
+    UI Fixed
+
+[33mcommit f7f2ded2f88731b448c1f91dc00acbd3a71da72b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 08:24:21 2023 +0300
+
+    All ET And TV fixed like Auto Scale
+
+[33mcommit a1f3f0302d36e33a8142b3e90587bf10f34ada27[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 08:20:35 2023 +0300
+
+    Answer raw done
+
+[33mcommit 2d960706bc5cfeaadc388027095aff2deb47efc1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 08:15:30 2023 +0300
+
+    Auto scale up done for ET and TV
+
+[33mcommit c5b0f183d1326c51356ee620e7d8d8fc823fbbe6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 17 08:04:38 2023 +0300
+
+    Max text Lines created
+
+[33mcommit 9d3bd12e673a0248e3250056dde5dfe1e3f41a1d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 16 23:30:13 2023 +0300
+
+    RV Adapter almost done
+
+[33mcommit 99236ca887895921852762a4978a8df2c9b55090[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 16 23:29:16 2023 +0300
+
+    PM Raw added
+
+[33mcommit 2dd44d63a1077b030a591d0ad487b702904cf0f6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 16 23:25:07 2023 +0300
+
+    recycler view added
+
+[33mcommit 5efe0a75729d67c2c348651a4d75b6d7bf78f1e0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 16 23:24:40 2023 +0300
+
+    Adapter ADDED for PM
+
+[33mcommit 8c675bf93da7af7b7f8de0cc29532a5c1ae198fa[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 15 15:44:43 2023 +0300
+
+    PrivateChatRoom created
+
+[33mcommit dcc69bc11849c19f13c78cece377381247e87088[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 15 15:18:08 2023 +0300
+
+    Action bar changing everytime
+
+[33mcommit c09ac377a8aca318ed599a2e196085d40229936b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 15 12:20:10 2023 +0300
+
+    UI fixed
+
+[33mcommit 0b644212146c401ae75348896101d4b5c9a0ac8c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 15 09:15:10 2023 +0300
+
+    Circular image done
+
+[33mcommit 84839fe044b5e7fdda4b18d13ce14bc268e6923b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 15 07:55:18 2023 +0300
+
+    UI Fixed
+
+[33mcommit f300078b842482a4f8857b0475ce0f24f419001b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:43:25 2023 +0300
+
+    Image added to Recycler Adapter
+
+[33mcommit 3d393b7f2c84062fe9b133581c2e1bd293c119fb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:37:05 2023 +0300
+
+    User Image added to PrivateChatFragment.kt
+
+[33mcommit 23bee498827b56909a5809d5c01876e8dee4aa3d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:34:52 2023 +0300
+
+    USER PICTURE SAVED
+
+[33mcommit dc62e30f7990de0782fd55c6b22f26bd561a2ff2[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:23:19 2023 +0300
+
+    changes
+
+[33mcommit e6b2111b1ffa423354e50d160a3bc089e3b62876[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:23:06 2023 +0300
+
+    petName added to Util
+
+[33mcommit f1a2168cd1e2929612e7b9c00fc094695dd3248e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 14:22:40 2023 +0300
+
+    Photo icon was add
+
+[33mcommit 3618ce795a2c45ed562be287c9a4dc6cffeae075[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 09:09:44 2023 +0300
+
+    View Binding did add
+
+[33mcommit d531037f7be35c028078e396137d4fb1e4d6e87b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 08:18:10 2023 +0300
+
+    username and pp will add
+
+[33mcommit afa5c81d2151c39c629c9fbaf2911be9115d22d0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 14 08:08:35 2023 +0300
+
+    padding changed
+
+[33mcommit 485b3946b3edd151f34b1c59b3c77536664f93d9[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 23:48:38 2023 +0300
+
+    UI  fixed
+
+[33mcommit abe616c71f524ce1719743b71d01f53c5c93c802[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 23:41:15 2023 +0300
+
+    Each Other Entry UUID fixed, we took 1 times just
+
+[33mcommit acd04f1660b652552137611688f4047d2c7d1a8f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 23:29:49 2023 +0300
+
+    DONE
+
+[33mcommit 59c95230da884fefea733aa139f6bce688938bee[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 22:34:32 2023 +0300
+
+    UUID TOOK WITH EMAIL ON HOMEFRAGMENT
+
+[33mcommit 0639aa50c8fffe0647c6f863e1b3b906eb9215a0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 22:06:32 2023 +0300
+
+    UUID TOOK WITH EMAIL
+
+[33mcommit 56d288200537c557213d12f8e8ce62ebee86e9b0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 21:25:16 2023 +0300
+
+    UUID will take
+
+[33mcommit 3879ec423965ef56a338bf0b7622d3134a520e9c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 13 19:06:14 2023 +0300
+
+    UI color fixed
+
+[33mcommit e4c78d2e5697ec758e6105cb67c9e96cbd090d85[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 15:30:18 2023 +0300
+
+    Private chat fragment VB done
+
+[33mcommit 652a0c7abe3d40a30995cbd362127c982acfd610[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 15:27:37 2023 +0300
+
+    Adapter binded with Private_chat_raw
+
+[33mcommit 8de0c72dfb91357f01da91de17562c403b79ca64[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 15:20:50 2023 +0300
+
+    private chat raw crated
+
+[33mcommit 7cee714df16d3e096c3e38eb296d8364d855b2d0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:44:41 2023 +0300
+
+    nav added
+
+[33mcommit 79c67543ba36bfcdb5fa1323a3f901b44069667a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:42:56 2023 +0300
+
+    private message part added
+
+[33mcommit da5b80455ede3dcc5dc92430740cc3711dbb5b27[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:36:10 2023 +0300
+
+    user menu logo was changed
+
+[33mcommit be012b4682366fd5508ba187ead82e464d898ae6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:34:53 2023 +0300
+
+    corner implementaded
+
+[33mcommit 11f60baab8aaccfbc24f99cac64334a148f14196[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:34:33 2023 +0300
+
+    corner added
+
+[33mcommit f04925c52d5219b75e2ca4278c05d269f38b2a4b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:34:02 2023 +0300
+
+    corner created
+
+[33mcommit 98d94e33936eb752b328732291d57e69c361a36b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 14:33:46 2023 +0300
+
+    group chat was changed
+
+[33mcommit 1ade175bc319485a6003e1351b3bf140948df2e8[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 12 11:00:11 2023 +0300
+
+    UI Fixed with Another Emulator
+
+[33mcommit 4ef6717222b13fbde17ba836f66066f02d77db55[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 13:02:28 2023 +0300
+
+    when chat fragment open my RV going to end Item side
+
+[33mcommit 5a50359c437ff22ce9c3618ca16afa8e13e4b9fb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 12:55:38 2023 +0300
+
+    when i click to ET RV going to last Item,
+
+[33mcommit 57ba42817577539d78d2d795a6464178ea0e046d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 12:49:13 2023 +0300
+
+    Scroll to bottom of RecyclerView programmatically DONE
+
+[33mcommit 01e5b68ef1f6077feb2e9d5abbdce6acbf145da1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 11:35:53 2023 +0300
+
+    ADAPTER binded with diffutil
+
+[33mcommit dbb36f6811748a80b3d100fb1a685f1f6a334104[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 11:35:31 2023 +0300
+
+    UI DONE
+
+[33mcommit 8d3756438719429ab697c5216bb502199300e303[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 11:35:11 2023 +0300
+
+    Diffutil created
+
+[33mcommit fe2e95288b0c8ec0c50632f0fc09ec2877f442a4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 11:17:50 2023 +0300
+
+    Recycler changed
+
+[33mcommit ad6121e64ccb31bacc0b0f299fc4ea05ec0a0ef4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 09:32:21 2023 +0300
+
+    TimeStamp options receive
+
+[33mcommit 0471f94c32d043780e185eea8cb96a95ce0f9056[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 08:09:55 2023 +0300
+
+    worked
+
+[33mcommit 9bb1b9efccb414314ed5112814d039ee5cd3e0bf[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 11 08:01:58 2023 +0300
+
+    chat recycler raw added
+
+[33mcommit 416bd8f846abb5b26b1b40e2d355f19975821431[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 10 19:52:13 2023 +0300
+
+    gettin better
+
+[33mcommit cc77b061a404d5850763ded74fd272815ff43b61[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Jan 10 07:55:43 2023 +0300
+
+    Problem solved data class changed with "var"
+
+[33mcommit 167e1b8cc99c4f1f1bfc9c578e379f2b457d7836[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 15:59:54 2023 +0300
+
+    chat recycler adapter almost done
+
+[33mcommit 03ea1949e494524e53d22dbe336a2a4b30328e37[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 11:27:22 2023 +0300
+
+    biding did ondestroy
+
+[33mcommit f5572f1e8661cea908f7b2a7abbe4573cff414ba[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 11:00:53 2023 +0300
+
+    firebase chat creating
+
+[33mcommit 8e7ecfb67860b8bb0cb53633bc27bf968ba967ef[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 08:46:20 2023 +0300
+
+    Keyboard slide added
+
+[33mcommit 73dfef9d27ef8e1ffd1a7a04b14f21409dac3ae0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 08:26:00 2023 +0300
+
+    REcycler fixed for nav
+
+[33mcommit c75d5fb31d12cf1b4886375af327f499a1b0d73f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 9 08:23:05 2023 +0300
+
+    Some property fixed
+
+[33mcommit bf05f150d296961e12e8c6893b5cdb54f2679ce7[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 8 16:23:33 2023 +0300
+
+    user_menu fxfied
+
+[33mcommit d615bc83053fe40a366d1d37bb150a7762c92b37[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 8 14:43:35 2023 +0300
+
+    User Profile infos deleted
+
+[33mcommit c38320e136d8c66afee0007bdc9c9a11804863d8[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 8 13:25:08 2023 +0300
+
+    Everything is working without User PP
+
+[33mcommit 5b0768be2499412d050262257aa2cc9bb3a2ca43[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 7 14:39:52 2023 +0300
+
+    user pet Image will select
+
+[33mcommit a27dc55a8d9abebac07f112c257c6f32b33587b0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 7 14:30:04 2023 +0300
+
+    New Infos was added to RV
+
+[33mcommit 1e3e80c6f889345e347735eb8d0e73a556c09627[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 7 13:21:37 2023 +0300
+
+    Imports was optimize
+
+[33mcommit 074c90799ad6f9cdba25a0c8a87224e388d50b02[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Jan 7 12:59:31 2023 +0300
+
+    Imports did optimize
+
+[33mcommit 8c415f3da9dacb637c742f61550b0b7aaef83ee2[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 17:39:52 2023 +0300
+
+    MVVM crashed
+
+[33mcommit 76e9edf0a31eb8cdf48a1f41618979d57cb424ec[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 16:59:39 2023 +0300
+
+    Profile Binding done
+
+[33mcommit 79597d49f38610a63d3651de98a2ea141c090dbc[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 16:08:28 2023 +0300
+
+    Recycler Raw binded
+
+[33mcommit 7bd01e87ba3ed3ba54c0bb2a14f9d2d10e38984d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 15:41:11 2023 +0300
+
+    User Profile view creating
+
+[33mcommit bde81ec71da57d552cd7402185ef890d3215e3ee[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 15:26:09 2023 +0300
+
+    Profile raw created
+
+[33mcommit a90c2d70cc7b89e15838d9c80525a28d433873d2[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 15:08:28 2023 +0300
+
+    chat part created
+
+[33mcommit 4572ddb77621176a0340fe5342c4332a784c0d61[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 14:40:14 2023 +0300
+
+    Big changed
+
+[33mcommit 2aa6141f7a671a642785b0984145aa2262830274[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 13:58:01 2023 +0300
+
+    Glide integrated to Recycler
+
+[33mcommit d0cb73b122656684a9c04d8d75f7623648c5bb80[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 13:33:48 2023 +0300
+
+    Glide integrated to Recycler
+
+[33mcommit 3a8020e5df4c6dcca664b54385bb4272da50c8cb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 13:26:25 2023 +0300
+
+    Glide done
+
+[33mcommit 9d49c98a46bcfe40ef04caf3e359868bd8a68e0e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Jan 6 11:24:17 2023 +0300
+
+    glide added
+
+[33mcommit fb8b3ef4b9e39df706beedc50cc94bf19435c21d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 23:26:39 2023 +0300
+
+    Infos done without Image
+
+[33mcommit efd37368ec551dc0d98a2a71480e52969f3e9b90[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 22:52:22 2023 +0300
+
+    Recycler adapter created
+
+[33mcommit 11cea4ae0b4edf28f1e98c6ce4ef79fc781a863a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 17:38:42 2023 +0300
+
+    recycler almost done
+
+[33mcommit 8a939d481b2a65f4daf6a3e9f885d15d86a17a95[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 17:36:30 2023 +0300
+
+    recycler almost done
+
+[33mcommit b248da3dbac864b211f438680d39f94fe63b37fd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 14:56:46 2023 +0300
+
+    recycler almost done
+
+[33mcommit c7992e8db7360a3802080240189606ad92bc1fef[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 09:13:58 2023 +0300
+
+    clear fun called
+
+[33mcommit 7efc000469c48c14538f10735229965add8cc63b[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 09:12:07 2023 +0300
+
+    Post class created for List container
+
+[33mcommit ec7211082efe9691d31637c856f404a63bc786e4[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Jan 5 08:19:25 2023 +0300
+
+    takes Data fun worked
+
+[33mcommit fd7dcc8c165ba921252708557ff4dec9389abc4f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:37:45 2023 +0300
+
+    before takeData fun
+
+[33mcommit a24fea4236d587e3a3c3c672c5ad2ea0071e7479[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:36:53 2023 +0300
+
+    for loop created
+
+[33mcommit 77b4c702ffd4f6ce1c7aa3e122106eb679a8707d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:34:19 2023 +0300
+
+    for loop created
+
+[33mcommit 8d84c623dc7ebb23e8e485570fbe843ce8da1d96[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:08:26 2023 +0300
+
+    controlled continue
+
+[33mcommit 19764aee367a12d1193d3460fbe0a70566edd12f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:07:33 2023 +0300
+
+    first controlled created
+
+[33mcommit dab0b897e2f778c05f2d089b50de92c43c846196[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:07:13 2023 +0300
+
+    first controlled created
+
+[33mcommit 3b8a0abc2bd9b7bea486640cbd35475a8a674daa[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 23:04:05 2023 +0300
+
+    takes data fun created
+
+[33mcommit 1ed4291a738c3965397e2cec0ffdd7d27a9c0177[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Jan 4 22:50:02 2023 +0300
+
+    email text was added
+
+[33mcommit ed899a45f4e12cf89d61e9bb85878b049cfdba32[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 19:18:53 2023 +0300
+
+    comments taked from database
+
+[33mcommit 25e6f5b8c930968b49c12fc8722c89d3a8fec4e3[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 17:09:26 2023 +0300
+
+    new Firebase database created
+
+[33mcommit c1f17a71ae6b8ee93e738206639bef524e1e75a6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 10:46:57 2023 +0300
+
+    New View Model created
+
+[33mcommit a8a022cd5a14870e6ff1a95cd4311d1cdf14d3ad[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 09:32:46 2023 +0300
+
+    User Email was created on Home Screen
+
+[33mcommit 54484911986e524e2ef3c3f4c3a99d5a72fda2d5[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 09:10:52 2023 +0300
+
+    Store Image to FB is working
+
+[33mcommit b01dcff6c0cfda23c3eb9519519c61b461052dac[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 08:43:09 2023 +0300
+
+    Store Image fun added
+
+[33mcommit 634b5a4c397d42c462ce7cf9bdf59807f4497f58[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 08:10:13 2023 +0300
+
+    FireStore added
+
+[33mcommit ef2646f1e670c8b62a9d3b84ae301752fff1ac37[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Jan 2 07:57:53 2023 +0300
+
+    UI changed
+
+[33mcommit 5e94e492abdf41dbf4b37584762868b4a558e80e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 16:19:48 2023 +0300
+
+    New Year commit
+
+[33mcommit b7b345f63df43850dff54975af388fc217482f9f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 15:10:09 2023 +0300
+
+    ReadExternalStorage added
+
+[33mcommit 0b340b0c80059fa7321dbe18f0bffedc5cea5171[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 15:08:55 2023 +0300
+
+    RecyclerAdapter created
+
+[33mcommit 45bdccbd5c59b92279270b467ecffd7491ae5f19[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 14:29:11 2023 +0300
+
+    Recycler Raw Done
+
+[33mcommit 317f969519c97ee1902ba322487941b46c758076[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 14:15:03 2023 +0300
+
+    recycler raw create
+
+[33mcommit fe0212f75b26823fac6c7df9258a173eff03b8be[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sun Jan 1 12:42:19 2023 +0300
+
+    UI Done
+
+[33mcommit e768df55cce041119fce501c00ae92870cb57845[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 21:19:33 2022 +0300
+
+    UI Done
+
+[33mcommit 2bca1d92eb2d4347f097ede8964a83d9ecc7507d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 21:19:16 2022 +0300
+
+    Big Changed
+
+[33mcommit 5c2c640f385bed0e6a443a74e9bbbcf4d14bb216[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 15:13:15 2022 +0300
+
+    Bottom Nav View Done
+
+[33mcommit ea76200bf8da766062e97ba2ff98ab2fbfdd3f18[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 13:31:18 2022 +0300
+
+    Bottom Nav View Done
+
+[33mcommit d94477adeb8ebac1e9da43953e042b64d90732c1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 08:45:52 2022 +0300
+
+    UI fixed
+
+[33mcommit d30bc87052f5d6dedbe5e7fb99c0af59ccb90d72[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Sat Dec 31 08:17:56 2022 +0300
+
+    Retrieve created
+
+[33mcommit 4f4a8cd0293d9bb2f38a49aa3ec7e35a8058f65d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Fri Dec 30 12:19:46 2022 +0300
+
+    Controller Done
+
+[33mcommit f53c1ba41ae8a6fd47b2abf797cebfa6b25fa434[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 21:52:35 2022 +0300
+
+    Controller Done
+
+[33mcommit 7fd448cb30bc7da625f935fd2cc0aa7a42f90f02[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 21:20:06 2022 +0300
+
+    Controller Done
+
+[33mcommit 4baf5aace5282b4ae39623443a5a87c6055696f7[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 20:35:23 2022 +0300
+
+    MVVM prepared
+
+[33mcommit bcc817b3ebb6d7a6564a50ebf0834f3defbad4d7[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 20:31:01 2022 +0300
+
+    nav graph changed
+
+[33mcommit 6b6191b91f87e774dc5cfc88a16e10866dbdeffe[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 20:28:44 2022 +0300
+
+    Lifecycle was add
+
+[33mcommit 5326fcc3b37eca52ec49ac8f77a516a26c0fd6c6[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 19:36:53 2022 +0300
+
+    Ui prepared
+
+[33mcommit deb6d1f85386596472f278779362d066867ba09d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 19:35:29 2022 +0300
+
+    Fragments opened
+
+[33mcommit 3b0cd34d613994255df82f5d8124f8ddd35b6d31[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 18:08:48 2022 +0300
+
+    Data added for FB
+
+[33mcommit 3d95d34aa32c7d4189248061ecac0647b3d563c7[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 15:28:56 2022 +0300
+
+    Firestore SDK ADDED
+
+[33mcommit 95950a5a273c02d931ace42daed0ca7e58ed5d40[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 15:18:13 2022 +0300
+
+    UI fixed
+
+[33mcommit f400d50045319277e62d5d7e13e40e0e714c1eca[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 14:16:16 2022 +0300
+
+    UI Done
+
+[33mcommit 3e0945ec821c46b439057bfda18d75bc85fe6654[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 13:49:12 2022 +0300
+
+    cat jpg added
+
+[33mcommit a64c26e8ac80a236e1b985c874548db40bb683be[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Thu Dec 29 13:36:20 2022 +0300
+
+    UI Fixed
+
+[33mcommit 5fc83458b13ab0c491f9a563610f0912989782f7[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 21:50:06 2022 +0300
+
+    UI Done
+
+[33mcommit 964e7f14ba7d05b15a396a30cdb97fdfadce0ac9[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 19:20:34 2022 +0300
+
+    News fragments done for bottom nav bar
+
+[33mcommit 9f723b3a84d18bf7425ff7659062aa819092444c[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 19:20:06 2022 +0300
+
+    Padding
+
+[33mcommit ff8729b400c683e99ff9148108396d6b975423e1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 18:39:13 2022 +0300
+
+    Sıgn controll is done
+
+[33mcommit 6551e4a1e21ba653d316b0b8c8eb7692d18522cb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 18:25:40 2022 +0300
+
+    Util package opened
+
+[33mcommit 3bcaf6aea518226df9d438eba3ed655f87783a4e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 00:20:21 2022 +0300
+
+    icons added
+
+[33mcommit 8fe65cf73275594b880fdc9ce6f8c768bbdfd359[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Wed Dec 28 00:18:13 2022 +0300
+
+    bottom nav menu added
+
+[33mcommit 318ce68b9217b3f54fbf76f9359a087e2ff564ce[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:14:11 2022 +0300
+
+    auth Util was created
+
+[33mcommit f9c4a3c65508f48ff4b4dd8316d1a900a93c6409[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:14:00 2022 +0300
+
+    Menu codes writed
+
+[33mcommit 20195543e57e99087f694ed1f836584a2e6ce940[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:13:40 2022 +0300
+
+    auth init transported to Object
+
+[33mcommit f75b220b3443b3eb4b0002e6e8eb06ac1e41f9a5[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:13:16 2022 +0300
+
+    Menu added
+
+[33mcommit 0eb628baafd3a1307b6ec41a4efab8f1d55b411a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:13:02 2022 +0300
+
+    Actions addedd
+
+[33mcommit 850a591c4ba410914255074e5e65ca15d5854cfd[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 17:12:49 2022 +0300
+
+    View Binding added
+
+[33mcommit 17554b19be1a07361d2a92cb41cb8d14119b1d23[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 16:26:12 2022 +0300
+
+    nav created
+
+[33mcommit 95e46d6f06fd8dfb5d26edf0166a793b97bb3dde[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 14:47:02 2022 +0300
+
+    Google Was ADDED
+
+[33mcommit ba88dcbeec1cca440335340bea43c94899cd98c0[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 13:59:01 2022 +0300
+
+    SHA DONE
+
+[33mcommit 611e470caa3167552d809c0929a55a5bb602404d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 11:58:59 2022 +0300
+
+    Google depend added gradle
+
+[33mcommit fa25c57fa001e94b05c5c9574f9451786078cebb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 11:56:47 2022 +0300
+
+    Google auth
+
+[33mcommit f2823cb7a9cfe9d78e7a0168aa8fa38070e2001d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Tue Dec 27 00:49:59 2022 +0300
+
+    Toast message added
+
+[33mcommit 0992ab46d36add619525ca74d79613cab5b22cc1[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 22:26:24 2022 +0300
+
+    Toast message added
+
+[33mcommit 0bbfa8192202359fdf95eee55a7bf2be2211c55f[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 22:23:59 2022 +0300
+
+    Codes transported to other Fragment
+
+[33mcommit a624f1ca1670d6be43cccd95f105029d11114e2a[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 22:23:45 2022 +0300
+
+    UI Changed
+
+[33mcommit bb5f7ae42366d980230bbcee018b9d01596d8338[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 22:21:19 2022 +0300
+
+    nav host plugins added
+
+[33mcommit ce02d69dc8d88416830f8f3856fcd07ae1dfbf7d[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 21:47:19 2022 +0300
+
+    Fragments added
+
+[33mcommit 99c46f48d73d08e710dee97bb139021026f8e731[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 21:46:56 2022 +0300
+
+    UI added
+
+[33mcommit 9c9f4177ccf65bda3748c2a6235ff2dd16873fcc[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 20:41:44 2022 +0300
+
+    Nav was add
+
+[33mcommit a66fab8260dd363156c8e44b2e01bd93321eb2fb[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 20:27:45 2022 +0300
+
+    Auth settings
+
+[33mcommit b71913d906f4b1c677edeabf438b7df41a1d2e1e[m
+Author: Wizardeirr <113922745+Wizardeirr@users.noreply.github.com>
+Date:   Mon Dec 26 20:21:13 2022 +0300
+
+    Initial commit

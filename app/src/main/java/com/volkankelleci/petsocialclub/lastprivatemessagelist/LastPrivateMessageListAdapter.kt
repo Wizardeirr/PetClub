@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.auth.data.model.User
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.PrivateMessage
+import com.volkankelleci.petsocialclub.data.Timestamp
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.util.Util.getToUUIDFromSharedPreferences
 import kotlinx.android.synthetic.main.chat_list_raw.view.lastMessage

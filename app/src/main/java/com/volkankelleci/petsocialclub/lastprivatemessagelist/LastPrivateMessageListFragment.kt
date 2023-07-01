@@ -14,6 +14,7 @@
     import com.google.firebase.firestore.Query
     import com.volkankelleci.petsocialclub.R
     import com.volkankelleci.petsocialclub.data.PrivateMessage
+    import com.volkankelleci.petsocialclub.data.Timestamp
     import com.volkankelleci.petsocialclub.data.UserInfo
     import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
     import com.volkankelleci.petsocialclub.util.Util
@@ -22,6 +23,12 @@
     import com.volkankelleci.petsocialclub.util.Util.getToUUIDFromSharedPreferences
     import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
     import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
+    import java.sql.Time
+    import java.time.Instant
+    import java.time.LocalDateTime
+    import java.time.ZoneId
+    import java.time.format.DateTimeFormatter
+    import java.util.Date
 
     class LastPrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),
         LastPrivateMessageListAdapter.Listener {
