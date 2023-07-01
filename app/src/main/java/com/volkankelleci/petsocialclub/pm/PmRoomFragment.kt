@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
@@ -20,7 +19,6 @@ import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageET
 import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
-import kotlinx.android.synthetic.main.private_chat_raw.userUUID
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -82,6 +80,7 @@ class PmRoomFragment : Fragment() {
             val localDateTime = LocalDateTime.ofInstant(timeStamp, ZoneId.systemDefault())
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
             val userDate = localDateTime.format(formatter)
+
             //timeFormatter Done
             val userUUID = auth.currentUser!!.uid
             val userInfoMap = HashMap<String, Any>()

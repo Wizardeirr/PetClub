@@ -18,6 +18,7 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
+import java.util.Calendar
 import kotlin.time.Duration.Companion.nanoseconds
 
 class LastPrivateMessageListAdapter(
@@ -37,21 +38,28 @@ class LastPrivateMessageListAdapter(
 
     override fun onBindViewHolder(holder: PrivateMessageListFragmentPart, position: Int) {
         if (position < userMessage.size && position < userInfo.size) {
-            val currentTime=System.currentTimeMillis()
-            val timestampDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(currentTime), ZoneId.systemDefault())
-            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-            val formattedTimestamp = timestampDateTime.format(formatter)
-            println(formattedTimestamp)
 
             val lastMessage = userMessage[position]
-            val userInfo=userInfo[position]
-            holder.itemView.lastMessage.text = lastMessage.message
-            holder.itemView.timerMessage.text=lastMessage.timestamp.substring(11,16)
-
-            holder.itemView.setOnClickListener {
-                listener.onItemClickListener(userMessage[position])
-
+            //val userInfo=userInfo[position]
+            /*val currentTime=System.currentTimeMillis()
+            println(currentTime/1000)
+            if(currentTime/1000000000000>2){
+                holder.itemView.timerMessage.text=lastMessage.timestamp.substring(5,11)
             }
+
+             */
+
+            val currentTime = Calendar.getInstance().time
+            println(currentTime)
+            // val timeDifferenceInMillis = currentTime.time - lastMessage.timestamp
+            //  val timeDifferenceInSeconds = timeDifferenceInMillis / 1000
+
+                holder.itemView.lastMessage.text = lastMessage.message
+                holder.itemView.timerMessage.text=lastMessage.timestamp.substring(11,16)
+                holder.itemView.setOnClickListener {
+                    listener.onItemClickListener(userMessage[position])
+                }
+
         }
 
         }
