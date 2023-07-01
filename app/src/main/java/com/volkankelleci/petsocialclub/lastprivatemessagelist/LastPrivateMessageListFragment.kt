@@ -77,6 +77,7 @@
                                     val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
                                     user.add(downloadInfos)
 
+
                                 }
                                 adapter.notifyDataSetChanged()
                             }

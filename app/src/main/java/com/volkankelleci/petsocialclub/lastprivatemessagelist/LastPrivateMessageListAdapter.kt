@@ -10,9 +10,14 @@ import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.data.Timestamp
 import com.volkankelleci.petsocialclub.data.UserInfo
+import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
+import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import com.volkankelleci.petsocialclub.util.Util.getToUUIDFromSharedPreferences
 import kotlinx.android.synthetic.main.chat_list_raw.view.lastMessage
 import kotlinx.android.synthetic.main.chat_list_raw.view.timerMessage
+import kotlinx.android.synthetic.main.chat_list_raw.view.userImageLastMessage
+import kotlinx.android.synthetic.main.chat_list_raw.view.userNameForChat
+import kotlinx.android.synthetic.main.fragment_main.view.imageView
 import java.sql.Time
 import java.text.SimpleDateFormat
 import java.time.Instant
@@ -43,8 +48,9 @@ class LastPrivateMessageListAdapter(
         if (position < userMessage.size && position < userInfo.size) {
 
             val lastMessage = userMessage[position]
+            val userInfo = userInfo[position]
             //currentTime Taking
-            val currentTime = Calendar.getInstance().time
+          val currentTime = Calendar.getInstance().time
             val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
             val savedTime = "${lastMessage.timestamp}" // Kaydedilen zaman
             val savedDate = dateFormat.parse(savedTime)
@@ -61,7 +67,12 @@ class LastPrivateMessageListAdapter(
 
             }
 
+
                 holder.itemView.lastMessage.text = lastMessage.message
+                holder.itemView.userNameForChat.text=userInfo.userName
+                holder.itemView.userImageLastMessage.downloadImageToRecycler(userInfo.userImage,
+                    createPlaceHolder(context)
+                )
                 holder.itemView.setOnClickListener {
                     listener.onItemClickListener(userMessage[position])
                 }
@@ -70,7 +81,7 @@ class LastPrivateMessageListAdapter(
 
         }
     override fun getItemCount(): Int {
-        return userInfo.size
+        return userMessage.size
     }
     fun updateList(newList: ArrayList<PrivateMessage>) {
         userMessage = newList

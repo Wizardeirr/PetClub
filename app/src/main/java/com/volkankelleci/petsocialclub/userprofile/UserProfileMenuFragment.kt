@@ -53,7 +53,7 @@ class UserProfileMenuFragment : Fragment() {
                                     binding.userSignEmail.text="E-mail:  ${downloadInfos.userEmail}"
                                     binding.petNameProfile.text="Pet Name:  ${downloadInfos.petName}"
                                     binding.passwordSignProfile.text="${downloadInfos.userPassword}"
-                                    signImageViewProfile.downloadImageToRecycler(downloadInfos.userImage,
+                                    binding.signImageViewProfile.downloadImageToRecycler(downloadInfos.userImage,
                                         createPlaceHolder(requireContext()))
 
                                 }
