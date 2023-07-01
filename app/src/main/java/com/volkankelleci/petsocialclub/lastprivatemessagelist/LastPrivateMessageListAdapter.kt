@@ -42,6 +42,7 @@ class LastPrivateMessageListAdapter(
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
             val formattedTimestamp = timestampDateTime.format(formatter)
             println(formattedTimestamp)
+
             val lastMessage = userMessage[position]
             val userInfo=userInfo[position]
             holder.itemView.lastMessage.text = lastMessage.message
