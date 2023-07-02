@@ -6,10 +6,8 @@
     import android.view.View
     import android.view.ViewGroup
     import androidx.activity.addCallback
-    import androidx.core.content.ContentProviderCompat.requireContext
     import androidx.fragment.app.Fragment
     import androidx.navigation.Navigation
-    import androidx.navigation.Navigation.findNavController
     import androidx.navigation.fragment.findNavController
     import androidx.recyclerview.widget.LinearLayoutManager
     import com.google.firebase.firestore.Query
@@ -21,9 +19,6 @@
     import com.volkankelleci.petsocialclub.util.Util.database
     import com.volkankelleci.petsocialclub.util.Util.getToUUIDFromSharedPreferences
     import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
-    import java.time.ZoneId
-    import java.time.format.DateTimeFormatter
-    import java.util.Date
 
     class LastPrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),
         LastPrivateMessageListAdapter.Listener {
@@ -51,6 +46,7 @@
             //fun
 
             val toUUID = getToUUIDFromSharedPreferences(requireContext())
+            println(toUUID)
             takeAllUsers()
             val layoutManager=LinearLayoutManager(activity)
             userChatPartRV.layoutManager=layoutManager
@@ -64,6 +60,7 @@
             database.collection("privateChatInfo")
                 .document(toUUID)
                 .collection(auth.currentUser!!.uid)
+                .orderBy("userDate",Query.Direction.DESCENDING).limit(1)
                 .get()
                 .addOnSuccessListener { result ->
                     if (result != null) {
@@ -89,33 +86,6 @@
                 }
 
         }
-            /*database.collection("privateChatInfo/$toUUID/${auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.DESCENDING).limit(1)
-                .addSnapshotListener { value, error ->
-                    if (error != null) {
-                    } else
-                        if (value != null) {
-                            if (value.isEmpty == false) {
-                                val documents = value.documents
-                                user.clear()
-                                for (document in documents) {
-                                    document.get("privateChatInfo")
-                                    val privateMessageUserText = document.get("userText").toString()
-                                    val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
-                                    val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
-                                    val privateChatUserDate = document.get("userDate").toString()
-                                    val privateChatToUUID = document.get("toUUID").toString()
-                                    val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
-                                    user.add(downloadInfos)
-
-
-                                }
-                                adapter.notifyDataSetChanged()
-                            }
-                        }
-                }
-
-             */
-
 
         fun takeAllUsers(){
                 database.collection("userProfileInfo")
@@ -147,7 +117,6 @@
             val toUUID = getToUUIDFromSharedPreferences(requireContext())
             val action=LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment("",toUUID)
             findNavController().navigate(action)
-            println(privateMessage.timestamp)
 
         }
 

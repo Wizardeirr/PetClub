@@ -47,36 +47,40 @@ class LastPrivateMessageListAdapter(
     override fun onBindViewHolder(holder: PrivateMessageListFragmentPart, position: Int) {
         if (position < userMessage.size && position < userInfo.size) {
 
-            val lastMessage = userMessage[position]
+           val lastMessage = userMessage[position]
             val userInfo = userInfo[position]
-            //currentTime Taking
-            /*val currentTime = Calendar.getInstance().time
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-            val savedTime = "${lastMessage.timestamp}" // Kaydedilen zaman
-            val savedDate = dateFormat.parse(savedTime)
-            val timeDifferenceInMillis = currentTime.time - savedDate.time
-            val hoursDifference = timeDifferenceInMillis / (1000 * 60 * 60) // Saat cinsinden fark
+            /*
+           //currentTime Taking
+           val currentTime = Calendar.getInstance().time
+           val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+           val savedTime = "${lastMessage.timestamp}" // Kaydedilen zaman
+           println(savedTime)
+           val savedDate = dateFormat.parse(savedTime)
+           val timeDifferenceInMillis = currentTime.time - savedDate.time
+           val hoursDifference = timeDifferenceInMillis / (1000 * 60 * 60) // Saat cinsinden fark
 
-            println(hoursDifference)
-            if (hoursDifference>0 && hoursDifference<24){
-                holder.itemView.timerMessage.text=lastMessage.timestamp.substring(11,16)
-            }else if (hoursDifference>24){
-                holder.itemView.timerMessage.text="Dün"
-            }else if (hoursDifference>48){
-                holder.itemView.timerMessage.text=lastMessage.timestamp.substring(5,11)
+           if (hoursDifference>0 && hoursDifference<24){
+               holder.itemView.timerMessage.text=lastMessage.timestamp.substring(11,16)
+           }else if (hoursDifference>24){
+               holder.itemView.timerMessage.text="Dün"
+           }else if (hoursDifference>48){
+               holder.itemView.timerMessage.text=lastMessage.timestamp.substring(5,11)
+           }
 
-            }
-
-             */
+            */
 
 
                 holder.itemView.lastMessage.text = lastMessage.message
-                holder.itemView.userNameForChat.text=userInfo.userName
-                holder.itemView.userImageLastMessage.downloadImageToRecycler(userInfo.userImage,
+                holder.itemView.timerMessage.text=lastMessage.timestamp
+               // holder.itemView.userNameForChat.text=userInfo.userName
+              /*  holder.itemView.userImageLastMessage.downloadImageToRecycler(userInfo.userImage,
                     createPlaceHolder(context)
                 )
+
+               */
                 holder.itemView.setOnClickListener {
-                    listener.onItemClickListener(userMessage[position])
+                    listener.onItemClickListener(userMessage.get(position))
+
                 }
 
         }
