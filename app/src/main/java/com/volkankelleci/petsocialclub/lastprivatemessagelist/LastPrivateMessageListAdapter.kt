@@ -49,8 +49,7 @@ class LastPrivateMessageListAdapter(
 
            val lastMessage = userMessage[position]
             val userInfo = userInfo[position]
-            /*
-           //currentTime Taking
+            //currentTime Taking
            val currentTime = Calendar.getInstance().time
            val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
            val savedTime = "${lastMessage.timestamp}" // Kaydedilen zaman
@@ -66,8 +65,6 @@ class LastPrivateMessageListAdapter(
            }else if (hoursDifference>48){
                holder.itemView.timerMessage.text=lastMessage.timestamp.substring(5,11)
            }
-
-            */
 
 
                 holder.itemView.lastMessage.text = lastMessage.message

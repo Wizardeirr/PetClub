@@ -19,6 +19,10 @@ import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageET
 import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -72,33 +76,36 @@ class PmRoomFragment : Fragment() {
 
         //When Send button click what we do
         binding.privateMessageSendButton.setOnClickListener {
+            val delayInMS=1000L
+            CoroutineScope(Dispatchers.IO).launch {
+                val userEmail = auth.currentUser!!.email.toString()
+                val userText =binding.privateMessageET.text.toString()
+                val timeStamp= Instant.now()
+                //timeFormatter
+                val localDateTime = LocalDateTime.ofInstant(timeStamp, ZoneId.systemDefault())
+                val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+                val userDate = localDateTime.format(formatter)
 
-            val userEmail = auth.currentUser!!.email.toString()
-            val userText =binding.privateMessageET.text.toString()
-            val timeStamp= Instant.now()
-            //timeFormatter
-            val localDateTime = LocalDateTime.ofInstant(timeStamp, ZoneId.systemDefault())
-            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
-            val userDate = localDateTime.format(formatter)
-
-            //timeFormatter Done
-            val userUUID = auth.currentUser!!.uid
-            val userInfoMap = HashMap<String, Any>()
-            userInfoMap.put("PrivateChatUserUUID", userUUID)
-            userInfoMap.put("PrivateChatUserEmail", userEmail)
-            userInfoMap.put("userText",userText)
-            userInfoMap.put("userDate",userDate)
-            userInfoMap.put("toUUID",toUUID)
-            firestore.collection("privateChatInfo/$userUUID/$toUUID").add(userInfoMap).addOnSuccessListener {
-                scrollToBottom(privateMessageRV)
-                binding.privateMessageET.setText("")
-            }
-                .addOnFailureListener {
+                //timeFormatter Done
+                val userUUID = auth.currentUser!!.uid
+                val userInfoMap = HashMap<String, Any>()
+                userInfoMap.put("PrivateChatUserUUID", userUUID)
+                userInfoMap.put("PrivateChatUserEmail", userEmail)
+                userInfoMap.put("userText",userText)
+                userInfoMap.put("userDate",userDate)
+                userInfoMap.put("toUUID",toUUID)
+                firestore.collection("privateChatInfo/$userUUID/$toUUID").add(userInfoMap).addOnSuccessListener {
+                    scrollToBottom(privateMessageRV)
+                    binding.privateMessageET.setText("")
                 }
-            firestore.collection("privateChatInfo/$toUUID/$userUUID").add(userInfoMap).addOnSuccessListener {
-                scrollToBottom(privateMessageRV)
-                binding.privateMessageET.setText("")
+                    .addOnFailureListener {
+                    }
+                firestore.collection("privateChatInfo/$toUUID/$userUUID").add(userInfoMap).addOnSuccessListener {
+                    scrollToBottom(privateMessageRV)
+                    binding.privateMessageET.setText("")
+                }
             }
+
         }
 
         //taking user texts to collection and saving to list of adapter. For show on Adapter
