@@ -6,8 +6,10 @@
     import android.view.View
     import android.view.ViewGroup
     import androidx.activity.addCallback
+    import androidx.core.content.ContentProviderCompat.requireContext
     import androidx.fragment.app.Fragment
     import androidx.navigation.Navigation
+    import androidx.navigation.Navigation.findNavController
     import androidx.navigation.fragment.findNavController
     import androidx.recyclerview.widget.LinearLayoutManager
     import com.google.firebase.firestore.Query
@@ -59,7 +61,35 @@
                 val action = LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToUserListFragment()
                 Navigation.findNavController(requireView()).navigate(action)
             }
-            database.collection("privateChatInfo/$toUUID/${auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.DESCENDING).limit(1)
+            database.collection("privateChatInfo")
+                .document(toUUID)
+                .collection(auth.currentUser!!.uid)
+                .get()
+                .addOnSuccessListener { result ->
+                    if (result != null) {
+                        val documents = result.documents
+                        user.clear()
+                        for (document in documents) {
+                            val privateMessageUserText = document.get("userText").toString()
+                            val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
+                            val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
+                            val privateChatUserDate = document.get("userDate").toString()
+                            val privateChatToUUID = document.get("toUUID").toString()
+                            val downloadInfos = PrivateMessage(
+                                privateMessageUserText,
+                                privateChatUserUUID,
+                                privateChatToUUID,
+                                privateChatUserDate,
+                                privateChatUserEmail
+                            )
+                            user.add(downloadInfos)
+                        }
+                        adapter.notifyDataSetChanged()
+                    }
+                }
+
+        }
+            /*database.collection("privateChatInfo/$toUUID/${auth.currentUser!!.uid}").orderBy("userDate",Query.Direction.DESCENDING).limit(1)
                 .addSnapshotListener { value, error ->
                     if (error != null) {
                     } else
@@ -83,7 +113,10 @@
                             }
                         }
                 }
-        }
+
+             */
+
+
         fun takeAllUsers(){
                 database.collection("userProfileInfo")
                     .addSnapshotListener { value, error ->
@@ -126,5 +159,4 @@
                 Navigation.findNavController(requireView()).navigate(action)
             }
         }
-    }
-
+}
