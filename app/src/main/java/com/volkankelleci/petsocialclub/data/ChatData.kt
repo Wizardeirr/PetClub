@@ -4,6 +4,5 @@ class ChatData(
     var chatText:String,
     var chatUser:String,
     var timeDate:String,
-
 ) {
 }
