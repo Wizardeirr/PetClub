@@ -1,5 +1,6 @@
 package com.volkankelleci.petsocialclub.lastprivatemessagelist
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -52,17 +53,19 @@ class LastPrivateMessageListAdapter(
             //currentTime Taking
            val currentTime = Calendar.getInstance().time
            val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
-           val savedTime = "${lastMessage.timestamp}" // Kaydedilen zaman
+           val savedTime = lastMessage.timestamp // Kaydedilen zaman
            println(savedTime)
            val savedDate = dateFormat.parse(savedTime)
-           val timeDifferenceInMillis = currentTime.time - savedDate.time
+           val timeDifferenceInMillis = currentTime.time - savedDate!!.time
            val hoursDifference = timeDifferenceInMillis / (1000 * 60 * 60) // Saat cinsinden fark
 
            if (hoursDifference>0 && hoursDifference<24){
                holder.itemView.timerMessage.text=lastMessage.timestamp.substring(11,16)
-           }else if (hoursDifference>24){
+           }
+            if (hoursDifference>24){
                holder.itemView.timerMessage.text="Dün"
-           }else if (hoursDifference>48){
+           }
+            if (hoursDifference>48){
                holder.itemView.timerMessage.text=lastMessage.timestamp.substring(5,11)
            }
 
@@ -86,6 +89,7 @@ class LastPrivateMessageListAdapter(
     override fun getItemCount(): Int {
         return userMessage.size
     }
+    @SuppressLint("NotifyDataSetChanged")
     fun updateList(newList: ArrayList<PrivateMessage>) {
         userMessage = newList
         notifyDataSetChanged()
