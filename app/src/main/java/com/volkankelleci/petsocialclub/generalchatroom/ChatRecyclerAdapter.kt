@@ -1,5 +1,6 @@
 package com.volkankelleci.petsocialclub.generalchatroom
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -50,6 +51,7 @@ class ChatRecyclerAdapter() : RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecyc
         }
 
     }
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ChatRecyclerViewHolder, position: Int) {
 
 
