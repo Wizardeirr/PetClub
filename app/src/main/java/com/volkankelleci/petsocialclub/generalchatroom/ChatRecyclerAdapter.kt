@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
+import kotlinx.android.synthetic.main.answer_recycler_raw.view.outgoingMessageTime
 import kotlinx.android.synthetic.main.chat_recycler_raw.view.*
 
 
@@ -52,7 +53,7 @@ class ChatRecyclerAdapter() : RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecyc
     override fun onBindViewHolder(holder: ChatRecyclerViewHolder, position: Int) {
 
 
-        holder.itemView.chatTV.text="${chats.get(position).chatUser}:${chats.get(position).chatText}"
+        holder.itemView.outgoingMessageTime.text="${chats.get(position).chatUser}:${chats.get(position).chatText}"
 
 
     }
