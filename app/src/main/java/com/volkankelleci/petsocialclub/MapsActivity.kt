@@ -62,7 +62,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
             else{
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-                1,1f,locationListener)
+                    1,
+                    1f,
+                    locationListener)
             val lastKnownLocation=locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
 
             if (lastKnownLocation!=null){

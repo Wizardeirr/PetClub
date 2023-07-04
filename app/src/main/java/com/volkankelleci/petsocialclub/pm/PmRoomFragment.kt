@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -72,6 +73,9 @@ class PmRoomFragment : Fragment() {
         toUUID= arguments?.let{
             PmRoomFragmentArgs.fromBundle(it).toUUID
         }?:""
+
+       
+        (activity as AppCompatActivity).supportActionBar?.title = "Example 1"
 
 
         //When Send button click what we do
@@ -142,17 +146,24 @@ class PmRoomFragment : Fragment() {
     //For When user send message i want to show last message.
     private fun scrollToBottom(recyclerView: RecyclerView) {
         // scroll to last item to get the view of last item
+
         val layoutManager = privateMessageRV.layoutManager as LinearLayoutManager?
-        val adapter = privateMessageRV.adapter
-        val lastItemPosition = adapter!!.itemCount - 1
-        layoutManager!!.scrollToPositionWithOffset(lastItemPosition, 0)
-        privateMessageRV.post {
-            val target = layoutManager.findViewByPosition(lastItemPosition)
-            if (target != null) {
-                val offset = privateMessageRV.measuredHeight - target.measuredHeight
-                layoutManager.scrollToPositionWithOffset(lastItemPosition, offset)
+        if (layoutManager!=null){
+            val adapter = privateMessageRV.adapter
+            if (adapter!=null){
+                val lastItemPosition = adapter.itemCount - 1
+                layoutManager.scrollToPositionWithOffset(lastItemPosition, 0)
+                privateMessageRV.post {
+                    val target = layoutManager.findViewByPosition(lastItemPosition)
+                    if (target != null) {
+                        val offset = privateMessageRV.measuredHeight - target.measuredHeight
+                        layoutManager.scrollToPositionWithOffset(lastItemPosition, offset)
+                    }
+                }
             }
+
         }
+
     }
     // When i click to back u could move  trustly without crash  to back
         override fun onResume() {
