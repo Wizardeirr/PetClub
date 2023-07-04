@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.answer_recycler_raw.view.outgoingMessageTi
 import kotlinx.android.synthetic.main.chat_recycler_raw.view.*
 
 
-class ChatRecyclerAdapter() : RecyclerView.Adapter<ChatRecyclerAdapter.ChatRecyclerViewHolder>() {
+class GeneralChatRoomAdapter() : RecyclerView.Adapter<GeneralChatRoomAdapter.ChatRecyclerViewHolder>() {
     private val WRITER_USER = 1
     private val ANSWER_USER = 2
     class ChatRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

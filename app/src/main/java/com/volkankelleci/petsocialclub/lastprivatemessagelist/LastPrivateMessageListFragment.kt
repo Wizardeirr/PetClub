@@ -52,6 +52,7 @@
             userChatPartRV.layoutManager=layoutManager
             adapter= LastPrivateMessageListAdapter(user,this@LastPrivateMessageListFragment,requireContext(),userInfoForAdapter)
             userChatPartRV.adapter=adapter
+            getActivity()?.setTitle("PetSocialClub")
 
             binding.fabForPM.setOnClickListener {
                 val action = LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToUserListFragment()
@@ -117,6 +118,7 @@
             val toUUID = getToUUIDFromSharedPreferences(requireContext())
             val action=LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment("",toUUID)
             findNavController().navigate(action)
+
 
         }
 

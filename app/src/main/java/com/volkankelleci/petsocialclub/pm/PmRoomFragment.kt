@@ -38,6 +38,7 @@ class PmRoomFragment : Fragment() {
     val layoutManager = LinearLayoutManager(activity)
     private lateinit var firestore: FirebaseFirestore
     private lateinit var toUUID: String
+    private lateinit var userName:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +51,8 @@ class PmRoomFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding=FragmentPrivateChatRoomBinding.inflate(inflater,container,false)
         val view=binding.root
+        getActivity()?.setTitle("")
+
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -73,9 +76,15 @@ class PmRoomFragment : Fragment() {
         toUUID= arguments?.let{
             PmRoomFragmentArgs.fromBundle(it).toUUID
         }?:""
+        //userName Taking
+        userName=arguments?.let {
+            PmRoomFragmentArgs.fromBundle(it).username
+        }?:""
+        getActivity()?.setTitle(userName)
 
-       
-        (activity as AppCompatActivity).supportActionBar?.title = "Example 1"
+
+
+
 
 
         //When Send button click what we do
@@ -172,10 +181,10 @@ class PmRoomFragment : Fragment() {
         toUUID= arguments?.let{
             PmRoomFragmentArgs.fromBundle(it).toUUID
         }?:""
-            requireActivity().onBackPressedDispatcher.addCallback(this) {
-                val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(toUUID,userUUID)
-                Navigation.findNavController(requireView()).navigate(action)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(toUUID,userUUID)
+            Navigation.findNavController(requireView()).navigate(action)
 
-            }
         }
+    }
 }

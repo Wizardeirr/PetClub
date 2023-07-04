@@ -9,10 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FieldValue
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
 import com.volkankelleci.petsocialclub.data.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
@@ -26,7 +23,7 @@ class GeneralChatRoom : Fragment() {
 
     private var _binding: FragmentUserChatBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: ChatRecyclerAdapter
+    private lateinit var adapter: GeneralChatRoomAdapter
     var chats = ArrayList<ChatData>()
 
     override fun onCreateView(
@@ -64,7 +61,7 @@ class GeneralChatRoom : Fragment() {
         // Adapter
         val layoutManager = LinearLayoutManager(activity)
         userChatRV.layoutManager = layoutManager
-        adapter = ChatRecyclerAdapter()
+        adapter = GeneralChatRoomAdapter()
         userChatRV.adapter = adapter
         layoutManager.setStackFromEnd(true);
 
