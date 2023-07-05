@@ -8,13 +8,14 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUserListBinding
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_user_list.*
+
 
 class UserListFragment : Fragment(),UserListAdapter.Listener {
 
@@ -33,16 +34,19 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
         _binding = FragmentUserListBinding.inflate(inflater, container, false)
         val view = binding.root
         getActivity()?.setTitle("Select Person")
+
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // Enable the ActionBar
 
         // fun called
         takesUserInfo()
         setHasOptionsMenu(true)
         // adapter created
+
         val layoutManager= LinearLayoutManager(activity)
         binding.privateChatRV.layoutManager=layoutManager
         adapter= UserListAdapter(userInfo,this@UserListFragment)
@@ -82,7 +86,7 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.getItemId() == R.id.action_back) {
+        if (item.getItemId() == android.R.id.home) {
             getActivity()?.onBackPressed();
             return true;
         }

@@ -84,7 +84,6 @@ class PmRoomFragment : Fragment() {
 
         //When Send button click what we do
         binding.privateMessageSendButton.setOnClickListener {
-            val delayInMS=1000L
             CoroutineScope(Dispatchers.IO).launch {
                 val userEmail = auth.currentUser!!.email.toString()
                 val userText =binding.privateMessageET.text.toString()
