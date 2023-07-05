@@ -82,11 +82,6 @@ class PmRoomFragment : Fragment() {
         }?:""
         getActivity()?.setTitle(userName)
 
-
-
-
-
-
         //When Send button click what we do
         binding.privateMessageSendButton.setOnClickListener {
             val delayInMS=1000L
@@ -184,7 +179,6 @@ class PmRoomFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(toUUID,userUUID)
             Navigation.findNavController(requireView()).navigate(action)
-
         }
     }
 }

@@ -36,7 +36,6 @@
         ): View {
             _binding=FragmentPrivateMessageListBinding.inflate(inflater,container,false)
             val view=binding.root
-
             return view
         }
         @SuppressLint("NotifyDataSetChanged")
@@ -44,20 +43,22 @@
             super.onViewCreated(view, savedInstanceState)
 
             //fun
-
             val toUUID = getToUUIDFromSharedPreferences(requireContext())
             println(toUUID)
             takeAllUsers()
+            //Adapter Determined
             val layoutManager=LinearLayoutManager(activity)
             userChatPartRV.layoutManager=layoutManager
             adapter= LastPrivateMessageListAdapter(user,this@LastPrivateMessageListFragment,requireContext(),userInfoForAdapter)
             userChatPartRV.adapter=adapter
+            //Title
             getActivity()?.setTitle("PetSocialClub")
 
             binding.fabForPM.setOnClickListener {
                 val action = LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToUserListFragment()
                 Navigation.findNavController(requireView()).navigate(action)
             }
+            //Data consume from Firebase
             database.collection("privateChatInfo")
                 .document(toUUID)
                 .collection(auth.currentUser!!.uid)
@@ -87,7 +88,6 @@
                 }
 
         }
-
         fun takeAllUsers(){
                 database.collection("userProfileInfo")
                     .addSnapshotListener { value, error ->
@@ -115,14 +115,12 @@
 
         }
         override fun onItemClickListener(privateMessage: PrivateMessage) {
+            //when i click to user toUUID is sending to PmRoomFragment who you talk with it
             val toUUID = getToUUIDFromSharedPreferences(requireContext())
             val action=LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment("",toUUID)
             findNavController().navigate(action)
 
-
         }
-
-
         override fun onResume() {
             super.onResume()
             requireActivity().onBackPressedDispatcher.addCallback(this) {
