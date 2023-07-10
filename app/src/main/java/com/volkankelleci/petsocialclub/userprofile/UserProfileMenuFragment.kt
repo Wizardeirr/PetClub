@@ -1,5 +1,6 @@
 package com.volkankelleci.petsocialclub.userprofile
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -28,6 +29,7 @@ class UserProfileMenuFragment : Fragment() {
         val view=binding.root
         return view
     }
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -52,10 +54,9 @@ class UserProfileMenuFragment : Fragment() {
                                     binding.userNameETProfile.text="Username:  ${downloadInfos.userName}"
                                     binding.userSignEmail.text="E-mail:  ${downloadInfos.userEmail}"
                                     binding.petNameProfile.text="Pet Name:  ${downloadInfos.petName}"
-                                    binding.passwordSignProfile.text="${downloadInfos.userPassword}"
+                                    binding.passwordSignProfile.text= downloadInfos.userPassword
                                     binding.signImageViewProfile.downloadImageToRecycler(downloadInfos.userImage,
                                         createPlaceHolder(requireContext()))
-
                                 }
                                 }
 
