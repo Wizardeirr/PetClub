@@ -1,5 +1,6 @@
 package com.volkankelleci.petsocialclub.util
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.widget.ImageView
 import androidx.core.content.ContentProviderCompat.requireContext
@@ -15,6 +16,7 @@ import de.hdodenhof.circleimageview.CircleImageView
 object Util {
      var auth: FirebaseAuth= FirebaseAuth.getInstance()
      var storage:FirebaseStorage=FirebaseStorage.getInstance()
+     @SuppressLint("StaticFieldLeak")
      var database:FirebaseFirestore=FirebaseFirestore.getInstance()
 
 
