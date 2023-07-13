@@ -28,7 +28,6 @@
         private lateinit var adapter: LastPrivateMessageListAdapter
         val userInfoForAdapter=ArrayList<UserInfo>()
 
-
         override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
