@@ -30,11 +30,13 @@ object Util {
                centerRadius=40f
                start()
           }
+     }
+     @SuppressLint("MutatingSharedPrefs")
+     fun saveToUUIDToSharedPreferences(context: Context, toUUID: String) {
+          val sharedPrefs = context.getSharedPreferences("YourSharedPrefsName", Context.MODE_PRIVATE)
+          val uuidSet = sharedPrefs.getStringSet("uuidSet", mutableSetOf()) ?: mutableSetOf()
+          uuidSet.add(toUUID)
+          sharedPrefs.edit().putStringSet("uuidSet", uuidSet).apply()
+     }
 
-     }
-     //toUUID
-     fun getToUUIDFromSharedPreferences(context:Context): String {
-          val sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-          return sharedPreferences.getString("toUUID", "") ?: ""
-     }
 }
