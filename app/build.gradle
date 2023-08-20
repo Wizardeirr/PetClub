@@ -42,6 +42,8 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.core:core-ktx:+'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     def room_version = "2.5.2"
     def firebase_version = "8.0.1"
     def lifecycle_version = "2.6.1"
