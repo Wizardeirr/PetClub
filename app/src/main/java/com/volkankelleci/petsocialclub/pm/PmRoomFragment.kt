@@ -60,11 +60,11 @@ class PmRoomFragment : Fragment() {
 
         privateMessageRV.postDelayed({
             privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
-        }, 100)
+        }, 500)
         privateMessageET.setOnClickListener {
             privateMessageRV.postDelayed({
                 privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
-            }, 100)
+            }, 500)
 
         }
         //determined to RV

@@ -1,6 +1,8 @@
 package com.volkankelleci.petsocialclub.doneviews
 
 import android.os.Bundle
+import android.provider.Settings
+import android.provider.Settings.Global
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -8,6 +10,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -18,7 +21,6 @@ import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.post.UserPostAdapter
-import com.volkankelleci.petsocialclub.util.Util.getToUUIDFromSharedPreferences
 import kotlinx.android.synthetic.main.fragment_users_home.fab
 import kotlinx.android.synthetic.main.fragment_users_home.usersHomeFragmentRecycler
 
@@ -45,8 +47,9 @@ class UsersHomeFragment : Fragment(),UserPostAdapter.Listener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fab.setOnClickListener {
-            val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
+           val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
             findNavController().navigate(action)
+
         }
 
         //User Name Save
@@ -59,6 +62,7 @@ class UsersHomeFragment : Fragment(),UserPostAdapter.Listener {
         usersHomeFragmentRecycler.adapter = recyclerViewAdapter
 
         //popupMenu
+
 
     }
 
@@ -142,8 +146,7 @@ class UsersHomeFragment : Fragment(),UserPostAdapter.Listener {
             R.id.privateMessageButton-> {
 
                 val action3=UsersHomeFragmentDirections.actionUsersHomeFragmentToLastPrivateMessageListFragment(
-                    getToUUIDFromSharedPreferences(requireContext()),""
-                )
+                    "","")
                 findNavController().navigate(action3)
 
                 return true
@@ -172,6 +175,7 @@ class UsersHomeFragment : Fragment(),UserPostAdapter.Listener {
         val action=UsersHomeFragmentDirections.actionUsersHomeFragmentToMapsActivity()
         findNavController().navigate(action)
     }
+
 
 
 }
