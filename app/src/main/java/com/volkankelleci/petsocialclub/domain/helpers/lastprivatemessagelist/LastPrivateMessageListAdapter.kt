@@ -1,6 +1,5 @@
 package com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.PrivateMessage
-import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.chat_list_raw.view.lastMessage
@@ -59,6 +57,7 @@ class LastPrivateMessageListAdapter(
 
             holder.itemView.timerMessage.text=lastMessage.timestamp
             holder.itemView.userNameForChat.text=userMessage[position].chatUser
+            holder.itemView.lastMessage.text=userMessage[position].message
             holder.itemView.userImageLastMessage.downloadImageToRecycler(userMessage.get(position).fromUUID,
                     createPlaceHolder(context)
             )

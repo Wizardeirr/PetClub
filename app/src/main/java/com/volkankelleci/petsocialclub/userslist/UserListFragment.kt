@@ -95,11 +95,15 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
     }
 
     override fun onItemClickListener(userList: UserInfo) {
-        val privateMessage: PrivateMessage?=null
         val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putString("toUUID", userList.uuid)
-        privateMessage?.toUUID=userList.uuid
+        val privateMessage = PrivateMessage("","","","","")
+
+        // Eğer privateMessage null değilse, toUUID özelliğine userList.uuid'yi ata
+        privateMessage.toUUID = userList.uuid
+
+        // SharedPreferences içine toUUID değerini kaydet
+        editor.putString("toUUID", privateMessage.toUUID)
         editor.apply()
     }
 

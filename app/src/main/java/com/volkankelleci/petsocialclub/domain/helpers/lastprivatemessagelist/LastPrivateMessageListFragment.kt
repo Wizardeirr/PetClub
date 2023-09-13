@@ -128,7 +128,9 @@
 
         override fun onItemClickListener(privateMessage: PrivateMessage) {
             //when i click to user toUUID is sending to PmRoomFragment who you talk with it
-            val action=LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment("","")
+            val toUUID = getToUUIDFromSharedPreferences(requireContext())
+
+            val action=LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment("",toUUID)
             findNavController().navigate(action)
         }
         override fun onResume() {
