@@ -50,7 +50,6 @@
             val toUUID = getToUUIDFromSharedPreferences(requireContext())
 
 
-            takeAllUsers()
             //Adapter Determinedd
             val layoutManager=LinearLayoutManager(activity)
             userChatPartRV.layoutManager=layoutManager
@@ -99,32 +98,7 @@
                 }
 
         }
-        fun takeAllUsers(){
-                database.collection("userProfileInfo")
-                    .addSnapshotListener { value, error ->
-                        if(error!=null){
-                        }else
-                            if (value!=null){
-                                if (value.isEmpty==false){
-                                    val documents=value.documents
-                                    userInfoForAdapter.clear()
-                                    for (document in documents){
-                                        document.get("userProfileInfo")
-                                        val userEmail=document.get("userEmail").toString()
-                                        val userUUID=document.get("userUUID").toString()
-                                        val userName=document.get("userName").toString()
-                                        val userPetName=document.get("petName").toString()
-                                        val userImage=document.get("userImage").toString()
-                                        val userPassword=document.get("password").toString()
-                                        val downloadInfos= UserInfo(userUUID,userEmail,userName,userPetName,userImage,userPassword)
-                                        userInfoForAdapter.add(downloadInfos)
-                                    }
-                                    adapter.notifyDataSetChanged()
-                                }
-                            }
-                    }
 
-        }
 
         override fun onItemClickListener(privateMessage: PrivateMessage) {
             //when i click to user toUUID is sending to PmRoomFragment who you talk with it
