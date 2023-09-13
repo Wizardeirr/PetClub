@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.doneviews
+package com.volkankelleci.petsocialclub.domain.helpers.doneviews
 
 import android.os.Bundle
 import android.provider.Settings
@@ -20,11 +20,11 @@ import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
-import com.volkankelleci.petsocialclub.post.UserPostAdapter
+import com.volkankelleci.petsocialclub.domain.helpers.post.UserPostAdapter
 import kotlinx.android.synthetic.main.fragment_users_home.fab
 import kotlinx.android.synthetic.main.fragment_users_home.usersHomeFragmentRecycler
 
-class UsersHomeFragment : Fragment(),UserPostAdapter.Listener {
+class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
     private var _binding: FragmentUsersHomeBinding? = null
     private val binding get() = _binding!!
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()

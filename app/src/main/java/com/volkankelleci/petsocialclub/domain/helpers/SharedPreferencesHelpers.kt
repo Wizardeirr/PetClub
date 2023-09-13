@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.helpers
+package com.volkankelleci.petsocialclub.domain.helpers
 
 import android.content.Context
 

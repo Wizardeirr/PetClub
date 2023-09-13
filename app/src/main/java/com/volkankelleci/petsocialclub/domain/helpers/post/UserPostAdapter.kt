@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.post
+package com.volkankelleci.petsocialclub.domain.helpers.post
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
-import com.volkankelleci.petsocialclub.lastprivatemessagelist.LastPrivateMessageListAdapter
+import com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist.LastPrivateMessageListAdapter
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.recycler_raw.view.commentRecycler
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.recycler_raw.view.petImageRecycler
 import kotlinx.android.synthetic.main.recycler_raw.view.postPP
 import kotlinx.android.synthetic.main.recycler_raw.view.titleRecycler
 
-class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>,val listener:Listener): RecyclerView.Adapter<UserPostAdapter.UserViewHolder>() {
+class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>,val listener: Listener): RecyclerView.Adapter<UserPostAdapter.UserViewHolder>() {
     interface Listener{
         fun onItemClickListener(postList:Post)
     }

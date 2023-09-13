@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.loginandsign
+package com.volkankelleci.petsocialclub.domain.helpers.loginandsign
 
 import android.content.Intent
 import android.os.Bundle

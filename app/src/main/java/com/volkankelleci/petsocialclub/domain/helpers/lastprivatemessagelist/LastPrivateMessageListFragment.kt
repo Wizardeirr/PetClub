@@ -1,4 +1,4 @@
-    package com.volkankelleci.petsocialclub.lastprivatemessagelist
+    package com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist
 
     import android.annotation.SuppressLint
     import android.content.Context
@@ -19,7 +19,7 @@
     import com.volkankelleci.petsocialclub.data.PrivateMessage
     import com.volkankelleci.petsocialclub.data.UserInfo
     import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
-    import com.volkankelleci.petsocialclub.helpers.SharedPreferencesHelpers.getToUUIDFromSharedPreferences
+    import com.volkankelleci.petsocialclub.domain.helpers.SharedPreferencesHelpers.getToUUIDFromSharedPreferences
     import com.volkankelleci.petsocialclub.util.Util.auth
     import com.volkankelleci.petsocialclub.util.Util.database
     import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
@@ -31,7 +31,6 @@
         var user=ArrayList<PrivateMessage>()
         private lateinit var adapter: LastPrivateMessageListAdapter
         val userInfoForAdapter=ArrayList<UserInfo>()
-        val listUUID = mutableListOf<String>()
 
 
         override fun onCreateView(
@@ -52,10 +51,10 @@
 
 
             takeAllUsers()
-            //Adapter Determined
+            //Adapter Determinedd
             val layoutManager=LinearLayoutManager(activity)
             userChatPartRV.layoutManager=layoutManager
-            adapter= LastPrivateMessageListAdapter(user,this@LastPrivateMessageListFragment,requireContext(),userInfoForAdapter,listUUID)
+            adapter= LastPrivateMessageListAdapter(user,this@LastPrivateMessageListFragment,requireContext())
             userChatPartRV.adapter=adapter
             //Title
             getActivity()?.setTitle("PetSocialClub")
@@ -131,9 +130,6 @@
             //when i click to user toUUID is sending to PmRoomFragment who you talk with it
             val action=LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment("","")
             findNavController().navigate(action)
-            listUUID.add(getToUUIDFromSharedPreferences(requireContext()))
-            adapter.updateList(listUUID)
-
         }
         override fun onResume() {
             super.onResume()

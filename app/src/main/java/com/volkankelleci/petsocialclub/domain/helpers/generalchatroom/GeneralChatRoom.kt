@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.generalchatroom
+package com.volkankelleci.petsocialclub.domain.helpers.generalchatroom
 
 import android.os.Bundle
 import android.view.LayoutInflater

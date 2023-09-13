@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.volkankelleci.petsocialclub.R
+import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUserListBinding
 import com.volkankelleci.petsocialclub.util.Util.database
@@ -94,9 +95,11 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
     }
 
     override fun onItemClickListener(userList: UserInfo) {
+        val privateMessage: PrivateMessage?=null
         val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("toUUID", userList.uuid)
+        privateMessage?.toUUID=userList.uuid
         editor.apply()
     }
 

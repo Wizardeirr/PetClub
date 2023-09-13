@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.generalchatroom
+package com.volkankelleci.petsocialclub.domain.helpers.generalchatroom
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
+import kotlinx.android.synthetic.main.answer_recycler_raw.view.outgoingMessageText
 import kotlinx.android.synthetic.main.answer_recycler_raw.view.outgoingMessageTime
 import kotlinx.android.synthetic.main.chat_recycler_raw.view.*
 
@@ -51,12 +52,11 @@ class GeneralChatRoomAdapter() : RecyclerView.Adapter<GeneralChatRoomAdapter.Cha
         }
 
     }
-    @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: ChatRecyclerViewHolder, position: Int) {
+        override fun onBindViewHolder(holder: ChatRecyclerViewHolder, position: Int) {
 
 
-        holder.itemView.outgoingMessageTime.text="${chats.get(position).chatUser}:${chats.get(position).chatText}"
-
+        holder.itemView.outgoingMessageTime.text=chats.get(position).chatUser
+        holder.itemView.outgoingMessageText.text=chats.get(position).chatText
 
     }
     override fun getItemCount(): Int {

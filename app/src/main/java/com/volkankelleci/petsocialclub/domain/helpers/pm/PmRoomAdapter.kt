@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.pm
+package com.volkankelleci.petsocialclub.domain.helpers.pm
 
 import android.view.LayoutInflater
 import android.view.View

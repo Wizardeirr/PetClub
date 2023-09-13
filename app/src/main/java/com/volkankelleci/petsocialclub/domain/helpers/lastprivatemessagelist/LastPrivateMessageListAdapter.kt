@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.lastprivatemessagelist
+package com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,18 +9,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.data.UserInfo
+import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
+import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
 import kotlinx.android.synthetic.main.chat_list_raw.view.lastMessage
 import kotlinx.android.synthetic.main.chat_list_raw.view.timerMessage
+import kotlinx.android.synthetic.main.chat_list_raw.view.userImageLastMessage
+import kotlinx.android.synthetic.main.chat_list_raw.view.userNameForChat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 
 class LastPrivateMessageListAdapter(
     var userMessage:ArrayList<PrivateMessage>,
-    val listener:Listener,
+    val listener: Listener,
     private val context: Context,
-    private var userInfo:ArrayList<UserInfo>,
-    private var listToUUID:List<String>
     ): RecyclerView.Adapter<LastPrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
 
     interface Listener{
@@ -34,14 +36,13 @@ class LastPrivateMessageListAdapter(
     }
 
     override fun onBindViewHolder(holder: PrivateMessageListFragmentPart, position: Int) {
-        if (position < userMessage.size && position < userInfo.size) {
+        if (position < userMessage.size && position < userMessage.size) {
 
            val lastMessage = userMessage[position]
             //currentTime Taking
            val currentTime = Calendar.getInstance().time
            val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
            val savedTime = lastMessage.timestamp // Kaydedilen zaman
-           println(savedTime)
            val savedDate = dateFormat.parse(savedTime)
            val timeDifferenceInMillis = currentTime.time - savedDate!!.time
            val hoursDifference = timeDifferenceInMillis / (1000 * 60 * 60) // Saat cinsinden fark
@@ -56,17 +57,12 @@ class LastPrivateMessageListAdapter(
                holder.itemView.timerMessage.text=lastMessage.timestamp.substring(5,11)
            }
 
-            val listToUUID = listToUUID[position]
-
-                holder.itemView.lastMessage.text = listToUUID
-                holder.itemView.timerMessage.text=lastMessage.timestamp
-               // holder.itemView.userNameForChat.text=userInfo.userName
-              /*  holder.itemView.userImageLastMessage.downloadImageToRecycler(userInfo.userImage,
+            holder.itemView.timerMessage.text=lastMessage.timestamp
+            holder.itemView.userNameForChat.text=userMessage[position].chatUser
+            holder.itemView.userImageLastMessage.downloadImageToRecycler(userMessage.get(position).fromUUID,
                     createPlaceHolder(context)
-                )
-
-               */
-                holder.itemView.setOnClickListener {
+            )
+            holder.itemView.setOnClickListener {
                     listener.onItemClickListener(userMessage.get(position))
 
                 }
@@ -75,13 +71,9 @@ class LastPrivateMessageListAdapter(
 
         }
     override fun getItemCount(): Int {
-        return listToUUID.size
+        return userMessage.size
     }
-    @SuppressLint("NotifyDataSetChanged")
-    fun updateList(newList: List<String>) {
-        listToUUID = newList
-        notifyDataSetChanged()
-    }
+
 
     }
 
