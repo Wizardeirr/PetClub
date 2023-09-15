@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.userslist
+package com.volkankelleci.petsocialclub.domain.helpers.userslist
 
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.volkankelleci.petsocialclub.R
@@ -18,7 +17,7 @@ import com.volkankelleci.petsocialclub.databinding.FragmentUserListBinding
 import com.volkankelleci.petsocialclub.util.Util.database
 
 
-class UserListFragment : Fragment(),UserListAdapter.Listener {
+class UserListFragment : Fragment(), UserListAdapter.Listener {
 
     private  var _binding:FragmentUserListBinding?=null
     private val binding get() = _binding!!
@@ -97,13 +96,7 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
     override fun onItemClickListener(userList: UserInfo) {
         val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        val privateMessage = PrivateMessage("","","","","")
-
-        // Eğer privateMessage null değilse, toUUID özelliğine userList.uuid'yi ata
-        privateMessage.toUUID = userList.uuid
-
-        // SharedPreferences içine toUUID değerini kaydet
-        editor.putString("toUUID", privateMessage.toUUID)
+        editor.putString("toUUID", userList.uuid)
         editor.apply()
     }
 

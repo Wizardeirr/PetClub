@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +14,7 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.data.PrivateMessage
+import com.volkankelleci.petsocialclub.data.ToUUIDModel
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
@@ -22,7 +22,6 @@ import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageE
 import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.time.Instant
 import java.time.LocalDateTime
@@ -114,6 +113,7 @@ class PmRoomFragment : Fragment() {
             }
 
         }
+        ToUUIDModel(toUUID)
 
         //taking user texts to collection and saving to list of adapter. For show on Adapter
 
@@ -131,8 +131,7 @@ class PmRoomFragment : Fragment() {
                                 val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
                                 val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                                 val privateChatUserDate = document.get("userDate").toString()
-                                val privateChatToUUID = document.get(toUUID).toString()
-                                val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,privateChatToUUID,privateChatUserDate,privateChatUserEmail)
+                                val downloadInfos = PrivateMessage(privateMessageUserText,privateChatUserUUID,toUUID,privateChatUserDate,privateChatUserEmail)
                                 user.add(downloadInfos)
                                 adapter.privateChats=user
 
@@ -175,8 +174,14 @@ class PmRoomFragment : Fragment() {
         toUUID= arguments?.let{
             PmRoomFragmentArgs.fromBundle(it).toUUID
         }?:""
+        // toUUID'leri toUUIDList'e ekleyin (varsa)
+        val toUUIDList = mutableListOf<String>() // Listeyi oluşturun
+        if (toUUID.isNotEmpty()) {
+            toUUIDList.add(toUUID)
+        }
         requireActivity().onBackPressedDispatcher.addCallback(this) {
-            val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(toUUID,userUUID)
+            val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(
+                toUUID,userUUID)
             Navigation.findNavController(requireView()).navigate(action)
         }
     }

@@ -61,6 +61,8 @@ class LastPrivateMessageListAdapter(
             holder.itemView.userImageLastMessage.downloadImageToRecycler(userMessage.get(position).fromUUID,
                     createPlaceHolder(context)
             )
+
+
             holder.itemView.setOnClickListener {
                     listener.onItemClickListener(userMessage.get(position))
 
@@ -70,6 +72,7 @@ class LastPrivateMessageListAdapter(
 
         }
     override fun getItemCount(): Int {
+
         return userMessage.size
     }
 

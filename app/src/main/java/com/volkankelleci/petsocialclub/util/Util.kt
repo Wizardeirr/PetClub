@@ -39,4 +39,5 @@ object Util {
           sharedPrefs.edit().putStringSet("uuidSet", uuidSet).apply()
      }
 
+     val homeFragmentTitle="PetSocialClub"
 }

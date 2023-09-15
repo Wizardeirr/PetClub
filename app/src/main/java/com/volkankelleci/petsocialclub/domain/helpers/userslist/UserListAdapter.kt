@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.userslist
+package com.volkankelleci.petsocialclub.domain.helpers.userslist
 
 import android.view.LayoutInflater
 import android.view.View
@@ -18,7 +18,7 @@ class UserListAdapter(
     val userList: ArrayList<UserInfo>,
     val listener: Listener,
 
-) : RecyclerView.Adapter<UserListAdapter.PrivateChatAdapterViewHolder>() {
+    ) : RecyclerView.Adapter<UserListAdapter.PrivateChatAdapterViewHolder>() {
     private var selectedUUID: String = ""
 
     interface Listener{

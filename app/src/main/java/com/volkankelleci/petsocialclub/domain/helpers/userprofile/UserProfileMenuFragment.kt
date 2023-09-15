@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.userprofile
+package com.volkankelleci.petsocialclub.domain.helpers.userprofile
 
 import android.annotation.SuppressLint
 import android.os.Bundle

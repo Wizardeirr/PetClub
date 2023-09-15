@@ -1,36 +1,32 @@
     package com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist
 
     import android.annotation.SuppressLint
-    import android.content.Context
     import android.os.Bundle
     import android.util.Log
     import android.view.LayoutInflater
     import android.view.View
     import android.view.ViewGroup
-    import androidx.activity.addCallback
     import androidx.fragment.app.Fragment
     import androidx.fragment.app.FragmentManager
     import androidx.navigation.Navigation
     import androidx.navigation.fragment.findNavController
     import androidx.recyclerview.widget.LinearLayoutManager
-    import com.google.firebase.database.FirebaseDatabase
     import com.google.firebase.firestore.Query
     import com.volkankelleci.petsocialclub.R
     import com.volkankelleci.petsocialclub.data.PrivateMessage
-    import com.volkankelleci.petsocialclub.data.UserInfo
     import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
     import com.volkankelleci.petsocialclub.domain.helpers.SharedPreferencesHelpers.getToUUIDFromSharedPreferences
     import com.volkankelleci.petsocialclub.util.Util.auth
     import com.volkankelleci.petsocialclub.util.Util.database
     import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
-    import com.google.firebase.firestore.FirebaseFirestore
+
     class LastPrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),
         LastPrivateMessageListAdapter.Listener {
         private  var _binding:FragmentPrivateMessageListBinding?=null
         private val binding get() =_binding!!
         var user=ArrayList<PrivateMessage>()
         private lateinit var adapter: LastPrivateMessageListAdapter
-        val userInfoForAdapter=ArrayList<UserInfo>()
+        val toUUIDList = ArrayList<String>()
 
 
         override fun onCreateView(

@@ -92,12 +92,12 @@
     </fragment>
     <fragment
         android:id="@+id/userProfileMenuFragment"
-        android:name="com.volkankelleci.petsocialclub.userprofile.UserProfileMenuFragment"
+        android:name="com.volkankelleci.petsocialclub.domain.helpers.userprofile.UserProfileMenuFragment"
         android:label="fragment_user_profile_menu"
         tools:layout="@layout/fragment_user_profile_menu" />
     <fragment
         android:id="@+id/userListFragment"
-        android:name="com.volkankelleci.petsocialclub.userslist.UserListFragment"
+        android:name="com.volkankelleci.petsocialclub.domain.helpers.userslist.UserListFragment"
         android:label="fragment_private_chat"
         tools:layout="@layout/fragment_user_list" >
         <action
