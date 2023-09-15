@@ -15,7 +15,6 @@
     import com.volkankelleci.petsocialclub.R
     import com.volkankelleci.petsocialclub.data.PrivateMessage
     import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
-    import com.volkankelleci.petsocialclub.domain.helpers.SharedPreferencesHelpers.getToUUIDFromSharedPreferences
     import com.volkankelleci.petsocialclub.util.Util.auth
     import com.volkankelleci.petsocialclub.util.Util.database
     import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
@@ -27,7 +26,6 @@
         var user=ArrayList<PrivateMessage>()
         private lateinit var adapter: LastPrivateMessageListAdapter
         val toUUIDList = ArrayList<String>()
-
 
         override fun onCreateView(
             inflater: LayoutInflater,
@@ -43,7 +41,7 @@
             super.onViewCreated(view, savedInstanceState)
 
             //fun
-            val toUUID = getToUUIDFromSharedPreferences(requireContext())
+            toUUIDList.add(toUUID)
 
 
             //Adapter Determinedd
@@ -74,7 +72,7 @@
                             val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
                             val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                             val privateChatUserDate = document.get("userDate").toString()
-                            val privateChatToUUID = document.getString("toUUID")?:""
+                            val privateChatToUUID = document.getString(toUUID)?:""
                             val downloadInfos = PrivateMessage(
                                 privateMessageUserText,
                                 privateChatUserUUID,
@@ -98,7 +96,6 @@
 
         override fun onItemClickListener(privateMessage: PrivateMessage) {
             //when i click to user toUUID is sending to PmRoomFragment who you talk with it
-            val toUUID = getToUUIDFromSharedPreferences(requireContext())
 
             val action=LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToPmRoomFragment("",toUUID)
             findNavController().navigate(action)

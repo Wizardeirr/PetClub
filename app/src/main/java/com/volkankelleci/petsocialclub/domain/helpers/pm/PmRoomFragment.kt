@@ -37,6 +37,7 @@ class PmRoomFragment : Fragment() {
     val layoutManager = LinearLayoutManager(activity)
     private lateinit var firestore: FirebaseFirestore
     private lateinit var toUUID: String
+    private val uuidList = mutableListOf<String>()
     private lateinit var userName:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -113,7 +114,9 @@ class PmRoomFragment : Fragment() {
             }
 
         }
-        ToUUIDModel(toUUID)
+
+
+
 
         //taking user texts to collection and saving to list of adapter. For show on Adapter
 
@@ -174,14 +177,14 @@ class PmRoomFragment : Fragment() {
         toUUID= arguments?.let{
             PmRoomFragmentArgs.fromBundle(it).toUUID
         }?:""
-        // toUUID'leri toUUIDList'e ekleyin (varsa)
-        val toUUIDList = mutableListOf<String>() // Listeyi oluşturun
-        if (toUUID.isNotEmpty()) {
-            toUUIDList.add(toUUID)
+        if (toUUID.isNotBlank()) {
+            uuidList.add(toUUID)
+        } else {
+            // Handle the case where toUUID is null or blank
         }
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(
-                toUUID,userUUID)
+                uuidList.add(toUUID).toString(),userUUID)
             Navigation.findNavController(requireView()).navigate(action)
         }
     }

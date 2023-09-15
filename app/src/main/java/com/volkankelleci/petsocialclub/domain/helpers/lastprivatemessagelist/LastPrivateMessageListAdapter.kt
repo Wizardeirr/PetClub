@@ -61,6 +61,8 @@ class LastPrivateMessageListAdapter(
             holder.itemView.userImageLastMessage.downloadImageToRecycler(userMessage.get(position).fromUUID,
                     createPlaceHolder(context)
             )
+            holder.itemView.timerMessage.text=lastMessage.toUUID
+
 
 
             holder.itemView.setOnClickListener {

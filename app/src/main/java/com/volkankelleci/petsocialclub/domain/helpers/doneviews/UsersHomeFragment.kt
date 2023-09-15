@@ -2,8 +2,6 @@ package com.volkankelleci.petsocialclub.domain.helpers.doneviews
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.provider.Settings
-import android.provider.Settings.Global
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuInflater
@@ -11,7 +9,6 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -22,7 +19,6 @@ import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.domain.helpers.post.UserPostAdapter
-import com.volkankelleci.petsocialclub.util.Util.homeFragmentTitle
 import kotlinx.android.synthetic.main.fragment_users_home.fab
 import kotlinx.android.synthetic.main.fragment_users_home.usersHomeFragmentRecycler
 
@@ -43,7 +39,7 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
         _binding = FragmentUsersHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        getActivity()?.setTitle(homeFragmentTitle);
+        getActivity()?.setTitle("homeFragmentTitle");
         setHasOptionsMenu(true)
         return view
     }
@@ -149,7 +145,7 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
             R.id.privateMessageButton-> {
 
                 val action3=UsersHomeFragmentDirections.actionUsersHomeFragmentToLastPrivateMessageListFragment(
-                    "","")
+                    toUUID,"")
                 findNavController().navigate(action3)
 
                 return true
