@@ -107,7 +107,7 @@
         }
         override fun onResume() {
             super.onResume()
-            findNavController().popBackStack()
+            fragmentManager?.popBackStack("UserListFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
 
         }
 }

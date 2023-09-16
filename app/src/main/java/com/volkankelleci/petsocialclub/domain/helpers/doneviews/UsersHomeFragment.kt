@@ -22,6 +22,7 @@ import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.domain.helpers.pm.PmRoomFragmentDirections
 import com.volkankelleci.petsocialclub.domain.helpers.post.UserPostAdapter
+import com.volkankelleci.petsocialclub.util.Constants.HOME_FRAGMENT_TITLE
 import kotlinx.android.synthetic.main.fragment_users_home.fab
 import kotlinx.android.synthetic.main.fragment_users_home.usersHomeFragmentRecycler
 
@@ -30,11 +31,9 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
     private val binding get() = _binding!!
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var recyclerViewAdapter: UserPostAdapter
-    var postList = ArrayList<Post>()
-    var pp=ArrayList<UserInfo>()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private var postList = ArrayList<Post>()
+    private var pp = ArrayList<UserInfo>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -42,14 +41,15 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
         _binding = FragmentUsersHomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        getActivity()?.setTitle("homeFragmentTitle");
+        activity?.title = HOME_FRAGMENT_TITLE
         setHasOptionsMenu(true)
         return view
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fab.setOnClickListener {
-           val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
+            val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
             findNavController().navigate(action)
         }
 
@@ -59,7 +59,7 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
         //adapter determined
         val layoutManager = LinearLayoutManager(activity)
         usersHomeFragmentRecycler.layoutManager = layoutManager
-        recyclerViewAdapter = UserPostAdapter(postList,pp,this@UsersHomeFragment)
+        recyclerViewAdapter = UserPostAdapter(postList, pp, this@UsersHomeFragment)
         usersHomeFragmentRecycler.adapter = recyclerViewAdapter
 
         //popupMenu
@@ -101,6 +101,7 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
                     }
             }
     }
+
     private fun takesPP() {
         database.collection("userProfileInfo")
             .addSnapshotListener { value, error ->
@@ -113,13 +114,14 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
                             for (document in documents) {
                                 document.get("userProfileInfo")
                                 val usermail = document.get("userEMail").toString()
-                                val uuid=document.get("userUUID").toString()
+                                val uuid = document.get("userUUID").toString()
                                 val userName = document.get("userName").toString()
                                 val userPP = document.get("userImage").toString()
                                 val petName = document.get("petName").toString()
                                 val pw = document.get("password").toString()
 
-                                val userInfo = UserInfo(uuid,usermail,userName,petName,userPP,pw)
+                                val userInfo =
+                                    UserInfo(uuid, usermail, userName, petName, userPP, pw)
                                 pp.add(userInfo)
 
                             }
@@ -129,40 +131,47 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
                     }
             }
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-
-            R.id.homeButton-> {
-                // Ayarlar seçeneği seçildiğinde yapılacak işlemler
-                val action=UsersHomeFragmentDirections.actionUsersHomeFragmentSelf()
+            R.id.homeButton -> {
+                val action = UsersHomeFragmentDirections.actionUsersHomeFragmentSelf()
                 findNavController().navigate(action)
                 return true
             }
-            R.id.messageButton-> {
-                val action2=UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
+
+            R.id.messageButton -> {
+                val action2 =
+                    UsersHomeFragmentDirections.actionUsersHomeFragmentToUserChatFragment()
                 findNavController().navigate(action2)
 
                 return true
 
             }
-            R.id.privateMessageButton-> {
 
-                val action3=UsersHomeFragmentDirections.actionUsersHomeFragmentToLastPrivateMessageListFragment(
-                    requireArguments().toString(),"")
+            R.id.privateMessageButton -> {
+
+                val action3 =
+                    UsersHomeFragmentDirections.actionUsersHomeFragmentToLastPrivateMessageListFragment(
+                        requireArguments().toString(), ""
+                    )
                 findNavController().navigate(action3)
 
                 return true
 
             }
-            R.id.profileButton-> {
-                val action4=UsersHomeFragmentDirections.actionUsersHomeFragmentToUserProfileMenuFragment()
+
+            R.id.profileButton -> {
+                val action4 =
+                    UsersHomeFragmentDirections.actionUsersHomeFragmentToUserProfileMenuFragment()
                 findNavController().navigate(action4)
 
                 return true
 
             }
-            R.id.logOutButton-> {
-                val action5=UsersHomeFragmentDirections.actionUsersHomeFragmentToMainFragment()
+
+            R.id.logOutButton -> {
+                val action5 = UsersHomeFragmentDirections.actionUsersHomeFragmentToMainFragment()
                 findNavController().navigate(action5)
                 FirebaseAuth.getInstance().signOut()
                 return true
@@ -174,7 +183,7 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
     }
 
     override fun onItemClickListener(postList: Post) {
-        val action=UsersHomeFragmentDirections.actionUsersHomeFragmentToMapsActivity()
+        val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMapsActivity()
         findNavController().navigate(action)
     }
 
@@ -184,7 +193,6 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
         }
         super.onResume()
     }
-
 
 
 }
