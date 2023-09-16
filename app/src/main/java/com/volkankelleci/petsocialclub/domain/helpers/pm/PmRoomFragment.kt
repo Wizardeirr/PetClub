@@ -27,6 +27,7 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
+import java.util.UUID
 
 
 class PmRoomFragment : Fragment() {
@@ -115,7 +116,7 @@ class PmRoomFragment : Fragment() {
 
         }
 
-
+        toUUIDFun(toUUID)
 
 
         //taking user texts to collection and saving to list of adapter. For show on Adapter
@@ -188,4 +189,19 @@ class PmRoomFragment : Fragment() {
             Navigation.findNavController(requireView()).navigate(action)
         }
     }
+    private fun toUUIDFun(vararg args: String): List<UUID> {
+        val uuidList = mutableListOf<UUID>()
+
+        for (arg in args) {
+            try {
+                val uuid = UUID.fromString(arg)
+                uuidList.add(uuid)
+            } catch (e: IllegalArgumentException) {
+                println("'$arg' geçerli bir UUID değil.")
+            }
+        }
+
+        return uuidList
+    }
+
 }

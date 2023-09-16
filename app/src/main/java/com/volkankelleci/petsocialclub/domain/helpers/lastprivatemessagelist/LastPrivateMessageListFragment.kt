@@ -15,6 +15,7 @@
     import com.volkankelleci.petsocialclub.R
     import com.volkankelleci.petsocialclub.data.PrivateMessage
     import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
+    import com.volkankelleci.petsocialclub.domain.helpers.pm.PmRoomFragmentArgs
     import com.volkankelleci.petsocialclub.util.Util.auth
     import com.volkankelleci.petsocialclub.util.Util.database
     import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
@@ -26,6 +27,7 @@
         var user=ArrayList<PrivateMessage>()
         private lateinit var adapter: LastPrivateMessageListAdapter
         val toUUIDList = ArrayList<String>()
+        private lateinit var toUUID: String
 
         override fun onCreateView(
             inflater: LayoutInflater,
@@ -41,7 +43,10 @@
             super.onViewCreated(view, savedInstanceState)
 
             //fun
-            toUUIDList.add(toUUID)
+            // toUUID taking
+            toUUID= arguments?.let{
+                PmRoomFragmentArgs.fromBundle(it).toUUID
+            }?:""
 
 
             //Adapter Determinedd
@@ -59,7 +64,7 @@
 
             //Data consume from Firebase
             database.collection("privateChatInfo")
-                .document(toUUID)
+                .document(requireArguments().toString())
                 .collection(auth.currentUser!!.uid)
                 .orderBy("userDate",Query.Direction.DESCENDING)
                 .limit(1)
@@ -72,7 +77,7 @@
                             val privateChatUserUUID = document.get("PrivateChatUserUUID").toString()
                             val privateChatUserEmail = document.get("PrivateChatUserEmail").toString()
                             val privateChatUserDate = document.get("userDate").toString()
-                            val privateChatToUUID = document.getString(toUUID)?:""
+                            val privateChatToUUID = document.getString(requireArguments().toString())?:""
                             val downloadInfos = PrivateMessage(
                                 privateMessageUserText,
                                 privateChatUserUUID,
@@ -102,7 +107,7 @@
         }
         override fun onResume() {
             super.onResume()
-            fragmentManager?.popBackStack("UserListFragment", FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            findNavController().popBackStack()
 
         }
 }

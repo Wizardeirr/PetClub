@@ -8,7 +8,9 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -18,6 +20,7 @@ import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
+import com.volkankelleci.petsocialclub.domain.helpers.pm.PmRoomFragmentDirections
 import com.volkankelleci.petsocialclub.domain.helpers.post.UserPostAdapter
 import kotlinx.android.synthetic.main.fragment_users_home.fab
 import kotlinx.android.synthetic.main.fragment_users_home.usersHomeFragmentRecycler
@@ -145,7 +148,7 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
             R.id.privateMessageButton-> {
 
                 val action3=UsersHomeFragmentDirections.actionUsersHomeFragmentToLastPrivateMessageListFragment(
-                    toUUID,"")
+                    requireArguments().toString(),"")
                 findNavController().navigate(action3)
 
                 return true
@@ -173,6 +176,13 @@ class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
     override fun onItemClickListener(postList: Post) {
         val action=UsersHomeFragmentDirections.actionUsersHomeFragmentToMapsActivity()
         findNavController().navigate(action)
+    }
+
+    override fun onResume() {
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            findNavController().popBackStack()
+        }
+        super.onResume()
     }
 
 
