@@ -16,6 +16,7 @@ import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.data.ToUUIDModel
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
+import com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist.LastPrivateMessageListFragment
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageET
@@ -38,7 +39,7 @@ class PmRoomFragment : Fragment() {
     val layoutManager = LinearLayoutManager(activity)
     private lateinit var firestore: FirebaseFirestore
     private lateinit var toUUID: String
-    private val uuidList = mutableListOf<String>()
+    private val uuidList = mutableSetOf<String>()
     private lateinit var userName:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,12 +53,13 @@ class PmRoomFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding=FragmentPrivateChatRoomBinding.inflate(inflater,container,false)
         val view=binding.root
-        getActivity()?.setTitle("")
+        activity?.title = ""
 
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         privateMessageRV.postDelayed({
             privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
@@ -77,12 +79,13 @@ class PmRoomFragment : Fragment() {
         toUUID= arguments?.let{
             PmRoomFragmentArgs.fromBundle(it).toUUID
         }?:""
+
+
         //userName Taking
         userName=arguments?.let {
             PmRoomFragmentArgs.fromBundle(it).username
         }?:""
-        getActivity()?.setTitle(userName)
-
+        activity?.title = userName
         //When Send button click what we do
         binding.privateMessageSendButton.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
@@ -116,7 +119,7 @@ class PmRoomFragment : Fragment() {
 
         }
 
-        toUUIDFun(toUUID)
+
 
 
         //taking user texts to collection and saving to list of adapter. For show on Adapter
@@ -174,34 +177,21 @@ class PmRoomFragment : Fragment() {
     // When i click to back u could move  trustly without crash  to back
         override fun onResume() {
             super.onResume()
-            val userUUID = auth.currentUser!!.uid
+        val userUUID = auth.currentUser!!.uid
         toUUID= arguments?.let{
             PmRoomFragmentArgs.fromBundle(it).toUUID
         }?:""
-        if (toUUID.isNotBlank()) {
-            uuidList.add(toUUID)
-        } else {
-            // Handle the case where toUUID is null or blank
-        }
+        val bundle = Bundle()
+        bundle.putString("toUUID", toUUID ?: "")
+        val x=LastPrivateMessageListFragment()
+        x.arguments=bundle
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(
-                uuidList.add(toUUID).toString(),userUUID)
+                x.arguments.toString(),userUUID)
             Navigation.findNavController(requireView()).navigate(action)
         }
-    }
-    private fun toUUIDFun(vararg args: String): List<UUID> {
-        val uuidList = mutableListOf<UUID>()
 
-        for (arg in args) {
-            try {
-                val uuid = UUID.fromString(arg)
-                uuidList.add(uuid)
-            } catch (e: IllegalArgumentException) {
-                println("'$arg' geçerli bir UUID değil.")
-            }
-        }
-
-        return uuidList
     }
+
 
 }

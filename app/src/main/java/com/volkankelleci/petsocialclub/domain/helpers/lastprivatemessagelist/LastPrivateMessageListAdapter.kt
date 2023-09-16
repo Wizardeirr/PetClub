@@ -45,7 +45,7 @@ class LastPrivateMessageListAdapter(
            val timeDifferenceInMillis = currentTime.time - savedDate!!.time
            val hoursDifference = timeDifferenceInMillis / (1000 * 60 * 60) // Saat cinsinden fark
 
-           if (hoursDifference>0 && hoursDifference<24){
+           if (hoursDifference in 1..23){
                holder.itemView.timerMessage.text=lastMessage.timestamp.substring(11,16)
            }
             if (hoursDifference>24){

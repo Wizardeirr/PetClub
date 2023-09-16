@@ -24,9 +24,6 @@ class UserListFragment : Fragment(), UserListAdapter.Listener {
     private lateinit var adapter: UserListAdapter
     var userInfo=ArrayList<UserInfo>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -87,7 +84,7 @@ class UserListFragment : Fragment(), UserListAdapter.Listener {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.getItemId() == android.R.id.home) {
-            getActivity()?.onBackPressed();
+            activity?.onBackPressed();
             return true;
         }
         return super.onOptionsItemSelected(item)
