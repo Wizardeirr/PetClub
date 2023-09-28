@@ -5,4 +5,5 @@ class PrivateMessage(
     var fromUUID:String,
     var toUUID: String,
     var timestamp: String,
-    var chatUser:String)
+    var chatUser:String
+    )

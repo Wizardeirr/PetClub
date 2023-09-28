@@ -14,7 +14,6 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.data.PrivateMessage
-import com.volkankelleci.petsocialclub.data.ToUUIDModel
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
 import com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist.LastPrivateMessageListFragment
 import com.volkankelleci.petsocialclub.util.Util.auth
@@ -28,7 +27,6 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
-import java.util.UUID
 
 
 class PmRoomFragment : Fragment() {

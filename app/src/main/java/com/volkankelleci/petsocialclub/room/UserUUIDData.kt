@@ -6,5 +6,9 @@ import androidx.room.PrimaryKey
 @Entity
 data class UserUUIDData(
     @PrimaryKey(autoGenerate = true)
-    val uuid:String?,
+    var message:String,
+    var fromUUID:String,
+    var toUUID: String,
+    var timestamp: String,
+    var chatUser:String
 )
