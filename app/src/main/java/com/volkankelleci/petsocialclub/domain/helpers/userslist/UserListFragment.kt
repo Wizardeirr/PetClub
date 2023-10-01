@@ -14,13 +14,16 @@ import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUserListBinding
 import com.volkankelleci.petsocialclub.util.Util.database
+import javax.inject.Inject
 
 
-class UserListFragment : Fragment(), UserListAdapter.Listener {
+class UserListFragment @Inject constructor(
+    private var adapter: UserListAdapter
+
+): Fragment(), UserListAdapter.Listener {
 
     private  var _binding:FragmentUserListBinding?=null
     private val binding get() = _binding!!
-    private lateinit var adapter: UserListAdapter
     var userInfo=ArrayList<UserInfo>()
 
     override fun onCreateView(

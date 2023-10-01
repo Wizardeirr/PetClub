@@ -27,12 +27,15 @@ import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
+import javax.inject.Inject
 
 
-class PmRoomFragment : Fragment() {
+class PmRoomFragment @Inject constructor(
+    private var adapter: PmRoomAdapter
+
+): Fragment() {
     private var _binding:FragmentPrivateChatRoomBinding?=null
     private val binding get()=_binding!!
-    private lateinit var adapter: PmRoomAdapter
     var user=ArrayList<PrivateMessage>()
     val layoutManager = LinearLayoutManager(activity)
     private lateinit var firestore: FirebaseFirestore

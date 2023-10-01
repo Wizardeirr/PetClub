@@ -15,15 +15,18 @@ import com.volkankelleci.petsocialclub.data.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.android.synthetic.main.fragment_user_chat.*
+import javax.inject.Inject
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 
-class GeneralChatRoom : Fragment() {
+class GeneralChatRoomFragment @Inject constructor(
+    private var adapter: GeneralChatRoomAdapter
+
+): Fragment() {
 
     private var _binding: FragmentUserChatBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: GeneralChatRoomAdapter
     var chats = ArrayList<ChatData>()
 
     override fun onCreateView(

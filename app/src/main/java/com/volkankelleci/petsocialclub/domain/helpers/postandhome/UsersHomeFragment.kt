@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.domain.helpers.doneviews
+package com.volkankelleci.petsocialclub.domain.helpers.postandhome
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -20,17 +19,18 @@ import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
-import com.volkankelleci.petsocialclub.domain.helpers.pm.PmRoomFragmentDirections
-import com.volkankelleci.petsocialclub.domain.helpers.post.UserPostAdapter
 import com.volkankelleci.petsocialclub.util.Constants.HOME_FRAGMENT_TITLE
 import kotlinx.android.synthetic.main.fragment_users_home.fab
 import kotlinx.android.synthetic.main.fragment_users_home.usersHomeFragmentRecycler
+import javax.inject.Inject
 
-class UsersHomeFragment : Fragment(), UserPostAdapter.Listener {
+class UsersHomeFragment @Inject constructor(
+    private var recyclerViewAdapter: UserPostAdapter
+
+): Fragment(), UserPostAdapter.Listener {
     private var _binding: FragmentUsersHomeBinding? = null
     private val binding get() = _binding!!
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private lateinit var recyclerViewAdapter: UserPostAdapter
     private var postList = ArrayList<Post>()
     private var pp = ArrayList<UserInfo>()
 

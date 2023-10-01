@@ -22,14 +22,17 @@
     import com.volkankelleci.petsocialclub.util.Util
     import com.volkankelleci.petsocialclub.util.Util.auth
     import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
+    import javax.inject.Inject
 
 
-    class LastPrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),
+    class LastPrivateMessageListFragment @Inject constructor(
+        private var adapter: LastPrivateMessageListAdapter
+
+    ): Fragment(R.layout.fragment_private_message_list),
         LastPrivateMessageListAdapter.Listener {
         private  var _binding:FragmentPrivateMessageListBinding?=null
         private val binding get() =_binding!!
         var user=ArrayList<PrivateMessage>()
-        private lateinit var adapter: LastPrivateMessageListAdapter
         private lateinit var toUUID: String
         val bundle=arguments?.getString("toUUID")
 

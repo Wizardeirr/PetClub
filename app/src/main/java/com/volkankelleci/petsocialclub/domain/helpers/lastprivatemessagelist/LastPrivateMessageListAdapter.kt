@@ -77,7 +77,5 @@ class LastPrivateMessageListAdapter(
 
         return userMessage.size
     }
-
-
-    }
+}
 

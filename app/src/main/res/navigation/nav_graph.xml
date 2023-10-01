@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/messageFragment"
-        android:name="com.volkankelleci.petsocialclub.domain.helpers.post.UserPostFragment"
+        android:name="com.volkankelleci.petsocialclub.domain.helpers.postandhome.UserPostFragment"
         android:label="fragment_message"
         tools:layout="@layout/fragment_message" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/usersHomeFragment"
-        android:name="com.volkankelleci.petsocialclub.domain.helpers.doneviews.UsersHomeFragment"
+        android:name="com.volkankelleci.petsocialclub.domain.helpers.postandhome.UsersHomeFragment"
         android:label="fragment_users_home"
         tools:layout="@layout/fragment_users_home" >
         <action
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/userChatFragment"
-        android:name="com.volkankelleci.petsocialclub.domain.helpers.generalchatroom.GeneralChatRoom"
+        android:name="com.volkankelleci.petsocialclub.domain.helpers.generalchatroom.GeneralChatRoomFragment"
         android:label="fragment_user_chat"
         tools:layout="@layout/fragment_user_chat" />
     <fragment

@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.domain.helpers.post
+package com.volkankelleci.petsocialclub.domain.helpers.postandhome
 
 import android.app.Activity
 import android.content.Intent
