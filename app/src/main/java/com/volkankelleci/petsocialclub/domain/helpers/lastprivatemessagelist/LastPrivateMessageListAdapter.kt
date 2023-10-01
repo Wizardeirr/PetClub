@@ -56,9 +56,9 @@ class LastPrivateMessageListAdapter(
            }
 
             holder.itemView.timerMessage.text=lastMessage.timestamp
-            holder.itemView.userNameForChat.text=userMessage[position].chatUser
-            holder.itemView.lastMessage.text=userMessage[position].message
-            holder.itemView.userImageLastMessage.downloadImageToRecycler(userMessage.get(position).fromUUID,
+            holder.itemView.userNameForChat.text=lastMessage.chatUser
+            holder.itemView.lastMessage.text=lastMessage.message
+            holder.itemView.userImageLastMessage.downloadImageToRecycler(lastMessage.fromUUID,
                     createPlaceHolder(context)
             )
             holder.itemView.timerMessage.text=lastMessage.toUUID
@@ -66,7 +66,7 @@ class LastPrivateMessageListAdapter(
 
 
             holder.itemView.setOnClickListener {
-                    listener.onItemClickListener(userMessage.get(position))
+                    listener.onItemClickListener(lastMessage)
 
                 }
 
