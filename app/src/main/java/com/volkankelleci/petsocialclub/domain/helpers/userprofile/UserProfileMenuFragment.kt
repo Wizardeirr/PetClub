@@ -43,7 +43,7 @@ class UserProfileMenuFragment : Fragment() {
                             for (document in documents) {
                                 document.get("userProfileInfo")
 
-                                if (auth.currentUser!!.uid==document.get("userUUID").toString()) {
+                                if (auth.currentUser?.uid==document.get("userUUID").toString()) {
                                     val userEmail = document.get("userEmail").toString()
                                     val userUUID = document.get("userUUID").toString()
                                     val userName = document.get("userName").toString()

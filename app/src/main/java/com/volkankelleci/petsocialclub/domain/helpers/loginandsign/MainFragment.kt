@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.domain.helpers.loginandsign
+package com.volkankelleci.petsocialclub.loginandsign
 
 import android.content.Intent
 import android.os.Bundle
@@ -33,6 +33,7 @@ class MainFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         auth = FirebaseAuth.getInstance()
+
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,6 +42,7 @@ class MainFragment : Fragment() {
 
 
         googleSign.setOnClickListener {
+
             val options = GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.webclient_id))
@@ -58,6 +60,7 @@ class MainFragment : Fragment() {
         }
         loginButton.setOnClickListener {
             loginUser()
+
         }
 
     }
@@ -83,13 +86,13 @@ class MainFragment : Fragment() {
 
                 }
             }
-
         }
     }
     private fun checkLoggedInState() {
         if (auth.currentUser == null) {
 
         } else {
+            Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
             val action=MainFragmentDirections.actionMainFragmentToUsersHomeFragment()
             findNavController().navigate(action)
             Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
