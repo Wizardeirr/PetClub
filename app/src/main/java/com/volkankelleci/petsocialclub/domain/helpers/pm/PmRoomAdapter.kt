@@ -10,9 +10,12 @@ import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.pm_raw.view.privateMessageChatTV
+import javax.inject.Inject
 
 
-class PmRoomAdapter(): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
+class PmRoomAdapter @Inject constructor(
+
+): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
 
     private val WRITER_USER = 1
     private val ANSWER_USER = 2

@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FieldValue
@@ -14,6 +16,7 @@ import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
 import com.volkankelleci.petsocialclub.data.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
+import com.volkankelleci.petsocialclub.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_user_chat.*
 import javax.inject.Inject
 import kotlin.collections.ArrayList
@@ -25,6 +28,7 @@ class GeneralChatRoomFragment @Inject constructor(
 
 ): Fragment() {
 
+    private val viewModel by viewModels<MainViewModel>()
     private var _binding: FragmentUserChatBinding? = null
     private val binding get() = _binding!!
     var chats = ArrayList<ChatData>()
@@ -36,11 +40,13 @@ class GeneralChatRoomFragment @Inject constructor(
         // Inflate the layout for this fragment
         _binding = FragmentUserChatBinding.inflate(inflater, container, false)
         val view = binding.root
-        getActivity()?.setTitle("Chat Room")
+        activity?.title = "Chat Room"
         return view
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         downForNewMessage.visibility=View.INVISIBLE
         aboutVisibilityOfDownButton()
@@ -64,9 +70,8 @@ class GeneralChatRoomFragment @Inject constructor(
         // Adapter
         val layoutManager = LinearLayoutManager(activity)
         userChatRV.layoutManager = layoutManager
-        adapter = GeneralChatRoomAdapter()
         userChatRV.adapter = adapter
-        layoutManager.setStackFromEnd(true);
+        layoutManager.stackFromEnd = true
 
         //adding informations to Firebase what we want
         binding.sendButton.setOnClickListener {

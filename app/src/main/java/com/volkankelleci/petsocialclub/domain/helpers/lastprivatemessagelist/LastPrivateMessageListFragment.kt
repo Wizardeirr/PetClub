@@ -53,7 +53,6 @@
             //Adapter Determinedd
             val layoutManager=LinearLayoutManager(activity)
             userChatPartRV.layoutManager=layoutManager
-            adapter= LastPrivateMessageListAdapter(user,this@LastPrivateMessageListFragment,requireContext())
             userChatPartRV.adapter=adapter
             //Title
             activity?.title = APP_NAME

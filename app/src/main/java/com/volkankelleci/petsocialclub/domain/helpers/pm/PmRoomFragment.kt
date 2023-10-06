@@ -184,11 +184,10 @@ class PmRoomFragment @Inject constructor(
         }?:""
         val bundle = Bundle()
         bundle.putString("toUUID", toUUID ?: "")
-        val x=LastPrivateMessageListFragment()
-        x.arguments=bundle
+
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             val action=PmRoomFragmentDirections.actionPmRoomFragmentToLastPrivateMessageListFragment(
-                x.arguments.toString(),userUUID)
+                requireArguments().toString(),userUUID)
             Navigation.findNavController(requireView()).navigate(action)
         }
 

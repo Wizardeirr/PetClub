@@ -15,4 +15,7 @@ class MainViewModel @Inject constructor(
     private val repository:UUIDRepository
 ):ViewModel() {
 
+    private fun takesUserUUID()= CoroutineScope(Dispatchers.IO).launch{
+        repository.getAllUsers()
+    }
 }

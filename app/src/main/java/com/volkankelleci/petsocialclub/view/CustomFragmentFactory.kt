@@ -19,20 +19,17 @@ class CustomFragmentFactory @Inject constructor(
     private val generalChatRoomAdapter: GeneralChatRoomAdapter,
     private val pmRoomAdapter: PmRoomAdapter,
     private val userPostAdapter: UserPostAdapter,
-    private val userListAdapter: UserListAdapter,
-
-
-
+    private val userListAdapter: UserListAdapter
 
 ):FragmentFactory() {
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
-        return when(className){
-            UsersHomeFragment::class.java.name->UsersHomeFragment(userPostAdapter)
-            PmRoomFragment::class.java.name->PmRoomFragment(pmRoomAdapter)
-            UserListFragment::class.java.name->UserListFragment(userListAdapter)
-            GeneralChatRoomFragment::class.java.name->GeneralChatRoomFragment(generalChatRoomAdapter)
-            LastPrivateMessageListFragment::class.java.name->LastPrivateMessageListFragment(lastPrivateMessageListAdapter)
-            else->super.instantiate(classLoader, className)
+        return when (className) {
+            UsersHomeFragment::class.java.name -> UsersHomeFragment(userPostAdapter)
+            PmRoomFragment::class.java.name -> PmRoomFragment(pmRoomAdapter)
+            UserListFragment::class.java.name -> UserListFragment(userListAdapter)
+            GeneralChatRoomFragment::class.java.name -> GeneralChatRoomFragment(generalChatRoomAdapter)
+            LastPrivateMessageListFragment::class.java.name -> LastPrivateMessageListFragment(lastPrivateMessageListAdapter)
+            else -> super.instantiate(classLoader, className)
         }
     }
 }

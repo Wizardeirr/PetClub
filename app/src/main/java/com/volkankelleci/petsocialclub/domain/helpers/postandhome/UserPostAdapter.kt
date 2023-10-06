@@ -14,8 +14,12 @@ import kotlinx.android.synthetic.main.recycler_raw.view.ownersName
 import kotlinx.android.synthetic.main.recycler_raw.view.petImageRecycler
 import kotlinx.android.synthetic.main.recycler_raw.view.postPP
 import kotlinx.android.synthetic.main.recycler_raw.view.titleRecycler
+import javax.inject.Inject
 
-class UserPostAdapter(val postList:ArrayList<Post>, val pp:ArrayList<UserInfo>,val listener: Listener): RecyclerView.Adapter<UserPostAdapter.UserViewHolder>() {
+class UserPostAdapter @Inject constructor(
+    val postList:ArrayList<Post>,
+    val pp:ArrayList<UserInfo>,
+    val listener: Listener): RecyclerView.Adapter<UserPostAdapter.UserViewHolder>() {
     interface Listener{
         fun onItemClickListener(postList:Post)
     }

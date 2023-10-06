@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.volkankelleci.petsocialclub.PetSocialClubApplication
+import com.volkankelleci.petsocialclub.PetSocialClubApplication_GeneratedInjector
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
@@ -16,12 +18,13 @@ import kotlinx.android.synthetic.main.chat_list_raw.view.userNameForChat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
+import javax.inject.Inject
 
-class LastPrivateMessageListAdapter(
+class LastPrivateMessageListAdapter @Inject constructor(
     var userMessage:ArrayList<PrivateMessage>,
-    val listener: Listener,
-    private val context: Context,
+    private val listener: Listener,
     ): RecyclerView.Adapter<LastPrivateMessageListAdapter.PrivateMessageListFragmentPart>() {
+
 
     interface Listener{
         fun onItemClickListener(privateMessage: PrivateMessage)
@@ -59,7 +62,7 @@ class LastPrivateMessageListAdapter(
             holder.itemView.userNameForChat.text=lastMessage.chatUser
             holder.itemView.lastMessage.text=lastMessage.message
             holder.itemView.userImageLastMessage.downloadImageToRecycler(lastMessage.fromUUID,
-                    createPlaceHolder(context)
+                    createPlaceHolder(PetSocialClubApplication.applicationContext())
             )
             holder.itemView.timerMessage.text=lastMessage.toUUID
 

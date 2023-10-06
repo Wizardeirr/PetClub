@@ -59,7 +59,6 @@ class UsersHomeFragment @Inject constructor(
         //adapter determined
         val layoutManager = LinearLayoutManager(activity)
         usersHomeFragmentRecycler.layoutManager = layoutManager
-        recyclerViewAdapter = UserPostAdapter(postList, pp, this@UsersHomeFragment)
         usersHomeFragmentRecycler.adapter = recyclerViewAdapter
 
         //popupMenu

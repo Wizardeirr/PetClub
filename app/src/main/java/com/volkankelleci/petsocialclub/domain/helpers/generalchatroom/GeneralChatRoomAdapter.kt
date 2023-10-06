@@ -13,9 +13,10 @@ import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.android.synthetic.main.answer_recycler_raw.view.outgoingMessageText
 import kotlinx.android.synthetic.main.answer_recycler_raw.view.outgoingMessageTime
 import kotlinx.android.synthetic.main.chat_recycler_raw.view.*
+import javax.inject.Inject
 
 
-class GeneralChatRoomAdapter() : RecyclerView.Adapter<GeneralChatRoomAdapter.ChatRecyclerViewHolder>() {
+class GeneralChatRoomAdapter @Inject constructor() : RecyclerView.Adapter<GeneralChatRoomAdapter.ChatRecyclerViewHolder>() {
     private val WRITER_USER = 1
     private val ANSWER_USER = 2
     class ChatRecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
