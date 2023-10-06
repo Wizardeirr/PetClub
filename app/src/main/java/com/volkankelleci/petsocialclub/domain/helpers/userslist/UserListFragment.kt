@@ -20,7 +20,7 @@ import javax.inject.Inject
 class UserListFragment @Inject constructor(
     private var adapter: UserListAdapter
 
-): Fragment(), UserListAdapter.Listener {
+): Fragment() {
 
     private  var _binding:FragmentUserListBinding?=null
     private val binding get() = _binding!!
@@ -48,7 +48,6 @@ class UserListFragment @Inject constructor(
 
         val layoutManager= LinearLayoutManager(activity)
         binding.privateChatRV.layoutManager=layoutManager
-        adapter= UserListAdapter(userInfo,this@UserListFragment)
         binding.privateChatRV.adapter=adapter
 
     }
@@ -90,13 +89,6 @@ class UserListFragment @Inject constructor(
             return true;
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    override fun onItemClickListener(userList: UserInfo) {
-        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("toUUID", userList.uuid)
-        editor.apply()
     }
 
 }

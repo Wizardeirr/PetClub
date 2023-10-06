@@ -17,14 +17,9 @@ import javax.inject.Inject
 
 class UserListAdapter @Inject constructor(
     val userList: ArrayList<UserInfo>,
-    val listener: Listener,
-
     ) : RecyclerView.Adapter<UserListAdapter.PrivateChatAdapterViewHolder>() {
     private var selectedUUID: String = ""
 
-    interface Listener{
-        fun onItemClickListener(userList:UserInfo)
-    }
     class PrivateChatAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
@@ -46,7 +41,6 @@ class UserListAdapter @Inject constructor(
 
         // navigate part
         holder.itemView.setOnClickListener {
-            listener.onItemClickListener(userList.get(position))
             val action =UserListFragmentDirections.actionUserListFragmentToPmRoomFragment(userList.get(position).userName, userList.get(position).uuid)
             Navigation.findNavController(it).navigate(action)
             println(userList[position].uuid)

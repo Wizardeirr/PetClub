@@ -18,11 +18,8 @@ import javax.inject.Inject
 
 class UserPostAdapter @Inject constructor(
     val postList:ArrayList<Post>,
-    val pp:ArrayList<UserInfo>,
-    val listener: Listener): RecyclerView.Adapter<UserPostAdapter.UserViewHolder>() {
-    interface Listener{
-        fun onItemClickListener(postList:Post)
-    }
+    val pp:ArrayList<UserInfo>,): RecyclerView.Adapter<UserPostAdapter.UserViewHolder>() {
+
     class UserViewHolder(itemView:View):RecyclerView.ViewHolder(itemView) {
     }
 
@@ -34,17 +31,13 @@ class UserPostAdapter @Inject constructor(
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+
         if (position < postList.size && position < pp.size){
             holder.itemView.titleRecycler.text=postList[position].userTitle
             holder.itemView.commentRecycler.text=postList[position].userComment
             holder.itemView.ownersName.text=pp[position].userName
             holder.itemView.postPP.downloadImageToRecycler(pp.get(position).userImage,
                 createPlaceHolder(holder.itemView.context))
-            //navigate
-            holder.itemView.setOnClickListener{
-                listener.onItemClickListener(postList[position])
-
-            }
 
             //image with glide
             holder.itemView.petImageRecycler.downloadImageToRecycler(postList[position].userImage,

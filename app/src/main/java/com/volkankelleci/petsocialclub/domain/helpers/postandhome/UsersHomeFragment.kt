@@ -27,7 +27,7 @@ import javax.inject.Inject
 class UsersHomeFragment @Inject constructor(
     private var recyclerViewAdapter: UserPostAdapter
 
-): Fragment(), UserPostAdapter.Listener {
+): Fragment() {
     private var _binding: FragmentUsersHomeBinding? = null
     private val binding get() = _binding!!
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
@@ -180,12 +180,6 @@ class UsersHomeFragment @Inject constructor(
             else -> return super.onOptionsItemSelected(item)
         }
     }
-
-    override fun onItemClickListener(postList: Post) {
-        val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMapsActivity()
-        findNavController().navigate(action)
-    }
-
     override fun onResume() {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             findNavController().popBackStack()
