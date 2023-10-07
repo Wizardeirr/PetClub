@@ -3,8 +3,6 @@ package com.volkankelleci.petsocialclub
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentFactory
-import com.volkankelleci.petsocialclub.view.CustomFragmentFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.view
+package com.volkankelleci.petsocialclub
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
