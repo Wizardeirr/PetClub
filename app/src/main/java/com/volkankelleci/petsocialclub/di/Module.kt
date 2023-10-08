@@ -3,6 +3,7 @@ package com.volkankelleci.petsocialclub.di
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.volkankelleci.petsocialclub.room.UserUUIDDataBase
 import dagger.Module
 import dagger.Provides
@@ -23,6 +24,12 @@ object Module {
     @Singleton
     @Provides
     fun injectDao(database: UserUUIDDataBase)=database.userDao()
+    @Singleton
+    @Provides
+    fun firebaseFirestore(): FirebaseFirestore {
+        return FirebaseFirestore.getInstance()
+
+    }
 
 
 

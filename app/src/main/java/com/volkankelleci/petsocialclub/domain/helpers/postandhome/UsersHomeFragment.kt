@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -20,19 +22,23 @@ import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.util.Constants.HOME_FRAGMENT_TITLE
+import com.volkankelleci.petsocialclub.viewmodel.UsersHomeFragmentVM
 import kotlinx.android.synthetic.main.fragment_users_home.fab
 import kotlinx.android.synthetic.main.fragment_users_home.usersHomeFragmentRecycler
+import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 class UsersHomeFragment @Inject constructor(
     private var recyclerViewAdapter: UserPostAdapter
 
+
 ): Fragment() {
     private var _binding: FragmentUsersHomeBinding? = null
     private val binding get() = _binding!!
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
-    private var postList = ArrayList<Post>()
     private var pp = ArrayList<UserInfo>()
+    private val viewModel: UsersHomeFragmentVM by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,7 +60,6 @@ class UsersHomeFragment @Inject constructor(
         }
 
         //User Name Save
-        takesData()
         takesPP()
         //adapter determined
         val layoutManager = LinearLayoutManager(activity)
@@ -70,36 +75,12 @@ class UsersHomeFragment @Inject constructor(
         inflater.inflate(R.menu.user_menu, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
+    private fun observePostList(){
+        lifecycleScope.launchWhenStarted {
 
-
-    @SuppressLint("NotifyDataSetChanged")
-    private fun takesData() {
-        database.collection("Post").orderBy("date", Query.Direction.DESCENDING)
-            .addSnapshotListener { value, error ->
-                if (error != null) {
-                } else
-                    if (value != null) {
-                        if (!value.isEmpty) {
-                            val documents = value.documents
-                            postList.clear()
-                            for (document in documents) {
-                                document.get("Post")
-                                val userTitle = document.get("usertitle").toString()
-                                val userComment = document.get("usercomment").toString()
-                                val userImage = document.get("imageurl").toString()
-                                val userEmail = document.get("useremail").toString()
-
-                                val downloadInfos =
-                                    Post(userTitle, userComment, userImage, userEmail)
-                                postList.add(downloadInfos)
-
-                            }
-
-                        }
-                        recyclerViewAdapter.notifyDataSetChanged()
-                    }
-            }
+        }
     }
+
 
     private fun takesPP() {
         database.collection("userProfileInfo")
