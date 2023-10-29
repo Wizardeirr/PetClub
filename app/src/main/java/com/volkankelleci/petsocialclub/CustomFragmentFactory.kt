@@ -2,16 +2,14 @@ package com.volkankelleci.petsocialclub
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
-import com.volkankelleci.petsocialclub.domain.helpers.generalchatroom.GeneralChatRoomFragment
-import com.volkankelleci.petsocialclub.domain.helpers.postandhome.UsersHomeFragment
-import com.volkankelleci.petsocialclub.domain.helpers.generalchatroom.GeneralChatRoomAdapter
-import com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist.LastPrivateMessageListAdapter
-import com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist.LastPrivateMessageListFragment
-import com.volkankelleci.petsocialclub.domain.helpers.pm.PmRoomAdapter
-import com.volkankelleci.petsocialclub.domain.helpers.pm.PmRoomFragment
-import com.volkankelleci.petsocialclub.domain.helpers.postandhome.UserPostAdapter
-import com.volkankelleci.petsocialclub.domain.helpers.userslist.UserListAdapter
-import com.volkankelleci.petsocialclub.domain.helpers.userslist.UserListFragment
+import com.volkankelleci.petsocialclub.generalchatroom.GeneralChatRoomFragment
+import com.volkankelleci.petsocialclub.lastprivatemessagelist.LastPrivateMessageListAdapter
+import com.volkankelleci.petsocialclub.lastprivatemessagelist.LastPrivateMessageListFragment
+import com.volkankelleci.petsocialclub.pm.PmRoomAdapter
+import com.volkankelleci.petsocialclub.pm.PmRoomFragment
+import com.volkankelleci.petsocialclub.postandhome.UserPostAdapter
+import com.volkankelleci.petsocialclub.userslist.UserListAdapter
+import com.volkankelleci.petsocialclub.userslist.UserListFragment
 import javax.inject.Inject
 
 class CustomFragmentFactory @Inject constructor(

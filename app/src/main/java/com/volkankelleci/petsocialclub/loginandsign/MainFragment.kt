@@ -14,9 +14,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.volkankelleci.petsocialclub.R
-import com.volkankelleci.petsocialclub.domain.helpers.loginandsign.MainFragmentDirections
+import com.volkankelleci.petsocialclub.databinding.FragmentMainBinding
+import com.volkankelleci.petsocialclub.domain.petsocialclub.loginandsign.MainFragmentDirections
 import com.volkankelleci.petsocialclub.util.Util.auth
-import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -24,25 +24,29 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 
 class MainFragment : Fragment() {
-
+    private var _binding: FragmentMainBinding? = null
+    private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        auth = FirebaseAuth.getInstance()
 
-        return inflater.inflate(R.layout.fragment_main, container, false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        val view = binding.root
+        auth = FirebaseAuth.getInstance()
+        return view
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //Google Signing Opt
 
 
-        googleSign.setOnClickListener {
+        binding.googleSign.setOnClickListener {
 
             val options = GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -55,23 +59,25 @@ class MainFragment : Fragment() {
             }
         }
         //Default Signing
-        signUpText.setOnClickListener {
+        binding.signUpText.setOnClickListener {
             val action = MainFragmentDirections.actionMainFragmentToSignUpFragment()
             findNavController().navigate(action)
         }
-        loginButton.setOnClickListener {
+        binding.loginButton.setOnClickListener {
             loginUser()
 
         }
 
     }
+
     override fun onStart() {
         super.onStart()
         checkLoggedInState()
     }
-    fun loginUser() {
-        val email = userLog.text.toString().trim()
-        val password = passwordLog.text.toString().trim()
+
+    private fun loginUser() {
+        val email = binding.userLog.text.toString().trim()
+        val password = binding.passwordLog.text.toString().trim()
 
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
@@ -89,12 +95,13 @@ class MainFragment : Fragment() {
             }
         }
     }
+
     private fun checkLoggedInState() {
-        if (auth.currentUser == null) {
+        if(auth.currentUser == null) {
 
         } else {
             Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
-            val action=MainFragmentDirections.actionMainFragmentToUsersHomeFragment()
+            val action = MainFragmentDirections.actionMainFragmentToUsersHomeFragment()
             findNavController().navigate(action)
             Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
 
@@ -111,7 +118,7 @@ class MainFragment : Fragment() {
                 withContext(Dispatchers.Main) {
                     checkLoggedInState()
 
-                // Toast.makeText(context, "Successfully", Toast.LENGTH_LONG).show()
+                    // Toast.makeText(context, "Successfully", Toast.LENGTH_LONG).show()
                 }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
@@ -120,6 +127,8 @@ class MainFragment : Fragment() {
 
         }
     }
+
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode != 0) {

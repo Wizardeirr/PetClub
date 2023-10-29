@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.domain.helpers.pm
+package com.volkankelleci.petsocialclub.pm
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,11 +15,8 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
-import com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist.LastPrivateMessageListFragment
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageET
-import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -61,11 +58,11 @@ class PmRoomFragment @Inject constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        val privateMessageRV=binding.privateMessageRV
         privateMessageRV.postDelayed({
             privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
         }, 500)
-        privateMessageET.setOnClickListener {
+        binding.privateMessageET.setOnClickListener {
             privateMessageRV.postDelayed({
                 privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
             }, 500)
@@ -157,6 +154,7 @@ class PmRoomFragment @Inject constructor(
     private fun scrollToBottom(recyclerView: RecyclerView) {
         // scroll to last item to get the view of last item
 
+        val privateMessageRV=binding.privateMessageRV
         val layoutManager = privateMessageRV.layoutManager as LinearLayoutManager?
         if (layoutManager!=null){
             val adapter = privateMessageRV.adapter

@@ -1,5 +1,6 @@
-package com.volkankelleci.petsocialclub.domain.helpers.postandhome
+package com.volkankelleci.petsocialclub.postandhome
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -25,15 +26,13 @@ import com.volkankelleci.petsocialclub.databinding.FragmentMessageBinding
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import com.volkankelleci.petsocialclub.util.Util.storage
-import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.fragment_message.*
 import java.util.UUID
 
 class UserPostFragment : Fragment() {
     private var _binding: FragmentMessageBinding? = null
     private val binding get() = _binding!!
-    var selectedImage: Uri? = null
-    var selectedImageURI: Bitmap? = null
+    private var selectedImage: Uri? = null
+    private var selectedImageURI: Bitmap? = null
     @RequiresApi(Build.VERSION_CODES.P)
     val galleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -43,7 +42,7 @@ class UserPostFragment : Fragment() {
                 if (selectedImage != null) {
                     val source = ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
                     selectedImageURI = ImageDecoder.decodeBitmap(source)
-                    selectImage.setImageBitmap(selectedImageURI)
+                    setImageBitmap()
                 }
             }
         }
@@ -53,8 +52,7 @@ class UserPostFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentMessageBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
     @RequiresApi(Build.VERSION_CODES.P)
@@ -64,18 +62,19 @@ class UserPostFragment : Fragment() {
             selectImage()
         }
         binding.shareButton.setOnClickListener {
-            storeImage(it)
+            storeImage()
         }
 
     }
+    @SuppressLint("SuspiciousIndentation")
     @RequiresApi(Build.VERSION_CODES.P)
-    private fun storeImage(view: View) {
+    private fun storeImage() {
         val uuid = UUID.randomUUID()
         val selectableImage = "${uuid}.jpg"
         val storageRef = storage.reference
         val imageRef=storageRef.child("images").child(selectableImage)
                 if (selectedImage != null) {
-                    imageRef.putFile(selectedImage!!).addOnSuccessListener {taskSnapshot->
+                    imageRef.putFile(selectedImage!!).addOnSuccessListener {
                         Toast.makeText(activity, "SUCCESS", Toast.LENGTH_SHORT).show()
                         val loadedImageReference =FirebaseStorage.getInstance()
                             .reference.child("images").child(selectableImage)
@@ -84,16 +83,16 @@ class UserPostFragment : Fragment() {
                         loadedImageReference.downloadUrl.addOnSuccessListener {uri->
                                 val downloadImage = uri.toString()
                                 val userEmail=auth.currentUser!!.email.toString()
-                                val userComment=commentText.text.toString()
+                                val userComment=binding.commentText.text.toString()
                                 val date=Timestamp.now()
-                                val userTitle=titleText.text.toString()
+                                val userTitle=binding.titleText.text.toString()
                             val postHashMap= hashMapOf<String,Any>()
-                            postHashMap.put("imageurl",downloadImage)
-                            postHashMap.put("useremail",userEmail)
-                            postHashMap.put("usercomment",userComment)
-                            postHashMap.put("date",date)
-                            postHashMap.put("usertitle",userTitle)
-                    database.collection("Post").add(postHashMap).addOnCompleteListener { task->
+                            postHashMap["imageurl"] = downloadImage
+                            postHashMap["useremail"] = userEmail
+                            postHashMap["usercomment"] = userComment
+                            postHashMap["date"] = date
+                            postHashMap["usertitle"] = userTitle
+                            database.collection("Post").add(postHashMap).addOnCompleteListener { task->
                         if(task.isSuccessful){
                             Toast.makeText(activity, "Image Downloaded", Toast.LENGTH_SHORT).show()
                             val action =UserPostFragmentDirections.actionMessageFragmentToUsersHomeFragment()
@@ -117,13 +116,14 @@ class UserPostFragment : Fragment() {
             galleryLauncher.launch(galleryIntent)
         }
     }
+    @Deprecated("Deprecated in Java")
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray,
     ) {
         if (requestCode == 1) {
-            if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 val gallery =
                     Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
                 startActivityForResult(gallery, 2)
@@ -133,6 +133,7 @@ class UserPostFragment : Fragment() {
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
+    @Deprecated("Deprecated in Java")
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
@@ -141,9 +142,13 @@ class UserPostFragment : Fragment() {
                 val source =
                     ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
                 selectedImageURI = ImageDecoder.decodeBitmap(source)
-                selectImage.setImageBitmap(selectedImageURI)
+                setImageBitmap()
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
+}
+
+private fun setImageBitmap() {
+
 }

@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.domain.helpers.userprofile
+package com.volkankelleci.petsocialclub.userprofile
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -12,7 +12,6 @@ import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
-import kotlinx.android.synthetic.main.fragment_user_profile_menu.*
 
 class UserProfileMenuFragment : Fragment() {
     private var _binding: FragmentUserProfileMenuBinding? = null

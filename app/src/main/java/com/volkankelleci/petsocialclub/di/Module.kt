@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.google.firebase.firestore.FirebaseFirestore
+import com.volkankelleci.petsocialclub.repo.UUIDRepository
 import com.volkankelleci.petsocialclub.room.UserUUIDDataBase
+import com.volkankelleci.petsocialclub.viewmodel.UsersHomeFragmentVM
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import java.util.UUID
 import javax.inject.Singleton
 
 @Module
@@ -29,6 +32,11 @@ object Module {
     fun firebaseFirestore(): FirebaseFirestore {
         return FirebaseFirestore.getInstance()
 
+    }
+    @Provides
+    @Singleton
+    fun provideUsersHomeFragmentViewModel(repository:UUIDRepository) : UsersHomeFragmentVM {
+        return UsersHomeFragmentVM(repository)
     }
 
 

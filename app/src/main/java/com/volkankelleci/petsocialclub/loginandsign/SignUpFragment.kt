@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.domain.helpers.loginandsign
+package com.volkankelleci.petsocialclub.loginandsign
 
 import android.Manifest
 import android.app.Activity
@@ -30,16 +30,12 @@ import com.google.firebase.storage.FirebaseStorage
 import com.volkankelleci.petsocialclub.databinding.FragmentSignUpBinding
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_message.*
-import kotlinx.android.synthetic.main.fragment_sign_up.*
-import kotlinx.android.synthetic.main.fragment_user_chat.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.*
-import kotlin.collections.ArrayList
 
 class SignUpFragment : Fragment() {
     lateinit var auth: FirebaseAuth
@@ -74,7 +70,7 @@ class SignUpFragment : Fragment() {
             })
             alertMessage.setNegativeButton("Yes",DialogInterface.OnClickListener { dialog, which ->
                 alertMessage.setMessage("You are continuing")
-                val userEmail = userSign.text.toString().trim().replace("","")
+                val userEmail = binding.userSign.text.toString().trim().replace("","")
                 val userName = binding.userNameET.text.toString().trim().replace("","")
                 val petName = binding.petName.text.toString().trim().replace("","")
                 val password=binding.passwordSign.text.toString().trim().replace("","")
@@ -108,8 +104,8 @@ class SignUpFragment : Fragment() {
 
     }
     fun signUser() {
-        val email = userSign.text.toString().trim()
-        val password = passwordSign.text.toString().trim()
+        val email = binding.userSign.text.toString().trim()
+        val password = binding.passwordSign.text.toString().trim()
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
@@ -197,13 +193,14 @@ class SignUpFragment : Fragment() {
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
             selectedImage = data.data
             if (selectedImage != null) {
                 val source =ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
                 selectedImageURI = ImageDecoder.decodeBitmap(source)
-                signImageView.setImageBitmap(selectedImageURI)
+                binding.signImageView.setImageBitmap(selectedImageURI)
 
             }
         }

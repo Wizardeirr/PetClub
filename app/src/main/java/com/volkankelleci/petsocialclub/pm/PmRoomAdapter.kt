@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.domain.helpers.pm
+package com.volkankelleci.petsocialclub.pm
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,25 +6,23 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.data.PrivateMessage
+import com.volkankelleci.petsocialclub.databinding.PmAnswerRoomBinding
+import com.volkankelleci.petsocialclub.databinding.PmRawBinding
 import com.volkankelleci.petsocialclub.util.Util.auth
-import kotlinx.android.synthetic.main.pm_raw.view.privateMessageChatTV
 import javax.inject.Inject
 
 
 class PmRoomAdapter @Inject constructor(
 
-): RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
+) : RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
 
     private val WRITER_USER = 1
     private val ANSWER_USER = 2
-    class PmRoomAdapterViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+
+    class PmRoomAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
     }
-
-
-
     private val diffutil = object : DiffUtil.ItemCallback<PrivateMessage>() {
 
         override fun areItemsTheSame(oldItem: PrivateMessage, newItem: PrivateMessage): Boolean {
@@ -45,7 +43,7 @@ class PmRoomAdapter @Inject constructor(
     override fun getItemViewType(position: Int): Int {
 
         val chat = privateChats.get(position)
-        if (chat.fromUUID== auth.currentUser?.uid.toString()) {
+        if (chat.fromUUID == auth.currentUser?.uid.toString()) {
             return WRITER_USER
         } else {
             return ANSWER_USER
@@ -56,24 +54,20 @@ class PmRoomAdapter @Inject constructor(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PmRoomAdapterViewHolder {
 
         if (viewType == WRITER_USER) {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.pm_raw, parent, false)
-            return PmRoomAdapterViewHolder(view)
+            val binding = PmRawBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            return PmRoomAdapterViewHolder(binding.root)
         } else {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.pm_answer_room, parent, false)
-            return PmRoomAdapterViewHolder(view)
+            val binding = PmAnswerRoomBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            return PmRoomAdapterViewHolder(binding.root)
         }
 
     }
 
     override fun onBindViewHolder(holder: PmRoomAdapterViewHolder, position: Int) {
+        val binding =PmRawBinding.bind(holder.itemView)
+        binding.privateMessageChatTV.text = privateChats.get(position).message
 
-        // holder.itemView.privateMessageChatTV.text=privateChats[position].message
-
-        holder.itemView.privateMessageChatTV.text=privateChats.get(position).message
-
-}
+    }
 
     override fun getItemCount(): Int {
         return privateChats.size

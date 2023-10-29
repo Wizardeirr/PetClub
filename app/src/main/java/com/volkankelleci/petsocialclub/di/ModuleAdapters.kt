@@ -3,7 +3,7 @@ package com.volkankelleci.petsocialclub.di
 import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.data.UserInfo
-import com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist.LastPrivateMessageListAdapter
+import com.volkankelleci.petsocialclub.lastprivatemessagelist.LastPrivateMessageListAdapter
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

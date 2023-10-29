@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:id="@+id/constraintLayout"
     android:layout_height="match_parent"
-    tools:context=".domain.helpers.lastprivatemessagelist.LastPrivateMessageListFragment">
+    tools:context=".lastprivatemessagelist.LastPrivateMessageListFragment">
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

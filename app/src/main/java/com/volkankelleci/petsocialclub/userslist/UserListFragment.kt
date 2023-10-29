@@ -1,6 +1,5 @@
-package com.volkankelleci.petsocialclub.domain.helpers.userslist
+package com.volkankelleci.petsocialclub.userslist
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu

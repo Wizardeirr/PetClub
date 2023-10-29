@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".domain.helpers.postandhome.UsersHomeFragment"
+    tools:context=".domain.petsocialclub.postandhome.UsersHomeFragment"
     tools:menu="@menu/user_menu">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

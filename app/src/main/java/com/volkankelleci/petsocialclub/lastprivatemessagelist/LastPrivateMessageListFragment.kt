@@ -1,4 +1,4 @@
-    package com.volkankelleci.petsocialclub.domain.helpers.lastprivatemessagelist
+    package com.volkankelleci.petsocialclub.lastprivatemessagelist
 
     import android.annotation.SuppressLint
     import android.os.Bundle
@@ -6,14 +6,11 @@
     import android.view.LayoutInflater
     import android.view.View
     import android.view.ViewGroup
-    import androidx.core.os.bundleOf
     import androidx.fragment.app.Fragment
     import androidx.fragment.app.FragmentManager
     import androidx.navigation.Navigation
     import androidx.navigation.fragment.findNavController
     import androidx.recyclerview.widget.LinearLayoutManager
-    import com.google.firebase.firestore.CollectionReference
-    import com.google.firebase.firestore.FirebaseFirestore
     import com.google.firebase.firestore.Query
     import com.volkankelleci.petsocialclub.R
     import com.volkankelleci.petsocialclub.data.PrivateMessage
@@ -21,7 +18,6 @@
     import com.volkankelleci.petsocialclub.util.Constants.APP_NAME
     import com.volkankelleci.petsocialclub.util.Util
     import com.volkankelleci.petsocialclub.util.Util.auth
-    import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
     import javax.inject.Inject
 
 
@@ -52,8 +48,8 @@
             takesUUIDData()
             //Adapter Determinedd
             val layoutManager=LinearLayoutManager(activity)
-            userChatPartRV.layoutManager=layoutManager
-            userChatPartRV.adapter=adapter
+            binding.userChatPartRV.layoutManager=layoutManager
+            binding.userChatPartRV.adapter=adapter
             //Title
             activity?.title = APP_NAME
 

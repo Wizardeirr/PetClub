@@ -1,4 +1,4 @@
-package com.volkankelleci.petsocialclub.domain.helpers.generalchatroom
+package com.volkankelleci.petsocialclub.generalchatroom
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,17 +7,16 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.Query
+import com.volkankelleci.petsocialclub.GeneralChatRoomAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
 import com.volkankelleci.petsocialclub.data.ChatData
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import com.volkankelleci.petsocialclub.viewmodel.MainViewModel
-import kotlinx.android.synthetic.main.fragment_user_chat.*
 import javax.inject.Inject
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -46,9 +45,10 @@ class GeneralChatRoomFragment @Inject constructor(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val userChatRV=binding.userChatRV
 
 
-        downForNewMessage.visibility=View.INVISIBLE
+        binding.downForNewMessage.visibility=View.INVISIBLE
         aboutVisibilityOfDownButton()
 
         //Showing message automatically in RecyclerView End
@@ -56,12 +56,12 @@ class GeneralChatRoomFragment @Inject constructor(
             userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount - 1)
         }, 100)
 
-        sendButton.setOnClickListener {
+        binding.sendButton.setOnClickListener {
             userChatRV.postDelayed({
                 userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount -1)
             }, 100)
         }
-        userChatText.setOnClickListener {
+        binding.userChatText.setOnClickListener {
             userChatRV.postDelayed({
                 userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount -1)
             }, 100)
@@ -75,7 +75,7 @@ class GeneralChatRoomFragment @Inject constructor(
 
         //adding informations to Firebase what we want
         binding.sendButton.setOnClickListener {
-            val gUserChatText = userChatText.text.toString()
+            val gUserChatText = binding.userChatText.text.toString()
             val gUser = auth.currentUser?.email.toString()
             val gdate = FieldValue.serverTimestamp()
 
@@ -125,21 +125,21 @@ class GeneralChatRoomFragment @Inject constructor(
 
     private fun scrollToBottom(recyclerView: RecyclerView) {
         // scroll to last item to get the view of last item
-        val layoutManager = userChatRV.layoutManager as LinearLayoutManager?
+        val layoutManager = binding.userChatRV.layoutManager as LinearLayoutManager?
 
         val lastItemPosition = adapter.itemCount - 1
         layoutManager!!.scrollToPositionWithOffset(lastItemPosition, 0)
-        userChatRV.post { // then scroll to specific offset
+        binding.userChatRV.post { // then scroll to specific offset
             val target = layoutManager.findViewByPosition(lastItemPosition)
             if (target != null) {
-                val offset = userChatRV.measuredHeight - target.measuredHeight
+                val offset = binding.userChatRV.measuredHeight - target.measuredHeight
                 layoutManager.scrollToPositionWithOffset(lastItemPosition, offset)
             }
         }
     }
     private fun aboutVisibilityOfDownButton(){
-        if(userChatText.text==null){
-            userChatRV.scrollToPosition(userChatRV.adapter!!.itemCount -1)
+        if(binding.userChatText.text==null){
+            binding.userChatRV.scrollToPosition(binding.userChatRV.adapter!!.itemCount -1)
         }
     }
 }
