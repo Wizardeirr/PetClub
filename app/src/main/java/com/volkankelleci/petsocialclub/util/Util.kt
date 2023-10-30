@@ -12,7 +12,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.volkankelleci.petsocialclub.R
 
 object Util {
-     var auth: FirebaseAuth= FirebaseAuth.getInstance()
+
      var storage:FirebaseStorage=FirebaseStorage.getInstance()
      @SuppressLint("StaticFieldLeak")
      var database:FirebaseFirestore=FirebaseFirestore.getInstance()

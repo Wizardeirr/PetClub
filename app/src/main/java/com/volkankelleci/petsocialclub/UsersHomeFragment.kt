@@ -17,7 +17,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.postandhome.UserPostAdapter
-import com.volkankelleci.petsocialclub.domain.petsocialclub.postandhome.UsersHomeFragmentDirections
 import com.volkankelleci.petsocialclub.util.Constants.HOME_FRAGMENT_TITLE
 import javax.inject.Inject
 

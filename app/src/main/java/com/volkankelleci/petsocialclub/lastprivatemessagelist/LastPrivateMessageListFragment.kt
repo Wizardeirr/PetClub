@@ -11,18 +11,20 @@
     import androidx.navigation.Navigation
     import androidx.navigation.fragment.findNavController
     import androidx.recyclerview.widget.LinearLayoutManager
+    import com.google.firebase.FirebaseApp
+    import com.google.firebase.auth.FirebaseAuth
     import com.google.firebase.firestore.Query
     import com.volkankelleci.petsocialclub.R
     import com.volkankelleci.petsocialclub.data.PrivateMessage
     import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
     import com.volkankelleci.petsocialclub.util.Constants.APP_NAME
     import com.volkankelleci.petsocialclub.util.Util
-    import com.volkankelleci.petsocialclub.util.Util.auth
     import javax.inject.Inject
 
 
     class LastPrivateMessageListFragment @Inject constructor(
-        private var adapter: LastPrivateMessageListAdapter
+        private var adapter: LastPrivateMessageListAdapter,
+        var auth: FirebaseAuth
 
     ): Fragment(R.layout.fragment_private_message_list),
         LastPrivateMessageListAdapter.Listener {
@@ -39,6 +41,8 @@
         ): View {
             _binding=FragmentPrivateMessageListBinding.inflate(inflater,container,false)
             val view=binding.root
+            FirebaseApp.initializeApp(requireContext())
+
             return view
         }
         @SuppressLint("NotifyDataSetChanged")
@@ -71,6 +75,7 @@
 
         }
         private fun takesUUIDData(){
+
             Util.database.collection("privateChatInfo")
                 .document(bundle.toString())
                 .collection(auth.currentUser!!.uid)

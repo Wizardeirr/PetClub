@@ -9,12 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.Query
 import com.volkankelleci.petsocialclub.GeneralChatRoomAdapter
 import com.volkankelleci.petsocialclub.databinding.FragmentUserChatBinding
 import com.volkankelleci.petsocialclub.data.ChatData
-import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import com.volkankelleci.petsocialclub.viewmodel.MainViewModel
 import javax.inject.Inject
@@ -23,15 +24,14 @@ import kotlin.collections.HashMap
 
 
 class GeneralChatRoomFragment @Inject constructor(
-    private var adapter: GeneralChatRoomAdapter
-
+    private var adapter: GeneralChatRoomAdapter,
+    var auth: FirebaseAuth
 ): Fragment() {
 
     private val viewModel by viewModels<MainViewModel>()
     private var _binding: FragmentUserChatBinding? = null
     private val binding get() = _binding!!
     var chats = ArrayList<ChatData>()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,

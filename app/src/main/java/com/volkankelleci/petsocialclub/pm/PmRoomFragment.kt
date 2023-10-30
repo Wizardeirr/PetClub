@@ -9,13 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
-import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -28,7 +29,8 @@ import javax.inject.Inject
 
 
 class PmRoomFragment @Inject constructor(
-    private var adapter: PmRoomAdapter
+    private var adapter: PmRoomAdapter,
+    var auth: FirebaseAuth
 
 ): Fragment() {
     private var _binding:FragmentPrivateChatRoomBinding?=null
@@ -52,6 +54,7 @@ class PmRoomFragment @Inject constructor(
         _binding=FragmentPrivateChatRoomBinding.inflate(inflater,container,false)
         val view=binding.root
         activity?.title = ""
+        FirebaseApp.initializeApp(requireContext())
 
         return view
     }
@@ -70,7 +73,7 @@ class PmRoomFragment @Inject constructor(
         }
         //determined to RV
         privateMessageRV.layoutManager = layoutManager
-        adapter = PmRoomAdapter()
+        adapter = PmRoomAdapter(auth)
         privateMessageRV.adapter = adapter
 
         // toUUID taking

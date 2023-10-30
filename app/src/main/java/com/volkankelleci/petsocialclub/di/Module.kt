@@ -3,6 +3,7 @@ package com.volkankelleci.petsocialclub.di
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.volkankelleci.petsocialclub.repo.UUIDRepository
 import com.volkankelleci.petsocialclub.room.UserUUIDDataBase
@@ -31,14 +32,10 @@ object Module {
     @Provides
     fun firebaseFirestore(): FirebaseFirestore {
         return FirebaseFirestore.getInstance()
-
     }
     @Provides
     @Singleton
-    fun provideUsersHomeFragmentViewModel(repository:UUIDRepository) : UsersHomeFragmentVM {
-        return UsersHomeFragmentVM(repository)
-    }
-
+    fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
 
 
 }

@@ -5,13 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.volkankelleci.petsocialclub.data.ChatData
 import com.volkankelleci.petsocialclub.databinding.AnswerRecyclerRawBinding // answer_recycler_raw.xml için ViewBinding
 import com.volkankelleci.petsocialclub.databinding.ChatRecyclerRawBinding // chat_recycler_raw.xml için ViewBinding
-import com.volkankelleci.petsocialclub.util.Util.auth
 import javax.inject.Inject
 
-class GeneralChatRoomAdapter @Inject constructor() : RecyclerView.Adapter<GeneralChatRoomAdapter.ChatRecyclerViewHolder>() {
+class GeneralChatRoomAdapter @Inject constructor(
+    var auth: FirebaseAuth
+) : RecyclerView.Adapter<GeneralChatRoomAdapter.ChatRecyclerViewHolder>() {
+
     private val WRITER_USER = 1
     private val ANSWER_USER = 2
 

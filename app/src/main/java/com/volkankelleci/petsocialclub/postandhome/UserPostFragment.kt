@@ -20,15 +20,19 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.FirebaseApp
 import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.volkankelleci.petsocialclub.databinding.FragmentMessageBinding
-import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import com.volkankelleci.petsocialclub.util.Util.storage
 import java.util.UUID
+import javax.inject.Inject
 
-class UserPostFragment : Fragment() {
+class UserPostFragment @Inject constructor(
+    var auth: FirebaseAuth
+) : Fragment() {
     private var _binding: FragmentMessageBinding? = null
     private val binding get() = _binding!!
     private var selectedImage: Uri? = null
@@ -51,6 +55,8 @@ class UserPostFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
+        FirebaseApp.initializeApp(requireContext())
+
         _binding = FragmentMessageBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -78,8 +84,6 @@ class UserPostFragment : Fragment() {
                         Toast.makeText(activity, "SUCCESS", Toast.LENGTH_SHORT).show()
                         val loadedImageReference =FirebaseStorage.getInstance()
                             .reference.child("images").child(selectableImage)
-
-
                         loadedImageReference.downloadUrl.addOnSuccessListener {uri->
                                 val downloadImage = uri.toString()
                                 val userEmail=auth.currentUser!!.email.toString()

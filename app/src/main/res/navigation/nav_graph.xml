@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.volkankelleci.petsocialclub.domain.petsocialclub.loginandsign.MainFragment"
+        android:name="com.volkankelleci.petsocialclub.loginandsign.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/usersHomeFragment"
-        android:name="com.volkankelleci.petsocialclub.domain.petsocialclub.postandhome.UsersHomeFragment"
+        android:name="com.volkankelleci.petsocialclub.UsersHomeFragment"
         android:label="fragment_users_home"
         tools:layout="@layout/fragment_users_home" >
         <action
@@ -61,9 +61,6 @@
         <action
             android:id="@+id/action_usersHomeFragment_to_lastPrivateMessageListFragment"
             app:destination="@id/lastPrivateMessageListFragment" />
-        <action
-            android:id="@+id/action_usersHomeFragment_to_mapsActivity"
-            app:destination="@id/mapsActivity" />
     </fragment>
     <fragment
         android:id="@+id/userChatFragment"
@@ -127,9 +124,4 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
-    <activity
-        android:id="@+id/mapsActivity"
-        android:name="com.volkankelleci.petsocialclub.MapsActivity"
-        android:label="activity_maps"
-        tools:layout="@layout/activity_maps" />
 </navigation>

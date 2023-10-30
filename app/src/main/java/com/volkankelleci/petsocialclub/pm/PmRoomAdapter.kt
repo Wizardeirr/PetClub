@@ -6,15 +6,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.databinding.PmAnswerRoomBinding
 import com.volkankelleci.petsocialclub.databinding.PmRawBinding
-import com.volkankelleci.petsocialclub.util.Util.auth
 import javax.inject.Inject
 
 
 class PmRoomAdapter @Inject constructor(
-
+    var auth: FirebaseAuth
 ) : RecyclerView.Adapter<PmRoomAdapter.PmRoomAdapterViewHolder>() {
 
     private val WRITER_USER = 1

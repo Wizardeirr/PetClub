@@ -4,6 +4,7 @@ package com.volkankelleci.petsocialclub
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.FirebaseApp
 import com.volkankelleci.petsocialclub.CustomFragmentFactory
 import com.volkankelleci.petsocialclub.databinding.ActivityMainBinding  // ViewBinding için oluşturulan dosya
 import dagger.hilt.android.AndroidEntryPoint

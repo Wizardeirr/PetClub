@@ -36,9 +36,12 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.*
+import javax.inject.Inject
 
-class SignUpFragment : Fragment() {
-    lateinit var auth: FirebaseAuth
+class SignUpFragment @Inject constructor(
+    var auth: FirebaseAuth
+
+) : Fragment() {
     private lateinit var firestore: FirebaseFirestore
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
@@ -54,7 +57,6 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         // Inflate the layout for this fragment
-        auth = FirebaseAuth.getInstance()
         _binding = FragmentSignUpBinding.inflate(inflater, container, false)
         val view = binding.root
         return view
@@ -141,8 +143,8 @@ class SignUpFragment : Fragment() {
                 val loadedImageReference = FirebaseStorage.getInstance()
                     .reference.child("userProfileImages").child(selectableImage)
                 loadedImageReference.downloadUrl.addOnSuccessListener{uri->
-                    val userUUID = Util.auth.currentUser!!.uid
-                    val userEmail = Util.auth.currentUser!!.email.toString()
+                    val userUUID = auth.currentUser!!.uid
+                    val userEmail = auth.currentUser!!.email.toString()
                     val userName = binding.userNameET.text.toString()
                     val petName = binding.petName.text.toString()
                     val downloadImage = uri.toString()

@@ -2,6 +2,7 @@ package com.volkankelleci.petsocialclub
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
+import com.google.firebase.auth.FirebaseAuth
 import com.volkankelleci.petsocialclub.generalchatroom.GeneralChatRoomFragment
 import com.volkankelleci.petsocialclub.lastprivatemessagelist.LastPrivateMessageListAdapter
 import com.volkankelleci.petsocialclub.lastprivatemessagelist.LastPrivateMessageListFragment
@@ -17,16 +18,18 @@ class CustomFragmentFactory @Inject constructor(
     private val generalChatRoomAdapter: GeneralChatRoomAdapter,
     private val pmRoomAdapter: PmRoomAdapter,
     private val userPostAdapter: UserPostAdapter,
-    private val userListAdapter: UserListAdapter
+    private val userListAdapter: UserListAdapter,
+    private var auth: FirebaseAuth
+
 
 ):FragmentFactory() {
     override fun instantiate(classLoader: ClassLoader, className: String): Fragment {
         return when (className) {
             UsersHomeFragment::class.java.name -> UsersHomeFragment(userPostAdapter)
-            PmRoomFragment::class.java.name -> PmRoomFragment(pmRoomAdapter)
+            PmRoomFragment::class.java.name -> PmRoomFragment(pmRoomAdapter,auth)
             UserListFragment::class.java.name -> UserListFragment(userListAdapter)
-            GeneralChatRoomFragment::class.java.name -> GeneralChatRoomFragment(generalChatRoomAdapter)
-            LastPrivateMessageListFragment::class.java.name -> LastPrivateMessageListFragment(lastPrivateMessageListAdapter)
+            GeneralChatRoomFragment::class.java.name -> GeneralChatRoomFragment(generalChatRoomAdapter,auth)
+            LastPrivateMessageListFragment::class.java.name -> LastPrivateMessageListFragment(lastPrivateMessageListAdapter,auth)
             else -> super.instantiate(classLoader, className)
         }
     }

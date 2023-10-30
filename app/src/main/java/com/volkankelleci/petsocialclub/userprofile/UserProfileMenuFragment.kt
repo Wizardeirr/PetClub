@@ -6,14 +6,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.FirebaseApp
+import com.google.firebase.auth.FirebaseAuth
 import com.volkankelleci.petsocialclub.databinding.FragmentUserProfileMenuBinding
 import com.volkankelleci.petsocialclub.data.UserInfo
-import com.volkankelleci.petsocialclub.util.Util
-import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.createPlaceHolder
+import com.volkankelleci.petsocialclub.util.Util.database
 import com.volkankelleci.petsocialclub.util.Util.downloadImageToRecycler
+import javax.inject.Inject
 
-class UserProfileMenuFragment : Fragment() {
+class UserProfileMenuFragment @Inject constructor(
+    var auth: FirebaseAuth
+): Fragment() {
     private var _binding: FragmentUserProfileMenuBinding? = null
     private val binding get() = _binding!!
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +27,7 @@ class UserProfileMenuFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
+        FirebaseApp.initializeApp(requireContext())
         // Inflate the layout for this fragment
         _binding = FragmentUserProfileMenuBinding.inflate(inflater, container, false)
         val view=binding.root
@@ -32,7 +37,7 @@ class UserProfileMenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Util.database.collection("userProfileInfo")
+        database.collection("userProfileInfo")
             .addSnapshotListener { value, error ->
                 if (error != null) {
                 } else

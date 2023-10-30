@@ -11,25 +11,23 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.volkankelleci.petsocialclub.R
 import com.volkankelleci.petsocialclub.databinding.FragmentMainBinding
-import com.volkankelleci.petsocialclub.domain.petsocialclub.loginandsign.MainFragmentDirections
-import com.volkankelleci.petsocialclub.util.Util.auth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class MainFragment : Fragment() {
+class MainFragment @Inject constructor(
+    var auth: FirebaseAuth
+) : Fragment() {
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,7 +35,7 @@ class MainFragment : Fragment() {
     ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
         val view = binding.root
-        auth = FirebaseAuth.getInstance()
+        FirebaseApp.initializeApp(requireContext())
         return view
     }
 
@@ -97,7 +95,7 @@ class MainFragment : Fragment() {
     }
 
     private fun checkLoggedInState() {
-        if(auth.currentUser == null) {
+        if (auth.currentUser == null) {
 
         } else {
             Toast.makeText(context, "SIGN DONE", Toast.LENGTH_LONG).show()
