@@ -17,35 +17,35 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
+import com.volkankelleci.petsocialclub.util.BaseViewBindingFragment
 import com.volkankelleci.petsocialclub.databinding.FragmentSignUpBinding
 import com.volkankelleci.petsocialclub.util.Util
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_message.*
-import kotlinx.android.synthetic.main.fragment_sign_up.*
-import kotlinx.android.synthetic.main.fragment_user_chat.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.*
-import kotlin.collections.ArrayList
 
-class SignUpFragment : Fragment() {
+class SignUpFragment : BaseViewBindingFragment<FragmentSignUpBinding>() {
     lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
-    private var _binding: FragmentSignUpBinding? = null
-    private val binding get() = _binding!!
+    override fun inflateBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentSignUpBinding {
+        return FragmentSignUpBinding.inflate(inflater,container,false)
+    }
+
     var selectedImage: Uri? = null
     var selectedImageURI: Bitmap? = null
     private val PERMISSION_CODE = 1
@@ -53,15 +53,14 @@ class SignUpFragment : Fragment() {
         super.onCreate(savedInstanceState)
         firestore = Firebase.firestore
     }
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        // Inflate the layout for this fragment
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         auth = FirebaseAuth.getInstance()
-        _binding = FragmentSignUpBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -74,7 +73,7 @@ class SignUpFragment : Fragment() {
             })
             alertMessage.setNegativeButton("Yes",DialogInterface.OnClickListener { dialog, which ->
                 alertMessage.setMessage("You are continuing")
-                val userEmail = userSign.text.toString().trim().replace("","")
+                val userEmail = binding.userSign.text.toString().trim().replace("","")
                 val userName = binding.userNameET.text.toString().trim().replace("","")
                 val petName = binding.petName.text.toString().trim().replace("","")
                 val password=binding.passwordSign.text.toString().trim().replace("","")
@@ -108,8 +107,8 @@ class SignUpFragment : Fragment() {
 
     }
     fun signUser() {
-        val email = userSign.text.toString().trim()
-        val password = passwordSign.text.toString().trim()
+        val email = binding.userSign.text.toString().trim()
+        val password = binding.passwordSign.text.toString().trim()
 
         if (email.isNotEmpty() && password.isNotEmpty()) {
             CoroutineScope(Dispatchers.IO).launch {
@@ -201,9 +200,13 @@ class SignUpFragment : Fragment() {
         if (requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
             selectedImage = data.data
             if (selectedImage != null) {
-                val source =ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
+                val source = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
+                } else {
+                    TODO("VERSION.SDK_INT < P")
+                }
                 selectedImageURI = ImageDecoder.decodeBitmap(source)
-                signImageView.setImageBitmap(selectedImageURI)
+                binding.signImageView.setImageBitmap(selectedImageURI)
 
             }
         }

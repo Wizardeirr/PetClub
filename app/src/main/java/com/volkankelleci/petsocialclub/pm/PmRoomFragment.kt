@@ -1,61 +1,62 @@
 package com.volkankelleci.petsocialclub.pm
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
-import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.volkankelleci.petsocialclub.util.BaseViewBindingFragment
 import com.volkankelleci.petsocialclub.data.PrivateMessage
 import com.volkankelleci.petsocialclub.databinding.FragmentPrivateChatRoomBinding
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageET
-import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
-import kotlinx.android.synthetic.main.private_chat_raw.userUUID
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 
-class PmRoomFragment : Fragment() {
-    private var _binding:FragmentPrivateChatRoomBinding?=null
-    private val binding get()=_binding!!
+class PmRoomFragment : BaseViewBindingFragment<FragmentPrivateChatRoomBinding>() {
     private lateinit var adapter: PmRoomAdapter
     var user=ArrayList<PrivateMessage>()
     val layoutManager = LinearLayoutManager(activity)
     private lateinit var firestore: FirebaseFirestore
     private lateinit var toUUID: String
+    private val privateMessageRV=binding.privateMessageRV
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         firestore = Firebase.firestore
     }
+
+    override fun inflateBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentPrivateChatRoomBinding {
+        return FragmentPrivateChatRoomBinding.inflate(inflater,container,false)
+    }
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        // Inflate the layout for this fragment
-        _binding=FragmentPrivateChatRoomBinding.inflate(inflater,container,false)
-        val view=binding.root
-        return view
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         privateMessageRV.postDelayed({
             privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
         }, 100)
-        privateMessageET.setOnClickListener {
+        binding.privateMessageET.setOnClickListener {
             privateMessageRV.postDelayed({
                 privateMessageRV.scrollToPosition(privateMessageRV.adapter!!.itemCount - 1)
             }, 100)
@@ -149,6 +150,7 @@ class PmRoomFragment : Fragment() {
         }
     }
     // When i click to back u could move  trustly without crash  to back
+        @SuppressLint("SuspiciousIndentation")
         override fun onResume() {
             super.onResume()
             val userUUID = auth.currentUser!!.uid

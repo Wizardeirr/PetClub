@@ -18,33 +18,27 @@ import com.volkankelleci.petsocialclub.data.Post
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUsersHomeBinding
 import com.volkankelleci.petsocialclub.post.UserPostAdapter
+import com.volkankelleci.petsocialclub.util.BaseViewBindingFragment
 import com.volkankelleci.petsocialclub.util.Util.getToUUIDFromSharedPreferences
-import kotlinx.android.synthetic.main.fragment_users_home.fab
-import kotlinx.android.synthetic.main.fragment_users_home.usersHomeFragmentRecycler
 
-class UsersHomeFragment : Fragment(),UserPostAdapter.Listener {
-    private var _binding: FragmentUsersHomeBinding? = null
-    private val binding get() = _binding!!
+class UsersHomeFragment : BaseViewBindingFragment<FragmentUsersHomeBinding>(),UserPostAdapter.Listener {
     private var database: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var recyclerViewAdapter: UserPostAdapter
     var postList = ArrayList<Post>()
     var pp=ArrayList<UserInfo>()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun inflateBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentUsersHomeBinding {
+        return FragmentUsersHomeBinding.inflate(inflater,container,false)
     }
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        _binding = FragmentUsersHomeBinding.inflate(inflater, container, false)
-        val view = binding.root
-        getActivity()?.setTitle("PetSocialClub");
-        setHasOptionsMenu(true)
-        return view
-    }
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fab.setOnClickListener {
+        getActivity()?.setTitle("PetSocialClub");
+        setHasOptionsMenu(true)
+        binding.fab.setOnClickListener {
             val action = UsersHomeFragmentDirections.actionUsersHomeFragmentToMessageFragment()
             findNavController().navigate(action)
         }
@@ -54,9 +48,9 @@ class UsersHomeFragment : Fragment(),UserPostAdapter.Listener {
         takesPP()
         //adapter determined
         val layoutManager = LinearLayoutManager(activity)
-        usersHomeFragmentRecycler.layoutManager = layoutManager
+        binding.usersHomeFragmentRecycler.layoutManager = layoutManager
         recyclerViewAdapter = UserPostAdapter(postList,pp,this@UsersHomeFragment)
-        usersHomeFragmentRecycler.adapter = recyclerViewAdapter
+        binding.usersHomeFragmentRecycler.adapter = recyclerViewAdapter
 
         //popupMenu
 

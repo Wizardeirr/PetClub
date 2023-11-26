@@ -5,31 +5,30 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.volkankelleci.petsocialclub.util.BaseViewBindingFragment
 import com.volkankelleci.petsocialclub.data.UserInfo
 import com.volkankelleci.petsocialclub.databinding.FragmentUserListBinding
 import com.volkankelleci.petsocialclub.util.Util.database
-import kotlinx.android.synthetic.main.fragment_user_list.*
 
-class UserListFragment : Fragment(),UserListAdapter.Listener {
+class UserListFragment : BaseViewBindingFragment<FragmentUserListBinding>(),UserListAdapter.Listener {
 
-    private  var _binding:FragmentUserListBinding?=null
-    private val binding get() = _binding!!
+    override fun inflateBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentUserListBinding {
+        return FragmentUserListBinding.inflate(inflater,container,false)
+    }
     private lateinit var adapter: UserListAdapter
     var userInfo=ArrayList<UserInfo>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        _binding = FragmentUserListBinding.inflate(inflater, container, false)
-        val view = binding.root
-        getActivity()?.setTitle("Private Message")
-        return view
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        activity?.title = "Private Message"
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,9 +39,9 @@ class UserListFragment : Fragment(),UserListAdapter.Listener {
 
         // adapter created
         val layoutManager= LinearLayoutManager(activity)
-        privateChatRV.layoutManager=layoutManager
+        binding.privateChatRV.layoutManager=layoutManager
         adapter= UserListAdapter(userInfo,this@UserListFragment)
-        privateChatRV.adapter=adapter
+        binding.privateChatRV.adapter=adapter
 
     }
 

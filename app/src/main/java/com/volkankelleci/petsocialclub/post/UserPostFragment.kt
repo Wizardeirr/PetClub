@@ -1,5 +1,6 @@
 package com.volkankelleci.petsocialclub.post
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -17,58 +18,55 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.Timestamp
 import com.google.firebase.storage.FirebaseStorage
+import com.volkankelleci.petsocialclub.util.BaseViewBindingFragment
 import com.volkankelleci.petsocialclub.databinding.FragmentMessageBinding
 import com.volkankelleci.petsocialclub.util.Util.auth
 import com.volkankelleci.petsocialclub.util.Util.database
 import com.volkankelleci.petsocialclub.util.Util.storage
-import kotlinx.android.synthetic.main.fragment_main.*
-import kotlinx.android.synthetic.main.fragment_message.*
 import java.util.UUID
 
-class UserPostFragment : Fragment() {
-    private var _binding: FragmentMessageBinding? = null
-    private val binding get() = _binding!!
+class UserPostFragment : BaseViewBindingFragment<FragmentMessageBinding>() {
+
+    override fun inflateBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): FragmentMessageBinding {
+        return FragmentMessageBinding.inflate(inflater,container,false)
+    }
+
+
     var selectedImage: Uri? = null
     var selectedImageURI: Bitmap? = null
-    @RequiresApi(Build.VERSION_CODES.P)
     val galleryLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val data: Intent? = result.data
             if (data != null) {
                 selectedImage = data.data
                 if (selectedImage != null) {
-                    val source = ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
+                    /*val source = ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
                     selectedImageURI = ImageDecoder.decodeBitmap(source)
-                    selectImage.setImageBitmap(selectedImageURI)
+                    selectImage().setImageBitmap(selectedImageURI)*/
                 }
             }
         }
     }
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        _binding = FragmentMessageBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
-    }
-
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         binding.selectImage.setOnClickListener {
             selectImage()
         }
         binding.shareButton.setOnClickListener {
             storeImage(it)
         }
-
+        resultOfResult()
+        requestPermission()
     }
-    @RequiresApi(Build.VERSION_CODES.P)
+    @SuppressLint("SuspiciousIndentation")
     private fun storeImage(view: View) {
         val uuid = UUID.randomUUID()
         val selectableImage = "${uuid}.jpg"
@@ -84,9 +82,9 @@ class UserPostFragment : Fragment() {
                         loadedImageReference.downloadUrl.addOnSuccessListener {uri->
                                 val downloadImage = uri.toString()
                                 val userEmail=auth.currentUser!!.email.toString()
-                                val userComment=commentText.text.toString()
+                                val userComment=binding.commentText.text.toString()
                                 val date=Timestamp.now()
-                                val userTitle=titleText.text.toString()
+                                val userTitle=binding.titleText.text.toString()
                             val postHashMap= hashMapOf<String,Any>()
                             postHashMap.put("imageurl",downloadImage)
                             postHashMap.put("useremail",userEmail)
@@ -105,10 +103,7 @@ class UserPostFragment : Fragment() {
                         }
                     }
                 }
-
-
     }
-    @RequiresApi(Build.VERSION_CODES.P)
     private fun selectImage() {
         if (ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(requireActivity(), arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1)
@@ -117,33 +112,31 @@ class UserPostFragment : Fragment() {
             galleryLauncher.launch(galleryIntent)
         }
     }
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray,
-    ) {
-        if (requestCode == 1) {
-            if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                val gallery =
-                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-                startActivityForResult(gallery, 2)
+    private fun requestPermission(){
+        registerForActivityResult(ActivityResultContracts.RequestPermission()){isGranted->
+            if (isGranted) {
+                val gallery =Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                startActivity(gallery)
             } else {
                 Toast.makeText(requireContext(), "Galeri izni reddedildi.", Toast.LENGTH_SHORT).show()
             }
         }
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
-    @RequiresApi(Build.VERSION_CODES.P)
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == 2 && resultCode == Activity.RESULT_OK && data != null) {
-            selectedImage = data.data
-            if (selectedImage != null) {
+    private fun resultOfResult(){
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                // There are no request codes
+                val data: Intent? = result.data
                 val source =
-                    ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                        ImageDecoder.createSource(requireActivity().contentResolver, selectedImage!!)
+                    } else {
+                        TODO("VERSION.SDK_INT < P")
+                    }
                 selectedImageURI = ImageDecoder.decodeBitmap(source)
-                selectImage.setImageBitmap(selectedImageURI)
+                binding.selectImage.setImageBitmap(selectedImageURI)
             }
         }
-        super.onActivityResult(requestCode, resultCode, data)
     }
+
 }

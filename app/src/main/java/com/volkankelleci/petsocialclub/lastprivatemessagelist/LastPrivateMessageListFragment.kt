@@ -1,7 +1,6 @@
     package com.volkankelleci.petsocialclub.lastprivatemessagelist
 
     import android.annotation.SuppressLint
-    import android.content.Context
     import android.os.Bundle
     import android.view.LayoutInflater
     import android.view.View
@@ -16,12 +15,9 @@
     import com.volkankelleci.petsocialclub.data.PrivateMessage
     import com.volkankelleci.petsocialclub.data.UserInfo
     import com.volkankelleci.petsocialclub.databinding.FragmentPrivateMessageListBinding
-    import com.volkankelleci.petsocialclub.util.Util
     import com.volkankelleci.petsocialclub.util.Util.auth
     import com.volkankelleci.petsocialclub.util.Util.database
     import com.volkankelleci.petsocialclub.util.Util.getToUUIDFromSharedPreferences
-    import kotlinx.android.synthetic.main.fragment_private_chat_room.privateMessageRV
-    import kotlinx.android.synthetic.main.fragment_private_message_list.userChatPartRV
 
     class LastPrivateMessageListFragment: Fragment(R.layout.fragment_private_message_list),
         LastPrivateMessageListAdapter.Listener {
@@ -51,9 +47,9 @@
             val toUUID = getToUUIDFromSharedPreferences(requireContext())
             takeAllUsers()
             val layoutManager=LinearLayoutManager(activity)
-            userChatPartRV.layoutManager=layoutManager
-            adapter= LastPrivateMessageListAdapter(user,this@LastPrivateMessageListFragment,requireContext(),userInfoForAdapter)
-            userChatPartRV.adapter=adapter
+            binding.userChatPartRV.layoutManager=layoutManager
+            adapter= LastPrivateMessageListAdapter(user,this@LastPrivateMessageListFragment,userInfoForAdapter)
+            binding.userChatPartRV.adapter=adapter
 
             binding.fabForPM.setOnClickListener {
                 val action = LastPrivateMessageListFragmentDirections.actionLastPrivateMessageListFragmentToUserListFragment()
